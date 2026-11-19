@@ -111,12 +111,35 @@ def parse(markup: str) -> Document:
     Content problems that still leave a readable document (an unknown speaker, a bad level)
     are reported by check(), not here.
     """
-    try:
-        root = ET.fromstring(markup)
-    except ET.ParseError as e:
-        raise MarkupError(f"not well-formed XML: {e}") from None
+    root = _root(markup)
     if root.tag != "document":
         raise MarkupError(f"the root element is <{root.tag}>, not <document>")
+    return _parse_document(root)
+
+
+def parse_many(markup: str) -> list[Document]:
+    """Read a single document, or a bundle: <documents> holding several (the annotation page's "Save all")."""
+    root = _root(markup)
+    if root.tag == "document":
+        return [_parse_document(root)]
+    if root.tag != "documents":
+        raise MarkupError(f"the root element is <{root.tag}>, not <document> or <documents>")
+    docs = []
+    for child in root:
+        if child.tag != "document":
+            raise MarkupError(f"unexpected element <{child.tag}> in <documents>")
+        docs.append(_parse_document(child))
+    return docs
+
+
+def _root(markup: str) -> ET.Element:
+    try:
+        return ET.fromstring(markup)
+    except ET.ParseError as e:
+        raise MarkupError(f"not well-formed XML: {e}") from None
+
+
+def _parse_document(root: ET.Element) -> Document:
     _no_unknown_attrs(root, DOCUMENT_ATTRS)
     if not root.get("id"):
         raise MarkupError("<document> has no id")
@@ -363,6 +386,11 @@ def _attrs(pairs: list[tuple[str, str | None]]) -> str:
 def blank(doc_id: str, text: str, source: str | None = None, source_id: str | None = None) -> Document:
     """A new document with no annotation, ready to draft."""
     return Document(id=doc_id, text=text, source=source, source_id=source_id, text_sha256=text_sha256(text))
+
+
+def stripped(doc: Document) -> Document:
+    """The same document with its annotation removed, for annotating from scratch."""
+    return Document(id=doc.id, text=doc.text, source=doc.source, source_id=doc.source_id, text_sha256=doc.text_sha256)
 
 
 def rehash(markup: str) -> str:

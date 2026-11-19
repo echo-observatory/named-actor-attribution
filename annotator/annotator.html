@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attribution annotator</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --panel: #f6f6f4;
+  --ink: #1d1d1b;
+  --muted: #6b6b66;
+  --line: #dcdcd6;
+  --accent: #2f5f9e;
+  --danger: #a33a2f;
+  --warn: #8a6400;
+  --dis: #8a8a84;
+  --exclude-bg: repeating-linear-gradient(135deg, #ecebe6 0 6px, #e0dfd8 6px 12px);
+  --selected: #1d1d1b;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: grid; grid-template-rows: auto auto 1fr; height: 100vh;
+}
+button, select, input, textarea { font: inherit; font-size: 13px; }
+button {
+  border: 1px solid var(--line); background: #fff; border-radius: 4px; padding: 3px 9px; cursor: pointer; color: var(--ink);
+}
+button:hover:not(:disabled) { border-color: var(--accent); }
+button:disabled { opacity: .45; cursor: default; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.danger { color: var(--danger); }
+select, input[type=text], textarea { border: 1px solid var(--line); border-radius: 4px; padding: 2px 5px; background: #fff; color: var(--ink); }
+header {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  padding: 8px 16px; border-bottom: 1px solid var(--line); background: var(--panel);
+}
+header h1 { font-size: 15px; margin: 0 12px 0 0; }
+header .grow { flex: 1; }
+header label { font-size: 13px; color: var(--muted); display: flex; gap: 4px; align-items: center; }
+#banner { display: none; padding: 6px 16px; background: #fff4d6; border-bottom: 1px solid #ecd9a0; font-size: 13px; }
+#banner.show { display: flex; gap: 10px; align-items: center; }
+main { display: grid; grid-template-columns: minmax(0, 1fr) 360px; min-height: 0; }
+#textpane { overflow: auto; padding: 24px 32px 120px; position: relative; }
+#empty { color: var(--muted); max-width: 60ch; }
+#text {
+  white-space: pre-wrap; max-width: 72ch; font: 17px/1.75 Georgia, "Times New Roman", serif;
+  overflow-wrap: anywhere;
+}
+#text .span { border-radius: 3px; cursor: pointer; padding: 1px 0; }
+#text .seg { background: var(--c); box-shadow: inset 0 -2px 0 var(--c2); }
+#text.labels .seg::before {
+  content: attr(data-label); font: 600 10px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--c2); color: #fff; border-radius: 3px; padding: 2px 4px; margin-right: 3px;
+  vertical-align: 2px; letter-spacing: .02em; display: inline-block; white-space: nowrap;
+}
+#text.labels .seg[data-levels]::after {
+  content: attr(data-levels); font: 10px/1 -apple-system, BlinkMacSystemFont, sans-serif; color: var(--muted);
+  margin-left: 3px; vertical-align: 2px; display: inline-block; white-space: nowrap;
+}
+#text .dis { border-bottom: 2px dashed var(--dis); }
+#text.labels .dis::before {
+  content: attr(data-label); font: 10px/1 -apple-system, BlinkMacSystemFont, sans-serif; color: var(--dis);
+  border: 1px dashed var(--dis); border-radius: 3px; padding: 1px 3px; margin-right: 3px; vertical-align: 2px;
+  display: inline-block; white-space: nowrap;
+}
+#text .exclude { background: var(--exclude-bg); color: var(--muted); }
+#text.labels .exclude::before {
+  content: "excluded: " attr(data-label); font: 10px/1 -apple-system, BlinkMacSystemFont, sans-serif; color: var(--muted);
+  border: 1px solid var(--line); background: #fff; border-radius: 3px; padding: 1px 3px; margin-right: 3px; vertical-align: 2px;
+  display: inline-block; white-space: nowrap;
+}
+#text .span.selected { outline: 2px solid var(--selected); outline-offset: 1px; }
+#text .span.problem { text-decoration: underline wavy var(--warn); text-underline-offset: 4px; }
+aside { border-left: 1px solid var(--line); background: var(--panel); overflow: auto; padding: 12px 14px 40px; }
+aside h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 18px 0 6px; }
+aside h2:first-child { margin-top: 0; }
+.row { display: flex; gap: 6px; align-items: center; margin: 4px 0; flex-wrap: wrap; }
+.row label { font-size: 12px; color: var(--muted); min-width: 52px; }
+.swatch { width: 14px; height: 14px; border-radius: 3px; background: var(--c); box-shadow: inset 0 0 0 2px var(--c2); flex: none; }
+.speaker { display: grid; grid-template-columns: 14px 26px minmax(0, 1fr) auto; gap: 5px; align-items: center; padding: 4px 0; border-bottom: 1px solid var(--line); }
+.speaker .sid { font-size: 11px; color: var(--muted); }
+.speaker input[type=text] { width: 100%; }
+.speaker .more { grid-column: 3 / 5; display: flex; gap: 5px; align-items: center; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+.speaker .more select { font-size: 12px; padding: 0 2px; }
+.excerpt { font: 14px/1.5 Georgia, serif; background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 6px 8px; max-height: 9em; overflow: auto; white-space: pre-wrap; }
+.hint { font-size: 12px; color: var(--muted); }
+#problems { list-style: none; margin: 0; padding: 0; font-size: 12px; }
+#problems li { padding: 4px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+#problems li.error { color: var(--danger); }
+#problems li.warning { color: var(--warn); }
+#problems li.none { color: var(--muted); cursor: default; }
+#toolbar {
+  position: absolute; z-index: 10; display: none; background: #fff; border: 1px solid var(--line); border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12); padding: 6px; max-width: 520px; font-size: 13px;
+}
+#toolbar.show { display: block; }
+#toolbar .group { display: flex; flex-wrap: wrap; gap: 4px; margin: 3px 0; align-items: center; }
+#toolbar .group > span { font-size: 11px; color: var(--muted); margin-right: 2px; }
+#toolbar button.sp { background: var(--c); border-color: var(--c2); }
+#toolbar .sub { display: none; }
+#toolbar .sub.show { display: flex; }
+#message { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 6px 12px; border-radius: 4px; font-size: 13px; display: none; z-index: 20; }
+#message.show { display: block; }
+#help { display: none; font-size: 12px; }
+#help.show { display: block; }
+#help kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 3px; padding: 0 4px; background: #fff; font-size: 11px; }
+textarea { width: 100%; min-height: 4em; }
+@media (max-width: 860px) {
+  main { grid-template-columns: 1fr; }
+  aside { border-left: none; border-top: 1px solid var(--line); }
+  #textpane { padding: 16px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Attribution annotator</h1>
+  <select id="docselect" title="Document" hidden></select>
+  <label>Status <select id="status"><option>blank</option><option>drafted</option><option>reviewed</option></select></label>
+  <label>Annotator <input type="text" id="annotator" size="12" placeholder="your name"></label>
+  <span class="grow"></span>
+  <label title="Show speaker names and levels on the spans"><input type="checkbox" id="labels" checked> Labels</label>
+  <button id="undo" title="Undo (Ctrl+Z)" disabled>Undo</button>
+  <button id="open" title="Open markup files">Open…</button>
+  <input type="file" id="fileinput" accept=".xml,application/xml,text/xml" multiple hidden>
+  <button id="save" class="primary" title="Save this document (Ctrl+S)" disabled>Save</button>
+  <button id="saveall" title="Save all open documents in one file" hidden>Save all</button>
+  <button id="helpbtn" title="Shortcuts">?</button>
+</header>
+<div id="banner"></div>
+<main>
+  <div id="textpane">
+    <div id="empty">
+      <p><strong>Open a markup file</strong> (Open…, or drop files here) to start annotating.</p>
+      <p class="hint">Select text to create a segment, a distractor or an exclusion. Click a span to edit it. Nothing leaves this page: saving writes a file on your computer.</p>
+    </div>
+    <div id="text" class="labels" hidden></div>
+    <div id="toolbar"></div>
+  </div>
+  <aside>
+    <div id="help">
+      <h2>Shortcuts</h2>
+      <p>Select text, then <kbd>1</kbd>–<kbd>9</kbd> to make it a segment of that speaker, <kbd>D</kbd> for a distractor, <kbd>X</kbd> for an exclusion. Selections snap to whole words; hold <kbd>Alt</kbd> while selecting for exact characters.</p>
+      <p>On a selected span: <kbd>1</kbd>–<kbd>9</kbd> assigns a speaker, <kbd>Delete</kbd> removes it, <kbd>Esc</kbd> deselects. Boundary buttons move by a word; with <kbd>Shift</kbd>, by a character.</p>
+      <p><kbd>Ctrl</kbd>+<kbd>Z</kbd> undo, <kbd>Ctrl</kbd>+<kbd>S</kbd> save.</p>
+    </div>
+    <h2>Selected span</h2>
+    <div id="details"><p class="hint">Click a span in the text to edit it.</p></div>
+    <h2>Speakers</h2>
+    <div id="speakers"></div>
+    <div class="row"><button id="addspeaker">Add speaker</button></div>
+    <h2>Checks</h2>
+    <ul id="problems"></ul>
+    <h2>Document</h2>
+    <div id="docinfo" class="hint"></div>
+    <div class="row"><label for="notes">Notes</label></div>
+    <textarea id="notes" placeholder="Free text about this document"></textarea>
+  </aside>
+</main>
+<div id="message"></div>
+<script type="application/json" id="embedded-documents">[]</script>
+<script>
+"use strict";
+
+// ---------------------------------------------------------------------------
+// Constants: kept in step with src/named_actor_attribution/markup.py
+// ---------------------------------------------------------------------------
+
+const SPEAKER_TYPES = ["person", "organization"];
+const D_LEVELS = ["D1", "D2", "D3", "D4", "D5"];
+const R_LEVELS = ["R1", "R2", "R3", "R4", "R5", "R6"];
+const DIS_TYPES = ["named_no_attribution", "unnamed_source", "document_source", "author_voice",
+                   "non_statement", "negated_speech", "quoted_title_or_scare_quote"];
+const REASONS = ["joint", "nested", "unresolved", "non-english", "boilerplate"];
+const STATUSES = ["blank", "drafted", "reviewed"];
+const DOC_ATTRS = ["id", "source", "source-id", "text-sha256", "status", "annotator", "drafted-by", "miss-check-by"];
+const SPAN_ATTRS = { seg: ["speaker", "d", "r", "note"], dis: ["type", "note"], exclude: ["reason", "note"] };
+const SPEAKER_ATTRS = ["id", "name", "type"];
+const QUOTE_MARKS = "\"'“”‘’«»„‟‹›";
+const COLORS = [ // Karaage's actor colours, with a darker edge for each
+  ["#ffd6a5", "#c98a3c"], ["#caffbf", "#5fa352"], ["#9bf6ff", "#2f9aa6"], ["#a0c4ff", "#3d6db8"],
+  ["#bdb2ff", "#6a5bc4"], ["#ffc6ff", "#b04fb0"], ["#fdffb6", "#a3a52c"], ["#ffadad", "#b84a4a"],
+];
+
+// ---------------------------------------------------------------------------
+// Markup: parse and serialize (same output as markup.serialize in Python)
+// ---------------------------------------------------------------------------
+
+class MarkupError extends Error {}
+
+function parseMarkup(source) {
+  const xml = new DOMParser().parseFromString(source, "application/xml");
+  const err = xml.getElementsByTagName("parsererror")[0];
+  if (err) throw new MarkupError("not well-formed XML: " + err.textContent.trim().split("\n")[0]);
+  const root = xml.documentElement;
+  if (root.tagName === "document") return [parseDocument(root)];
+  if (root.tagName === "documents") {
+    return elementChildren(root).map(el => {
+      if (el.tagName !== "document") throw new MarkupError(`unexpected element <${el.tagName}> in <documents>`);
+      return parseDocument(el);
+    });
+  }
+  throw new MarkupError(`the root element is <${root.tagName}>, not <document>`);
+}
+
+function elementChildren(el) { return Array.from(el.childNodes).filter(n => n.nodeType === 1); }
+
+function checkAttrs(el, allowed) {
+  const unknown = Array.from(el.attributes).map(a => a.name).filter(n => !allowed.includes(n));
+  if (unknown.length) throw new MarkupError(`<${el.tagName}> has unknown attribute(s): ${unknown.sort().join(", ")}`);
+}
+
+function parseDocument(root) {
+  checkAttrs(root, DOC_ATTRS);
+  if (!root.getAttribute("id")) throw new MarkupError("<document> has no id");
+  const doc = { attrs: {}, speakers: [], text: "", spans: [], notes: null };
+  for (const a of DOC_ATTRS) if (root.hasAttribute(a)) doc.attrs[a] = root.getAttribute(a);
+  if (!doc.attrs.status) doc.attrs.status = "blank";
+  const children = elementChildren(root);
+  const tags = children.map(c => c.tagName);
+  for (const t of tags) {
+    if (!["speakers", "text", "notes"].includes(t)) throw new MarkupError(`unexpected element <${t}> in <document>`);
+    if (tags.filter(x => x === t).length > 1) throw new MarkupError(`<${t}> appears more than once`);
+  }
+  if (!tags.includes("text")) throw new MarkupError("<document> has no <text>");
+  for (const child of children) {
+    if (child.tagName === "speakers") {
+      for (const sp of elementChildren(child)) {
+        if (sp.tagName !== "speaker") throw new MarkupError(`unexpected element <${sp.tagName}> in <speakers>`);
+        checkAttrs(sp, SPEAKER_ATTRS);
+        doc.speakers.push({ id: sp.getAttribute("id") || "", name: sp.getAttribute("name") || "", type: sp.getAttribute("type") || "" });
+      }
+    } else if (child.tagName === "notes") {
+      doc.notes = child.textContent;
+    } else {
+      readText(child, doc);
+    }
+  }
+  return doc;
+}
+
+function readText(el, doc) {
+  let text = "";
+  for (const node of el.childNodes) {
+    if (node.nodeType === 3 || node.nodeType === 4) { text += node.data; continue; }
+    if (node.nodeType !== 1) continue; // comments, processing instructions
+    const kind = node.tagName;
+    if (!SPAN_ATTRS[kind]) throw new MarkupError(`unexpected element <${kind}> in <text>: only <seg>, <dis> and <exclude> are allowed`);
+    if (elementChildren(node).length) throw new MarkupError(`<${kind}> at character ${text.length} contains <${elementChildren(node)[0].tagName}>: spans cannot nest`);
+    checkAttrs(node, SPAN_ATTRS[kind]);
+    const inner = node.textContent;
+    const span = { kind, start: text.length, end: text.length + inner.length };
+    for (const a of SPAN_ATTRS[kind]) if (node.hasAttribute(a)) span[a] = node.getAttribute(a);
+    doc.spans.push(span);
+    text += inner;
+  }
+  doc.text = text;
+  doc.spans.sort((a, b) => a.start - b.start || a.end - b.end);
+}
+
+function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function escAttr(s) {
+  return esc(s).replace(/"/g, "&quot;").replace(/\n/g, "&#10;").replace(/\r/g, "&#13;").replace(/\t/g, "&#9;");
+}
+function attrs(pairs) {
+  return pairs.filter(([, v]) => v !== null && v !== undefined).map(([k, v]) => ` ${k}="${escAttr(String(v))}"`).join("");
+}
+
+function serializeDocument(doc) {
+  const lines = [`<document${attrs(DOC_ATTRS.map(a => [a, doc.attrs[a]]))}>`, "<speakers>"];
+  for (const sp of doc.speakers) lines.push(`  <speaker${attrs([["id", sp.id], ["name", sp.name], ["type", sp.type]])}/>`);
+  lines.push("</speakers>");
+  let out = "", pos = 0;
+  for (const s of [...doc.spans].sort((a, b) => a.start - b.start || a.end - b.end)) {
+    if (s.start < pos) throw new Error(`spans overlap at character ${s.start}`);
+    out += esc(doc.text.slice(pos, s.start));
+    out += `<${s.kind}${attrs(SPAN_ATTRS[s.kind].map(a => [a, s[a]]))}>${esc(doc.text.slice(s.start, s.end))}</${s.kind}>`;
+    pos = s.end;
+  }
+  out += esc(doc.text.slice(pos));
+  lines.push(`<text>${out}</text>`);
+  if (doc.notes !== null && doc.notes !== undefined) lines.push(`<notes>${esc(doc.notes)}</notes>`);
+  lines.push("</document>");
+  return lines.join("\n") + "\n";
+}
+
+function serializeBundle(docs) {
+  return "<documents>\n" + docs.map(d => serializeDocument(d)).join("") + "</documents>\n";
+}
+
+// ---------------------------------------------------------------------------
+// Text helpers
+// ---------------------------------------------------------------------------
+
+const WORD = /[\p{L}\p{N}\p{M}_'’\-]/u;
+function isWord(ch) { return ch !== undefined && WORD.test(ch); }
+function isTrimmed(ch) { return /[\s\p{P}]/u.test(ch); }
+
+function trimText(s) {
+  let i = 0, j = s.length;
+  while (i < j && isTrimmed(s[i])) i++;
+  while (j > i && isTrimmed(s[j - 1])) j--;
+  return s.slice(i, j);
+}
+
+// Snap a selection to whole words, then drop whitespace (and, for segments, opening and
+// closing quotation marks) at its edges.
+function snap(text, start, end, { words = true, quotes = true } = {}) {
+  if (words) {
+    while (start > 0 && isWord(text[start - 1]) && isWord(text[start])) start--;
+    while (end < text.length && isWord(text[end]) && isWord(text[end - 1])) end++;
+  }
+  const strip = ch => /\s/.test(ch) || (quotes && QUOTE_MARKS.includes(ch));
+  while (start < end && strip(text[start])) start++;
+  while (end > start && strip(text[end - 1])) end--;
+  return [start, end];
+}
+
+function isHighSurrogate(c) { return c >= 0xd800 && c <= 0xdbff; }
+function isLowSurrogate(c) { return c >= 0xdc00 && c <= 0xdfff; }
+// One character (code point) to the left or right of position p.
+function charStep(text, p, dir) {
+  if (dir < 0) {
+    if (p <= 0) return 0;
+    p--;
+    if (p > 0 && isLowSurrogate(text.charCodeAt(p)) && isHighSurrogate(text.charCodeAt(p - 1))) p--;
+    return p;
+  }
+  if (p >= text.length) return text.length;
+  p++;
+  if (p < text.length && isLowSurrogate(text.charCodeAt(p)) && isHighSurrogate(text.charCodeAt(p - 1))) p++;
+  return p;
+}
+// The previous or next word edge: a start edge (beginning of a word) or an end edge (end of a word).
+function wordStep(text, p, dir, edge) {
+  const atStart = i => isWord(text[i]) && !isWord(text[i - 1]);
+  const atEnd = i => isWord(text[i - 1]) && !isWord(text[i]);
+  const ok = edge === "start" ? atStart : atEnd;
+  let i = p + dir;
+  while (i > 0 && i < text.length && !ok(i)) i += dir;
+  return Math.max(0, Math.min(text.length, i));
+}
+
+function nameOccurs(name, text) {
+  const words = name.split(/\s+/).filter(Boolean);
+  if (!words.length) return false;
+  const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const nickname = "(?:\\s+(?:[\"'“‘(\\[][^\"'”’)\\]]{1,40}[\"'”’)\\]]))?";
+  return new RegExp(words.map(reEsc).join(nickname + "\\s+")).test(text);
+}
+function normalizeName(n) { return n.toLowerCase().split(/\s+/).filter(Boolean).join(" "); }
+
+// ---------------------------------------------------------------------------
+// Checks: the warnings of `naa check`, shown live (Python's check is the reference)
+// ---------------------------------------------------------------------------
+
+function checkDocument(doc) {
+  const out = [];
+  const add = (level, message, span) => out.push({ level, message, span });
+  const ids = doc.speakers.map(s => s.id);
+  const names = doc.speakers.map(s => normalizeName(s.name));
+  for (const sp of doc.speakers) {
+    if (!sp.name.trim()) add("error", `Speaker ${sp.id} has no name`);
+    else if (!nameOccurs(sp.name, doc.text)) add("warning", `The name of ${sp.id} (${sp.name}) does not occur in the text`);
+    if (names.filter(n => n === normalizeName(sp.name)).length > 1 && sp.name.trim()) add("error", `Several speakers are named ${sp.name}`);
+    if (!doc.spans.some(s => s.kind === "seg" && s.speaker === sp.id)) add("warning", `${sp.id} (${sp.name}) has no segment`);
+  }
+  const segs = doc.spans.filter(s => s.kind === "seg");
+  for (const s of doc.spans) {
+    const inner = doc.text.slice(s.start, s.end);
+    if (s.kind === "seg") {
+      if (!ids.includes(s.speaker)) add("error", `A segment has an undeclared speaker (${s.speaker || "none"})`, s);
+      if (!trimText(inner)) add("error", "A segment is empty once punctuation is trimmed", s);
+      else if (/^\s|\s$/.test(inner) || QUOTE_MARKS.includes(inner[0]) || QUOTE_MARKS.includes(inner[inner.length - 1]))
+        add("warning", "A segment starts or ends with whitespace or a quotation mark", s);
+      if (doc.attrs.status === "reviewed" && (!s.d || !s.r)) add("warning", `A segment has no ${!s.d ? "D" : "R"} level`, s);
+    } else if (!inner.trim()) add("error", `An empty ${s.kind === "dis" ? "distractor" : "exclusion"}`, s);
+  }
+  for (let i = 1; i < segs.length; i++) {
+    const a = segs[i - 1], b = segs[i];
+    if (a.speaker === b.speaker && !trimText(doc.text.slice(a.end, b.start)) &&
+        !doc.spans.some(s => s.start >= a.end && s.end <= b.start))
+      add("warning", "Two segments of the same speaker are separated only by punctuation: merge them", b);
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// State
+// ---------------------------------------------------------------------------
+
+const state = {
+  docs: [],        // {doc, saved (markup at last save or open), handle, history: [], fileName}
+  current: -1,
+  selected: null,  // index into doc.spans
+  pending: null,   // [start, end] of the text selection waiting for an action
+};
+const $ = id => document.getElementById(id);
+function cur() { return state.docs[state.current]; }
+function doc() { return cur() && cur().doc; }
+
+function speakerColor(id) {
+  const i = doc().speakers.findIndex(s => s.id === id);
+  if (i < 0) return ["#eeeeee", "#999999"];
+  if (i < COLORS.length) return COLORS[i];
+  const h = (i * 137) % 360;
+  return [`hsl(${h} 80% 85%)`, `hsl(${h} 45% 45%)`];
+}
+function speakerName(id) { const s = doc().speakers.find(s => s.id === id); return s ? s.name || s.id : `? ${id || ""}`; }
+
+// Every change goes through mutate(), which keeps the undo history and the browser draft.
+function mutate(fn) {
+  const c = cur();
+  c.history.push(JSON.stringify({ doc: c.doc, selected: state.selected }));
+  if (c.history.length > 200) c.history.shift();
+  fn(c.doc);
+  c.doc.spans.sort((a, b) => a.start - b.start || a.end - b.end);
+  render();
+  keepDraft();
+}
+function undo() {
+  const c = cur();
+  if (!c || !c.history.length) return;
+  const prev = JSON.parse(c.history.pop());
+  c.doc = prev.doc; state.selected = prev.selected;
+  render(); keepDraft();
+}
+function isDirty(c) { return serializeDocument(c.doc) !== c.saved; }
+
+// ---------------------------------------------------------------------------
+// Browser drafts: unsaved work survives a closed tab (this browser only)
+// ---------------------------------------------------------------------------
+
+function draftKey(d) { return `naa-draft:${d.attrs.id}:${d.attrs["text-sha256"] || ""}`; }
+let draftTimer = null;
+function keepDraft() {
+  clearTimeout(draftTimer);
+  const c = cur();
+  if (!c) return;
+  draftTimer = setTimeout(() => {
+    try {
+      if (isDirty(c)) localStorage.setItem(draftKey(c.doc), JSON.stringify({ markup: serializeDocument(c.doc), at: new Date().toISOString() }));
+      else localStorage.removeItem(draftKey(c.doc));
+    } catch (e) { /* storage unavailable: drafts are a convenience only */ }
+  }, 400);
+}
+function readDraft(d) {
+  try { const v = localStorage.getItem(draftKey(d)); return v ? JSON.parse(v) : null; } catch (e) { return null; }
+}
+function dropDraft(d) { try { localStorage.removeItem(draftKey(d)); } catch (e) { /* ignore */ } }
+
+function offerDraft() {
+  const c = cur(), banner = $("banner");
+  banner.className = ""; banner.textContent = "";
+  if (!c) return;
+  const draft = readDraft(c.doc);
+  if (!draft || draft.markup === c.saved) return;
+  banner.className = "show";
+  banner.append(`This browser kept unsaved changes to this document from ${new Date(draft.at).toLocaleString()}.`);
+  const restore = button("Restore them", () => {
+    try {
+      const [d] = parseMarkup(draft.markup);
+      mutate(x => Object.assign(x, d));
+    } catch (e) { flash("The kept changes can't be read: " + e.message); }
+    banner.className = "";
+  });
+  const discard = button("Discard", () => { dropDraft(c.doc); banner.className = ""; });
+  banner.append(restore, discard);
+}
+
+// ---------------------------------------------------------------------------
+// Rendering
+// ---------------------------------------------------------------------------
+
+function button(label, onclick, cls) {
+  const b = document.createElement("button");
+  b.textContent = label; b.onclick = onclick; if (cls) b.className = cls;
+  return b;
+}
+function el(tag, props = {}, ...children) {
+  const e = document.createElement(tag);
+  Object.assign(e, props);
+  for (const c of children) e.append(c);
+  return e;
+}
+function select(options, value, onchange, blank) {
+  const s = document.createElement("select");
+  if (blank !== undefined) s.append(new Option(blank, ""));
+  for (const o of options) s.append(Array.isArray(o) ? new Option(o[1], o[0]) : new Option(o, o));
+  s.value = value || "";
+  s.onchange = () => onchange(s.value || null);
+  return s;
+}
+
+function render() {
+  const c = cur();
+  $("empty").hidden = !!c; $("text").hidden = !c;
+  for (const id of ["save", "undo"]) $(id).disabled = !c;
+  if (!c) return;
+  const d = c.doc;
+  if (state.selected !== null && !d.spans[state.selected]) state.selected = null;
+  $("undo").disabled = !c.history.length;
+  $("save").textContent = isDirty(c) ? "Save •" : "Save";
+  $("saveall").hidden = state.docs.length < 2;
+  renderDocSelect();
+  $("status").value = d.attrs.status;
+  $("annotator").value = d.attrs.annotator || "";
+  if (document.activeElement !== $("notes")) $("notes").value = d.notes || "";
+  const problems = checkDocument(d);
+  renderText(d, problems);
+  renderSpeakers(d);
+  renderDetails(d);
+  renderProblems(problems);
+  renderDocInfo(d);
+}
+
+function renderDocSelect() {
+  const s = $("docselect");
+  s.hidden = state.docs.length < 2;
+  s.textContent = "";
+  state.docs.forEach((c, i) => s.append(new Option(`${c.doc.attrs.id} (${c.doc.attrs.status})${isDirty(c) ? " •" : ""}`, i)));
+  s.value = state.current;
+}
+
+function renderText(d, problems) {
+  const box = $("text");
+  box.textContent = "";
+  const flagged = new Set(problems.filter(p => p.span).map(p => p.span));
+  let pos = 0;
+  d.spans.forEach((s, i) => {
+    if (s.start > pos) box.append(d.text.slice(pos, s.start));
+    const e = el("span", { className: `span ${s.kind}` }, d.text.slice(s.start, s.end));
+    e.dataset.i = i;
+    if (s.kind === "seg") {
+      const [c1, c2] = speakerColor(s.speaker);
+      e.style.setProperty("--c", c1); e.style.setProperty("--c2", c2);
+      e.dataset.label = speakerName(s.speaker);
+      if (s.d || s.r) e.dataset.levels = [s.d, s.r].filter(Boolean).join("·");
+      e.title = `${speakerName(s.speaker)}${s.d || s.r ? " — " + [s.d, s.r].filter(Boolean).join(", ") : ""}${s.note ? "\nNote: " + s.note : ""}`;
+    } else {
+      e.dataset.label = s.kind === "dis" ? s.type : s.reason;
+      e.title = `${s.kind === "dis" ? "Distractor" : "Excluded"}: ${e.dataset.label}${s.note ? "\nNote: " + s.note : ""}`;
+    }
+    if (i === state.selected) e.classList.add("selected");
+    if (flagged.has(s)) e.classList.add("problem");
+    box.append(e);
+    pos = s.end;
+  });
+  if (pos < d.text.length) box.append(d.text.slice(pos));
+  if (state.pending) selectRange(box, ...state.pending);
+}
+
+// Select the text between two offsets: render() rebuilds the text, which drops the browser's selection.
+function selectRange(box, start, end) {
+  const walker = document.createTreeWalker(box, NodeFilter.SHOW_TEXT);
+  let pos = 0, node, r = document.createRange(), found = 0;
+  while ((node = walker.nextNode())) {
+    const len = node.data.length;
+    if (!(found & 1) && start <= pos + len) { r.setStart(node, start - pos); found |= 1; }
+    if (!(found & 2) && end <= pos + len) { r.setEnd(node, end - pos); found |= 2; break; }
+    pos += len;
+  }
+  if (found === 3) { const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); }
+}
+
+function renderSpeakers(d) {
+  const box = $("speakers");
+  box.textContent = "";
+  if (!d.speakers.length) box.append(el("p", { className: "hint", textContent: "No speakers yet. Select a name in the text and choose “Use as speaker”, or add one." }));
+  d.speakers.forEach((sp, i) => {
+    const [c1, c2] = speakerColor(sp.id);
+    const sw = el("span", { className: "swatch" }); sw.style.setProperty("--c", c1); sw.style.setProperty("--c2", c2);
+    const name = el("input", { type: "text", value: sp.name, title: "Canonical name" });
+    name.onchange = () => mutate(x => { x.speakers[i].name = name.value.trim(); });
+    const count = d.spans.filter(s => s.kind === "seg" && s.speaker === sp.id).length;
+    const others = d.speakers.filter(o => o.id !== sp.id).map(o => [o.id, `${o.id} ${o.name}`]);
+    const merge = select(others, "", v => {
+      if (!v) return;
+      mutate(x => {
+        for (const s of x.spans) if (s.kind === "seg" && s.speaker === sp.id) s.speaker = v;
+        x.speakers = x.speakers.filter(o => o.id !== sp.id);
+      });
+      flash(`${sp.id} merged into ${v}`);
+    }, "merge…");
+    merge.disabled = !others.length;
+    const del = button("×", () => mutate(x => { x.speakers = x.speakers.filter(o => o.id !== sp.id); }), "danger");
+    del.disabled = count > 0; del.title = count ? "Has segments: merge it instead" : "Remove this speaker";
+    const more = el("div", { className: "more" },
+      select(SPEAKER_TYPES, sp.type, v => mutate(x => { x.speakers[i].type = v || ""; })),
+      `${count} segment${count === 1 ? "" : "s"}${i < 9 ? ` · key ${i + 1}` : ""}`, merge);
+    box.append(el("div", { className: "speaker" }, sw, el("span", { className: "sid", textContent: sp.id }), name, del, el("span"), el("span"), more));
+  });
+}
+
+function renderDetails(d) {
+  const box = $("details");
+  box.textContent = "";
+  const i = state.selected;
+  if (i === null) { box.append(el("p", { className: "hint", textContent: "Click a span in the text to edit it." })); return; }
+  const s = d.spans[i];
+  const kindSel = select([["seg", "Segment"], ["dis", "Distractor"], ["exclude", "Exclusion"]], s.kind, v => mutate(x => {
+    const t = x.spans[i];
+    const fresh = { kind: v, start: t.start, end: t.end, note: t.note };
+    if (v === "seg") fresh.speaker = (x.speakers[0] || {}).id || "";
+    if (v === "dis") fresh.type = DIS_TYPES[0];
+    if (v === "exclude") fresh.reason = REASONS[0];
+    x.spans[i] = fresh;
+  }));
+  box.append(el("div", { className: "row" }, el("label", { textContent: "Kind" }), kindSel));
+  if (s.kind === "seg") {
+    box.append(el("div", { className: "row" }, el("label", { textContent: "Speaker" }),
+      select(d.speakers.map(sp => [sp.id, `${sp.id} ${sp.name}`]), s.speaker, v => mutate(x => { x.spans[i].speaker = v || ""; }), "—")));
+    box.append(el("div", { className: "row" }, el("label", { textContent: "Levels" }),
+      select(D_LEVELS, s.d, v => mutate(x => { setOrDrop(x.spans[i], "d", v); }), "D?"),
+      select(R_LEVELS, s.r, v => mutate(x => { setOrDrop(x.spans[i], "r", v); }), "R?")));
+  } else if (s.kind === "dis") {
+    box.append(el("div", { className: "row" }, el("label", { textContent: "Type" }), select(DIS_TYPES, s.type, v => mutate(x => { x.spans[i].type = v || ""; }))));
+  } else {
+    box.append(el("div", { className: "row" }, el("label", { textContent: "Reason" }), select(REASONS, s.reason, v => mutate(x => { x.spans[i].reason = v || ""; }))));
+  }
+  box.append(el("div", { className: "excerpt", textContent: d.text.slice(s.start, s.end) }));
+  const nudge = (which, dir) => ev => moveEdge(i, which, dir, ev.shiftKey);
+  box.append(el("div", { className: "row" }, el("label", { textContent: "Start" }),
+    button("◀", nudge("start", -1)), button("▶", nudge("start", 1)),
+    el("label", { textContent: "End", style: "min-width:auto;margin-left:10px" }),
+    button("◀", nudge("end", -1)), button("▶", nudge("end", 1))));
+  const note = el("input", { type: "text", value: s.note || "", placeholder: "Note (optional)", style: "width:100%" });
+  note.onchange = () => mutate(x => { setOrDrop(x.spans[i], "note", note.value.trim() || null); });
+  box.append(el("div", { className: "row" }, note));
+  box.append(el("div", { className: "row" }, button("Delete span", () => deleteSelected(), "danger")));
+}
+function setOrDrop(obj, key, v) { if (v) obj[key] = v; else delete obj[key]; }
+
+function renderProblems(problems) {
+  const box = $("problems");
+  box.textContent = "";
+  if (!problems.length) { box.append(el("li", { className: "none", textContent: "No problems found." })); return; }
+  for (const p of problems) {
+    const li = el("li", { className: p.level, textContent: p.message });
+    if (p.span) li.onclick = () => { state.selected = doc().spans.indexOf(p.span); render(); scrollToSelected(); };
+    box.append(li);
+  }
+}
+
+function renderDocInfo(d) {
+  const n = k => d.spans.filter(s => s.kind === k).length;
+  const count = (k, one, many) => `${k} ${k === 1 ? one : many}`;
+  const a = d.attrs;
+  $("docinfo").textContent = `${a.id}${a.source ? ` · ${a.source}` : ""}${a["drafted-by"] ? ` · drafted by ${a["drafted-by"]}` : ""}` +
+    `${a["miss-check-by"] ? ` · miss check by ${a["miss-check-by"]}` : ""} — ${count(n("seg"), "segment", "segments")}, ${count(n("dis"), "distractor", "distractors")}, ` +
+    `${count(n("exclude"), "exclusion", "exclusions")}, ${count(d.speakers.length, "speaker", "speakers")}.`;
+}
+
+function scrollToSelected() {
+  const e = $("text").querySelector(".span.selected");
+  if (e) e.scrollIntoView({ block: "center", behavior: "smooth" });
+}
+
+// ---------------------------------------------------------------------------
+// Editing
+// ---------------------------------------------------------------------------
+
+function overlapping(d, start, end, except) {
+  return d.spans.some((s, i) => i !== except && s.start < end && start < s.end);
+}
+
+function addSpan(kind, extra) {
+  const [start, end] = state.pending;
+  const d = doc();
+  if (overlapping(d, start, end)) { flash("This overlaps an existing span: change that span's boundaries instead."); return; }
+  const span = Object.assign({ kind, start, end }, extra);
+  mutate(x => { x.spans.push(span); });
+  state.selected = doc().spans.indexOf(doc().spans.find(s => s.start === start && s.end === end));
+  hideToolbar();
+  render();
+}
+
+function newSpeaker(name, type = "person") {
+  let n = 1;
+  const ids = new Set(doc().speakers.map(s => s.id));
+  while (ids.has(`S${n}`)) n++;
+  const id = `S${n}`;
+  mutate(x => { x.speakers.push({ id, name, type }); });
+  return id;
+}
+
+function moveEdge(i, which, dir, byChar) {
+  const d = doc(), s = d.spans[i];
+  let start = s.start, end = s.end;
+  if (which === "start") start = byChar ? charStep(d.text, start, dir) : wordStep(d.text, start, dir, "start");
+  else end = byChar ? charStep(d.text, end, dir) : wordStep(d.text, end, dir, "end");
+  if (start >= end) { flash("A span can't be empty."); return; }
+  if (overlapping(d, start, end, i)) { flash("That would overlap another span."); return; }
+  mutate(x => { x.spans[i].start = start; x.spans[i].end = end; });
+  state.selected = doc().spans.findIndex(t => t.start === start && t.end === end);
+  render();
+}
+
+function deleteSelected() {
+  if (state.selected === null) return;
+  const i = state.selected;
+  state.selected = null;
+  mutate(x => { x.spans.splice(i, 1); });
+}
+
+function assignSpeaker(k) {
+  const sp = doc().speakers[k];
+  if (!sp) return;
+  if (state.pending) { addSpan("seg", { speaker: sp.id }); return; }
+  if (state.selected !== null) {
+    const i = state.selected;
+    mutate(x => {
+      const t = x.spans[i];
+      if (t.kind !== "seg") x.spans[i] = { kind: "seg", start: t.start, end: t.end, speaker: sp.id, note: t.note };
+      else t.speaker = sp.id;
+    });
+  }
+}
+
+// --- Selection toolbar ---
+
+let lastAlt = false;
+function offsetIn(container, node, offset) {
+  const r = document.createRange();
+  r.setStart(container, 0);
+  r.setEnd(node, offset);
+  return r.toString().length;
+}
+
+function onTextMouseUp(ev) {
+  lastAlt = ev.altKey;
+  const sel = window.getSelection();
+  const box = $("text");
+  if (!sel.rangeCount || sel.isCollapsed) {
+    hideToolbar();
+    const target = ev.target.closest && ev.target.closest(".span");
+    state.selected = target ? Number(target.dataset.i) : null;
+    render();
+    return;
+  }
+  const range = sel.getRangeAt(0);
+  if (!box.contains(range.commonAncestorContainer)) return;
+  const raw = [offsetIn(box, range.startContainer, range.startOffset), offsetIn(box, range.endContainer, range.endOffset)];
+  const [start, end] = snap(doc().text, raw[0], raw[1], { words: !lastAlt, quotes: true });
+  if (start >= end) { hideToolbar(); return; }
+  const rect = range.getBoundingClientRect(); // before render() replaces the text's nodes
+  state.pending = [start, end];
+  state.selected = null;
+  render();
+  showToolbar(rect);
+}
+
+function showToolbar(rect) {
+  const tb = $("toolbar"), d = doc(), [start, end] = state.pending;
+  const chosen = d.text.slice(start, end);
+  tb.textContent = "";
+  const segRow = el("div", { className: "group" }, el("span", { textContent: "Segment of" }));
+  d.speakers.forEach((sp, k) => {
+    const [c1, c2] = speakerColor(sp.id);
+    const b = button(`${k < 9 ? k + 1 + " " : ""}${sp.name || sp.id}`, () => addSpan("seg", { speaker: sp.id }), "sp");
+    b.style.setProperty("--c", c1); b.style.setProperty("--c2", c2);
+    segRow.append(b);
+  });
+  const newName = el("input", { type: "text", placeholder: "new speaker's name", size: 16 });
+  const newType = select(SPEAKER_TYPES, "person", () => {});
+  const create = button("Add", () => {
+    const name = newName.value.trim();
+    if (!name) { newName.focus(); return; }
+    const id = newSpeaker(name, newType.value);
+    addSpan("seg", { speaker: id });
+  });
+  newName.onkeydown = e => { if (e.key === "Enter") create.click(); e.stopPropagation(); };
+  const newRow = el("div", { className: "group sub" }, newName, newType, create);
+  segRow.append(button("New speaker…", () => { newRow.classList.toggle("show"); newName.focus(); }));
+  tb.append(segRow, newRow);
+
+  const disRow = el("div", { className: "group sub" });
+  for (const t of DIS_TYPES) disRow.append(button(t.replace(/_/g, " "), () => addSpan("dis", { type: t })));
+  const exRow = el("div", { className: "group sub" });
+  for (const r of REASONS) exRow.append(button(r, () => addSpan("exclude", { reason: r })));
+  const other = el("div", { className: "group" },
+    button("Distractor…", () => { disRow.classList.toggle("show"); exRow.classList.remove("show"); }),
+    button("Exclusion…", () => { exRow.classList.toggle("show"); disRow.classList.remove("show"); }));
+  if (chosen.length <= 80 && !chosen.includes("\n")) {
+    other.append(button(`Use “${chosen.length > 30 ? chosen.slice(0, 29) + "…" : chosen}” as speaker`, () => {
+      const name = snap(d.text, start, end, { words: false, quotes: true }).map(x => x);
+      newSpeaker(d.text.slice(name[0], name[1]));
+      hideToolbar(); render();
+    }));
+  }
+  tb.append(other, disRow, exRow);
+  tb.dataset.kind = "selection";
+  const pane = $("textpane").getBoundingClientRect();
+  tb.className = "show";
+  const top = rect.bottom - pane.top + $("textpane").scrollTop + 6;
+  const left = Math.max(8, Math.min(rect.left - pane.left, pane.width - tb.offsetWidth - 16));
+  tb.style.top = `${top}px`; tb.style.left = `${left}px`;
+}
+function hideToolbar() {
+  $("toolbar").className = "";
+  if (state.pending) window.getSelection().removeAllRanges();
+  state.pending = null;
+}
+
+// ---------------------------------------------------------------------------
+// Opening and saving
+// ---------------------------------------------------------------------------
+
+function addDocuments(docs, handle, fileName) {
+  for (const d of docs) {
+    const existing = state.docs.findIndex(c => c.doc.attrs.id === d.attrs.id);
+    const entry = { doc: d, saved: serializeDocument(d), handle: docs.length === 1 ? handle : null, history: [], fileName };
+    if (existing >= 0) state.docs[existing] = entry; else state.docs.push(entry);
+  }
+  state.current = state.docs.findIndex(c => c.doc.attrs.id === docs[0].attrs.id);
+  state.selected = null; hideToolbar();
+  render(); offerDraft();
+}
+
+async function openFiles() {
+  if (window.showOpenFilePicker) {
+    let handles;
+    try {
+      handles = await window.showOpenFilePicker({ multiple: true, types: [{ description: "Markup", accept: { "application/xml": [".xml"] } }] });
+    } catch (e) { return; } // cancelled
+    for (const h of handles) await loadFile(await h.getFile(), h);
+  } else {
+    $("fileinput").click();
+  }
+}
+async function loadFile(file, handle) {
+  try {
+    addDocuments(parseMarkup(await file.text()), handle, file.name);
+  } catch (e) {
+    flash(`${file.name}: ${e.message}`, 6000);
+  }
+}
+
+async function save(all) {
+  if (!state.docs.length) return;
+  if (all) {
+    download(`annotations-${new Date().toISOString().slice(0, 10)}.xml`, serializeBundle(state.docs.map(c => c.doc)));
+    for (const c of state.docs) { c.saved = serializeDocument(c.doc); dropDraft(c.doc); }
+    render(); return;
+  }
+  const c = cur(), markup = serializeDocument(c.doc);
+  if (c.handle && c.handle.createWritable) {
+    try {
+      const w = await c.handle.createWritable();
+      await w.write(markup); await w.close();
+      c.saved = markup; dropDraft(c.doc); render(); flash(`Saved ${c.handle.name}`);
+      return;
+    } catch (e) { flash("Can't write the file here; downloading it instead."); }
+  }
+  download(`${c.doc.attrs.id}.xml`, markup);
+  c.saved = markup; dropDraft(c.doc); render();
+}
+function download(name, content) {
+  const a = el("a", { href: URL.createObjectURL(new Blob([content], { type: "application/xml" })), download: name });
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+let flashTimer = null;
+function flash(msg, ms = 3000) {
+  const m = $("message");
+  m.textContent = msg; m.className = "show";
+  clearTimeout(flashTimer); flashTimer = setTimeout(() => { m.className = ""; }, ms);
+}
+
+// ---------------------------------------------------------------------------
+// Wiring
+// ---------------------------------------------------------------------------
+
+function wire() {
+  $("text").addEventListener("mouseup", onTextMouseUp);
+  $("open").onclick = openFiles;
+  $("fileinput").onchange = async e => { for (const f of e.target.files) await loadFile(f, null); e.target.value = ""; };
+  $("save").onclick = () => save(false);
+  $("saveall").onclick = () => save(true);
+  $("undo").onclick = undo;
+  $("helpbtn").onclick = () => $("help").classList.toggle("show");
+  $("labels").onchange = e => $("text").classList.toggle("labels", e.target.checked);
+  $("docselect").onchange = e => { state.current = Number(e.target.value); state.selected = null; hideToolbar(); render(); offerDraft(); };
+  $("status").onchange = e => mutate(x => { x.attrs.status = e.target.value; });
+  $("annotator").onchange = e => mutate(x => { const v = e.target.value.trim(); if (v) x.attrs.annotator = v; else delete x.attrs.annotator; });
+  $("notes").onchange = e => mutate(x => { x.notes = e.target.value === "" ? null : e.target.value; });
+  $("addspeaker").onclick = () => { if (doc()) newSpeaker("", "person"); };
+  const pane = $("textpane");
+  pane.addEventListener("dragover", e => { e.preventDefault(); });
+  pane.addEventListener("drop", async e => {
+    e.preventDefault();
+    for (const f of e.dataTransfer.files) await loadFile(f, null);
+  });
+  document.addEventListener("mousedown", e => {
+    if (!$("toolbar").contains(e.target) && !$("text").contains(e.target)) hideToolbar();
+  });
+  document.addEventListener("keydown", e => {
+    const typing = ["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName);
+    if ((e.ctrlKey || e.metaKey) && e.key === "s") { e.preventDefault(); save(false); return; }
+    if ((e.ctrlKey || e.metaKey) && e.key === "z" && !typing) { e.preventDefault(); undo(); return; }
+    if (typing || !doc()) return;
+    if (/^[1-9]$/.test(e.key)) { assignSpeaker(Number(e.key) - 1); e.preventDefault(); }
+    else if (e.key.toLowerCase() === "d" && state.pending) { $("toolbar").querySelectorAll(".sub")[1].classList.add("show"); }
+    else if (e.key.toLowerCase() === "x" && state.pending) { $("toolbar").querySelectorAll(".sub")[2].classList.add("show"); }
+    else if ((e.key === "Delete" || e.key === "Backspace") && state.selected !== null) { e.preventDefault(); deleteSelected(); }
+    else if (e.key === "Escape") { state.selected = null; hideToolbar(); window.getSelection().removeAllRanges(); render(); }
+  });
+  window.addEventListener("beforeunload", e => {
+    if (state.docs.some(isDirty)) { e.preventDefault(); e.returnValue = ""; }
+  });
+}
+
+function loadEmbedded() {
+  let list = [];
+  try { list = JSON.parse($("embedded-documents").textContent); } catch (e) { flash("The embedded documents can't be read."); }
+  const docs = [];
+  for (const m of list) {
+    try { docs.push(...parseMarkup(m)); } catch (e) { flash(`An embedded document can't be read: ${e.message}`, 6000); }
+  }
+  if (docs.length) addDocuments(docs, null, null);
+}
+
+// ---------------------------------------------------------------------------
+// Self-test: open the page with #selftest (run by tests/test_annotator.py in headless Chrome)
+// ---------------------------------------------------------------------------
+
+function selfTest() {
+  const results = [];
+  const ok = (name, cond, detail) => results.push({ name, ok: !!cond, detail: cond ? undefined : detail });
+  const embedded = JSON.parse($("embedded-documents").textContent);
+  embedded.forEach((m, k) => {
+    let again;
+    try { again = serializeDocument(parseMarkup(m)[0]); } catch (e) { again = "error: " + e.message; }
+    ok(`round trip of embedded document ${k}`, again === m, again);
+  });
+  const src = '<document id="t" text-sha256="x" status="drafted">\n<speakers>\n  <speaker id="S1" name="Anna Berg" type="person"/>\n</speakers>\n' +
+    '<text>Anna Berg said “it works 🧀 &amp; well”, and <seg speaker="S1">it is cheap</seg>.\n\nThe end.</text>\n</document>\n';
+  const d = parseMarkup(src)[0];
+  ok("text is read with entities decoded", d.text.includes("🧀 & well"), d.text);
+  ok("span offsets", d.text.slice(d.spans[0].start, d.spans[0].end) === "it is cheap", JSON.stringify(d.spans[0]));
+  ok("serialize gives the input back", serializeDocument(d) === src, serializeDocument(d));
+  const t = d.text, i = t.indexOf("works");
+  ok("snap to words and drop quotes", JSON.stringify(snap(t, t.indexOf("“") , i + 2)) === JSON.stringify([t.indexOf("it works"), i + 5]), JSON.stringify(snap(t, t.indexOf("“"), i + 2)));
+  ok("exact selection keeps characters", JSON.stringify(snap(t, i + 1, i + 3, { words: false })) === JSON.stringify([i + 1, i + 3]));
+  const e = t.indexOf("🧀");
+  ok("a character step never splits an emoji", charStep(t, e, 1) === e + 2 && charStep(t, e + 2, -1) === e, `${charStep(t, e, 1)} ${e}`);
+  ok("word step to the next word start", wordStep(t, t.indexOf("said"), 1, "start") === t.indexOf("“") + 1, wordStep(t, t.indexOf("said"), 1, "start"));
+  ok("word step to the previous word end", wordStep(t, t.indexOf(" said"), -1, "end") === t.indexOf(" Berg") , wordStep(t, t.indexOf(" said"), -1, "end"));
+  ok("nickname inside a name", nameOccurs("Robert Smith", "Robert ‘Bob’ Smith said") && !nameOccurs("Robert Smith", "Robert J. Smith"));
+  const merged = parseMarkup('<document id="m"><speakers><speaker id="S1" name="Anna Berg" type="person"/></speakers><text>Anna Berg said <seg speaker="S1">it works</seg>, <seg speaker="S1">and well</seg>.</text></document>')[0];
+  ok("merge warning", checkDocument(merged).some(p => p.message.includes("merge them")), JSON.stringify(checkDocument(merged)));
+  let threw = "";
+  try { parseMarkup('<document id="n"><text><seg speaker="S1">a <dis type="author_voice">b</dis></seg></text></document>'); } catch (err) { threw = err.message; }
+  ok("nested spans are refused", threw.includes("cannot nest"), threw);
+  try { parseMarkup("<document id='n'><text>a & b</text></document>"); threw = ""; } catch (err) { threw = err.message; }
+  ok("malformed XML is refused", threw.includes("not well-formed"), threw);
+  const bundle = serializeBundle([d, merged]);
+  ok("bundle round trip", parseMarkup(bundle).length === 2 && serializeDocument(parseMarkup(bundle)[0]) === src, bundle);
+  // Editing through the real state functions
+  state.docs = []; addDocuments([parseMarkup(src)[0]], null, null);
+  state.pending = [0, 9];
+  const id = newSpeaker("Tomas Holm");
+  addSpan("seg", { speaker: id });
+  ok("add a speaker and a segment", doc().speakers.length === 2 && doc().spans.length === 2 && doc().spans[0].speaker === "S2", JSON.stringify(doc()));
+  state.pending = [2, 12];
+  addSpan("dis", { type: "author_voice" });
+  ok("overlapping spans are refused", doc().spans.length === 2, JSON.stringify(doc().spans));
+  undo();
+  ok("undo", doc().spans.length === 1 && doc().speakers.length === 2, JSON.stringify(doc()));
+  // Mapping between the rendered text (with label chips and an emoji) and offsets
+  const box = $("text"), text = doc().text;
+  for (const word of ["it is cheap", "🧀 & well", "The end"]) {
+    const a = text.indexOf(word), b = a + word.length;
+    selectRange(box, a, b);
+    const r = window.getSelection().getRangeAt(0);
+    const got = [offsetIn(box, r.startContainer, r.startOffset), offsetIn(box, r.endContainer, r.endOffset)];
+    ok(`selection offsets for "${word}"`, got[0] === a && got[1] === b && r.toString() === word, JSON.stringify(got) + r.toString());
+  }
+  window.getSelection().removeAllRanges();
+  undo();
+  ok("undo back to the file", serializeDocument(doc()) === src, serializeDocument(doc()));
+  state.docs = []; state.current = -1; render();
+  const out = el("pre", { id: "selftest" }, JSON.stringify(results));
+  document.body.append(out);
+}
+
+wire();
+loadEmbedded();
+render();
+if (location.hash === "#selftest") selfTest();
+</script>
+</body>
+</html>

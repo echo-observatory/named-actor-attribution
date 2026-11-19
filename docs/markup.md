@@ -56,6 +56,8 @@ There is no markup for cues or speaker mentions: levels are set by the annotator
 
 **`<notes>`**, optional: free text about the document.
 
+**Bundles.** The annotation page's "Save all" writes several documents in one file, inside a `<documents>` root. `naa split` turns a bundle back into one file per document.
+
 ## Text rules
 
 - The text is everything between `<text>` and `</text>`, whitespace included: don't add a line break after `<text>` or before `</text>`. Paragraphs are separated by a blank line.
