@@ -6,7 +6,7 @@ This is the task of Karaage's attribution step.
 
 A side project, not a pipeline component: the dataset will be used later in evals in the [`evals`](https://github.com/echo-observatory/evals) repo, and possibly published in some form in `obs-test-datasets`.
 
-Status: building. The markup format and its checks exist; the annotation page comes next.
+Status: building. The markup format, its checks and the annotation page exist; drafting the pilot documents comes next.
 
 ## Contents
 
@@ -15,6 +15,7 @@ Status: building. The markup format and its checks exist; the annotation page co
 | [`specification.md`](specification.md) | The dataset specification: task, difficulty levels and tiers, item construction, data format, annotation procedure, scoring, and deliverables. |
 | [`docs/markup.md`](docs/markup.md) | The markup format: the working format of annotations, one source document per file, with spans marked in the text. |
 | `annotations/` | Annotated documents in the markup format. Created with the first one. |
+| [`annotator/annotator.html`](annotator/annotator.html) | The annotation page: a single HTML file with no dependencies (see [Annotation page](#annotation-page)). |
 | [`src/named_actor_attribution/`](src/named_actor_attribution/), [`tests/`](tests/) | The `naa` command line, and its tests. |
 
 ## Plan
@@ -53,6 +54,8 @@ uv sync
 uv run pytest
 ```
 
+The tests of the annotation page run its self-test in headless Chrome or Chromium, and are skipped when neither is found. Set `CHROME` to the browser's path if it isn't found on its own.
+
 ## Commands
 
 ```bash
@@ -67,4 +70,25 @@ uv run naa rehash annotations/global-voices-cheese-181-483946.xml
 
 # Write documents as JSONL records with offsets
 uv run naa export annotations/*.xml --out documents.jsonl
+
+# Build a copy of the annotation page with documents built in, to send to an annotator;
+# --blank removes the annotation, for annotating from scratch
+uv run naa page annotations/a.xml annotations/b.xml --out to-send.html --blank
+
+# Split a file saved with the page's "Save all" into one file per document
+uv run naa split annotations-2026-11-20.xml --out second-annotator/
 ```
+
+## Annotation page
+
+[`annotator/annotator.html`](annotator/annotator.html) opens in any browser, offline. Nothing leaves the page: it reads and writes files on your computer.
+
+- **Open** one or more markup files with Open…, or drop them on the page. In Chrome and Edge, Save writes back to the file you opened; in other browsers, it downloads the file.
+- **Read:** segments are coloured by speaker, with the speaker's name before each and the levels after; distractors are dashed, exclusions hatched. Labels can be hidden. The Checks panel lists the problems `naa check` would report; click one to go to its span.
+- **Edit:**
+  - select text, then pick a speaker in the toolbar (or press `1`–`9`) to make it a segment, or make it a distractor or an exclusion. Selections snap to whole words and drop surrounding quotation marks; hold Alt while selecting for exact characters;
+  - click a span to change its speaker, kind, levels, note or boundaries (◀ ▶ move an edge by a word, with Shift by a character), or delete it;
+  - in Speakers: rename, change the type, merge a speaker into another, or add one. "Use … as speaker" in the toolbar adds a speaker named after the selected text;
+  - set the document's status and your name in the header. Undo with Ctrl+Z.
+- **Unsaved work** is kept in the browser while you work, and offered back when the same document is opened again.
+- **Annotators** get a copy built with `naa page`, with the documents inside it. Several documents open as a list; "Save all" downloads them as one file, to split with `naa split`.

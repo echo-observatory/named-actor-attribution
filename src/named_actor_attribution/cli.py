@@ -1,4 +1,4 @@
-"""Command line: `naa new`, `naa check`, `naa rehash`, `naa export`."""
+"""Command line: `naa new`, `naa check`, `naa rehash`, `naa export`, `naa page`, `naa split`."""
 
 from __future__ import annotations
 
@@ -31,8 +31,19 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("files", nargs="+", type=Path)
     p.add_argument("--out", type=Path, help="output file (default: standard output)")
 
+    p = sub.add_parser("page", help="build a copy of the annotation page with documents built in, to send to annotators")
+    p.add_argument("files", nargs="+", type=Path)
+    p.add_argument("--out", type=Path, required=True, help="the HTML file to write")
+    p.add_argument("--blank", action="store_true", help="remove the annotation, for annotating from scratch")
+
+    p = sub.add_parser("split", help="split a file saved with the page's \"Save all\" into one file per document")
+    p.add_argument("bundle", type=Path)
+    p.add_argument("--out", type=Path, default=Path("annotations"), help="folder to write to (default: annotations/)")
+    p.add_argument("--force", action="store_true", help="overwrite files that exist and differ")
+
     args = parser.parse_args(argv)
-    return {"new": _new, "check": _check, "rehash": _rehash, "export": _export}[args.command](args)
+    commands = {"new": _new, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
+    return commands[args.command](args)
 
 
 def _new(args) -> int:
@@ -63,6 +74,20 @@ def _new(args) -> int:
 
 def _read(path: Path) -> markup.Document:
     return markup.parse(path.read_text(encoding="utf-8"))
+
+
+PAGE = Path(__file__).resolve().parents[2] / "annotator" / "annotator.html"
+EMBED = '<script type="application/json" id="embedded-documents">[]</script>'
+
+
+def build_page(docs: list[markup.Document], template: str | None = None) -> str:
+    """The annotation page with these documents built in."""
+    template = PAGE.read_text(encoding="utf-8") if template is None else template
+    if template.count(EMBED) != 1:
+        raise ValueError(f"the page template must contain {EMBED} exactly once")
+    # Escaping "<" keeps "</script>" and "<!--" in a text from ending the script element.
+    payload = json.dumps([markup.serialize(d) for d in docs], ensure_ascii=False).replace("<", "\\u003c")
+    return template.replace(EMBED, EMBED.replace("[]", payload))
 
 
 def _check(args) -> int:
@@ -101,6 +126,41 @@ def _export(args) -> int:
     else:
         sys.stdout.write(out)
     return 0
+
+
+def _page(args) -> int:
+    docs = []
+    for path in args.files:
+        try:
+            docs += markup.parse_many(path.read_text(encoding="utf-8"))
+        except markup.MarkupError as e:
+            print(f"{path}: error: {e}", file=sys.stderr)
+            return 1
+    if args.blank:
+        docs = [markup.stripped(d) for d in docs]
+    args.out.write_text(build_page(docs), encoding="utf-8")
+    print(f"{args.out}: {len(docs)} document{'s' if len(docs) != 1 else ''}")
+    return 0
+
+
+def _split(args) -> int:
+    try:
+        docs = markup.parse_many(args.bundle.read_text(encoding="utf-8"))
+    except markup.MarkupError as e:
+        print(f"{args.bundle}: error: {e}", file=sys.stderr)
+        return 1
+    args.out.mkdir(parents=True, exist_ok=True)
+    status = 0
+    for doc in docs:
+        path = args.out / f"{doc.id}.xml"
+        content = markup.serialize(doc)
+        if path.exists() and path.read_text(encoding="utf-8") != content and not args.force:
+            print(f"{path} exists and differs, left as it is (use --force to overwrite)", file=sys.stderr)
+            status = 1
+            continue
+        path.write_text(content, encoding="utf-8")
+        print(path)
+    return status
 
 
 if __name__ == "__main__":
