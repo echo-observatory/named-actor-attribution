@@ -1,0 +1,66 @@
+<document id="global-voices-cheese-181-748041" source="global-voices-cheese-181" source-id="748041" text-sha256="dce803e74b6ef73e0148855033716b0074626eb617255c15ca92d33de991d2cb" status="drafted" drafted-by="claude-opus-5-5">
+<speakers>
+  <speaker id="S1" name="Charles" type="person"/>
+  <speaker id="S2" name="Denise Nicholls" type="person"/>
+  <speaker id="S3" name="Michelle Grattan" type="person"/>
+  <speaker id="S4" name="Peter Aylan-Parker" type="person"/>
+  <speaker id="S5" name="Mic Wright" type="person"/>
+  <speaker id="S6" name="Peter Kennedy" type="person"/>
+</speakers>
+<text><exclude reason="boilerplate">A video Screenshot of BBC News’ Climate Editor Justin Rowlatt interviewing Prince Charles (October 11, 2021)</exclude>
+
+Prince Charles has urged Australia’s Prime Minister, Scott Morrison, <seg speaker="S1" d="D2" r="R1" note="“urged … to attend”: the content is what he urged.">to attend the Glasgow Climate Conference COP26</seg>. He referred to the meeting as “<seg speaker="S1" d="D1" r="R3">the last chance saloon</seg>” to address the climate crisis.
+
+<dis type="non_statement">Morrison has yet to make a public statement about whether he will represent his government at the conference.</dis> He has referenced the 14-day quarantine requirement on his return as one reason for his hesitancy.
+
+<exclude reason="nested" note="Probably a tweet by Jenny Frecklington-Jones quoting Charles's reply; where the tweet starts is unclear.">When the presenter told Charles of Scott Morrison’s reason for not committing to travelling to Glasgow, the prince seemed surprised.
+
+He stopped walking and looked at the interviewer as he replied: “Is that what he says, is it?”” #auspol https://t.co/0z4CO52tDv
+
+— Jenny Frecklington-Jones; #Vaccinate ??️‍??? (@JonesHowdareyou) October 11, 2021</exclude>
+
+<dis type="author_voice">This excuse has not been popular down under:</dis>
+
+<seg speaker="S2" d="D3" r="R1">@ScottMorrisonMP you MUST attend Glasgow meeting! It would be embarrassing for all Australians for you to fail to do so because you don't want to quarantine! This is a once in a generation opportunity for Australia to be on the right side of history.</seg>
+
+— Denise Nicholls (@RevDJNicholls) October 11, 2021
+
+However, <dis type="unnamed_source">many believe that he is waiting to see if he can reach an agreement with his junior coalition partner, the National Party, on a plan to reach net-zero carbon emissions.</dis> The Conversation's Michelle Grattan has argued that <seg speaker="S3" d="D5" r="R1" note="Indirect speech and the block quote after it, merged by the maximal-run rule.">this is essential if the PM is to appear on the world stage:
+
+Morrison needs to be able to commit to net zero emissions by 2050 and to improve the government’s medium term ambition, if he is to keep faith with the expectations of Australia’s allies, the United States and Britain.</seg>
+
+The Nationals represent rural and regional areas and are vocal advocates for farming and mining, especially fossil fuel producers. Morrison is a member of the Liberal Party, which is the senior partner in the government.
+
+The PM has been under lots of pressure from world leaders such as US President Joe Biden and UK PM Boris Johnson, to announce a carbon target for 2050.
+
+Australia may see negative economic consequences if it is perceived as not pulling its weight on addressing the climate crisis. <dis type="named_no_attribution">The Business Council of Australia is just one of the major economic groups arguing for the net-zero target.</dis>
+
+A burst of humor emerged on social media when the prince revealed that <seg speaker="S1" d="D2" r="R4">he runs his Aston Martin car on fuel made from “cheese and white wine.”</seg> He was explaining his attempts to limit his carbon footprint. These tweets were typical:
+
+<seg speaker="S4" d="D3" r="R1">If I had an Aston Martin I should EXPECT it ran on wine and cheese… and/or unicorn blood.</seg>
+
+— Peter Aylan-Parker (@paylanparker) October 11, 2021
+
+<dis type="quoted_title_or_scare_quote">It was no surprise that “Prince Charles” topped the Australian Twitter trends with “Aston Martin” not far behind.</dis>
+
+Others were critical of the prince’s intervention in politics:
+
+<seg speaker="S5" d="D3" r="R1">Prince Charles, a man who got his furniture shipped between houses (including his special toilet seat), has countless servants, and lives in palaces is on the radio lecturing about saving the planet again. Abolish the monarchy; that would save *a lot* of carbon.</seg>
+
+— Mic Wright (@brokenbottleboy) October 11, 2021
+
+<exclude reason="unresolved" note="The account's display name is only “Barbara”: no full name.">Wow what luck Prince Charles old Aston Martin runs on recycled wine &amp; he only eats meat 5 days a week and Dairy 6 days a week…what a caring heir to the throne we have sparing us his time at he strolls the extensive gardens at his home on The Balmoral Estate
+
+— Barbara (@BarbaraSutton15) October 11, 2021</exclude>
+
+After the jibes from Britain, <dis type="document_source">reports indicate that Prime Minister Morrison will likely attend COP26.</dis> However, <dis type="unnamed_source">government sources have apparently denied that the prince’s remarks may have influenced him.</dis> There are plenty of skeptics:
+
+<seg speaker="S6" d="D5" r="R1">He will probably attend now but deny that that had anything to do with it.
+
+He will probably go on to say that he was always going to attend.</seg>
+
+— Peter Kennedy (@northcote_dad) October 12, 2021
+
+As heir to the British crown, Charles will become the King of Australia and Head of State as part of its constitutional monarchy. <dis type="author_voice">In that role, political convention would prevent him from making these kinds of public remarks about Australia's government or its leader.</dis></text>
+<notes>Charles is named “Prince Charles”: by the rule, the title is stripped, leaving “Charles”. Tweets are followed by a signature line (“— Name (@handle) date”), which is not part of the segment; the signature is the cue (D3).</notes>
+</document>
