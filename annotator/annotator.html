@@ -352,6 +352,13 @@ function nameOccurs(name, text) {
   const nickname = "(?:\\s+(?:[\"'“‘(\\[][^\"'”’)\\]]{1,40}[\"'”’)\\]]))?";
   return new RegExp(words.map(reEsc).join(nickname + "\\s+")).test(text);
 }
+// A segment starts with a quotation mark, or ends with one that closes nothing inside it
+// (mixed speech may end with a quoted fragment).
+function edgeQuote(s) {
+  if (QUOTE_MARKS.includes(s[0])) return true;
+  const last = s[s.length - 1];
+  return QUOTE_MARKS.includes(last) && ![...s.slice(0, -1)].some(c => QUOTE_MARKS.includes(c));
+}
 function normalizeName(n) { return n.toLowerCase().split(/\s+/).filter(Boolean).join(" "); }
 
 // ---------------------------------------------------------------------------
@@ -375,7 +382,7 @@ function checkDocument(doc) {
     if (s.kind === "seg") {
       if (!ids.includes(s.speaker)) add("error", `A segment has an undeclared speaker (${s.speaker || "none"})`, s);
       if (!trimText(inner)) add("error", "A segment is empty once punctuation is trimmed", s);
-      else if (/^\s|\s$/.test(inner) || QUOTE_MARKS.includes(inner[0]) || QUOTE_MARKS.includes(inner[inner.length - 1]))
+      else if (/^\s|\s$/.test(inner) || edgeQuote(inner))
         add("warning", "A segment starts or ends with whitespace or a quotation mark", s);
       if (doc.attrs.status === "reviewed" && (!s.d || !s.r)) add("warning", `A segment has no ${!s.d ? "D" : "R"} level`, s);
     } else if (!inner.trim()) add("error", `An empty ${s.kind === "dis" ? "distractor" : "exclusion"}`, s);
@@ -951,6 +958,7 @@ function selfTest() {
   ok("a character step never splits an emoji", charStep(t, e, 1) === e + 2 && charStep(t, e + 2, -1) === e, `${charStep(t, e, 1)} ${e}`);
   ok("word step to the next word start", wordStep(t, t.indexOf("said"), 1, "start") === t.indexOf("“") + 1, wordStep(t, t.indexOf("said"), 1, "start"));
   ok("word step to the previous word end", wordStep(t, t.indexOf(" said"), -1, "end") === t.indexOf(" Berg") , wordStep(t, t.indexOf(" said"), -1, "end"));
+  ok("mixed speech may end with a quoted fragment", !edgeQuote("would reopen “if the funding holds”") && edgeQuote("“It works.") && edgeQuote("It works.”"));
   ok("nickname inside a name", nameOccurs("Robert Smith", "Robert ‘Bob’ Smith said") && !nameOccurs("Robert Smith", "Robert J. Smith"));
   const merged = parseMarkup('<document id="m"><speakers><speaker id="S1" name="Anna Berg" type="person"/></speakers><text>Anna Berg said <seg speaker="S1">it works</seg>, <seg speaker="S1">and well</seg>.</text></document>')[0];
   ok("merge warning", checkDocument(merged).some(p => p.message.includes("merge them")), JSON.stringify(checkDocument(merged)));

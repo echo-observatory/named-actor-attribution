@@ -1,4 +1,4 @@
-"""Command line: `naa new`, `naa check`, `naa rehash`, `naa export`, `naa page`, `naa split`."""
+"""Command line: `naa new`, `naa apply`, `naa check`, `naa rehash`, `naa export`, `naa page`, `naa split`."""
 
 from __future__ import annotations
 
@@ -19,6 +19,10 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("ids", nargs="+", help="ids of the articles to create documents for")
     p.add_argument("--out", type=Path, default=Path("annotations"), help="folder to write to (default: annotations/)")
     p.add_argument("--source", help="name of the corpus (default: the corpus file's folder name)")
+
+    p = sub.add_parser("apply", help="annotate a document from a draft that quotes each span (docs/drafting.md)")
+    p.add_argument("file", type=Path, help="the document to annotate; its speakers and spans are replaced")
+    p.add_argument("draft", type=Path, help="the draft, as JSON")
 
     p = sub.add_parser("check", help="check documents; exit 1 if any has an error")
     p.add_argument("files", nargs="+", type=Path)
@@ -42,7 +46,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--force", action="store_true", help="overwrite files that exist and differ")
 
     args = parser.parse_args(argv)
-    commands = {"new": _new, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
+    commands = {"new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
     return commands[args.command](args)
 
 
@@ -88,6 +92,26 @@ def build_page(docs: list[markup.Document], template: str | None = None) -> str:
     # Escaping "<" keeps "</script>" and "<!--" in a text from ending the script element.
     payload = json.dumps([markup.serialize(d) for d in docs], ensure_ascii=False).replace("<", "\\u003c")
     return template.replace(EMBED, EMBED.replace("[]", payload))
+
+
+def _apply(args) -> int:
+    doc = _read(args.file)
+    draft = json.loads(args.draft.read_text(encoding="utf-8"))
+    doc, problems = markup.apply_draft(doc, draft)
+    for p in problems:
+        print(f"{args.draft}: error: {p}", file=sys.stderr)
+    if problems:
+        return 1
+    try:
+        content = markup.serialize(doc)
+    except ValueError as e:
+        print(f"{args.draft}: error: {e}", file=sys.stderr)
+        return 1
+    args.file.write_text(content, encoding="utf-8")
+    for p in markup.check(doc):
+        print(f"{args.file}: {p}")
+    print(f"{args.file}: {len(doc.segments)} segments, {len(doc.distractors)} distractors, {len(doc.exclusions)} exclusions")
+    return 0
 
 
 def _check(args) -> int:
