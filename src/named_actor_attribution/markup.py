@@ -276,7 +276,7 @@ def check(doc: Document) -> list[Problem]:
         inner = doc.text[seg.start:seg.end]
         if not trim(inner):
             err(f"{where} is empty once whitespace and punctuation are trimmed")
-        elif inner[0].isspace() or inner[-1].isspace() or inner[0] in QUOTE_MARKS or inner[-1] in QUOTE_MARKS:
+        elif inner[0].isspace() or inner[-1].isspace() or edge_quote(inner):
             warn(f"{where} starts or ends with whitespace or a quotation mark")
 
     for dis in doc.distractors:
@@ -297,6 +297,16 @@ def check(doc: Document) -> list[Problem]:
             warn(f"segments at {a.start} and {b.start} have the same speaker and only whitespace or "
                  "punctuation between them: merge them (a gold segment is a maximal run, spec §2)")
     return out
+
+
+def edge_quote(s: str) -> bool:
+    """A segment starts with a quotation mark, or ends with one that closes nothing inside it.
+
+    Mixed speech may end with a quoted fragment (`would reopen “if the funding holds”`): that is fine.
+    """
+    if s[0] in QUOTE_MARKS:
+        return True
+    return s[-1] in QUOTE_MARKS and not any(c in QUOTE_MARKS for c in s[:-1])
 
 
 def _excerpt(text: str, start: int, end: int, width: int = 40) -> str:
@@ -406,6 +416,59 @@ def rehash(markup: str) -> str:
     else:
         new_tag = tag[:-1].rstrip("/") + f' text-sha256="{new}">'
     return markup[: root_tag.start(1)] + new_tag + markup[root_tag.end(1):]
+
+
+# --- Drafts ------------------------------------------------------------------
+
+
+def apply_draft(doc: Document, draft: dict) -> tuple[Document, list[str]]:
+    """Annotate a document from a draft that quotes each span's text (see docs/drafting.md).
+
+    Returns the annotated document and the problems found (a text not found, or found several
+    times without saying which). Existing speakers and spans are replaced.
+    """
+    out = Document(**{**doc.__dict__, "speakers": [], "segments": [], "distractors": [], "exclusions": []})
+    out.status = draft.get("status", "drafted")
+    if "drafted_by" in draft:
+        out.drafted_by = draft["drafted_by"]
+    if "notes" in draft:
+        out.notes = draft["notes"]
+    out.speakers = [Speaker(i, n, t) for i, n, t in draft.get("speakers", [])]
+    problems = []
+    for entry in draft.get("spans", []):
+        kind, value, text, *rest = entry
+        opts = rest[0] if rest else {}
+        hits, i = [], out.text.find(text)
+        while i >= 0:
+            hits.append(i)
+            i = out.text.find(text, i + 1)
+        n = opts.get("n")
+        if not hits:
+            problems.append(f"not found: {text[:60]!r}")
+            continue
+        if n is None and len(hits) > 1:
+            problems.append(f"found {len(hits)} times, say which with n: {text[:60]!r}")
+            continue
+        if n is not None and not 1 <= n <= len(hits):
+            problems.append(f"n={n}, but found {len(hits)} times: {text[:60]!r}")
+            continue
+        start = hits[(n or 1) - 1]
+        end = start + len(text)
+        if "to" in opts:
+            j = out.text.find(opts["to"], start)
+            if j < 0:
+                problems.append(f"end not found after {text[:30]!r}: {opts['to'][:60]!r}")
+                continue
+            end = j + len(opts["to"])
+        if kind == "seg":
+            out.segments.append(Segment(value, start, end, opts.get("d"), opts.get("r"), opts.get("note")))
+        elif kind == "dis":
+            out.distractors.append(Distractor(value, start, end, opts.get("note")))
+        elif kind == "exclude":
+            out.exclusions.append(Exclusion(value, start, end, opts.get("note")))
+        else:
+            problems.append(f"unknown kind {kind!r}")
+    return out, problems
 
 
 # --- Records -----------------------------------------------------------------

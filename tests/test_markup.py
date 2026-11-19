@@ -97,6 +97,8 @@ def test_duplicate_speakers():
 def test_boundary_warnings():
     doc = doc_with('Anna Berg said: <seg speaker="S1">“It works.”</seg>')
     assert any("quotation mark" in m for m in messages(doc, "warning"))
+    doc = doc_with('Anna Berg said <seg speaker="S1">it works “if the funding holds”</seg>.')
+    assert not any("quotation mark" in m for m in messages(doc, "warning"))
     doc = doc_with('Anna Berg said <seg speaker="S1">“”</seg>.')
     assert any("empty once" in m for m in messages(doc, "error"))
 
@@ -203,3 +205,18 @@ def test_cli_check_fails_on_errors(tmp_path):
     bad = tmp_path / "bad.xml"
     bad.write_text("<document id='t'><text>a & b</text></document>", encoding="utf-8")
     assert cli.main(["check", str(bad)]) == 1
+
+
+def test_apply_draft():
+    doc = markup.blank("t", "Anna Berg said it works. “It works,” Berg said. The end.")
+    draft = {"drafted_by": "model", "speakers": [["S1", "Anna Berg", "person"]], "spans": [
+        ["seg", "S1", "it works", {"d": "D2", "r": "R1"}],
+        ["seg", "S1", "It works", {"n": 1}],
+        ["dis", "author_voice", "The", {"to": "end."}]]}
+    out, problems = markup.apply_draft(doc, draft)
+    assert problems == []
+    assert [out.text[s.start:s.end] for s in out.segments] == ["it works", "It works"]
+    assert out.text[out.distractors[0].start:out.distractors[0].end] == "The end."
+    assert (out.status, out.drafted_by, doc.segments) == ("drafted", "model", [])
+    _, problems = markup.apply_draft(doc, {"spans": [["seg", "S1", "missing"], ["seg", "S1", "works"]]})
+    assert "not found" in problems[0] and "found 2 times" in problems[1]

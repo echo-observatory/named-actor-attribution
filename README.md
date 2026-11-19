@@ -6,7 +6,7 @@ This is the task of Karaage's attribution step.
 
 A side project, not a pipeline component: the dataset will be used later in evals in the [`evals`](https://github.com/echo-observatory/evals) repo, and possibly published in some form in `obs-test-datasets`.
 
-Status: building. The markup format, its checks and the annotation page exist; drafting the pilot documents comes next.
+Status: pilot. Six documents are drafted and wait for review in the annotation page.
 
 ## Contents
 
@@ -15,7 +15,8 @@ Status: building. The markup format, its checks and the annotation page exist; d
 | [`guidelines.md`](guidelines.md) | The annotation guidelines, for the drafting model, reviewers and second annotators. |
 | [`specification.md`](specification.md) | The dataset specification: task, difficulty levels and tiers, item construction, data format, annotation procedure, scoring, and deliverables. |
 | [`docs/markup.md`](docs/markup.md) | The markup format: the working format of annotations, one source document per file, with spans marked in the text. |
-| `annotations/` | Annotated documents in the markup format. Created with the first one. |
+| [`annotations/`](annotations/) | Annotated documents in the markup format, with their licence and credits. |
+| [`docs/drafting.md`](docs/drafting.md) | How documents are drafted, and the draft format that `naa apply` reads. |
 | [`annotator/annotator.html`](annotator/annotator.html) | The annotation page: a single HTML file with no dependencies (see [Annotation page](#annotation-page)). |
 | [`src/named_actor_attribution/`](src/named_actor_attribution/), [`tests/`](tests/) | The `naa` command line, and its tests. |
 
@@ -62,6 +63,9 @@ The tests of the annotation page run its self-test in headless Chrome or Chromiu
 ```bash
 # Create blank documents from a corpus, ready to annotate (writes annotations/<source>-<id>.xml)
 uv run naa new ../obs-test-datasets/global-voices-cheese-181/articles.jsonl 483946 766250
+
+# Annotate a document from a draft that quotes each span (docs/drafting.md)
+uv run naa apply annotations/global-voices-cheese-181-483946.xml draft.json
 
 # Check documents: exits 1 if any has an error
 uv run naa check annotations/*.xml
