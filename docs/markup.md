@@ -40,8 +40,17 @@ It is temporary: the dataset's items and labels (spec §6) are generated from it
 
 - `<seg speaker="S1" d="D1" r="R3">…</seg>`: an attributed segment. `speaker` is required. `d` and `r` are its detection and reference levels (spec §3): optional while drafting, expected once reviewed. A second annotator working from scratch doesn't need to set them.
 - `<dis type="…">…</dis>`: a distractor (spec §5.3). One span per distractor.
+- `<exclude reason="…">…</exclude>`: text that keeps any item containing it out of the dataset, so that items are cut around it. The reasons:
 
-Both may carry an optional `note`. Spans cannot nest or overlap.
+  | Reason | Text |
+  | --- | --- |
+  | `joint` | Attributed to several actors at once ("Berg and Holm said…") |
+  | `nested` | An attribution inside another one ("A said that B told her…", a quote inside a quote) |
+  | `unresolved` | Attributed to an actor a careful reader can't identify, or who has no canonical name (an account known only by its handle) |
+  | `non-english` | A sentence or quote in another language |
+  | `boilerplate` | A caption, photo credit, editorial note or headline. Removed from items rather than avoided (spec §5.1) |
+
+All three may carry an optional `note`. Spans cannot nest or overlap.
 
 There is no markup for cues or speaker mentions: levels are set by the annotator, and checked again on each item after cutting.
 
@@ -58,7 +67,7 @@ There is no markup for cues or speaker mentions: levels are set by the annotator
 
 `naa check` reports errors, which must be fixed, and warnings, worth a look:
 
-- **Errors:** malformed XML, unknown elements or attributes, nested spans, a changed text, an undeclared speaker, an invalid level or type, two speakers with the same name, an empty segment.
+- **Errors:** malformed XML, unknown elements or attributes, nested spans, a changed text, an undeclared speaker, an invalid level, type or reason, two speakers with the same name, an empty span.
 - **Warnings:**
   - a speaker's name that doesn't occur in the text (spec §2), or a speaker with no segment;
   - a segment that starts or ends with whitespace or a quotation mark;

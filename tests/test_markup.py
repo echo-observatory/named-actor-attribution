@@ -42,7 +42,7 @@ def test_offsets_are_code_points_into_the_text_as_stored():
 def test_whitespace_and_paragraphs_are_kept():
     doc = lab()
     assert "writes:\n\nNobody" in doc.text
-    assert doc.text.startswith("Anna Berg") and doc.text.endswith("paperwork.")
+    assert doc.text.startswith("Anna Berg") and doc.text.endswith("CC BY 2.0.")
 
 
 def test_the_fixture_has_no_problems():
@@ -50,7 +50,8 @@ def test_the_fixture_has_no_problems():
 
 
 @pytest.mark.parametrize("src, expected", [
-    ("<document id='t'><text>a <b>x</b></text></document>", "only <seg> and <dis>"),
+    ("<document id='t'><text>a <b>x</b></text></document>", "only <seg>, <dis> and <exclude>"),
+    ("<document id='t'><text><exclude reason='joint'>a <seg speaker='S1'>x</seg></exclude></text></document>", "cannot nest"),
     ("<document id='t'><text>a <seg speaker='S1'>x <dis type='author_voice'>y</dis></seg></text></document>", "cannot nest"),
     ("<document id='t'><speakers/></document>", "no <text>"),
     ("<document><text>a</text></document>", "no id"),
@@ -80,9 +81,10 @@ def test_unknown_speaker_and_bad_levels():
 
 
 def test_bad_types():
-    doc = doc_with('<dis type="rumour">x</dis>', speakers='<speaker id="S1" name="Anna Berg" type="blog"/>')
+    doc = doc_with('<dis type="rumour">x</dis> <exclude reason="boring">y</exclude>',
+                   speakers='<speaker id="S1" name="Anna Berg" type="blog"/>')
     errors = " | ".join(messages(doc, "error"))
-    assert "type 'blog'" in errors and "type 'rumour'" in errors
+    assert "type 'blog'" in errors and "type 'rumour'" in errors and "reason 'boring'" in errors
 
 
 def test_duplicate_speakers():
@@ -168,6 +170,8 @@ def test_record():
         "segment_id": "G1", "speaker_id": "S1", "speaker": "Anna Berg", "start": 43, "end": 65,
         "text": "The equipment is ready", "detection_level": "D1", "reference_level": "R3", "note": None}
     assert rec["distractors"][0]["type"] == "unnamed_source"
+    assert [x["reason"] for x in rec["exclusions"]] == ["joint", "boilerplate"]
+    assert all(rec["text"][x["start"]:x["end"]] == x["text"] for x in rec["exclusions"])
     assert all(rec["text"][s["start"]:s["end"]] == s["text"] for s in rec["segments"])
 
 

@@ -24,11 +24,20 @@ DISTRACTOR_TYPES = (
     "quoted_title_or_scare_quote",
 )
 STATUSES = ("blank", "drafted", "reviewed")
+# Why a stretch of text keeps any item that contains it out of the dataset (spec §5.1, §5.2).
+EXCLUSION_REASONS = (
+    "joint",          # attributed to several actors at once
+    "nested",         # an attribution inside another one
+    "unresolved",     # the speaker can't be resolved, or has no canonical name (a handle only)
+    "non-english",    # a sentence or quote in another language
+    "boilerplate",    # a caption, photo credit, editorial note or headline: removed from items
+)
 
 DOCUMENT_ATTRS = {"id", "source", "source-id", "text-sha256", "status", "annotator", "drafted-by", "miss-check-by"}
 SPEAKER_ATTRS = {"id", "name", "type"}
 SEG_ATTRS = {"speaker", "d", "r", "note"}
 DIS_ATTRS = {"type", "note"}
+EXCLUDE_ATTRS = {"reason", "note"}
 
 # Quotation marks that open or close a quote; a segment never starts or ends with one (spec §2).
 QUOTE_MARKS = "\"'“”‘’«»„‟‹›"
@@ -64,6 +73,14 @@ class Distractor:
 
 
 @dataclass
+class Exclusion:
+    reason: str
+    start: int
+    end: int
+    note: str | None = None
+
+
+@dataclass
 class Document:
     id: str
     text: str
@@ -77,6 +94,7 @@ class Document:
     speakers: list[Speaker] = field(default_factory=list)
     segments: list[Segment] = field(default_factory=list)
     distractors: list[Distractor] = field(default_factory=list)
+    exclusions: list[Exclusion] = field(default_factory=list)
     notes: str | None = None
 
 
@@ -142,8 +160,8 @@ def _read_text(el: ET.Element, doc: Document) -> None:
     parts = [el.text or ""]
     pos = len(parts[0])
     for span in el:
-        if span.tag not in ("seg", "dis"):
-            raise MarkupError(f"unexpected element <{span.tag}> in <text>: only <seg> and <dis> are allowed")
+        if span.tag not in ("seg", "dis", "exclude"):
+            raise MarkupError(f"unexpected element <{span.tag}> in <text>: only <seg>, <dis> and <exclude> are allowed")
         if len(span):
             raise MarkupError(f"<{span.tag}> at character {pos} contains <{span[0].tag}>: spans cannot nest")
         inner = span.text or ""
@@ -152,9 +170,12 @@ def _read_text(el: ET.Element, doc: Document) -> None:
             _no_unknown_attrs(span, SEG_ATTRS)
             doc.segments.append(Segment(speaker=span.get("speaker", ""), start=start, end=end,
                                         d=span.get("d"), r=span.get("r"), note=span.get("note")))
-        else:
+        elif span.tag == "dis":
             _no_unknown_attrs(span, DIS_ATTRS)
             doc.distractors.append(Distractor(type=span.get("type", ""), start=start, end=end, note=span.get("note")))
+        else:
+            _no_unknown_attrs(span, EXCLUDE_ATTRS)
+            doc.exclusions.append(Exclusion(reason=span.get("reason", ""), start=start, end=end, note=span.get("note")))
         tail = span.tail or ""
         parts += [inner, tail]
         pos = end + len(tail)
@@ -241,6 +262,12 @@ def check(doc: Document) -> list[Problem]:
         if not doc.text[dis.start:dis.end].strip():
             err(f"distractor at {dis.start}–{dis.end} is empty")
 
+    for ex in doc.exclusions:
+        if ex.reason not in EXCLUSION_REASONS:
+            err(f"exclusion at {ex.start}–{ex.end} has reason {ex.reason!r}, not one of {', '.join(EXCLUSION_REASONS)}")
+        if not doc.text[ex.start:ex.end].strip():
+            err(f"exclusion at {ex.start}–{ex.end} is empty")
+
     segs = sorted(doc.segments, key=lambda s: s.start)
     for a, b in zip(segs, segs[1:]):
         if a.speaker == b.speaker and not trim(doc.text[a.end:b.start]):
@@ -305,6 +332,7 @@ def _text_with_spans(doc: Document) -> str:
     spans = [(s.start, s.end, "seg", [("speaker", s.speaker), ("d", s.d), ("r", s.r), ("note", s.note)])
              for s in doc.segments]
     spans += [(d.start, d.end, "dis", [("type", d.type), ("note", d.note)]) for d in doc.distractors]
+    spans += [(x.start, x.end, "exclude", [("reason", x.reason), ("note", x.note)]) for x in doc.exclusions]
     spans.sort(key=lambda x: (x[0], x[1]))
     out, pos = [], 0
     for start, end, tag, attrs in spans:
@@ -378,6 +406,10 @@ def to_record(doc: Document) -> dict:
         "distractors": [
             {"type": d.type, "spans": [[d.start, d.end]], "text": doc.text[d.start:d.end], "note": d.note}
             for d in sorted(doc.distractors, key=lambda d: d.start)
+        ],
+        "exclusions": [
+            {"reason": x.reason, "start": x.start, "end": x.end, "text": doc.text[x.start:x.end], "note": x.note}
+            for x in sorted(doc.exclusions, key=lambda x: x.start)
         ],
         "notes": doc.notes,
     }
