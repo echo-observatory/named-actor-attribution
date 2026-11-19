@@ -22,7 +22,7 @@ An **attributed segment** is text expressing what a named actor said, wrote, bel
 
 - **Content only:** a segment never includes the speaker mention or the cue ("said", "according to"). Quotation marks that open or close a segment are excluded, like the cue; quotation marks inside it (the quoted fragments of mixed speech) stay.
 - **Segmentation rule (gold):** a gold segment is a **maximal run** of text attributed to one actor. Gold segmentation should be deterministic; systems may segment differently, and scoring tolerates it (§8).
-- **Not attributed:** questions, refusals and non-statements ("Berg declined to comment", "Berg asked whether…"); negated speech ("Berg did not say…"); titles of works; scare quotes with no speaker.
+- **Not attributed:** reported questions, refusals and non-statements ("Berg declined to comment", "Berg asked whether…"); negated speech ("Berg did not say…"); titles of works; scare quotes with no speaker. A question inside a quote stays in the quote's segment: the run of quoted text is not split.
 
 **Named actors in scope:** named persons and named organizations ("Anna Berg", "the European Space Agency"). Named blogs, publications and outlets ("Barbados Free Press") count as organizations. Out of scope, and used as distractors (§5.3): unnamed people and groups ("officials", "researchers"), documents and studies ("a report found"), and the article's author.
 

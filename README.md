@@ -12,6 +12,7 @@ Status: building. The markup format and its checks exist; the annotation page co
 
 | Path | What it holds |
 | --- | --- |
+| [`guidelines.md`](guidelines.md) | The annotation guidelines, for the drafting model, reviewers and second annotators. |
 | [`specification.md`](specification.md) | The dataset specification: task, difficulty levels and tiers, item construction, data format, annotation procedure, scoring, and deliverables. |
 | [`docs/markup.md`](docs/markup.md) | The markup format: the working format of annotations, one source document per file, with spans marked in the text. |
 | `annotations/` | Annotated documents in the markup format. Created with the first one. |
