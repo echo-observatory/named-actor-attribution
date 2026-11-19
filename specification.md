@@ -32,6 +32,7 @@ An **attributed segment** is text expressing what a named actor said, wrote, bel
 
 - **Persons:** given name(s) and family name, including middle names or initials when the item gives them ("Anna K. Berg"). Strip titles, honorifics, roles and degrees (Dr, Prof., Senator, PhD); keep generational suffixes (Jr., III). Drop nicknames given in quotes or brackets ("Robert ‘Bob’ Smith" → "Robert Smith").
 - **Organizations:** the full name as given in the item, without a leading "the" ("European Space Agency", not "ESA"). If the item gives only an acronym or short form, that form is canonical.
+- **Social media accounts:** the account's display name, as written, when it looks like a person's full name ("Ivan Kolpakov" for "Ivan Kolpakov (@kolpakov)"). A handle is an alias, not a canonical name: an account known only by a handle or a username that is not a full name ("A.S.T. (@All_Sin_Che)") has no canonical name, so its item is excluded (§5.2). Linking handles to actors is left to actor reconciliation, out of scope here.
 - Apart from stripped titles and nicknames, the canonical name must appear verbatim in the item. An actor never named in the item is not a named actor for that item.
 - Canonical names are unique and not confusable within an item: two speakers called "Berg" → item excluded. The speaker test is on the canonical name only (§8.1), so each speaker needs one clear canonical name: if an item's name forms for one actor conflict ("Bob Smith" and "Robert Smith", or two different long forms), the item is excluded. The text itself may and should use other forms: short names, descriptors, pronouns.
 - **Out of scope:** reconciling actors across documents (e.g. a middle name given in one article and not in another) and scoring alias lists. Real-world text is messier than this dataset; the dataset trades some messiness for testability, and its limits should be stated in the README.
@@ -95,8 +96,9 @@ T0 items must contain at least one distractor (§5.3). T1–T7 items must contai
 
 ### 5.1 Units
 
-- An item is a passage of **real English prose** (news by default), made of whole sentences, and from T3 up of whole paragraphs. Remove headlines, bylines, captions and boilerplate.
+- An item is a contiguous passage of **real English prose** (news by default), made of whole sentences, and from T3 up of whole paragraphs. Remove headlines, bylines, captions, photo credits, editorial notes and boilerplate.
 - Do **not** trim the text around attributed segments to make an item cleaner. Ordinary narration is kept, because it carries the false-positive traps.
+- **Adapted items.** Where unedited passages are too scarce for a low tier, an item in **T0–T3** may be adapted from real text to make it simpler: drop sentences or clauses, replace a pronoun or descriptor with the actor's name, or rewrite a lead-in and its block quote as an inline quote with its cue. Edits are minimal, keep the source's wording elsewhere, and never add content attributed to an actor. Items in T4–T7 are not adapted, except to remove non-English text (§5.2). An adapted item has `source.adapted` set to true and a one-line `source.adaptation` note, and its `attribution_line` says the text was adapted. Its tier is computed from the adapted text.
 - Annotate **every** stretch of text attributable to a named actor in the item (exhaustive annotation). Precision is meaningless otherwise.
 - Record the source document, the passage's character offset in it, and the text license.
 
@@ -106,6 +108,7 @@ T0 items must contain at least one distractor (§5.3). T1–T7 items must contai
 - A segment whose speaker cannot be resolved by a careful human reader from the item alone, or whose antecedent lies outside the item.
 - Two speakers with confusable names (§2), or a speaker without a canonical name in the item who would otherwise be a gold speaker.
 - Gold disagreements that adjudication cannot settle (§7).
+- Non-English text: a sentence or quote in another language, such as the original of a translated tweet. Single foreign words and names inside English sentences are fine. The item may instead be adapted to remove the non-English text (§5.1).
 
 ### 5.3 Distractors
 
@@ -136,7 +139,7 @@ One JSON object per item, one item per line (`items.jsonl`). Character offsets a
   "split": "dev",
   "text": "Anna Berg, who leads the lab, was upbeat. “The equipment is ready,” she said. “We only need the permits.”",
   "word_count": 19,
-  "source": {"url": "https://…", "title": "…", "publisher": "…", "date": "2026-03-02", "start_offset": 1840, "license": "CC BY 4.0", "attribution_line": "…"},
+  "source": {"url": "https://…", "title": "…", "publisher": "…", "date": "2026-03-02", "start_offset": 1840, "adapted": false, "adaptation": null, "license": "CC BY 4.0", "attribution_line": "…"},
   "speakers": [
     {"speaker_id": "S1", "canonical_name": "Anna Berg", "type": "person"}
   ],

@@ -2,7 +2,7 @@
 
 ## About this repo
 
-TODO: one or two sentences on what this repo is and where it sits in the pipeline.
+Builds a tiered English eval dataset for attributing text segments to named actors (the task of Karaage's attribution step), for use in the `evals` repo. `specification.md` is the dataset specification.
 
 ## Pipeline context
 
