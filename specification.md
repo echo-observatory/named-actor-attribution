@@ -14,26 +14,26 @@ The headline output of an evaluation run is a **difficulty curve**: one joint sc
 
 ## 2. Task definition
 
-**Input:** the plain text of one item (a passage of English prose, no markup, no headline). **Output:** a list of **non-overlapping character segments** `[start, end)`, each attributed to **exactly one** named actor by canonical name (format in §6). Every character outside a segment carries the **default label: not attributed to a named actor**. The default covers narration, the author's own voice, unnamed sources and documents alike; it does not mean "claimed by the author".
+**Input:** the plain text of one item (a passage of English prose, no markup, no headline; paragraphs separated by a blank line), and task instructions that state this definition and the canonical-name rule below, so the system knows to name each speaker by the fullest name the item gives. **Output:** a list of **non-overlapping character segments** `[start, end)`, each attributed to **exactly one** named actor by canonical name (rule below). Every character outside a segment carries the **default label: not attributed to a named actor**. The default covers narration, the author's own voice, unnamed sources and documents alike; it does not mean "claimed by the author".
 
 **The unit is the attributed segment, not the claim.** The labelling has two levels only: text segments, and the actor each is attributed to. There is **no claim level in between**: the dataset does not assume that claims are distinct and countable, and nothing in it groups segments into claims. ("Claim" may be used informally in explanations; it has no role in the data or the scoring.)
 
-An **attributed segment** is text expressing what a named actor said, wrote, believes, thinks, fears, wants or intends: direct quotes, indirect speech, mixed speech (paraphrase with quoted fragments) and private states ("in her view", "he fears that…").
+An **attributed segment** is text expressing what a named actor said, wrote, believes, thinks, fears, wants or intends: direct quotes, indirect speech, mixed speech (paraphrase with quoted fragments) and private states ("in her view", "he fears that…"). A private state counts only when its content is a clause ("fears that the funding will be cut", "wants the lab to reopen"); a bare noun phrase ("fears further cuts", "wants reform") is not a segment.
 
 - **Content only:** a segment never includes the speaker mention or the cue ("said", "according to"). Quotation marks that open or close a segment are excluded, like the cue; quotation marks inside it (the quoted fragments of mixed speech) stay.
 - **Segmentation rule (gold):** a gold segment is a **maximal run** of text attributed to one actor. Gold segmentation should be deterministic; systems may segment differently, and scoring tolerates it (§8).
 - **Not attributed:** questions, refusals and non-statements ("Berg declined to comment", "Berg asked whether…"); negated speech ("Berg did not say…"); titles of works; scare quotes with no speaker.
 
-**Named actors in scope:** named persons and named organizations ("Anna Berg", "the European Space Agency"). Out of scope, and used as distractors (§5.3): unnamed people and groups ("officials", "researchers"), documents and studies ("a report found"), and the article's author.
+**Named actors in scope:** named persons and named organizations ("Anna Berg", "the European Space Agency"). Named blogs, publications and outlets ("Barbados Free Press") count as organizations. Out of scope, and used as distractors (§5.3): unnamed people and groups ("officials", "researchers"), documents and studies ("a report found"), and the article's author.
 
 **One actor per segment.** Because each segment belongs to exactly one actor and segments cannot overlap, this dataset excludes (§5.2) **joint attributions to several actors** ("Berg and Holm said…", "the agency and its partners argue…") and nested attributions. Joint attributions are common in real text; they are left out here only because they are harder to score, and this limit must be stated in the README.
 
 **Canonical-name rule.** Every speaker in an item has exactly one canonical name: its **normal name**, the form that would best identify the same actor across documents. In practice, this is the fullest proper name used for the actor in the item.
 
-- **Persons:** given name(s) and family name, including middle names or initials when the item gives them ("Anna K. Berg"). Strip titles, honorifics, roles and degrees (Dr, Prof., Senator, PhD); keep generational suffixes (Jr., III). Drop nicknames given in quotes or brackets ("Robert ‘Bob’ Smith" → "Robert Smith").
-- **Organizations:** the full name as given in the item, without a leading "the" ("European Space Agency", not "ESA"). If the item gives only an acronym or short form, that form is canonical.
+- **Persons:** given name(s) and family name, including middle names or initials when the item gives them ("Anna K. Berg"). Strip titles, honorifics, roles and degrees (Dr, Prof., Senator, PhD); keep generational suffixes (Jr., III). Drop nicknames given in quotes or brackets ("Robert ‘Bob’ Smith" → "Robert Smith"). If the item gives only one name for a person (a surname, a first name), that name is canonical.
+- **Organizations** (blogs and publications included): the full name as given in the item, without a leading "the" ("European Space Agency", not "ESA"). If the item gives only an acronym or short form, that form is canonical.
 - **Social media accounts:** the account's display name, as written, when it looks like a person's full name ("Ivan Kolpakov" for "Ivan Kolpakov (@kolpakov)"). A handle is an alias, not a canonical name: an account known only by a handle or a username that is not a full name ("A.S.T. (@All_Sin_Che)") has no canonical name, so its item is excluded (§5.2). Linking handles to actors is left to actor reconciliation, out of scope here.
-- Apart from stripped titles and nicknames, the canonical name must appear verbatim in the item. An actor never named in the item is not a named actor for that item.
+- The canonical name must appear verbatim in the item, or with only a stripped nickname inside it ("Robert ‘Bob’ Smith" for "Robert Smith"). Stripped titles and a leading "the" sit outside the name, so they don't affect this. An actor never named in the item is not a named actor for that item.
 - Canonical names are unique and not confusable within an item: two speakers called "Berg" → item excluded. The speaker test is on the canonical name only (§8.1), so each speaker needs one clear canonical name: if an item's name forms for one actor conflict ("Bob Smith" and "Robert Smith", or two different long forms), the item is excluded. The text itself may and should use other forms: short names, descriptors, pronouns.
 - **Out of scope:** reconciling actors across documents (e.g. a middle name given in one article and not in another) and scoring alias lists. Real-world text is messier than this dataset; the dataset trades some messiness for testability, and its limits should be stated in the README.
 
@@ -47,9 +47,9 @@ Every gold segment is tagged on two axes: how hard it is to **detect** the segme
 | --- | --- | --- |
 | D1 | Direct quote with its own cue (speech or writing verb) in the same sentence | “**The lab reopens in March**,” said Anna Berg. |
 | D2 | Indirect or mixed speech with its own speech or writing verb cue in the same sentence | Berg said **the lab would reopen “if the funding holds”**. |
-| D3 | No cue of its own: attributed through the same actor's cue in the adjacent sentence | “The equipment is ready,” she said. “**We only need permits**.” |
+| D3 | Cue in the adjacent sentence, not the same one: a continuation after the actor's cue, or a quote introduced by a lead-in ending in a colon ("Berg writes:"), including a block quote in the next paragraph | “The equipment is ready,” she said. “**We only need permits**.” |
 | D4 | Private state or non-verbal cue: belief, fear, intention, "in X's view", "according to X", nominal cue ("his warning that…") | In his view, **permits could take a year**. |
-| D5 | No cue within one sentence (the nearest cue for this actor lies beyond narration or another paragraph), or the segment crosses a paragraph boundary | “Permits are the bottleneck,” Holm said. [narration paragraph] “**Nobody wants to fund paperwork**.” |
+| D5 | No cue in the same or the adjacent sentence (the nearest cue for this actor lies beyond narration or another paragraph), or the segment crosses a paragraph boundary (such as a block quote of several paragraphs) | “Permits are the bottleneck,” Holm said. [narration paragraph] “**Nobody wants to fund paperwork**.” |
 
 **Speaker reference level (R)**, judged per segment: the mention attached to its cue, or, for a segment without a cue, the nearest mention that identifies its speaker.
 
@@ -58,9 +58,9 @@ Every gold segment is tagged on two axes: how hard it is to **detect** the segme
 | R1 | Canonical name in the same sentence | …said Anna Berg. |
 | R2 | Short form of the canonical name (surname, first name) in the same sentence, unique in the item | …said Berg. |
 | R3 | Pronoun whose antecedent is within the previous 2 sentences and is the only compatible candidate | …she said. |
-| R4 | Role or title descriptor ("the director", "the agency") within 2 sentences, unambiguous | The director fears further cuts. |
-| R5 | Distant antecedent (more than 2 sentences back or in an earlier paragraph), or two or more compatible candidates in the window | Berg and Lise Kanto disagree. […] She thinks March is unrealistic. |
-| R6 | No mention: speaker inferred from discourse structure (follow-on quote paragraph, alternating exchange) | “Nobody funds paperwork.” (no cue, no mention) |
+| R4 | Role or title descriptor ("the director", "the agency") within 2 sentences, unambiguous | The director fears the funding will be cut. |
+| R5 | Distant antecedent (more than 2 sentences back or in an earlier paragraph), or two or more compatible candidates in the window, resolved by the content | Berg wants a March reopening; Lise Kanto has doubts. […] She thinks March is unrealistic. |
+| R6 | No mention marks the actor as the speaker: the speaker is inferred from discourse structure, such as the answer in an exchange | Berg asked Holm when the lab would reopen. “Not before March.” (Holm is named, but only as the one asked) |
 
 **Item-level features**, recorded per item: number of distinct speakers, word count, number of distractors (§5.3).
 
@@ -68,9 +68,11 @@ Every gold segment is tagged on two axes: how hard it is to **detect** the segme
 
 An item's tier is the **lowest tier whose caps it meets on every column**. So a T4 item breaks at least one T3 cap. Caps apply to all gold segments in the item; distractors do not count toward D or R.
 
+An item can land in a tier for a reason other than the tier's main added difficulty, for instance a D1/R1 item of 70 words in T2. To keep the ladder readable, **at least half of the items of each tier T2–T7 must break a cap of the tier below in a column of its main added difficulty**: D or R for T2 and T4–T7, speakers for T3. The script that computes tiers also reports which caps each item breaks.
+
 | Tier | Name | Main added difficulty | Max D | Max R | Speakers | Max words |
 | --- | --- | --- | --- | --- | --- | --- |
-| T0 | Distractors only | False positives: no gold segment at all | — | — | 0 | 80 |
+| T0 | Distractors only | False positives: no gold segment at all | — | — | 0 | 600 |
 | T1 | Explicit direct | Baseline | D1 | R1 | 1 | 60 |
 | T2 | Explicit indirect | Paraphrase and mixed speech; short name forms | D2 | R2 | 1 | 80 |
 | T3 | Several named speakers | Telling explicit speakers apart | D2 | R2 | ≤ 3 | 150 |
@@ -81,16 +83,16 @@ An item's tier is the **lowest tier whose caps it meets on every column**. So a 
 
 T0 items must contain at least one distractor (§5.3). T1–T7 items must contain at least one gold segment.
 
-**Prototypes.** The dataset documentation must give **5 prototypical examples per tier**, taken from the dataset itself, each shown as plain text and then as inline annotation. One invented illustration per tier, in the inline notation used throughout (`<seg speaker="…">`):
+**Prototypes.** The dataset documentation must give **5 prototypical examples per tier**, taken from the dataset's `dev` split, each shown as plain text and then as inline annotation. Until enough dev items are reviewed, the guidelines use invented examples instead. One invented illustration per tier, in the inline notation used throughout (`<seg speaker="…">`):
 
 - **T0:** Anna Berg met the minister on Tuesday. The lab will reopen in March, officials said. → no gold segment; "officials" is unnamed.
 - **T1:** “`<seg speaker="Anna Berg">`We will reopen the lab in March`</seg>`,” said Anna Berg.
 - **T2:** Berg said `<seg speaker="Anna Berg">`the lab would reopen in March, “if the funding holds”`</seg>`. (the item names Anna Berg in full elsewhere)
 - **T3:** Anna Berg said `<seg speaker="Anna Berg">`the lab would reopen in March`</seg>`. Tomas Holm, the university's director, said `<seg speaker="Tomas Holm">`no date had been set`</seg>`.
 - **T4:** Anna Berg, who leads the lab, was upbeat. “`<seg speaker="Anna Berg">`The equipment is ready`</seg>`,” she said. “`<seg speaker="Anna Berg">`We only need the permits`</seg>`.” (two segments, split by the cue; the second has no cue of its own: D3)
-- **T5:** Tomas Holm is less confident. In his view, `<seg speaker="Tomas Holm">`the permits could take a year`</seg>`, and the director fears `<seg speaker="Tomas Holm">`further cuts`</seg>`.
-- **T6:** Anna Berg and her deputy, Lise Kanto, disagree on the timeline. [two sentences on the budget] She thinks `<seg speaker="Lise Kanto">`March is unrealistic`</seg>`. (gold resolved from context; if a reader cannot resolve it, the item is excluded, §5.2)
-- **T7:** “`<seg speaker="Tomas Holm">`Permits are the bottleneck`</seg>`,” Tomas Holm said. [a paragraph on the budget] “`<seg speaker="Tomas Holm">`Nobody wants to fund paperwork`</seg>`.” (the second segment has no cue and no nearby mention: D5, R6)
+- **T5:** Tomas Holm, the university's director, is less confident. In his view, `<seg speaker="Tomas Holm">`the permits could take a year`</seg>`. The director fears `<seg speaker="Tomas Holm">`the funding will be cut again`</seg>`. (private states: D4; a pronoun, then a descriptor: R3, R4)
+- **T6:** Anna Berg wants `<seg speaker="Anna Berg">`the lab to reopen in March`</seg>`, but her deputy, Lise Kanto, has doubts. [two sentences on the budget] She thinks `<seg speaker="Lise Kanto">`March is unrealistic`</seg>`. (two compatible candidates, more than 2 sentences back: R5; the content resolves it, since Berg wants March. If nothing resolves it, the item is excluded, §5.2)
+- **T7:** “`<seg speaker="Tomas Holm">`Permits are the bottleneck`</seg>`,” Tomas Holm said. [a paragraph on the budget] “`<seg speaker="Tomas Holm">`Nobody wants to fund paperwork`</seg>`.” (the second segment has no cue and a distant mention: D5, R5) Anna Berg asked Holm when the lab would reopen. “`<seg speaker="Tomas Holm">`Not before March`</seg>`.” (the answer in an exchange: R6)
 
 ## 5. Item construction
 
@@ -126,9 +128,11 @@ A distractor is text that a careless system might attribute to a named actor, bu
 
 T0 items contain only distractors. In T1–T7, **at least 30% of items** contain at least one distractor, spread across the types.
 
+Distractors need not be exhaustive: all text outside gold segments already carries the default label, and precision counts every false positive wherever it falls. Annotators record the clearest distractors, so that the hit rate can be broken down by type.
+
 ## 6. Data format
 
-One JSON object per item, one item per line (`items.jsonl`). Character offsets are 0-based, end-exclusive, relative to `text`. Gold segments never overlap and follow the segmentation rule of §2.
+One JSON object per item, one item per line (`items.jsonl`). Character offsets are 0-based, end-exclusive, relative to `text`, and counted in Unicode code points (not UTF-16 code units, not bytes), as in Karaage. `text` is stored as it is, without Unicode normalization, and offsets point into it as stored. Paragraphs are separated by a blank line (`\n\n`). Gold segments never overlap and follow the segmentation rule of §2.
 
 **Gold item**
 
@@ -156,11 +160,11 @@ One JSON object per item, one item per line (`items.jsonl`). Character offsets a
 
 Field rules:
 
-- `type` is `person` or `organization`. Per segment, annotators record only its boundaries, its speaker and its two levels. Cues and name variants guide the annotators and the levels but are not recorded.
+- `type` is `person` or `organization`. Per segment, the released item records only its boundaries, its speaker and its two levels. Cues and name mentions guide the annotators and the levels and are not part of the released item, but the working annotations may keep their spans (§7).
 - `distractors` entries: `{"type": "<§5.3 type>", "spans": [[s, e]], "note": "…"}`.
 - `source.license`: use texts whose license allows redistribution of the dataset (CC BY, CC0 or public domain), and fill `attribution_line` as the license requires.
 
-**System output** (what the system under test must return per item; the system sees `text` only):
+**System output** (what the system under test must return per item; the system sees `text` and the task instructions of §2, nothing else from the item):
 
 The system returns segments of the same kind as the gold segments, without the tags; scoring compares the two lists directly.
 
@@ -180,24 +184,26 @@ Segments are non-overlapping character ranges `[start, end)` into `text`, each w
 
 Gold is drafted by a model and fully reviewed by a human. Four steps, in order:
 
-1. **Draft.** A strong model annotates speakers, segments, levels and distractors, following §2–§5. Use a model from a **different family than the system under test**, so the gold does not share the system's blind spots. Record model and version.
-2. **Miss check.** A second model, ideally of a third family, reads the text and the draft and lists attributed text the draft missed, and drafts it doubts. Every flag goes to the reviewer. Reviewers catch wrong annotations far more easily than missing ones; this step exists for recall.
+1. **Draft.** A strong model annotates speakers, segments, levels and distractors, following §2–§5. Record model and version. The gold is frozen while the systems under test change, so it can't always come from another family than theirs: the dataset card names the families used for the gold, and reports flag scores of systems from those families, since the gold may share their blind spots.
+2. **Miss check.** A second model, from another family than the drafting model, reads the text and the draft and lists attributed text the draft missed, and drafts it doubts. Every flag goes to the reviewer. Reviewers catch wrong annotations far more easily than missing ones; this step exists for recall.
 3. **Human review.** One reviewer checks every item in full: segments and their boundaries, speakers, canonical names, levels, tier, distractors, exclusions. Before the full batch, time the review on 2 items per tier to plan effort.
 4. **Agreement sample.** A second human independently annotates **20% of items per tier** (at least 5 items) from the plain text. Report per tier: segment detection F1 and speaker agreement, computed with the §8 metrics between the two humans. Disagreements are adjudicated; items that stay ambiguous are dropped (§5.2).
 
-The per-tier human agreement is the **ceiling** for that tier. If humans agree on fewer than 90% of speakers in a tier, revise that tier's items or definitions before freezing; a model score above the human ceiling there is not meaningful.
+The per-tier human agreement is the **ceiling** for that tier. If the speaker accuracy (§8.2) between the two humans is below 0.90 in a tier, revise that tier's items or definitions before freezing; a model score above the human ceiling there is not meaningful.
 
 The tier of each item is computed by script from the reviewed tags (§4), never assigned by hand. Write the annotation guidelines as a separate document (definition of attributed segments, segmentation and boundary rules, levels, distractor types, exclusions, with the 5 prototypes per tier) and give it to both drafting models and to humans.
 
+**Recommended order:** an item's tier is only known once it is annotated, so annotate whole source documents once (draft, miss check, review), then cut items from them by computed tier, and check the levels of each item again after cutting, since distances to cues and mentions change. Working annotations may keep cue and mention spans for this: a script can then recompute most levels, and the labelling page can show which cue goes with which segment.
+
 ## 8. Evaluation
 
-The headline number is **segment-level joint F1 per tier**: a segment counts only if it is found and given the right speaker. Detection-only scores are reported beside it to show where errors come from.
+The headline numbers are **segment-level joint F1 and joint precision per tier**: a segment counts only if it is found and given the right speaker. Precision is a co-headline because false attribution is the main risk. Detection-only scores are reported beside them to show where errors come from.
 
 ### 8.1 Preparation (per item)
 
 1. **Gold segments** = the item's gold segments (§6), each with its speaker. **Predicted segments** = the system output.
 2. **Boundary trimming:** strip leading and trailing whitespace and punctuation (quotation marks included) from every gold and predicted segment; drop segments left empty. Punctuation inside a segment is kept and counts normally.
-3. **Speaker check:** a predicted speaker string is right if, once normalized (lowercase, collapsed whitespace, honorifics such as Dr, Mr, Ms, Prof removed), it equals the normalized canonical name of the gold speaker. Any other form (short form, variant, pronoun, descriptor) is wrong. "Mapped to a speaker" below means passing this check.
+3. **Speaker check:** a predicted speaker string is right if, once normalized, it equals the normalized canonical name of the gold speaker. Normalization lowercases, collapses whitespace, and removes a leading "the" and the titles, honorifics, roles and degrees that §2 strips (Dr, Mr, Ms, Prof, Senator, PhD…), from one fixed list in `evaluate.py`. Any other form (short form, variant, pronoun, descriptor) is wrong. "Mapped to a speaker" below means passing this check.
 4. **Invalid output** (overlapping segments, offsets outside `text`): the item is scored as an empty prediction and counted in the invalid-output rate.
 
 ### 8.2 Metrics (per tier, pooled over the tier's items)
@@ -217,13 +223,13 @@ Diagnostic slices, for segment recall and speaker accuracy only (they have no pr
 
 ### 8.3 Running evaluations (recommendations, not binding)
 
-The dataset fixes the output format, the scoring rules (§8.1) and the metrics (§8.2). How runs are organised and reported is up to the user. Two recommendations: report results as a difficulty curve (segment joint F1 per tier, T1–T7, one line per system version, with T0 false positives shown separately), since that profile is what the dataset is designed to show; and because LLM-based systems vary between runs, compare versions over a few runs rather than one.
+The dataset fixes the output format, the scoring rules (§8.1) and the metrics (§8.2). How runs are organised and reported is up to the user. Two recommendations: report results as a difficulty curve (segment joint F1 and joint precision per tier, T1–T7, one line per system version, with T0 false positives shown separately), since that profile is what the dataset is designed to show; and because LLM-based systems vary between runs, compare versions over a few runs rather than one.
 
 ## 9. Size, splits, versioning
 
-Target per tier: **test ≥ 40 gold segments and ≥ 8 items; dev ≥ 20 gold segments and ≥ 4 items**. For T0: test ≥ 20 items, dev ≥ 10. With 40 segments, a tier score near 80% has a 95% interval of roughly ±12 points: enough to see large shifts, not small ones. Add items to a tier if finer tracking is needed.
+Target per tier: **test ≥ 40 gold segments and ≥ 8 items; dev ≥ 20 gold segments and ≥ 5 items** (5, so that the prototypes can come from dev). For T0: test ≥ 20 items, dev ≥ 10. With 40 independent segments, a tier score near 80% would have a 95% interval of roughly ±12 points. Segments of the same item are correlated, so the real interval is wider: compute it by bootstrap over items. That is enough to see large shifts, not small ones. Add items to a tier if finer tracking is needed.
 
-This gives about 150 items and 400–500 gold segments in total; low tiers need many short items, high tiers few long ones.
+This gives about 150–200 items and 400–500 gold segments in total; low tiers need many short items, high tiers few long ones.
 
 - **Splits:** `dev` is used freely during development; `test` is run only at milestones and never inspected item by item. Assign items to splits at random, stratified by tier, before anyone runs a system on them. Keep items from the same source document in the same split.
 - **Versioning:** the dataset is frozen per version (`v1.0`, `v1.1`…). Any change to items, gold or the evaluator bumps the version and is logged in a changelog. Scores are only compared within a dataset version.
@@ -236,7 +242,7 @@ This gives about 150 items and 400–500 gold segments in total; low tiers need 
 | `items.jsonl` | All items in the gold format (§6), with `tier` and `split` |
 | `guidelines.md` | Annotation guidelines (§7), with 5 prototypes per tier from `dev` |
 | `tiers.md` | The tier table (§4) and level definitions (§3), with per-tier counts and human agreement |
-| `assign_tiers.py` | Computes D/R-derived tiers from tags; fails if a stored tier disagrees |
+| `assign_tiers.py` | Computes D/R-derived tiers from tags, and which caps of the tier below each item breaks; fails if a stored tier disagrees |
 | `validate.py` | Runs every check below |
 | `evaluate.py` | Implements §8: input = gold + system output files; output = metrics table per tier (CSV) |
 | `prompts/` | Drafting and miss-check prompts, with model names and versions |
@@ -245,8 +251,8 @@ This gives about 150 items and 400–500 gold segments in total; low tiers need 
 The dataset is accepted when `validate.py` passes all of these:
 
 - [ ] Every segment's offsets reproduce its `text` exactly; gold segments do not overlap and are maximal runs (§2): no two same-speaker gold segments are separated only by whitespace and punctuation; no segment is empty after boundary trimming (§8.1).
-- [ ] Every speaker's `canonical_name` occurs verbatim in `text`; no two speakers have the same canonical name after normalization, and no speaker's name forms in the item conflict (§2).
-- [ ] Every gold segment has a D and R level; every item's stored tier equals the computed tier; word counts respect the tier caps.
+- [ ] Every speaker's `canonical_name` occurs in `text`, verbatim or with only a quoted or bracketed nickname inside it (§2); no two speakers have the same canonical name after normalization, and no speaker's name forms in the item conflict (§2).
+- [ ] Every gold segment has a D and R level; every item's stored tier equals the computed tier; word counts respect the tier caps; in each tier T2–T7, at least half of the items break the tier below on its main added difficulty (§4).
 - [ ] No item contains a nested or joint attribution (`annotation.nested_checked` is true on every item).
 - [ ] Per-tier and per-split minimums of §9 are met; ≥ 30% of T1–T7 items have a distractor; all distractor types occur.
 - [ ] Every item has a license allowing redistribution and an attribution line.
