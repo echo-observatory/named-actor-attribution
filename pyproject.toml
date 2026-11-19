@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "named-actor-attribution"
+version = "0.1.0.dev0"
+description = "Builds a tiered English eval dataset for attributing text segments to named actors"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "DTU RSO Observatory" }]
+dependencies = []
+
+[project.scripts]
+naa = "named_actor_attribution.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/named_actor_attribution"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]

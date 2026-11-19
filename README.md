@@ -6,20 +6,23 @@ This is the task of Karaage's attribution step.
 
 A side project, not a pipeline component: the dataset will be used later in evals in the [`evals`](https://github.com/echo-observatory/evals) repo, and possibly published in some form in `obs-test-datasets`.
 
-Status: specification only. Nothing is built yet.
+Status: building. The markup format and its checks exist; the annotation page comes next.
 
 ## Contents
 
 | Path | What it holds |
 | --- | --- |
 | [`specification.md`](specification.md) | The dataset specification: task, difficulty levels and tiers, item construction, data format, annotation procedure, scoring, and deliverables. |
+| [`docs/markup.md`](docs/markup.md) | The markup format: the working format of annotations, one source document per file, with spans marked in the text. |
+| `annotations/` | Annotated documents in the markup format. Created with the first one. |
+| [`src/named_actor_attribution/`](src/named_actor_attribution/), [`tests/`](tests/) | The `naa` command line, and its tests. |
 
 ## Plan
 
-1. **Source passages** from shareable corpora (see Inputs). Low tiers (T0–T3) may use passages adapted to be simpler (spec §5.1).
-2. **Draft** the annotations with a model, then run a second model to look for missed segments (spec §7).
-3. **Review in a labelling page:** a small local Python server (standard library only) that serves an HTML page and writes the labels back to the JSONL file. The page shows each item's text with its segments highlighted by speaker. A reviewer can check who speaks, change segment boundaries and speakers, and set the levels and distractors. Reading and editing labels on the rendered text is much easier than editing JSON.
-4. **Freeze** the dataset in this repo: tiers computed by script, validation, splits, and a version (spec §9–§10).
+1. **Annotate whole source documents** in the [markup format](docs/markup.md): Claude drafts them, and a DeepSeek model on OpenRouter looks for missed segments (spec §7).
+2. **Review in an annotation page:** a self-contained HTML page that opens a markup file, shows the segments highlighted by speaker, and lets a reviewer change boundaries, add segments, assign or rename speakers, and set levels and distractors. The same file can be sent to other annotators, who annotate from scratch and send back the file it saves. No account or server is needed.
+3. **Cut items** from the reviewed documents by computed tier, adapting low-tier passages where needed (spec §5.1).
+4. **Freeze** the dataset in this repo: validation, the agreement sample, splits, and a version (spec §9–§10).
 
 ## Inputs
 
@@ -43,4 +46,25 @@ The dataset trades some of the messiness of real text for testability (spec §2,
 
 ## Setup
 
-Nothing to install yet.
+Requires Python 3.12 or later and [uv](https://docs.astral.sh/uv/). The command line has no dependencies beyond the standard library.
+
+```bash
+uv sync
+uv run pytest
+```
+
+## Commands
+
+```bash
+# Create blank documents from a corpus, ready to annotate (writes annotations/<source>-<id>.xml)
+uv run naa new ../obs-test-datasets/global-voices-cheese-181/articles.jsonl 483946 766250
+
+# Check documents: exits 1 if any has an error
+uv run naa check annotations/*.xml
+
+# Accept a deliberate change to a document's text
+uv run naa rehash annotations/global-voices-cheese-181-483946.xml
+
+# Write documents as JSONL records with offsets
+uv run naa export annotations/*.xml --out documents.jsonl
+```

@@ -1,0 +1,15 @@
+<document id="invented-lab" source="invented" source-id="lab" text-sha256="c91e381a21b84f432a3ea5324a998a2b30d67eccb1a15ed7f38592462573eb66" status="reviewed" annotator="fixture" drafted-by="hand">
+<speakers>
+  <speaker id="S1" name="Anna Berg" type="person"/>
+  <speaker id="S2" name="Robert Smith" type="person"/>
+  <speaker id="S3" name="Barbados Free Press" type="organization"/>
+</speakers>
+<text>Anna Berg, who leads the lab, was upbeat. “<seg speaker="S1" d="D1" r="R3">The equipment is ready</seg>,” she said. “<seg speaker="S1" d="D3" r="R3">We only need the permits</seg>.”
+
+<dis type="unnamed_source">The lab will reopen in March, officials said.</dis> Robert ‘Bob’ Smith, who runs the Café Pierre&#769; next door 🧀, said <seg speaker="S2" d="D2" r="R1">the queue &amp; the noise would be &lt;manageable&gt;</seg>.
+
+The blog Barbados Free Press writes:
+
+<seg speaker="S3" d="D3" r="R1">Nobody wants to fund paperwork.</seg></text>
+<notes>Invented for tests. The &lt;notes&gt; element is free text.</notes>
+</document>
