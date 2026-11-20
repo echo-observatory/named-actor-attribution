@@ -1,0 +1,58 @@
+<document id="global-voices-cheese-181-17362" source="global-voices-cheese-181" source-id="17362" text-sha256="81a97c362d24e8dff58ae2db792bfb54620d5f9955a3d00f7f7585c224f83598" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Bahrania" type="person"/>
+  <speaker id="S2" name="Silly Bahraini Girl" type="person"/>
+  <speaker id="S3" name="Ali Al Saeed" type="person"/>
+  <speaker id="S4" name="Blayde" type="person"/>
+  <speaker id="S5" name="Haitham Sabbah" type="person"/>
+</speakers>
+<text><dis type="named_no_attribution">With the Godfather of Bahraini bloggers Mahmood Al Yousif out of the way and sick in hospital – possibly recuperating from his head-on collision with authorities over the blocking of his blog – his prodigies were out to play this week!</dis>
+
+<dis type="author_voice">First and foremost I would like to extend a warm welcome to sarcastic blogger Bahrania, who has been missing in action lately.</dis>
+
+The angry blogger is out to wreak havoc again in the Bahraini blogosphere, with much missed posts, which some of us may or may not agree upon. <dis type="author_voice">But debate is healthy and Bahrania continues to push the boundaries of free speech with often insightful and witty commentary on issues many of us would rather sweep under the carpet.</dis>
+
+She announces her comeback by admitting <seg speaker="S1" d="D2" r="R5">how difficult it is to shut up</seg>:
+
+“<seg speaker="S1" d="D1" r="R5">..its getting more and more difficult keeping my mouth shut… does anyone still visit this site??</seg>” she wrote.
+
+Her prayer was immediately answered with a few comments from fellow bloggers, who were anxious for her return.
+
+<dis type="named_no_attribution">Babbling Bahrania breaks her silence with a hilarious account of a (mock) military exercise conducted in her homeland.</dis>
+
+<dis type="named_no_attribution">Silly Bahraini Girl was quick to welcome the lost blogger back into the fold, with some advice on how to go about blogging in a country she fondly calls Wonderland.</dis>
+
+“<seg speaker="S2" d="D5" r="R5" note="Crosses a paragraph; “she said” after it: two compatible candidates, resolved by content (advice to Bahrania).">Be careful of what you write. Watch your back. Don't think for a minute you are free. Please exercise self-censorship. If that is not enough, please send a copy of anything you intend to post on your blog to the Bahraini Ministry of Information to stamp it for approval before getting youself into trouble. Imagine banners saying Free Bahrania all over cyberspace? Or posters with Unblock Bahrania popping up on your screen everytime you log on the www??
+
+As long as you keep away from politics, or religion, or better still – both, I think you will be safe. Remember not to write anything meaningful, not to pose questions and not to call a spade a spade, because spades dig deep and get all the buried dirt out</seg>,” she said.
+
+But not all bloggers take heed of such silly advice. <exclude reason="unresolved" note="A blogger named by an initial only.">Blogger H talks about preparations for the upcoming parliamentary elections, planned in Bahrain for November 25.
+
+“..it must be emphasized that this little island is greatly impoverished when it comes to political manpower. It is quite a laugh that a country is heading through parliamentary elections while there isn't any (to my knowledge) one local university offering degrees in political sciences. No wonder, one might think, it would take over a century to establish a sense of political presence,” he wrote.
+
+H also asks tough questions regarding the credibility and credentials of candidates.
+
+“Most of those who are running for parliament are politically-illiterate (you know them, I need not mention). This got me thinking: what makes a credible politician in the abscence of qualifications and past experiences? what would be a “content list” of a textbook titled “How to become a Bahraini politician?” what does it take to be one?” he wrote.</exclude>
+
+<dis type="named_no_attribution">Meanwhile, Ali Al Saeed is busy being his own boss and secretary in one go.</dis>
+
+“<seg speaker="S3" d="D1" r="R4">It seems I've become more of a secretary than a writer lately. I'm my own personal assistant! Phone calls to make, planning to do, scheduling to arrange, meetings to set, dates to pur right, deadlines to be reminded of… Ok, maybe I should stop whining about it. I mean, seriously, it's not like I'm running for office is it? No, now that would be hard work. Yeah. Right</seg>,” wrote our very own first Bahraini English-language novelist.
+
+<dis type="named_no_attribution">Blayde too isn't happy being a student with what he describes as an incompetent teacher, which his class stages a mutiny against.</dis>
+
+“<seg speaker="S4" d="D5" r="R1">You won't believe this, but we actually got the guy who was teaching us english, kicked out!
+
+We we’re all annoyed with his useless way of teaching and the way he conducted the exam( i got 83 and a half, i should get 96) so we all signed a petition, all 19 of us(i think) and gave it to the Director. He’s gone by next week, yay!
+
+It wasn’t that he was a bad teacher, but he wasn’t able to teach even the simplest math problems that came out, and even my mother could control a class full of Bahrainis, he couldn’t</seg>,” wrote a victorious Blayde.
+
+<dis type="named_no_attribution">Away from Bahrain and its woes, Bahrain-based Palestinian Jordanian blogger Haitham Sabbah posts a horrific videoblog of what mainstream Western media doesn't want you to see.</dis>
+
+The videoblog, which was made by his wife, has made her shun the news.
+
+“<seg speaker="S5" d="D1" r="R5">My wife recorded this for my blog a couple of days ago. Since then, she won't even look at the news. Guess why?</seg>” he wrote.</text>
+<notes>Bloggers' pen names referred to as “she” are typed as persons. “Blogger H” (an initial) is excluded. Silly Bahraini Girl's advice: two candidates (“she”), resolved by content (advice to Bahrania).</notes>
+<flags>
+  <flag kind="doubt" quote="..its getting more and more difficult keeping my mouth shut… does anyone still visit this site??" speaker="Bahrania">The segment is correct, but the speaker is right.</flag>
+</flags>
+</document>
