@@ -1,4 +1,5 @@
-"""Command line: `naa new`, `naa apply`, `naa check`, `naa rehash`, `naa export`, `naa page`, `naa split`."""
+"""Command line: `naa new`, `naa apply`, `naa check`, `naa rehash`, `naa export`, `naa page`, `naa split`,
+`naa runs`, `naa cut`."""
 
 from __future__ import annotations
 
@@ -7,6 +8,7 @@ import json
 import sys
 from pathlib import Path
 
+from . import items as items_mod
 from . import markup
 
 
@@ -45,8 +47,18 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--out", type=Path, default=Path("annotations"), help="folder to write to (default: annotations/)")
     p.add_argument("--force", action="store_true", help="overwrite files that exist and differ")
 
+    p = sub.add_parser("runs", help="list documents' paragraphs with their words, segments and exclusions, to choose cuts")
+    p.add_argument("files", nargs="+", type=Path)
+
+    p = sub.add_parser("cut", help="build items from cut lists (docs/cutting.md), check them and report their tiers")
+    p.add_argument("cuts", nargs="+", type=Path, help="cut lists, as JSON")
+    p.add_argument("--documents", type=Path, default=Path("annotations"), help="folder of the documents (default: annotations/)")
+    p.add_argument("--corpus", type=Path, action="append", default=[], help="corpus JSONL, for each item's source details (repeatable)")
+    p.add_argument("--out", type=Path, help="write the items here, as JSONL")
+    p.add_argument("--page", type=Path, help="also build an annotation page holding the items, to read them")
+
     args = parser.parse_args(argv)
-    commands = {"new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
+    commands = {"runs": _runs, "cut": _cut, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
     return commands[args.command](args)
 
 
@@ -185,6 +197,83 @@ def _split(args) -> int:
         path.write_text(content, encoding="utf-8")
         print(path)
     return status
+
+
+def _runs(args) -> int:
+    for path in args.files:
+        doc = _read(path)
+        print(f"== {doc.id}")
+        excluded = [(x.start, x.end, x.reason) for x in doc.exclusions]
+        for k, (a, b) in enumerate(items_mod.paragraphs(doc.text), 1):
+            reasons = sorted({r for s, e, r in excluded if s < b and a < e})
+            segs = [s for s in doc.segments if a <= s.start < b]
+            levels = " ".join(f"{s.speaker}:{s.d or '?'}{s.r or '?'}" for s in segs)
+            n_dis = sum(1 for x in doc.distractors if a <= x.start < b)
+            flag = f"EXCLUDED({','.join(reasons)})" if reasons else ""
+            text = " ".join(doc.text[a:b].split())
+            print(f"{k:3} {items_mod.word_count(doc.text[a:b]):4}w {flag:24} {levels:30} dis={n_dis}  {text[:70]}")
+    return 0
+
+
+def _source_details(corpora: list[Path]) -> dict:
+    out = {}
+    for path in corpora:
+        name = path.resolve().parent.name
+        with path.open(encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    r = json.loads(line)
+                    out[(name, str(r["id"]))] = {
+                        "url": r.get("url"), "title": r.get("title"), "date": r.get("date"),
+                        "license": r.get("license"), "attribution_line": r.get("attribution")}
+    return out
+
+
+def _cut(args) -> int:
+    details = _source_details(args.corpus)
+    all_items, failed = [], False
+    for path in args.cuts:
+        spec = json.loads(path.read_text(encoding="utf-8"))
+        doc = _read(args.documents / f"{spec['document']}.xml")
+        cuts = []
+        for k, entry in enumerate(spec["items"], 1):
+            cut, problems = items_mod.find_cut(doc, entry)
+            item_id = f"{doc.id}-{k:02d}"
+            if cut is None:
+                print(f"{item_id}: error: {'; '.join(problems)}")
+                failed = True
+                continue
+            cuts.append(cut)
+            item, more = items_mod.make_item(doc, cut, item_id, details.get((doc.source, doc.source_id)))
+            for p in problems + more:
+                print(f"{item_id}: error: {p}")
+            failed |= bool(problems + more)
+            item["annotation"]["notes"] = entry.get("note", "")
+            all_items.append(item)
+            print(f"{item_id}: {item['tier'] or '—'} ({'+'.join(item['tier_breaks']) or 'base'}), "
+                  f"{item['word_count']} words, {len(item['segments'])} segments, {len(item['speakers'])} speakers")
+        for a, b in items_mod.overlapping_cuts(cuts):
+            print(f"{doc.id}: error: items {a + 1} and {b + 1} overlap")
+            failed = True
+    print()
+    print(items_mod.yield_table(all_items))
+    if args.out:
+        args.out.write_text("".join(json.dumps(i, ensure_ascii=False) + "\n" for i in all_items), encoding="utf-8")
+    if args.page:
+        args.page.write_text(build_page([_item_document(i) for i in all_items]), encoding="utf-8")
+    return 1 if failed else 0
+
+
+def _item_document(item: dict) -> markup.Document:
+    """An item as a markup document, to read it in the annotation page."""
+    doc = markup.blank(item["item_id"], item["text"], item["source"].get("document"))
+    doc.status = "reviewed"
+    doc.speakers = [markup.Speaker(s["speaker_id"], s["canonical_name"], s["type"]) for s in item["speakers"]]
+    doc.segments = [markup.Segment(s["speaker_id"], s["start"], s["end"], s["detection_level"], s["reference_level"])
+                    for s in item["segments"]]
+    doc.distractors = [markup.Distractor(d["type"], *d["spans"][0], d.get("note")) for d in item["distractors"]]
+    doc.notes = f"{item['tier']} ({'+'.join(item['tier_breaks']) or 'base'}). {item['annotation']['notes']}".strip()
+    return doc
 
 
 if __name__ == "__main__":

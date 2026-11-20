@@ -6,7 +6,7 @@ This is the task of Karaage's attribution step.
 
 A side project, not a pipeline component: the dataset will be used later in evals in the [`evals`](https://github.com/echo-observatory/evals) repo, and possibly published in some form in `obs-test-datasets`.
 
-Status: pilot. Six documents are drafted and wait for review in the annotation page.
+Status: pilot. Six documents are drafted, reviewed and cut into items, to measure what a document yields per tier.
 
 ## Contents
 
@@ -17,6 +17,7 @@ Status: pilot. Six documents are drafted and wait for review in the annotation p
 | [`docs/markup.md`](docs/markup.md) | The markup format: the working format of annotations, one source document per file, with spans marked in the text. |
 | [`annotations/`](annotations/) | Annotated documents in the markup format, with their licence and credits. |
 | [`docs/drafting.md`](docs/drafting.md) | How documents are drafted, and the draft format that `naa apply` reads. |
+| [`cuts/`](cuts/), [`docs/cutting.md`](docs/cutting.md) | The cut lists, which name the passages kept as items, and how cutting works. |
 | [`annotator/annotator.html`](annotator/annotator.html) | The annotation page: a single HTML file with no dependencies (see [Annotation page](#annotation-page)). |
 | [`src/named_actor_attribution/`](src/named_actor_attribution/), [`tests/`](tests/) | The `naa` command line, and its tests. |
 
@@ -75,6 +76,12 @@ uv run naa rehash annotations/global-voices-cheese-181-483946.xml
 
 # Write documents as JSONL records with offsets
 uv run naa export annotations/*.xml --out documents.jsonl
+
+# List documents' paragraphs, to choose the passages to cut
+uv run naa runs annotations/*.xml
+
+# Build the items from the cut lists, check them, and report their tiers
+uv run naa cut cuts/*.json --corpus ../obs-test-datasets/global-voices-cheese-181/articles.jsonl --out items.jsonl --page items.html
 
 # Build a copy of the annotation page with documents built in, to send to an annotator;
 # --blank removes the annotation, for annotating from scratch
