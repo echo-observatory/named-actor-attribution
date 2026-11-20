@@ -1,4 +1,4 @@
-<document id="global-voices-cheese-181-748041" source="global-voices-cheese-181" source-id="748041" text-sha256="dce803e74b6ef73e0148855033716b0074626eb617255c15ca92d33de991d2cb" status="drafted" drafted-by="claude-opus-5-5">
+<document id="global-voices-cheese-181-748041" source="global-voices-cheese-181" source-id="748041" text-sha256="dce803e74b6ef73e0148855033716b0074626eb617255c15ca92d33de991d2cb" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5">
 <speakers>
   <speaker id="S1" name="Charles" type="person"/>
   <speaker id="S2" name="Denise Nicholls" type="person"/>
@@ -6,12 +6,13 @@
   <speaker id="S4" name="Peter Aylan-Parker" type="person"/>
   <speaker id="S5" name="Mic Wright" type="person"/>
   <speaker id="S6" name="Peter Kennedy" type="person"/>
+  <speaker id="S7" name="Scott Morrison" type="person"/>
 </speakers>
 <text><exclude reason="boilerplate">A video Screenshot of BBC News’ Climate Editor Justin Rowlatt interviewing Prince Charles (October 11, 2021)</exclude>
 
-Prince Charles has urged Australia’s Prime Minister, Scott Morrison, <seg speaker="S1" d="D2" r="R1" note="“urged … to attend”: the content is what he urged.">to attend the Glasgow Climate Conference COP26</seg>. He referred to the meeting as “<seg speaker="S1" d="D1" r="R3">the last chance saloon</seg>” to address the climate crisis.
+Prince Charles has urged Australia’s Prime Minister, Scott Morrison, <seg speaker="S1" d="D2" r="R1" note="“urged … to attend”: the content is what he urged.">to attend the Glasgow Climate Conference COP26</seg>. He referred to the meeting as “<seg speaker="S1" d="D1" r="R3">the last chance saloon” to address the climate crisis.</seg>
 
-<dis type="non_statement">Morrison has yet to make a public statement about whether he will represent his government at the conference.</dis> He has referenced the 14-day quarantine requirement on his return as one reason for his hesitancy.
+<dis type="non_statement">Morrison has yet to make a public statement about whether he will represent his government at the conference.</dis> He has referenced <seg speaker="S7">the 14-day quarantine requirement on his return as one reason for his hesitancy</seg>.
 
 <exclude reason="nested" note="Probably a tweet by Jenny Frecklington-Jones quoting Charles's reply; where the tweet starts is unclear.">When the presenter told Charles of Scott Morrison’s reason for not committing to travelling to Glasgow, the prince seemed surprised.
 

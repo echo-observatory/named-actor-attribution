@@ -1,6 +1,6 @@
-<document id="global-voices-cheese-181-61589" source="global-voices-cheese-181" source-id="61589" text-sha256="16efa62ed0115777066148d81bb05820c520473b24365b69ec8dec50748fc3de" status="drafted" drafted-by="claude-opus-5-5">
+<document id="global-voices-cheese-181-61589" source="global-voices-cheese-181" source-id="61589" text-sha256="16efa62ed0115777066148d81bb05820c520473b24365b69ec8dec50748fc3de" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5">
 <speakers>
-  <speaker id="S1" name="Keltruth Corp." type="organization"/>
+  <speaker id="S1" name="Keltruth Corp." type="person"/>
   <speaker id="S2" name="Barbados Underground" type="organization"/>
   <speaker id="S3" name="Cheese-on-bread!" type="organization"/>
   <speaker id="S4" name="Living in Barbados" type="organization"/>
@@ -19,22 +19,22 @@ Barbadian diaspora blogger Keltruth Corp. commented:
 
 <dis type="named_no_attribution">This is exactly what Barbados Underground has been doing.</dis> In one post, BU noted that:
 
-<seg speaker="S2" d="D3" r="R2">The CLICO Affair has occupied our region for more than five weeks now. We suspect that it will continue to do so for a little while longer.
+<seg speaker="S2" d="D3" r="R2">The CLICO Affair has occupied our region for more than five weeks now. We suspect that it will continue to do so for a little while longer</seg>.
 
-The Opposition by their admission used the right to table a motion of no-confidence in Minister of Finance David Thompson knowing they would lose it. The strategic importance of the exercise on Friday was obviously to use the privilege of parliament to reveal information for the benefit of the public.</seg> <exclude reason="nested" note="Inside Barbados Underground's post: what the government said.">The government countered that it was political opportunism on the part of the Opposition.</exclude> <seg speaker="S2" d="D5" r="R5">Who knows!
+<exclude reason="unresolved">The Opposition by their admission used the right to table a motion of no-confidence in Minister of Finance David Thompson knowing they would lose it. The strategic importance of the exercise on Friday was obviously to use the privilege of parliament to reveal information for the benefit of the public. The government countered that it was political opportunism on the part of the Opposition. Who knows!
 
-Ultimately this matter is not only about efficiently managing the CLICO Affair but more importantly preserving the financial stability of the country.</seg>
+Ultimately this matter is not only about efficiently managing the CLICO Affair but more importantly preserving the financial stability of the country</exclude>.
 
-Meanwhile, Cheese-on-bread! wasn't sure “<seg speaker="S3" d="D5" r="R1" note="A mixed-speech fragment and the block quote after it, merged by the maximal-run rule (only ”: and a paragraph break between them).">if many people paid the whole matter much attention, 'cause cricket was on”:
+Meanwhile, Cheese-on-bread! wasn't sure “<seg speaker="S3" d="D4" r="R1">if many people paid the whole matter much attention, 'cause cricket was on</seg>”:
 
-Although I recognise that she was exercising her right as Opposition Leader, I'm not sure what Mia Mottley hoped to prove. The ruling Dempocratic Labour Party (DLP) has only been in office for roughly 14 months, too early for the electorate to think about ousting them. All she did really was tee off folks who were looking forward to watching the West Indies play England…</seg>
+<seg speaker="S3" d="D3" r="R1">Although I recognise that she was exercising her right as Opposition Leader, I'm not sure what Mia Mottley hoped to prove. The ruling Dempocratic Labour Party (DLP) has only been in office for roughly 14 months, too early for the electorate to think about ousting them. All she did really was tee off folks who were looking forward to watching the West Indies play England…</seg>
 
 The blogger also managed to post a few entertaining observations of her own when it came to the contribution of some parliamentarians, but ultimately, <dis type="author_voice">the CLICO issue is no laughing matter, and continues to raise concerns</dis>. According to Living in Barbados:
 
 <seg speaker="S4" d="D4" r="R1">If we look at the recent discussions concerning CLICO and CL Financial Group, we can have some idea of this. We do not know what information was available to the Prime Minister of Barbados when the authorities in Trinidad made their public declaration on January 30 about the institutions’ financial problems and its need to make a financial rescue of CL Financial Group.</seg> <exclude reason="nested" note="Inside Living in Barbados's post: what the Barbados government (and other entities) said.">But almost immediately, the calls for calm came from the Barbados government (and several other local entities) with assurances that the local subsidiaries were not in danger.</exclude>
 
-<seg speaker="S4" d="D5" r="R5" note="“Some argued that…” (unnamed people) is kept inside the blog's segment. The last paragraph may be the author's rather than the blog's: the block quote's end is unclear.">For many people, it was the ‘revelation’ by the opposition party leader about CLICO’s statutory fund deficit that forced the PM to say more and to give a fuller, though less rosy, picture. The opposition turned the screw tighter by putting the government’s feet to the fire by tabling in Parliament a vote of no confidence in the Minister of Finance (who is the PM). Some argued that this was pure political theatre and that the government would be undermined by it. Some argued that it would be good because the debate would allow for more disclosures, which the government should make but were reluctant to make. There is no way to determine which of the competing views was really correct. The debate passed, and the opposition lost its motion. Those on both sides will argue about whether they had a victory or not. It is not really clear how the public viewed this, but no apparent signs of panic have been visible.
+<exclude reason="unresolved">For many people, it was the ‘revelation’ by the opposition party leader about CLICO’s statutory fund deficit that forced the PM to say more and to give a fuller, though less rosy, picture. The opposition turned the screw tighter by putting the government’s feet to the fire by tabling in Parliament a vote of no confidence in the Minister of Finance (who is the PM). Some argued that this was pure political theatre and that the government would be undermined by it. Some argued that it would be good because the debate would allow for more disclosures, which the government should make but were reluctant to make. There is no way to determine which of the competing views was really correct. The debate passed, and the opposition lost its motion. Those on both sides will argue about whether they had a victory or not. It is not really clear how the public viewed this, but no apparent signs of panic have been visible.
 
-However, the real financial difficulties of CLICO need to be addressed.</seg></text>
+However, the real financial difficulties of CLICO need to be addressed.</exclude></text>
 <notes>Speakers are blogs, typed as organizations. Keltruth Corp. is introduced as a blogger: a blog name or a username, kept as an organization. Where each block quote ends is a guess: the plain text has lost the block quotes.</notes>
 </document>
