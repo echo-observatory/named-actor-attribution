@@ -6,7 +6,7 @@ This is the task of Karaage's attribution step.
 
 A side project, not a pipeline component: the dataset will be used later in evals in the [`evals`](https://github.com/echo-observatory/evals) repo, and possibly published in some form in `obs-test-datasets`.
 
-Status: pilot. Six documents are drafted, reviewed and cut into items, to measure what a document yields per tier.
+Status: building. Documents are drafted and cut into items in batches; people review the items.
 
 ## Contents
 
@@ -24,8 +24,8 @@ Status: pilot. Six documents are drafted, reviewed and cut into items, to measur
 ## Plan
 
 1. **Annotate whole source documents** in the [markup format](docs/markup.md): Claude drafts them, and a DeepSeek model on OpenRouter looks for missed segments (spec §7).
-2. **Review in an annotation page:** a self-contained HTML page that opens a markup file, shows the segments highlighted by speaker, and lets a reviewer change boundaries, add segments, assign or rename speakers, and set levels and distractors. The same file can be sent to other annotators, who annotate from scratch and send back the file it saves. No account or server is needed.
-3. **Cut items** from the reviewed documents by computed tier, adapting low-tier passages where needed (spec §5.1).
+2. **Cut items** from the documents by computed tier, adapting low-tier passages where needed (spec §5.1).
+3. **Review the items in an annotation page:** a self-contained HTML page that shows the segments highlighted by speaker, and lets a reviewer change boundaries, add segments, assign or rename speakers, and set distractors. Corrections go back into the documents. The same page can be sent to other annotators, who annotate from scratch and send back the file it saves. No account or server is needed.
 4. **Freeze** the dataset in this repo: validation, the agreement sample, splits, and a version (spec §9–§10).
 
 ## Inputs
@@ -88,6 +88,9 @@ uv run naa runs annotations/*.xml
 
 # Build the items from the cut lists, check them, and report their tiers
 uv run naa cut cuts/*.json --corpus ../obs-test-datasets/global-voices-cheese-181/articles.jsonl --out items.jsonl --page items.html
+
+# Record the review of items saved from that page; corrections go back into their documents
+uv run naa review reviewed-items.xml
 
 # Build a copy of the annotation page with documents built in, to send to an annotator;
 # --blank removes the annotation, for annotating from scratch
