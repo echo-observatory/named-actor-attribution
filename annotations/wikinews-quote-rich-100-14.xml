@@ -30,7 +30,4 @@ But <seg speaker="S3" d="D2" r="R2">the priority</seg>, Rijsberman stresses, <se
 
 In Australia last week, Rijsberman said <seg speaker="S3" d="D2" r="R2">he would "not be surprised to see the price of water double or triple over the next two decades."</seg></text>
 <notes>The report's findings are a document source (“the report says”); IWMI is a speaker only where it is the subject (“IWMI warns”).</notes>
-<flags>
-  <flag kind="doubt" quote="The number one recommendation... is to look to improve rain-fed systems in Sub-Saharan Africa and South Asia." speaker="David Molden">The quote is missing its closing quotation mark, so the segment boundary is wrong.</flag>
-</flags>
 </document>

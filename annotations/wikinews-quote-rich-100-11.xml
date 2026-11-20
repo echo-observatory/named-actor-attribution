@@ -27,7 +27,4 @@ In 2003 18 of the 298 people testing the vaccine had symptoms of brain swelling 
 
 "<seg speaker="S4" d="D1" r="R1">The findings support the idea that a vaccine is our best hope for fighting this devastating disease for which there is currently no cure</seg>," said Doctor Susanne Sorensen, of the Alzheimer's Society.</text>
 <notes>Titles stripped (Doctor, Dr.). The team's “promising” is excluded: the team's word, or Matsumoto's?</notes>
-<flags>
-  <flag kind="doubt" quote="Tests are going to soon be done on monkeys and if that turns out successful then tests on humans could be done in perhaps three years" speaker="Yoh Matsumoto">The segment is a direct quote but lacks opening quotation marks; the quote should start with a quotation mark.</flag>
-</flags>
 </document>

@@ -23,9 +23,4 @@ Entwistle is a former director of BBC Vision, thereby being responsible for the 
 
 When the decision was announced to appoint Entwistle in July, Chris Patten, chairman of the BBC Trust, said of him: "<seg speaker="S4" d="D1" r="R1">His experience of making and delivering great programmes that audiences love — built up through many years of working for the Corporation — will prove invaluable as he and his team work to ensure the BBC remains the greatest broadcaster in the world.</seg>"</text>
 <notes>“some would say…” inside Grade's quote is kept inside (unnamed voices reported inside a quote).</notes>
-<flags>
-  <flag kind="doubt" quote="the corporation was &quot;getting very, very close to the edge&quot; following recent sixteen per cent real-terms budget reductions. &quot;When you look around the operation, it's very hard to see what more you can cut" speaker="Mark Thompson">The segment mixes indirect and direct speech; the direct quote should be a separate segment or the whole should be one segment, but the current boundaries are inconsistent.</flag>
-  <flag kind="doubt" quote="There's no question that we've seen over the last eight years, not just with the BBC but with the whole of public life, a real change in attitudes to these things [re licence fees], and we've tried to respond to it" speaker="George Entwistle">The segment includes an editorial insertion '[re licence fees]' which should be outside the segment or the segment should be excluded as boilerplate.</flag>
-  <flag kind="doubt" quote="I think [Entwistle] cares deeply about the BBC" speaker="Michael Grade">The segment includes an editorial insertion '[Entwistle]' which should be outside the segment or the segment should be excluded as boilerplate.</flag>
-</flags>
 </document>

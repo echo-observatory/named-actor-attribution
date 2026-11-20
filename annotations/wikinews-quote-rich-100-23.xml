@@ -24,9 +24,4 @@ Mr Jackson has said that <seg speaker="S2" d="D2" r="R2">he has and will continu
 
 Mr Shaye has said <seg speaker="S3" d="D2" r="R2">he is disappointed that many of the stars in The Lord of the Rings trilogy had refused to celebrate New Line's 40th anniversary</seg>. Mr Jackson said that <seg speaker="S2" d="D2" r="R2">the reason for that was probably because Mr Shaye had issues with the cast years before the lawsuit arose</seg>.</text>
 <notes>“Mr” stripped from names. The belief of Jackson and Walsh is joint; the cue-less “our legal action” quote may be theirs jointly: excluded.</notes>
-<flags>
-  <flag kind="doubt" quote="film auditing as a common practice. &quot;We don't understand why New Line Cinema has taken this position" speaker="Peter Jackson">The segment merges a paraphrase and a direct quote, but the quote is a separate sentence and should be its own segment.</flag>
-  <flag kind="doubt" quote="New Line does not want to do any films, including The Hobbit, with Mr Jackson in the future. &quot;I do not want to make a movie with somebody who is suing me. It will never happen during my watch." speaker="Robert Shaye">The segment merges a paraphrase and a direct quote, but the quote is a separate sentence and should be its own segment.</flag>
-  <flag kind="doubt" quote="he has been offended by the lawsuit brought to his company by Mr Jackson. &quot;He got a quarter of a billion dollars paid to him so far, justifiable, according to contract, completely right, [but then] turns around without wanting to have a discussion with us and sues us and refuses to discuss it unless we just give in to his plan." speaker="Robert Shaye">The segment merges a paraphrase and a direct quote, but the quote is a separate sentence and should be its own segment.</flag>
-</flags>
 </document>
