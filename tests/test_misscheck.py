@@ -65,3 +65,8 @@ def test_misscheck_command(tmp_path, monkeypatch, capsys):
     assert "Annotation guidelines" in seen["system"] and seen["user"].startswith("<document")
     assert cli.main(["misscheck", str(path)]) == 0
     assert "already checked" in capsys.readouterr().out
+
+
+def test_parse_flags_accepts_a_code_fence():
+    answer = '```json\n{"flags": [{"kind": "missed", "quote": "x", "speaker": "A"}]}\n```'
+    assert [f.quote for f in misscheck.parse_flags(answer)] == ["x"]

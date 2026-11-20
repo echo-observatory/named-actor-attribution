@@ -16,7 +16,8 @@ Rules:
 - Don't flag levels (`d`, `r`), distractors, or the canonical names' spelling.
 - Don't flag text inside an `<exclude>`: it is left out on purpose.
 - Quotation marks that open or close a quote stay outside a segment, but a quoted fragment inside a paraphrase keeps its marks, even at the segment's edge ("the lab would reopen “if the funding holds”"). Punctuation at a segment's edges doesn't matter.
-- Each flag names a concrete problem and what should change. If, thinking it over, the annotation is right, don't flag it.
+- A paraphrase and the quote right after it, by the same speaker with only punctuation between them, form one segment (a maximal run): don't ask to split them.
+- Each flag names a concrete problem and what should change. If, thinking it over, the annotation is right, don't flag it. Never write a flag whose reason says the segment is correct, the speaker is right, or there is no issue: leave it out of the list.
 - An empty list is a good answer when the annotation is right.
 
 Answer with JSON only:

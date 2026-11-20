@@ -1,0 +1,28 @@
+<document id="wikinews-quote-rich-100-98" source="wikinews-quote-rich-100" source-id="98" text-sha256="c964c641b9e2b64086ad8590564a521c64dcd89974619c8d3daf865468a5d44c" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Sharon Osbourne" type="person"/>
+  <speaker id="S2" name="Tom Morello" type="person"/>
+  <speaker id="S3" name="Tony Iommi" type="person"/>
+  <speaker id="S4" name="Geezer Butler" type="person"/>
+  <speaker id="S5" name="Ozzy Osbourne" type="person"/>
+</speakers>
+<text><dis type="unnamed_source">On Wednesday, it was announced that the UK heavy metal music act Black Sabbath was scheduled to play a final show with the band's original lineup, which consisted of lead vocalist Ozzy Osbourne, guitarist Tony Iommi, bassist Geezer Butler, and drummer Bill Ward.</dis> The performance, dubbed “The Back to the Beginning” show, was slated for July 5, 2025 at Villa Park in the band's hometown of Birmingham, England. Rage Against the Machine guitarist Tom Morello was slated to serve as the event's musical director.
+
+It will be the band's first performance with the original lineup in 20 years. Original drummer Bill Ward departed the group in 2012 due to disputes regarding contracts. The band's final studio album 13 was recorded without him, and he was absent from the band's 81-date farewell tour in 2017 as well. Rage Against the Machine drummer Brad Wilk and Osbourne's backing band drummer Tommy Clufetos substituted Ward's percussion duties on the album and on the tour, respectively. Although the band's final show in 2017 was played to a sold-out crowd, the band had expressed their desire to do a "proper" farewell show that would include Ward.
+
+The event's full lineup includes heavy metal acts such as Metallica, Slayer, Pantera and others. <exclude reason="nested" note="BBC News Online reports what was said.">According to BBC News Online, the performance was also said to feature a "supergroup" comprised of Morello, Smashing Pumpkins frontman Billy Corgan, Guns N' Roses guitarist Slash, Limp Bizkit frontman Fred Durst, and Wolfgang Van Halen.</exclude> Sharon Osbourne said <seg speaker="S1" d="D2" r="R1">they would be performing covers of songs from Black Sabbath and Osbourne's back catalogue</seg>. Tom Morello, the event's musical director, called <seg speaker="S2" d="D2" r="R1">it the "greatest heavy metal show ever."</seg>
+
+Tony Iommi said, "<seg speaker="S3" d="D1" r="R1">It’s been an incredible journey, but it’s only fitting that it ends here, where it all began in Aston. [...] None of this would’ve been possible without Ozzy, Geezer, and Bill. What we created together was bigger than any one of us, and I’ll always be grateful for that.</seg>" According to Geezer Butler, "<seg speaker="S4" d="D4" r="R1">It'll be the first time the Black Sabbath played has played in Aston since we used to live there. And where we wrote most of our first album — places like Aston Community Center and Burlington Hall down High Street. [...] So it's a return home for us when it all started and it will be a very special occasion for us all.</seg>"
+
+76-year-old Osbourne was diagnosed with Parkinson's disease in 2020 and stopped touring in 2023. <exclude reason="unresolved" note="The quoted part speaks of Osbourne in the third person: whose words?">Osborne said he planned to open with a solo set "before joining with Black Sabbath for his final bow."</exclude> He said, "<seg speaker="S5" d="D1" r="R3">Time for me to give back to the place where I was born. [...] How blessed am I to do it with the help of people whom I love. Birmingham is the true home of metal. Birmingham Forever.</seg>"
+
+<dis type="unnamed_source">All proceeds from the show were said to be donated to the charities Cure Parkinson’s, Birmingham Children's Hospital, and Acorns Children's Hospice.</dis>
+
+According to his wife, Sharon Osbourne, "<seg speaker="S1" d="D4" r="R1">[Ozzy's] doing really great. He’s so excited about this, about being with the guys again and all his friends. It's exciting for everyone. Ozzy didn’t have a chance to say goodbye to his friends, to his fans.</seg>" <exclude reason="nested" note="Sharon reports what Ozzy felt; the cue-less quote after it goes with it.">She indicated that Osbourne felt there hadn’t been proper closure. "This is his full stop."</exclude> Osbourne himself said, "<seg speaker="S5" d="D1" r="R5">I'm not going to get up there and do a half-hearted Ozzy looking for sympathy. What's the [expletive] point in that? I'm not going up there in a [expletive] wheelchair.</seg>"
+
+Black Sabbath formed in 1968 in Birmingham, and released their self-titled debut album in 1970. Their worldwide album sales exceeded 75 million copies.</text>
+<notes>Two Osbournes: “Osbourne himself said” is Ozzy, told apart from Sharon by “himself” (R5). The quoted “before joining with Black Sabbath for his final bow” speaks of him in the third person: excluded. Sharon reporting what Ozzy felt: nested.</notes>
+<flags>
+  <flag kind="doubt" quote="It'll be the first time the Black Sabbath played has played in Aston since we used to live there." speaker="Geezer Butler">The quote contains a transcription error ('played has played') that should be corrected or excluded.</flag>
+</flags>
+</document>

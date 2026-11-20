@@ -1,0 +1,33 @@
+<document id="wikinews-quote-rich-100-11" source="wikinews-quote-rich-100" source-id="11" text-sha256="d4720be803e6c2fee55c08427db28d05f7d5b3340fbe95425a899756531acbc8" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Yoh Matsumoto" type="person"/>
+  <speaker id="S2" name="Clive Holmes" type="person"/>
+  <speaker id="S3" name="Sam Gandy" type="person"/>
+  <speaker id="S4" name="Susanne Sorensen" type="person"/>
+</speakers>
+<text><exclude reason="unresolved" note="A team headed by Matsumoto calls the drug promising: whose word?">A team headed by Yoh Matsumoto at the Tokyo Metropolitan Institute for Neuroscience in Japan has developed a DNA vaccine, with no side effects, to fight Alzheimer's disease and call the drug "promising."</exclude> The vaccine, thus far, has only been tested on mice and is only in the experimental stages.
+
+<seg speaker="S1" d="D2" r="R1">Tests are going to soon be done on monkeys and if that turns out successful then tests on humans could be done in perhaps three years</seg>, said lead researcher Yoh Matsumoto of the Tokyo Metropolitan Institute for Neuroscience in Japan.
+
+"<seg speaker="S2" d="D1" r="R1">This work represents a promising new line of vaccine development but more research would be needed to see if this could be replicated safely in humans</seg>," said Doctor Clive Holmes of the Alzheimer's Research Trust.
+
+The vaccine is given by an injection and works by reducing the amount of certain amyloid proteins, <dis type="unnamed_source">which scientists believe are the cause of the illness</dis>. <dis type="document_source">The study says that the amount of amyloid proteins in different areas of the brain was reduced, in some cases, up to 50%.</dis> In the lowest amounts, the protein was reduced 15.5%. In direct areas of the brain, such as the hippocampus and cerebral cortex, the reduction of the protein was 40-50%. Amyloid proteins, when over produced, are believed to cause the symptoms of the illness by forming masses in the brain, which spread. The vaccine involves injecting the mice with the protein and then the DNA vaccine. The vaccine codes itself to the protein, stopping the spread of the masses by not allowing the protein to reproduce.
+
+"<seg speaker="S1" d="D1" r="R2">DNA vaccines are given by intramuscular injection, which stimulates the production of anti-amyloid-beta antibodies. In the early stage, we highly expect that DNA vaccination will prevent disease progression and, hopefully, normalize brain function</seg>," said Matsumoto.
+
+However, Matsumoto also said that <seg speaker="S1" d="D2" r="R2">patients who are experiencing "advanced cases" of the illness will have "irreversible damage" even if they received the vaccine</seg>.
+
+"<seg speaker="S1" d="D1" r="R2">In advanced cases, however, neuronal loss and brain atrophy are very severe and irreversible. So it may be difficult to obtain clinical improvement with DNA vaccination</seg>," said Matsumoto.
+
+In 2003 18 of the 298 people testing the vaccine had symptoms of brain swelling and the trials were stopped. At least 6% of those testing the vaccine had an over-reaction, which caused swelling of the brain and some even suffered brain damage.
+
+<dis type="unnamed_source">Researchers say the new development is "safe" but that it will be "years" before any real and extensive clinical tests of the vaccine begin.</dis>
+
+"<seg speaker="S3" d="D1" r="R1">Any of these vaccines could prove safe and effective. But we are years away from seeing them widely used in clinical practice -- but perhaps as few as three years away</seg>," said chairman of the Alzheimer's Association's Medical and Scientific Advisory Council, Dr. Sam Gandy.
+
+"<seg speaker="S4" d="D1" r="R1">The findings support the idea that a vaccine is our best hope for fighting this devastating disease for which there is currently no cure</seg>," said Doctor Susanne Sorensen, of the Alzheimer's Society.</text>
+<notes>Titles stripped (Doctor, Dr.). The team's “promising” is excluded: the team's word, or Matsumoto's?</notes>
+<flags>
+  <flag kind="doubt" quote="Tests are going to soon be done on monkeys and if that turns out successful then tests on humans could be done in perhaps three years" speaker="Yoh Matsumoto">The segment is a direct quote but lacks opening quotation marks; the quote should start with a quotation mark.</flag>
+</flags>
+</document>

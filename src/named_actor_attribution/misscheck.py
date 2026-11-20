@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -73,6 +74,10 @@ def ask(model: str, system: str, user: str, key: str, timeout: int = 180, tries:
 
 
 def parse_flags(content: str) -> list[markup.Flag]:
+    # Some answers wrap the JSON in a Markdown code fence despite the JSON response format.
+    fenced = re.fullmatch(r"\s*```(?:json)?\s*(.*?)\s*```\s*", content, re.S)
+    if fenced:
+        content = fenced.group(1)
     try:
         data = json.loads(content)
     except json.JSONDecodeError as e:

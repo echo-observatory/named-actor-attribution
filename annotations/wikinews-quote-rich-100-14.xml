@@ -1,0 +1,36 @@
+<document id="wikinews-quote-rich-100-14" source="wikinews-quote-rich-100" source-id="14" text-sha256="d73c21e830e214b37f4be1a766a702633845b7599c36be33cc291f1aec07a1d5" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="International Water Management Institute" type="organization"/>
+  <speaker id="S2" name="David Molden" type="person"/>
+  <speaker id="S3" name="Frank Rijsberman" type="person"/>
+</speakers>
+<text><dis type="document_source">A report by the International Water Management Institute (IWMI) says rising demand for irrigation to produce food and biofuels will aggravate scarcities of water. "One in three people is enduring one form or another of water scarcity," states the report compiled by 700 experts.</dis>
+
+IWMI warns <seg speaker="S1" d="D2" r="R2">there has to be a radical transformation in the management of water resources - citing as examples Australia, south-central China, and last year’s devastating drought in India</seg>. <dis type="unnamed_source">Report authors claim that the price of water could double or triple over the next two decades.</dis> <dis type="document_source">The report, backed by the United Nations and farm research groups, shows that globally, water usage had increased by six times in the past 100 years and would double again by 2050 - driven mainly by irrigation and demands by agriculture.</dis>
+
+Record oil prices and concerns about rapid onset climate change are driving more countries to produce biofuels - from sugarcane, corn or wood - as an alternative to fossil fuel. "<seg speaker="S2" d="D1" r="R1">If people are growing biofuels and food it will put another new stress</seg>," says David Molden, who led the study at the Sri Lanka-based IWMI. "<seg speaker="S2" d="D1" r="R2">The big solution is to find ways to grow more food with less water. Basically, more crop per drop</seg>," Molden said. "<seg speaker="S2" d="D3" r="R2">The number one recommendation... is to look to improve rain-fed systems in Sub-Saharan Africa and South Asia.</seg>"
+
+<dis type="document_source">The report says conquering hunger and coping with an estimated 3 billion more humans by 2050 will result in an 80 percent increase in water use for agriculture.</dis> Irrigation absorbs around 74 percent and is likely to surge by 2050.
+
+"<seg speaker="S3" d="D1" r="R1">We will have to change business as usual in order to deal with growing scarcity</seg>," said Frank Rijsberman, director general of the IWMI, of the report released at the 2006 "World Water Week" conference in Stockholm. <dis type="document_source">Solutions included helping poor countries to grow more food with available fresh water via simple, low-cost measures, a shift from past policies that favoured expensive dams or canals, the report said.</dis>
+
+According to Rijsberman, <seg speaker="S3" d="D4" r="R2">there are two types of shortages: those observed in regions where water is over-exploited, causing a lowering of groundwater levels and rivers to dry up; and those in countries lacking the technical and financial resources to capture water - despite its abundance</seg>.
+
+<seg speaker="S3" d="D2" r="R3">Billions of people in Asia and Africa already faced water shortages because of poor water management</seg>, he said. "<seg speaker="S3" d="D1" r="R3">We will not run out of bottled water any time soon, but some countries have already run out of water to produce their own food</seg>," he said.
+
+<dis type="document_source">The report said that a calorie of food took roughly 1 litre of water to produce, with a kilo of grain needing only 500-4,000 litres compared to a kilo of industrially produced meat taking 10,000 litres.</dis>
+
+<exclude reason="unresolved" note="A quote with no cue: Rijsberman's, or the report's?">"Without improvements in water productivity the consequences of this will be even more widespread water scarcity and rapidly increasing water prices."</exclude> Rijsberman said <seg speaker="S3" d="D2" r="R2">water scarcity in Africa was caused by a lack of infrastructure to get the water to the people who needed it. "The water is there, the rainfall is there, but the infrastructure isn't there</seg>," Rijsberman told reporters.
+
+Other recommendations for certain regions include the extension and the improvement of agriculture using rainwater, the introduction of cereal varieties that need less water as well as the development of irrigation systems.
+
+But <seg speaker="S3" d="D2" r="R2">the priority</seg>, Rijsberman stresses, <seg speaker="S3" d="D2" r="R2">is to change mentalities and often outdated government policies. "Government policies and their approach to water are probably the most urgent that need changing in the short term</seg>," he said.
+
+<seg speaker="S3" d="D2" r="R3">There is</seg>, he says, <seg speaker="S3" d="D2" r="R3">enough land, water and human capacity to produce enough food for a growing population over the next 50 years, but one of the challenges is to provide enough water for agriculture without damaging the environment. "Agriculture is driving water scarcity and water scarcity is driving environmental degradation and destruction</seg>," he said.
+
+In Australia last week, Rijsberman said <seg speaker="S3" d="D2" r="R2">he would "not be surprised to see the price of water double or triple over the next two decades."</seg></text>
+<notes>The report's findings are a document source (“the report says”); IWMI is a speaker only where it is the subject (“IWMI warns”).</notes>
+<flags>
+  <flag kind="doubt" quote="The number one recommendation... is to look to improve rain-fed systems in Sub-Saharan Africa and South Asia." speaker="David Molden">The quote is missing its closing quotation mark, so the segment boundary is wrong.</flag>
+</flags>
+</document>
