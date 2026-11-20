@@ -2,9 +2,11 @@
 
 One file per source document, in the [markup format](../docs/markup.md). The texts come from [`global-voices-cheese-181`](https://github.com/echo-observatory/obs-test-datasets/tree/main/global-voices-cheese-181) in `obs-test-datasets`, unchanged.
 
+Files ending in `-a1`, `-a2`… are passages adapted from the document of the same name, to make them simpler (spec §5.1). Each records the passage it comes from and what was changed.
+
 ## Licence and credits
 
-The texts are © their authors, published by Global Voices under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The annotations are added to them.
+The texts are © their authors, published by Global Voices under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The annotations are added to them; the adapted passages are changed as each one says. Each adapted file is credited like its source document below.
 
 | File | Credit |
 | --- | --- |

@@ -33,6 +33,7 @@ It is temporary: the dataset's items and labels (spec §6) are generated from it
 | `status` | `blank`, `drafted` or `reviewed`. |
 | `annotator` | Who reviewed or annotated it. |
 | `drafted-by`, `miss-check-by` | The models used, with versions. |
+| `adapted-from`, `source-start`, `source-end`, `adaptation` | For an adapted passage only (spec §5.1, made with `naa adapt`): the document it comes from, the passage's range in that document's text, and what was changed. |
 
 **`<speakers>`** lists the document's speakers: `<speaker id="S1" name="…" type="…"/>`, where `name` is the canonical name (spec §2) and `type` is `person` or `organization` (blogs and publications included). Renaming a speaker means changing one attribute.
 

@@ -1,5 +1,5 @@
 """Command line: `naa new`, `naa apply`, `naa check`, `naa rehash`, `naa export`, `naa page`, `naa split`,
-`naa runs`, `naa cut`."""
+`naa runs`, `naa cut`, `naa adapt`."""
 
 from __future__ import annotations
 
@@ -57,8 +57,13 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--out", type=Path, help="write the items here, as JSONL")
     p.add_argument("--page", type=Path, help="also build an annotation page holding the items, to read them")
 
+    p = sub.add_parser("adapt", help="create an adapted passage as a document of its own (docs/cutting.md)")
+    p.add_argument("draft", type=Path, help="the adaptation, as JSON")
+    p.add_argument("--documents", type=Path, default=Path("annotations"), help="folder of the documents (default: annotations/)")
+    p.add_argument("--force", action="store_true", help="overwrite the adapted document if it exists")
+
     args = parser.parse_args(argv)
-    commands = {"runs": _runs, "cut": _cut, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
+    commands = {"runs": _runs, "cut": _cut, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
     return commands[args.command](args)
 
 
@@ -231,11 +236,10 @@ def _source_details(corpora: list[Path]) -> dict:
 
 def _cut(args) -> int:
     details = _source_details(args.corpus)
-    all_items, failed = [], False
+    all_items, failed, ranges = [], False, []
     for path in args.cuts:
         spec = json.loads(path.read_text(encoding="utf-8"))
         doc = _read(args.documents / f"{spec['document']}.xml")
-        cuts = []
         for k, entry in enumerate(spec["items"], 1):
             cut, problems = items_mod.find_cut(doc, entry)
             item_id = f"{doc.id}-{k:02d}"
@@ -243,7 +247,7 @@ def _cut(args) -> int:
                 print(f"{item_id}: error: {'; '.join(problems)}")
                 failed = True
                 continue
-            cuts.append(cut)
+            ranges.append((*items_mod.source_range(doc, cut), item_id))
             item, more = items_mod.make_item(doc, cut, item_id, details.get((doc.source, doc.source_id)))
             for p in problems + more:
                 print(f"{item_id}: error: {p}")
@@ -252,9 +256,9 @@ def _cut(args) -> int:
             all_items.append(item)
             print(f"{item_id}: {item['tier'] or '—'} ({'+'.join(item['tier_breaks']) or 'base'}), "
                   f"{item['word_count']} words, {len(item['segments'])} segments, {len(item['speakers'])} speakers")
-        for a, b in items_mod.overlapping_cuts(cuts):
-            print(f"{doc.id}: error: items {a + 1} and {b + 1} overlap")
-            failed = True
+    for a, b in items_mod.overlaps(ranges):
+        print(f"error: {a} and {b} take overlapping text from the same document")
+        failed = True
     print()
     print(items_mod.yield_table(all_items))
     if args.out:
@@ -262,6 +266,30 @@ def _cut(args) -> int:
     if args.page:
         args.page.write_text(build_page([_item_document(i) for i in all_items]), encoding="utf-8")
     return 1 if failed else 0
+
+
+def _adapt(args) -> int:
+    spec = json.loads(args.draft.read_text(encoding="utf-8"))
+    source = _read(args.documents / f"{spec['document']}.xml")
+    cut, problems = items_mod.find_cut(source, spec)
+    if cut is None:
+        print(f"{args.draft}: error: {'; '.join(problems)}", file=sys.stderr)
+        return 1
+    doc = markup.adapted(source, cut.start, cut.end, spec["text"], spec["adaptation"], spec["id"])
+    path = args.documents / f"{doc.id}.xml"
+    if path.exists() and not args.force:
+        print(f"{path} exists, left as it is (use --force to overwrite)", file=sys.stderr)
+        return 1
+    doc, problems = markup.apply_draft(doc, spec)
+    for p in problems:
+        print(f"{args.draft}: error: {p}", file=sys.stderr)
+    if problems:
+        return 1
+    path.write_text(markup.serialize(doc), encoding="utf-8")
+    for p in markup.check(doc):
+        print(f"{path}: {p}")
+    print(f"{path}: adapted from {source.id} [{cut.start}, {cut.end}), {len(doc.segments)} segments")
+    return 0
 
 
 def _item_document(item: dict) -> markup.Document:

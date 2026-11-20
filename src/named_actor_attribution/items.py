@@ -169,6 +169,18 @@ def make_item(doc: markup.Document, cut: Cut, item_id: str, source: dict | None 
     elif tier not in ("T0", "T1", "T2") and not (starts_para and ends_para):
         problems.append(f"{tier} items are made of whole paragraphs")
 
+    if doc.adapted_from is None:
+        src = {**(source or {}), "document": doc.id, "start_offset": start, "adapted": False, "adaptation": None}
+    else:
+        if tier not in (None, "T0", "T1", "T2", "T3"):
+            problems.append(f"an adapted item is {tier}: only T0–T3 items may be adapted (spec §5.1)")
+        if (start, end) != (0, len(doc.text)):
+            problems.append("an adapted document is one item: cut it whole")
+        src = {**(source or {}), "document": doc.adapted_from, "start_offset": doc.source_start,
+               "adapted": True, "adaptation": doc.adaptation}
+        if src.get("attribution_line"):
+            src["attribution_line"] += " Adapted for this dataset."
+
     item = {
         "item_id": item_id,
         "tier": tier,
@@ -176,7 +188,7 @@ def make_item(doc: markup.Document, cut: Cut, item_id: str, source: dict | None 
         "split": None,
         "text": text,
         "word_count": words,
-        "source": {**(source or {}), "document": doc.id, "start_offset": start, "adapted": False, "adaptation": None},
+        "source": src,
         "speakers": speakers,
         "segments": segments,
         "distractors": distractors,
@@ -194,6 +206,8 @@ def _short(s: str, n: int = 50) -> str:
 def find_cut(doc: markup.Document, entry: dict) -> tuple[Cut | None, list[str]]:
     """A cut-list entry: {"from": first words, "to": last words, "n": …, "levels": {seg start words: [D, R]},
     "names": {document speaker id: name in this item}}."""
+    if "from" not in entry:  # the whole document, e.g. an adapted passage
+        return Cut(0, len(doc.text), names=dict(entry.get("names", {}))), []
     first, last = entry["from"], entry["to"]
     hits = [m.start() for m in re.finditer(re.escape(first), doc.text)]
     n = entry.get("n")
@@ -216,9 +230,23 @@ def find_cut(doc: markup.Document, entry: dict) -> tuple[Cut | None, list[str]]:
     return cut, problems
 
 
-def overlapping_cuts(cuts: list[Cut]) -> list[tuple[int, int]]:
-    ordered = sorted(range(len(cuts)), key=lambda i: cuts[i].start)
-    return [(a, b) for a, b in zip(ordered, ordered[1:]) if cuts[b].start < cuts[a].end]
+def source_range(doc: markup.Document, cut: Cut) -> tuple[str, int, int]:
+    """The document and range an item takes its text from: for an adapted item, its source passage."""
+    if doc.adapted_from is not None:
+        return doc.adapted_from, doc.source_start, doc.source_end
+    return doc.id, cut.start, cut.end
+
+
+def overlaps(ranges: list[tuple[str, int, int, str]]) -> list[tuple[str, str]]:
+    """Pairs of items that take overlapping text from the same document: (document, start, end, item id)."""
+    out = []
+    ordered = sorted(ranges)
+    for i, (doc, start, end, item) in enumerate(ordered):
+        for doc2, start2, _, item2 in ordered[i + 1:]:
+            if doc2 != doc or start2 >= end:
+                break
+            out.append((item, item2))
+    return out
 
 
 def yield_table(items: list[dict]) -> str:

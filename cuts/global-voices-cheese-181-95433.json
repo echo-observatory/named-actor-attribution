@@ -1,10 +1,25 @@
-{"document": "global-voices-cheese-181-95433", "items": [
- {"from": "Malaysia’s Federal Court has ruled", "to": "Malaysian Chicken Curry."},
- {"from": "Here are some reactions of bloggers", "to": "this is one of them"},
- {"from": "Commenting on a post, Melissa", "to": "don’t see a problem with it"},
- {"from": "Eyeris wonders why", "to": "nearby McD outlets? Hmmm"},
- {"from": "Carl Parkes fears", "to": "McSomTam in Bangkok."},
- {"from": "The Bluesman asks if", "to": "in the market place."},
- {"from": "My Journal theorizes", "to": "“McDonald Curry”."},
- {"from": "After learning about the court ruling", "to": "in a lawsuit."}
-]}
+{
+ "document": "global-voices-cheese-181-95433",
+ "items": [
+  {
+   "from": "Malaysia’s Federal Court has ruled",
+   "to": "Malaysian Chicken Curry."
+  },
+  {
+   "from": "Here are some reactions of bloggers",
+   "to": "this is one of them"
+  },
+  {
+   "from": "Commenting on a post, Melissa",
+   "to": "don’t see a problem with it"
+  },
+  {
+   "from": "Carl Parkes fears",
+   "to": "McSomTam in Bangkok."
+  },
+  {
+   "from": "The Bluesman asks if",
+   "to": "in the market place."
+  }
+ ]
+}

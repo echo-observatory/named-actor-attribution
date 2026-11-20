@@ -33,7 +33,8 @@ EXCLUSION_REASONS = (
     "boilerplate",    # a caption, photo credit, editorial note or headline: removed from items
 )
 
-DOCUMENT_ATTRS = {"id", "source", "source-id", "text-sha256", "status", "annotator", "drafted-by", "miss-check-by"}
+DOCUMENT_ATTRS = {"id", "source", "source-id", "text-sha256", "status", "annotator", "drafted-by", "miss-check-by",
+                  "adapted-from", "source-start", "source-end", "adaptation"}
 SPEAKER_ATTRS = {"id", "name", "type"}
 SEG_ATTRS = {"speaker", "d", "r", "note"}
 DIS_ATTRS = {"type", "note"}
@@ -91,6 +92,12 @@ class Document:
     annotator: str | None = None
     drafted_by: str | None = None
     miss_check_by: str | None = None
+    # An adapted passage (spec §5.1): the document it comes from, the passage's range in that
+    # document, and what was changed.
+    adapted_from: str | None = None
+    source_start: int | None = None
+    source_end: int | None = None
+    adaptation: str | None = None
     speakers: list[Speaker] = field(default_factory=list)
     segments: list[Segment] = field(default_factory=list)
     distractors: list[Distractor] = field(default_factory=list)
@@ -164,6 +171,10 @@ def _parse_document(root: ET.Element) -> Document:
         annotator=root.get("annotator"),
         drafted_by=root.get("drafted-by"),
         miss_check_by=root.get("miss-check-by"),
+        adapted_from=root.get("adapted-from"),
+        source_start=_int_attr(root, "source-start"),
+        source_end=_int_attr(root, "source-end"),
+        adaptation=root.get("adaptation"),
     )
     for child in children:
         if child.tag == "speakers":
@@ -177,6 +188,15 @@ def _parse_document(root: ET.Element) -> Document:
         elif child.tag == "text":
             _read_text(child, doc)
     return doc
+
+
+def _int_attr(el: ET.Element, name: str) -> int | None:
+    v = el.get(name)
+    if v is None:
+        return None
+    if not v.isdigit():
+        raise MarkupError(f"<{el.tag}> has {name}={v!r}, not a number")
+    return int(v)
 
 
 def _read_text(el: ET.Element, doc: Document) -> None:
@@ -238,6 +258,11 @@ def check(doc: Document) -> list[Problem]:
     elif doc.text_sha256 != text_sha256(doc.text):
         err("the text differs from the one this document was created with (text-sha256); "
             "if the change is deliberate, run `naa rehash`")
+    if doc.adapted_from is not None:
+        if doc.source_start is None or doc.source_end is None or not doc.adaptation:
+            err("an adapted document needs source-start, source-end and adaptation")
+        elif doc.source_start >= doc.source_end:
+            err("source-start is not before source-end")
     if doc.status not in STATUSES:
         err(f"status {doc.status!r} is not one of {', '.join(STATUSES)}")
 
@@ -348,7 +373,9 @@ def serialize(doc: Document) -> str:
     """Write a document as markup. parse(serialize(doc)) gives the same document back."""
     attrs = [("id", doc.id), ("source", doc.source), ("source-id", doc.source_id),
              ("text-sha256", doc.text_sha256), ("status", doc.status), ("annotator", doc.annotator),
-             ("drafted-by", doc.drafted_by), ("miss-check-by", doc.miss_check_by)]
+             ("drafted-by", doc.drafted_by), ("miss-check-by", doc.miss_check_by),
+             ("adapted-from", doc.adapted_from), ("source-start", _str(doc.source_start)),
+             ("source-end", _str(doc.source_end)), ("adaptation", doc.adaptation)]
     lines = [f"<document{_attrs(attrs)}>", "<speakers>"]
     for sp in doc.speakers:
         lines.append(f"  <speaker{_attrs([('id', sp.id), ('name', sp.name), ('type', sp.type)])}/>")
@@ -358,6 +385,10 @@ def serialize(doc: Document) -> str:
         lines.append(f"<notes>{_escape(doc.notes)}</notes>")
     lines.append("</document>")
     return "\n".join(lines) + "\n"
+
+
+def _str(v: int | None) -> str | None:
+    return None if v is None else str(v)
 
 
 def _text_with_spans(doc: Document) -> str:
@@ -399,7 +430,16 @@ def blank(doc_id: str, text: str, source: str | None = None, source_id: str | No
 
 def stripped(doc: Document) -> Document:
     """The same document with its annotation removed, for annotating from scratch."""
-    return Document(id=doc.id, text=doc.text, source=doc.source, source_id=doc.source_id, text_sha256=doc.text_sha256)
+    return Document(id=doc.id, text=doc.text, source=doc.source, source_id=doc.source_id, text_sha256=doc.text_sha256,
+                    adapted_from=doc.adapted_from, source_start=doc.source_start, source_end=doc.source_end,
+                    adaptation=doc.adaptation)
+
+
+def adapted(source: Document, start: int, end: int, text: str, adaptation: str, suffix: str) -> Document:
+    """A new, blank document holding an adapted version of source.text[start:end] (spec §5.1)."""
+    return Document(id=f"{source.id}-{suffix}", text=text, source=source.source, source_id=source.source_id,
+                    text_sha256=text_sha256(text), adapted_from=source.id, source_start=start, source_end=end,
+                    adaptation=adaptation)
 
 
 def rehash(markup: str) -> str:
@@ -485,6 +525,10 @@ def to_record(doc: Document) -> dict:
         "annotator": doc.annotator,
         "drafted_by": doc.drafted_by,
         "miss_check_by": doc.miss_check_by,
+        "adapted_from": doc.adapted_from,
+        "source_start": doc.source_start,
+        "source_end": doc.source_end,
+        "adaptation": doc.adaptation,
         "text": doc.text,
         "speakers": [{"speaker_id": s.id, "canonical_name": s.name, "type": s.type} for s in doc.speakers],
         "segments": [

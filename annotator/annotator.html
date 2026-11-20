@@ -177,7 +177,8 @@ const DIS_TYPES = ["named_no_attribution", "unnamed_source", "document_source", 
                    "non_statement", "negated_speech", "quoted_title_or_scare_quote"];
 const REASONS = ["joint", "nested", "unresolved", "non-english", "boilerplate"];
 const STATUSES = ["blank", "drafted", "reviewed"];
-const DOC_ATTRS = ["id", "source", "source-id", "text-sha256", "status", "annotator", "drafted-by", "miss-check-by"];
+const DOC_ATTRS = ["id", "source", "source-id", "text-sha256", "status", "annotator", "drafted-by", "miss-check-by",
+                   "adapted-from", "source-start", "source-end", "adaptation"];
 const SPAN_ATTRS = { seg: ["speaker", "d", "r", "note"], dis: ["type", "note"], exclude: ["reason", "note"] };
 const SPEAKER_ATTRS = ["id", "name", "type"];
 const QUOTE_MARKS = "\"'“”‘’«»„‟‹›";
@@ -658,7 +659,8 @@ function renderDocInfo(d) {
   const count = (k, one, many) => `${k} ${k === 1 ? one : many}`;
   const a = d.attrs;
   $("docinfo").textContent = `${a.id}${a.source ? ` · ${a.source}` : ""}${a["drafted-by"] ? ` · drafted by ${a["drafted-by"]}` : ""}` +
-    `${a["miss-check-by"] ? ` · miss check by ${a["miss-check-by"]}` : ""} — ${count(n("seg"), "segment", "segments")}, ${count(n("dis"), "distractor", "distractors")}, ` +
+    `${a["miss-check-by"] ? ` · miss check by ${a["miss-check-by"]}` : ""}` +
+    `${a["adapted-from"] ? ` · adapted from ${a["adapted-from"]}: ${a.adaptation || ""}` : ""} — ${count(n("seg"), "segment", "segments")}, ${count(n("dis"), "distractor", "distractors")}, ` +
     `${count(n("exclude"), "exclusion", "exclusions")}, ${count(d.speakers.length, "speaker", "speakers")}.`;
 }
 

@@ -77,6 +77,9 @@ uv run naa rehash annotations/global-voices-cheese-181-483946.xml
 # Write documents as JSONL records with offsets
 uv run naa export annotations/*.xml --out documents.jsonl
 
+# Create an adapted passage, as a document of its own (docs/cutting.md)
+uv run naa adapt adaptation.json
+
 # List documents' paragraphs, to choose the passages to cut
 uv run naa runs annotations/*.xml
 
