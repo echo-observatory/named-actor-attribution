@@ -1,0 +1,26 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-16" source="wikinews-repeated-claims-iran-nuclear-59" source-id="16" text-sha256="20d2003f50b9300c9268618c4e9268606df43b193e8f2c0a034f9f15d29b84f5" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Ali Khamenei" type="person"/>
+  <speaker id="S2" name="Condoleezza Rice" type="person"/>
+  <speaker id="S3" name="Iran" type="organization"/>
+</speakers>
+<text>Ayatollah Ali Khamenei, the supreme leader of Iran, has said that <seg speaker="S1" d="D2" r="R1">the oil flow between Iran and the United States will be "at serious risk" if any "wrong move" is made against the country</seg>.
+
+"<seg speaker="S1" d="D1" r="R2">We are committed to our ideals and national interests and if anyone threatens our national interests it will face the Iranian nations' wrath</seg>," said Khamenei during the 17th anniversary ceremony of the death of the former spiritual leader of Iran, Ayatollah Ruhollah Khomeini.
+
+"<seg speaker="S1" d="D1" r="R2">If the U.S. makes a wrong move against Iran, energy flow in the region will be definitely put at serious risk. You [the United States] can never maintain security for [the distribution of] energy in the region. A country with war criminal records such as the US should never again take the term human rights into its mouth. We are a peace-willing nation and our only weapon is the belief and resistance of our people</seg>," added Khamenei.
+
+<exclude reason="unresolved" note="Positions given as noun phrases (“a willingness to…”, “describing these as…”): their bounds are debatable.">However, the U.S. has stated that it wants to resolve its issues with Iran by diplomatic means, but it may use military force, including nuclear weapons, describing these as "options on the table". The U.S. has expressed a willingness to join talks with Iran along with Germany, France, China, Russia and the United Kingdom, but said that it will do so only if Iran ends its uranium enrichment program. Iran has responded by expressing a willingness to hold talks over matters of "mutual concern," but rejected the call to halt enrichment.</exclude>
+
+"<seg speaker="S2" d="D1" r="R1">We shouldn't put too much emphasis on a threat of this kind. After all, Iran is also very dependent on oil revenue</seg>," said Secretary of State Condoleezza Rice also adding that <seg speaker="S2" d="D2" r="R1">the United States will "not allow Iran to drag [out]" talks on its nuclear program</seg>.
+
+"<seg speaker="S2" d="D1" r="R2">We really do have to have this settled over a matter of weeks, not months, but the fact is there are two paths, and we hope they're going to choose the path that is a path away from confrontation and toward a solution</seg>," added Rice.
+
+Iran is the fourth largest producer and supplier of crude oil in the world, it is party to the Nuclear Non-Proliferation Treaty and it has stated that <seg speaker="S3" d="D2" r="R3">its nuclear programme is for peaceful purposes</seg> and that <seg speaker="S3" d="D2" r="R3">it will "not start a war."</seg>
+
+"<seg speaker="S1" d="D1" r="R2">We will never start a war. We have no intention of going to war with any government. We have no problem with the world. We are no threat whatsoever to the world and the world knows it... The other suggestion is that Iran is seeking a nuclear bomb. This is an irrelevant and wrong statement; it is a sheer lie. We do not need a nuclear bomb. We do not have any objectives or aspirations for which we will need to use a nuclear bomb. We consider using nuclear weapons against Islamic rules</seg>," said Khamenei.</text>
+<notes>“Ayatollah” stripped. The US paragraph of positions, with noun phrases whose bounds are debatable, is excluded. Unnamed voices quoted inside Khamenei's quote (“the other suggestion”) stay inside.</notes>
+<flags>
+  <flag kind="doubt" quote="Iran is the fourth largest producer and supplier of crude oil in the world, it is party to the Nuclear Non-Proliferation Treaty and it has stated that its nuclear programme is for peaceful purposes and that it will &quot;not start a war.&quot;" speaker="Iran">The two segments are a maximal run of the same speaker separated only by 'and that', so they should be one segment.</flag>
+</flags>
+</document>

@@ -1,0 +1,43 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-29",
+ "items": [
+  {
+   "from": "Iran has stated today",
+   "to": "during an address to his nation."
+  },
+  {
+   "from": "Khamenei also said that he will attack",
+   "to": "added Khamenei.",
+   "names": {
+    "S2": "Khamenei"
+   },
+   "levels": {
+    "he will attack": [
+     "D2",
+     "R1"
+    ],
+    "If they want": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Despite the warning, the United States",
+   "to": "Nicholas Burns."
+  },
+  {
+   "from": "Khamenei also stated that",
+   "to": "imposed on Iran.",
+   "names": {
+    "S2": "Khamenei"
+   },
+   "levels": {
+    "nuclear energy is a must": [
+     "D2",
+     "R1"
+    ]
+   }
+  }
+ ]
+}

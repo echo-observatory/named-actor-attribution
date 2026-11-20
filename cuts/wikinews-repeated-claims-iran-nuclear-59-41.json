@@ -1,0 +1,30 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-41",
+ "items": [
+  {
+   "from": "Government spokesman Gholam-Hossein Elham",
+   "to": "Seyed Ali Khamenei.\""
+  },
+  {
+   "from": "The proposal also included",
+   "to": "for six weeks."
+  },
+  {
+   "from": "Iran's response, a letter written by",
+   "to": "according to the anonymous officials."
+  },
+  {
+   "from": "\"One of the things to decide",
+   "to": "Gallach said.",
+   "names": {
+    "S3": "Gallach"
+   },
+   "levels": {
+    "One of the things": [
+     "D1",
+     "R1"
+    ]
+   }
+  }
+ ]
+}

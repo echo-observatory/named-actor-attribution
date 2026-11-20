@@ -1,0 +1,26 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-4",
+ "items": [
+  {
+   "from": "Condoleezza Rice, the U.S. Secretary of State",
+   "to": "move from that diplomatic track.\""
+  },
+  {
+   "from": "Rice's comments have added",
+   "to": "under the NPT may also take a long time, and may never even work."
+  },
+  {
+   "from": "Iran's government continues to insist",
+   "to": "rights in the field of nuclear fuel.\"",
+   "names": {
+    "S2": "Entezami"
+   },
+   "levels": {
+    "Iran pursues": [
+     "D1",
+     "R1"
+    ]
+   }
+  }
+ ]
+}

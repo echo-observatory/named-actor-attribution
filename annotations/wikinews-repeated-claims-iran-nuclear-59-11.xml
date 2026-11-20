@@ -1,0 +1,30 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-11" source="wikinews-repeated-claims-iran-nuclear-59" source-id="11" text-sha256="a8951ad8bd609e48b3dfb042d4ef2cf1faffede3d4ec5c64dc415f2e21c83a8b" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Mahmoud Ahmadinejad" type="person"/>
+  <speaker id="S2" name="Akbar Hashemi Rafsanjani" type="person"/>
+  <speaker id="S3" name="International Atomic Energy Agency" type="organization"/>
+  <speaker id="S4" name="United States" type="organization"/>
+  <speaker id="S5" name="Scott McClellan" type="person"/>
+</speakers>
+<text>Iranian President Mahmoud Ahmadinejad confirmed on Tuesday that <seg speaker="S1" d="D2" r="R1">the country has successfully enriched uranium from 164 of their centrifuges</seg>.
+
+"<seg speaker="S1" d="D1" r="R2">I am officially announcing that Iran has joined the group of those countries which have nuclear technology. This is the result of the Iranian nation's resistance. Based on international regulations, we will continue our path until we achieve production of industrial-scale enrichment</seg>," Ahmadinejad said.
+
+"<seg speaker="S2" d="D1" r="R1">Iran has put into operation the first unit of 164 centrifuges, has injected (the uranium) gas and has reached industrial production. We operated the first unit which comprises of 164 centrifuges, gas was injected, and we got the industrial output. We should expand the work of these machines to achieve a full industrial line. We need dozens of these units (sets totaling 164 centrifuges) to achieve a uranium enrichment facility</seg>," said Iran's former President, Akbar Hashemi Rafsanjani, earlier today.
+
+Ahmadinejad had said on Monday that <seg speaker="S1" d="D2" r="R2">he would release "good nuclear news which will be a source of pride for the whole Iranian nation" today</seg> and that <seg speaker="S1" d="D2" r="R2">reports from the media are part of the United States campaign involving "psychological warfare."</seg>
+
+"<seg speaker="S1" d="D1" r="R2">Nothing can stop our civil nuclear program as the Iranians are a courageous nation and not afraid of intimidations. We are not after atomic bombs</seg>," added Ahmadinejad.
+
+According to the International Atomic Energy Agency (IAEA), <seg speaker="S3" d="D4" r="R1">Iran began to test 20 centrifuges in March</seg>. Iran's current enrichment is only to reactor-grade — around 3.5% of the isotope uranium-235. Uranium-235 has a natural abundance of 0.72% and is one isotope of uranium which is easily fissionable. In order to create a nuclear bomb, a few hundred metric tons of natural uranium must be used enriched above 90% of uranium-235. <dis type="unnamed_source">Experts have said that if Iran is going to attempt to make enough uranium-235 for a nuclear bomb, they would need to install a few thousand centrifuges in series or process the gas through the same set of centrifuges over 50 times.</dis>
+
+<dis type="named_no_attribution">On Wednesday, Mohamed ElBaradei, the President of the IAEA, will visit Iran to review the progression, if any, to Iran's nuclear program and will release a report at the end of April.</dis>
+
+The United States said that <seg speaker="S4" d="D2" r="R1">Iran is "moving in the wrong direction" in regards to its nuclear program</seg> and that <seg speaker="S4" d="D2" r="R1">if it continues its program, it will discuss the possibility of taking steps with the United Nations</seg>.
+
+<seg speaker="S5" d="D4" r="R1">Washington DC is said to "be talking about the way forward with the other members of the Security Council and Germany about how to address this [Iran's nuclear program],"</seg> according to White House spokesman Scott McClellan.</text>
+<notes>Two presidents of Iran, both named at each cue.</notes>
+<flags>
+  <flag kind="doubt" quote="Washington DC is said to &quot;be talking about the way forward with the other members of the Security Council and Germany about how to address this [Iran's nuclear program],&quot;" speaker="Scott McClellan">The segment is a passive construction ('is said to') that reports what Washington DC is saying, not a direct statement by McClellan; the speaker should be United States or the text should be excluded as ambiguous.</flag>
+</flags>
+</document>

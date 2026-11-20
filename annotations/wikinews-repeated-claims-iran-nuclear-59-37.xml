@@ -1,0 +1,26 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-37" source="wikinews-repeated-claims-iran-nuclear-59" source-id="37" text-sha256="e02089725aaaf0e56cdc3c1f36ca0aeafef3c7b1bfcbc19e13ec058e106e8563" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="United States" type="organization"/>
+  <speaker id="S2" name="Iran" type="organization"/>
+  <speaker id="S3" name="Harry Reid" type="person"/>
+</speakers>
+<text><dis type="unnamed_source">A senior United States intelligence official said today that Iran stopped its nuclear weapons program in the fall of 2003 under international pressure.</dis> <dis type="unnamed_source">The official cautioned that Iran is still continuing to enrich uranium and could have a nuclear weapon available between 2009 and 2015,</dis> <dis type="document_source">but the report states that intelligence shows that Iran has not restarted their nuclear weapons program.</dis>
+
+The finding, published in a new National Intelligence Estimate on Iran, is a major deviation from the intelligence the U.S. suggested two years ago. The United States believed that <seg speaker="S1" d="D4" r="R1">Tehran was determined to develop a nuclear capability and was continuing its weapons development program</seg>.
+
+<dis type="unnamed_source">"This is good news is that the US policy coupled with the policies and actions of those who have been our partners appear to have had some success. Iran seems to have been pressured. Given that good news, we don't want to relax. We want to keep those pressures up," said an unnamed official.</dis>
+
+Iran claims that <seg speaker="S2" d="D2" r="R1">it is enriching uranium for peaceful purposes</seg>. The United States has insisted <seg speaker="S1" d="D2" r="R1">it will not back down until Iran rids of all possibilities to get a weapon of mass destruction</seg>, but is determined <seg speaker="S1" d="D4" r="R1">to solve the differences with diplomacy</seg>.
+
+"<seg speaker="S3" d="D1" r="R1">We should be having a surge of diplomacy with Iran. And based upon this [estimate], I think it would be a pretty good idea</seg>," said Senate Majority Leader Harry Reid.
+
+<dis type="document_source">Iran would not be capable of technically producing and reprocessing enough plutonium for a weapon before about 2015, the report states.</dis> <dis type="unnamed_source">But ultimately it has the technical and industrial capacity to build a bomb, "if it decides to do so," the intelligence agencies found.</dis>
+
+<dis type="unnamed_source">The same agency in 2005 stated that Iran was "determined" to build a nuclear bomb.</dis>
+
+<exclude reason="unresolved" note="A request in his words: a statement or not?">US president George Bush urged Iran to "come clean with the international community about the scope of their nuclear activities."</exclude></text>
+<notes>The unnamed official, intelligence agencies and “the same agency” are distractors; the estimate is a document source. Bush urging Iran to “come clean” is a request whose status is debatable: excluded.</notes>
+<flags>
+  <flag kind="doubt" quote="The United States believed that Tehran was determined to develop a nuclear capability and was continuing its weapons development program">This is the author's description of a past belief, not a current attributed statement; it should be excluded or unmarked.</flag>
+</flags>
+</document>

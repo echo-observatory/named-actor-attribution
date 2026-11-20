@@ -1,0 +1,30 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-45",
+ "items": [
+  {
+   "from": "Talks stalled on Tuesday",
+   "to": "as being \"constructive\"."
+  },
+  {
+   "from": "Mottaki also added that",
+   "to": "has been accepted by them,\" he said.",
+   "names": {
+    "S2": "Mottaki"
+   },
+   "levels": {
+    "an agreement would not mean": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "IAEA chief Mohamed ElBaradei said on Tuesday",
+   "to": "still \"moving forward\"."
+  },
+  {
+   "from": "US National Security Council spokesman Mike Hammer",
+   "to": "aimed at developing nuclear weapons."
+  }
+ ]
+}

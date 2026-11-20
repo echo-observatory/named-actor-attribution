@@ -1,0 +1,38 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-11",
+ "items": [
+  {
+   "from": "Iranian President Mahmoud Ahmadinejad confirmed",
+   "to": "earlier today."
+  },
+  {
+   "from": "Ahmadinejad had said on Monday",
+   "to": "added Ahmadinejad.",
+   "names": {
+    "S1": "Ahmadinejad"
+   },
+   "levels": {
+    "he would release": [
+     "D2",
+     "R1"
+    ],
+    "reports from the media": [
+     "D2",
+     "R1"
+    ],
+    "Nothing can stop": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "According to the International Atomic Energy Agency",
+   "to": "over 50 times."
+  },
+  {
+   "from": "On Wednesday, Mohamed ElBaradei",
+   "to": "Scott McClellan."
+  }
+ ]
+}

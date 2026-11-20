@@ -1,0 +1,50 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-13",
+ "items": [
+  {
+   "from": "Iran has rejected European Union incentives",
+   "to": "Nuclear Non-Proliferation Treaty (NPT)."
+  },
+  {
+   "from": "It is believed that Britain",
+   "to": "technology benefits."
+  },
+  {
+   "from": "The proposal by the three EU members",
+   "to": "ties to the Iranian regime."
+  },
+  {
+   "from": "Mr Asefi said he would not comment",
+   "to": "given to us.\"",
+   "names": {
+    "S1": "Asefi"
+   }
+  },
+  {
+   "from": "Mr Asefi said that any plan would have to recognise",
+   "to": "\"We will not stop enrichment.\"",
+   "names": {
+    "S1": "Asefi"
+   },
+   "levels": {
+    "any plan would have": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Mr. Asefi warned Europe",
+   "to": "even more.\" he said.",
+   "names": {
+    "S1": "Asefi"
+   },
+   "levels": {
+    "they would harm Europe": [
+     "D2",
+     "R1"
+    ]
+   }
+  }
+ ]
+}

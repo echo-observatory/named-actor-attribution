@@ -1,0 +1,52 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-16",
+ "items": [
+  {
+   "from": "Ayatollah Ali Khamenei, the supreme leader",
+   "to": "Ayatollah Ruhollah Khomeini."
+  },
+  {
+   "from": "\"If the U.S. makes a wrong move",
+   "to": "added Khamenei.",
+   "names": {
+    "S1": "Khamenei"
+   },
+   "levels": {
+    "If the U.S.": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "\"We shouldn't put too much emphasis",
+   "to": "talks on its nuclear program."
+  },
+  {
+   "from": "\"We really do have to have",
+   "to": "added Rice.",
+   "names": {
+    "S2": "Rice"
+   },
+   "levels": {
+    "We really do": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Iran is the fourth largest producer",
+   "to": "said Khamenei.",
+   "names": {
+    "S1": "Khamenei"
+   },
+   "levels": {
+    "We will never start a war.": [
+     "D1",
+     "R1"
+    ]
+   }
+  }
+ ]
+}
