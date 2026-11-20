@@ -3,11 +3,19 @@
  "items": [
   {
    "from": "Last week, Nature Genetics carried",
-   "to": "have been identified."
+   "to": "have been identified.",
+   "review": {
+    "by": "M",
+    "sha256": "5d85a2a92957ee62d45735a0e46f710264770240766e9bdcfbdf0186631f2170"
+   }
   },
   {
    "from": "The University of Chicago’s Pablo Gejman",
-   "to": "root of the problem”."
+   "to": "root of the problem”.",
+   "review": {
+    "by": "M",
+    "sha256": "3b8d2a6c796bd5a6beea67469c137ce2800c92e8f18ba21cd6b3ec33dc23e526"
+   }
   },
   {
    "from": "Whilst noting that there is no guarantee",
@@ -28,6 +36,10 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "6d8095b23ead18ece591a62f1705c9b6bf5c7d0231dc6901275f9d69e2fc6a63"
    }
   },
   {
@@ -41,6 +53,10 @@
      "D3",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "8cc537627c6156cd393ff7b5c87698eaefe35b02535dd738834c277d1e601aa2"
    }
   },
   {
@@ -48,6 +64,10 @@
    "to": "importance of such research.",
    "names": {
     "S1": "Gejman"
+   },
+   "review": {
+    "by": "M",
+    "sha256": "c9d6e86dc5380d8bc82dc57fa9553dea2e2d036b6558066e9905179ebea38f64"
    }
   },
   {
@@ -66,6 +86,10 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "8cadf9aea81d466c9dec87599da4e973a78343d365a6edf671700f63e50c2a5b"
    }
   },
   {
@@ -83,6 +107,10 @@
      "D3",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "846a3577d6a0de3789b5afe3c6d6e6c1dc59448fc20c501d51be0d8f0722bee5"
    }
   },
   {
@@ -100,6 +128,10 @@
      "D1",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "e695b10d73657289f71d11fd91660fe0c7e9f0c93fede9d84edb9a7f421381bb"
    }
   },
   {
@@ -113,19 +145,35 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "175ea20633585f7e3cfe8a58a2fa7f2177c708207e734f3f4666ee56d7e3a4b2"
    }
   },
   {
    "from": "\"By 2006, the excess risk",
-   "to": "in the relevant time."
+   "to": "in the relevant time.",
+   "review": {
+    "by": "M",
+    "sha256": "0af591b4d3120a7c5b090f909ef77bde72ac2282a937a1d965852d8a85a99a77"
+   }
   },
   {
    "from": "Rodney Scott described this research result",
-   "to": "the diseases themselves.”"
+   "to": "the diseases themselves.”",
+   "review": {
+    "by": "M",
+    "sha256": "e9d2026d78a2c779edd76dbaa2c6d630c37b98e20706ca796af65112711c28e9"
+   }
   },
   {
    "from": "“We believe the NHS",
-   "to": "demand for our services is unprecedented.”"
+   "to": "demand for our services is unprecedented.”",
+   "review": {
+    "by": "M",
+    "sha256": "b0d5df5fe0f64f4fd445816e48940973b5c4db09bd0a28221e63a824ca30fb5b"
+   }
   },
   {
    "from": "“A genetic test for bipolar",
@@ -142,6 +190,10 @@
      "D3",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "00882d24cc05c0d76c7653f096414301c092beb073682b28a552884a2d97f25f"
    }
   },
   {
@@ -155,6 +207,10 @@
      "D1",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "eae44a4c8593e1ffe988ed267e18cef317bbdfdd794ac1f9136bf79149e56f3e"
    }
   },
   {
@@ -172,11 +228,19 @@
      "D3",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "9119ea4fcafd00519ad824d7cca6a9ead66fa4ca112f9db038c40790b38fd294"
    }
   },
   {
    "from": "Professor Dr. Michael Berk",
-   "to": "other treatments might be helpful.\""
+   "to": "other treatments might be helpful.\"",
+   "review": {
+    "by": "M",
+    "sha256": "00358181d5d19951fbb68eb2e5f9bb8a5df77bbc3a32f3063e4740b5078f6483"
+   }
   },
   {
    "from": "Berk also touched upon speed",
@@ -189,6 +253,10 @@
      "D1",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "4edeab0a0a2bddf3c89ed57a01bfb4f48c7e5110c4fb23beb6c2b4dede395c52"
    }
   },
   {
@@ -202,11 +270,19 @@
      "D3",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "3744ba84c898faff0c86b62ff0ee44d1e6bc7dd63599228f2637b195d06133d6"
    }
   },
   {
    "from": "Wikinews contacted the UK’s National Institute",
-   "to": "NICE did not respond."
+   "to": "NICE did not respond.",
+   "review": {
+    "by": "M",
+    "sha256": "a36658231e03002e69d8852035e838579fa29db20630efa62dde10c627ec9425"
+   }
   },
   {
    "from": "Might statins and/or aspirin improve treatment",
@@ -223,6 +299,10 @@
      "D1",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "df6247d7c9edf68c7480fdd6d4d2efc9a5a757ea55fa1afca7a2a62b349b8ee1"
    }
   }
  ]

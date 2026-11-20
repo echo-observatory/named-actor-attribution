@@ -3,7 +3,11 @@
  "items": [
   {
    "from": "The Caribbean has not historically",
-   "to": "in Caribbean communities for a long time."
+   "to": "in Caribbean communities for a long time.",
+   "review": {
+    "by": "M",
+    "sha256": "d5cfe47a66482daf5712cbd55b85e442e5f34802c8f0c76ed7c12e6653ac0086"
+   }
   },
   {
    "from": "The absence of strong father figures",
@@ -16,11 +20,19 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "7d4c197b0841b7929590ecda164179d33661013b8905173c8e7a26aa8b87a88c"
    }
   },
   {
    "from": "Another diaspora blogger, Karen Walrond",
-   "to": "pulled me aside."
+   "to": "pulled me aside.",
+   "review": {
+    "by": "M",
+    "sha256": "4751aa714e4ba0e43ab998bfa085b4cfd48dbd897008894d12e92d887f93a219"
+   }
   },
   {
    "from": "Her grandmother's example taught Karen",
@@ -33,11 +45,19 @@
      "D5",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "5e080b77f7bfe2749153f199aa23c691f0c444fb4cc5318cab0646aa0e125daf"
    }
   },
   {
    "from": "Finally, Abeni, who is based",
-   "to": "we are going to be okay!"
+   "to": "we are going to be okay!",
+   "review": {
+    "by": "M",
+    "sha256": "9071388212646fe1d94a3b91b21fc9e61d1c62e0fea727f767d0b14b7e274c77"
+   }
   }
  ]
 }

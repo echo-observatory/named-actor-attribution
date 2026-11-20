@@ -3,11 +3,19 @@
  "items": [
   {
    "from": "In southeast Asia, durian is known",
-   "to": "in many quarters."
+   "to": "in many quarters.",
+   "review": {
+    "by": "M",
+    "sha256": "c6247e589c250294f0990b0aa51d5423d7f95032db5a13d5883e032d52f54234"
+   }
   },
   {
    "from": "A Thai scientist thinks he has found",
-   "to": "according to an article today by The Guardian."
+   "to": "according to an article today by The Guardian.",
+   "review": {
+    "by": "M",
+    "sha256": "ccce9426c2c2e94b3d1ebe9e2a1032359d0324fcacc489aed064e5a97a73b204"
+   }
   },
   {
    "from": "\"I've got friends from Australia",
@@ -24,23 +32,43 @@
      "D3",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "b10cfdbedaf9cad584463b0a631537e52416f133e98cc45409f37b506796b97e"
    }
   },
   {
    "from": "Inside is a yellow, custard-like flesh",
-   "to": "or fragrance, if you will."
+   "to": "or fragrance, if you will.",
+   "review": {
+    "by": "M",
+    "sha256": "18acf703ea6eccbff2bbedceda5cfe493bf1940807159e2e60d30b49c3a55d23"
+   }
   },
   {
    "from": "\"To anyone who doesn't like durian",
-   "to": "drool like a mastiff.\""
+   "to": "drool like a mastiff.\"",
+   "review": {
+    "by": "M",
+    "sha256": "ca75fb4c924c0ac4f15e9d869c61044f960978b0cf4d8cd0063d33e428a7bdbf"
+   }
   },
   {
    "from": "Swanzea Banchee, manager of Sunshine Fruit",
-   "to": "it isn't really a durian."
+   "to": "it isn't really a durian.",
+   "review": {
+    "by": "M",
+    "sha256": "701f24d90cd6e15a102ec7bef6e44bd1576392b7dec5ab22c46b72878013cf81"
+   }
   },
   {
    "from": "\"I don't think it's possible to make a durian",
-   "to": "Only rotten durians stink.\""
+   "to": "Only rotten durians stink.\"",
+   "review": {
+    "by": "M",
+    "sha256": "2c9759796bbc4e6a20924d7e6546e94f719648f775bd9ff2a78c7e21ea14259b"
+   }
   },
   {
    "from": "But Dr. Songpol, senior agricultural scientist",
@@ -53,6 +81,10 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "85f5f9ad4a0ab9246765b292d6c9e6189a01d9eac8a3c40263971b4274b1a0ce"
    }
   }
  ]

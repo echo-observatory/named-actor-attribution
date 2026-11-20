@@ -3,31 +3,59 @@
  "items": [
   {
    "from": "Hannah of Israelity writes:",
-   "to": "handed out at every corner."
+   "to": "handed out at every corner.",
+   "review": {
+    "by": "M",
+    "sha256": "e4a28a9ca41002f4d74331ee8268c0a8ec24feeeb9037dda968e245b096af1ab"
+   }
   },
   {
    "from": "If you live in Israel and are still looking",
-   "to": "city-by-city list of activities."
+   "to": "city-by-city list of activities.",
+   "review": {
+    "by": "M",
+    "sha256": "a560f0bae7ad545537dde40621dc80413933aad48aa2bf8da2c16704cbd50a0b"
+   }
   },
   {
    "from": "The ever-conscious Green Prophet blog",
-   "to": "Think eco when filling those baskets!"
+   "to": "Think eco when filling those baskets!",
+   "review": {
+    "by": "M",
+    "sha256": "231c98b326508371ae2563c2059791aa187d0fd0e28fa8d4bd911d12106552c6"
+   }
   },
   {
    "from": "Ra'anana Ramblings, a self-professed",
-   "to": "small packages of tea and coffee."
+   "to": "small packages of tea and coffee.",
+   "review": {
+    "by": "M",
+    "sha256": "8c46ddef166b624ca28a518ece7d045b6801fcdf17270cf73f4c35427a282009"
+   }
   },
   {
    "from": "Advice from another mother",
-   "to": "– Just add fun accessories."
+   "to": "– Just add fun accessories.",
+   "review": {
+    "by": "M",
+    "sha256": "ab718a04945dec6d5217ff614e0e1470879b01c27aedd4f3d32f2dc1ecc8b4b5"
+   }
   },
   {
    "from": "For more news from the home front",
-   "to": "photos of this delicious treat."
+   "to": "photos of this delicious treat.",
+   "review": {
+    "by": "M",
+    "sha256": "920932840bf689505c58af96f1a29878db0c581494fca2f25791ddef80c0baf0"
+   }
   },
   {
    "from": "And let's not forget YouTube",
-   "to": "The Bible Raps Project."
+   "to": "The Bible Raps Project.",
+   "review": {
+    "by": "M",
+    "sha256": "088b1d5a47e60ffdf849dc921315863edf6d2834960cee72ef350dabfb24f044"
+   }
   }
  ]
 }

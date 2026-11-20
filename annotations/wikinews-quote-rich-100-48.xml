@@ -1,7 +1,7 @@
 <document id="wikinews-quote-rich-100-48" source="wikinews-quote-rich-100" source-id="48" text-sha256="4905ea8dc3bdbf97c426066ddc7ee45aca94eee28868d66d9dbf8c094a7099ae" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
 <speakers>
   <speaker id="S1" name="José Carlos Meirelles" type="person"/>
-  <speaker id="S2" name="The Observer" type="organization"/>
+  <speaker id="S2" name="Observer" type="organization"/>
   <speaker id="S3" name="Sydney Possuelo" type="person"/>
   <speaker id="S4" name="Survival International" type="organization"/>
   <speaker id="S5" name="Stephen Corry" type="person"/>
@@ -15,7 +15,7 @@ In its Sunday edition, British newspaper The Observer had a story called "Secret
 
 The Observer'''s article featured an interview with José Carlos Meirelles, one of a handful so-called sertanistas'' that work for the FUNAI. These are field agents that map the areas of uncontacted indigenous peoples, so that their habitat can be protected. He admitted that <seg speaker="S1" d="D2" r="R3">his desire to protect these tribes had caused him to overstep his mission</seg>.
 
-When given the use of an aircraft to seek out new tribes, Meirelles instead flew over an area where he knew <seg speaker="S1" d="D4" r="R3">a tribe had been observed decades ago</seg>. Ultimately, he was hoping to prove that <seg speaker="S1" d="D4" r="R3">FUNAI's policy of not contacting the tribes they observe is better for the tribes</seg>. With this flight he hoped to find evidence that <seg speaker="S1" d="D4" r="R3">the tribe, discovered long ago, was better off for not being contacted</seg>.
+<exclude reason="unresolved" note="Hopes and knowledge as the author reports them (“he knew”, “he was hoping to prove”, “he hoped to find evidence”): attributed to Meirelles or not is debatable (review of item 48-05).">When given the use of an aircraft to seek out new tribes, Meirelles instead flew over an area where he knew a tribe had been observed decades ago. Ultimately, he was hoping to prove that FUNAI's policy of not contacting the tribes they observe is better for the tribes. With this flight he hoped to find evidence that the tribe, discovered long ago, was better off for not being contacted.</exclude>
 
 "<seg speaker="S1" d="D1" r="R5">When I saw them painted red, I was satisfied, I was happy</seg>," he said. "<seg speaker="S1" d="D3" r="R5">Because painted red means they are ready for war, which to me says they are happy and healthy defending their territory.</seg>"
 
