@@ -1,0 +1,23 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-46" source="wikinews-repeated-claims-iran-nuclear-59" source-id="46" text-sha256="70a9dde982908ed0040000312c53d8278fa06f5a92d5ad24948a1e267186fb2d" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Mohamed ElBaradei" type="person"/>
+  <speaker id="S2" name="Tehran" type="organization"/>
+</speakers>
+<text>The head of the International Atomic Energy Agency, Mohamed ElBaradei, said earlier on Thursday that <seg speaker="S1" d="D2" r="R1">the organization has reached a "dead end" in a probe into Iran's nuclear program</seg>. The IAEA's board is meeting to consider a resolution condemning Iran's nuclear program.
+
+<dis type="non_statement">In remarks to the IAEA's board, ElBaradei expressed frustration over Iran's failure to cooperate with the Vienna-based agency.</dis> <dis type="named_no_attribution">ElBaradei leaves office in a few days, at the end of this November, and his remarks have grown sharply more critical of Iran in recent months.</dis>
+
+Today, he said <seg speaker="S1" d="D2" r="R5">he was disappointed that Iran had not agreed on a deal to further enrich its uranium overseas</seg>. The deal has the support of the United States, Russia and France and it aims to provide a safeguard that Iran's uranium is not being used to make a nuclear weapon.
+
+"<seg speaker="S1" d="D1" r="R5">It is now well over a year since the agency was last able to engage Iran in discussions about these outstanding issues. We have effectively reached a dead end, unless Iran engages fully with us</seg>," he commented.
+
+"<seg speaker="S1" d="D1" r="R5">In my view the proposed agreement presents a unique opportunity after many years of animosity and hostility to address a humanitarian need and create a space for negotiation. This opportunity should be seized and it would be highly regrettable if it was missed</seg>," he said.
+
+ElBaradei's comments come as the IAEA board is considering a draft resolution on Iran. <dis type="unnamed_source">According to press reports, the draft urges Iran to stop construction of the uranium enrichment site, and to confirm that it has no other hidden nuclear activities. Diplomats are reportedly confident the measure will be passed, but Iran's ambassador to the IAEA told a German newspaper that Tehran would reduce its cooperation with the IAEA to a minimum if that happens.</dis>
+
+<dis type="unnamed_source">Some members of the international community believe that Iran is trying to build a nuclear weapon;</dis> Tehran, however, maintains that <seg speaker="S2" d="D2" r="R1">its efforts are for peaceful purposes only</seg>.</text>
+<notes>“Tehran” names Iran here and is kept as the speaker's name. ElBaradei's “frustration” is a noun-phrase private state: a non-statement. The unnamed ambassador, diplomats and members of the international community are distractors.</notes>
+<flags>
+  <flag kind="doubt" quote="In remarks to the IAEA's board, ElBaradei expressed frustration over Iran's failure to cooperate with the Vienna-based agency." speaker="Mohamed ElBaradei">This is a paraphrase of ElBaradei's remarks and should be a segment, not a non_statement distractor.</flag>
+</flags>
+</document>

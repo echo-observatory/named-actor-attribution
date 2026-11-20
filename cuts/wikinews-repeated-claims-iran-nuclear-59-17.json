@@ -1,0 +1,62 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-17",
+ "items": [
+  {
+   "from": "Bush administration officials say",
+   "to": "reprocessing activities.",
+   "review": {
+    "by": "M",
+    "sha256": "129c005457e4263e22b524ba5db4535ec010a5f93418fa10c59dd8a5a2363479"
+   }
+  },
+  {
+   "from": "Tehran will need some time",
+   "to": "with the support of the United States,\" he said.",
+   "review": {
+    "by": "M",
+    "sha256": "2ac5ed2633838bb4432b7737bc98c8399c2089085c803500beca5e6ac10f3d7f"
+   }
+  },
+  {
+   "from": "The plan was drafted by",
+   "to": "a wrong move.",
+   "review": {
+    "by": "M",
+    "sha256": "352691b3ee780bf743be61c050a25fade17e91ad5faa0bd0c5863e11ede2be45"
+   }
+  },
+  {
+   "from": "\"It is easy to make comments",
+   "to": "Snow said.",
+   "names": {
+    "S1": "Snow"
+   },
+   "levels": {
+    "It is easy": [
+     "D1",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "cef47332eeae14b063f7995ca9d703b432e3c81a9811192ab1aeb281ff72fdfd"
+   }
+  },
+  {
+   "from": "European Union foreign policy chief Javier Solana is to formally",
+   "to": "amount of time to respond.",
+   "review": {
+    "by": "M",
+    "sha256": "56067fbd33535a7010d2d154491791844837141d16af85e7c4ee5f7d48eb034f"
+   }
+  },
+  {
+   "from": "Iranian officials have indicated",
+   "to": "attached to the deal.",
+   "review": {
+    "by": "M",
+    "sha256": "bcfc47dd99682c2db302825a018c47e5e9c6e606d275fc064fe6d5143b5bedc3"
+   }
+  }
+ ]
+}

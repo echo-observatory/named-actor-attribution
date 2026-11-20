@@ -1,0 +1,33 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-17" source="wikinews-repeated-claims-iran-nuclear-59" source-id="17" text-sha256="d1592454e6d9b430767f3fb96a35d8618250e84508fa8cad2b109b55efd0d958" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Tony Snow" type="person"/>
+  <speaker id="S2" name="Ali Khamenei" type="person"/>
+  <speaker id="S3" name="Tehran" type="organization"/>
+  <speaker id="S4" name="Condoleezza Rice" type="person"/>
+</speakers>
+<text><dis type="unnamed_source">Bush administration officials say Iran should be given time to consider a package of incentives aimed at halting the country's nuclear enrichment and reprocessing activities.</dis>
+
+<seg speaker="S1" d="D2" r="R1">Tehran will need some time to mull over the offer, and the first response may not be the last word</seg>, says White House spokesman Tony Snow.
+
+"<seg speaker="S1" d="D1" r="R5">I would caution against leaping to conclusions, until the leadership in Iran has actually had an opportunity to look over the packages of incentives and disincentives offered by the EU-3 with the support of the United States</seg>," he said.
+
+The plan was drafted by the three European nations that have been negotiating the nuclear issue with Iran - Britain, France and Germany - with the backing of the United States, Russia and China. Details of the package have not been formally released.
+
+During a session with reporters, <dis type="non_statement">Snow downplayed comments made over the weekend by Ayatollah Ali Khamenei.</dis> Iran's supreme leader said <seg speaker="S2" d="D2" r="R4">the flow of Iranian oil would be disrupted if the United States makes - what he called - a wrong move</seg>.
+
+The White House spokesman predicted <seg speaker="S1" d="D2" r="R4">there would be a number of statements coming out of Iran before Tehran gives its final answer</seg>. <exclude reason="nested" note="The spokesman reports the White House's mood.">He said, at the moment, the White House is neither optimistic nor pessimistic, but hopeful.</exclude>
+
+"<seg speaker="S1" d="D1" r="R2">It is easy to make comments into a vacuum, and my sense is that, again, the Iranians are going to realize this is a serious offer, and it is an offer that offers great promise for them</seg>," Snow said.
+
+<dis type="named_no_attribution">European Union foreign policy chief Javier Solana is to formally present the package to the Iranian government in Tehran, perhaps as early as Tuesday.</dis>
+
+<dis type="non_statement">Last week, U.S. Secretary of State Condoleezza Rice urged Iran to give careful consideration to the plan,</dis> but indicated <seg speaker="S4" d="D2" r="R1">Tehran would not have an indefinite amount of time to respond</seg>.
+
+<dis type="unnamed_source">Iranian officials have indicated they plan to study the document. But, they stress, have no plans to suspend uranium enrichment, which is a key condition that has been attached to the deal.</dis>
+
+Tehran says <seg speaker="S3" d="D2" r="R1">uranium will be processed for use in power plants</seg>. <exclude reason="joint">But the United States and Europe say they are concerned Iran's civilian nuclear power program is really a cover for the development of nuclear weapons.</exclude></text>
+<notes>Snow reporting the White House's mood is nested, as for other spokesmen. Rice's request is a non-statement; the joint concern of the US and Europe are excluded. “Ayatollah” stripped.</notes>
+<flags>
+  <flag kind="doubt" quote="Tehran will need some time to mull over the offer, and the first response may not be the last word" speaker="Tony Snow">The segment is a paraphrase of Tony Snow's statement, so the speaker is correct, but the boundaries are wrong: the comma after 'word' is part of the sentence and should be inside the segment.</flag>
+</flags>
+</document>

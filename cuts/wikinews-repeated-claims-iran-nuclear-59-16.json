@@ -10,23 +10,6 @@
    }
   },
   {
-   "from": "\"If the U.S. makes a wrong move",
-   "to": "added Khamenei.",
-   "names": {
-    "S1": "Khamenei"
-   },
-   "levels": {
-    "If the U.S.": [
-     "D1",
-     "R1"
-    ]
-   },
-   "review": {
-    "by": "M",
-    "sha256": "f1c1bf3b955fe4ffd2b2b029f2817c344e3f88036499649507eab57c30ecf048"
-   }
-  },
-  {
    "from": "\"We shouldn't put too much emphasis",
    "to": "talks on its nuclear program.",
    "review": {

@@ -1,0 +1,149 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-49",
+ "items": [
+  {
+   "from": "Obama said the treaty is a big step forward",
+   "to": "signed it,\" he said.",
+   "names": {
+    "S1": "Obama",
+    "S2": "Medvedev"
+   },
+   "levels": {
+    "the treaty is a big step": [
+     "D2",
+     "R1"
+    ],
+    "because of this treaty": [
+     "D2",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "72cd20ef79c748e18db026f3075d3f7f0e8e8fa45017e8167143acc56e87401f"
+   }
+  },
+  {
+   "from": "Obama says, in addition",
+   "to": "non-deployed weapons,\" he said.",
+   "names": {
+    "S1": "Obama"
+   },
+   "levels": {
+    "the treaty paves": [
+     "D2",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "2aa7b77d0a486c015c2b4a50416c48f269bbc85a5ddeff49cdc0b24dcb3d94b6"
+   }
+  },
+  {
+   "from": "Tom Collina, research director",
+   "to": "sets us up for deeper cuts,\" he said.",
+   "review": {
+    "by": "M",
+    "sha256": "5122334fe8cd1de0bc2c619053c79d643d7c7a109a41165ad963395e33470ddd"
+   }
+  },
+  {
+   "from": "Earlier in the week, President Obama announced",
+   "to": "nonproliferation obligations.",
+   "names": {
+    "S1": "Obama"
+   },
+   "review": {
+    "by": "M",
+    "sha256": "4522d2f0b42cd3e6dbb06fc1dcd1825e88f9379cc65331a87797ab5f1cc8e941"
+   }
+  },
+  {
+   "from": "Frank Gaffney, a former arms control adviser",
+   "to": "It will not happen ever,\" he said.",
+   "review": {
+    "by": "M",
+    "sha256": "fbce4a51b5ae70e5f5268c431b04f46adea65fd0a61afaeab7e0f4d9d570b147"
+   }
+  },
+  {
+   "from": "In their hour-and-a-half meeting",
+   "to": "discussing this issue,\" he said.",
+   "names": {
+    "S2": "Medvedev"
+   },
+   "review": {
+    "by": "M",
+    "sha256": "30bca752754967700b93dda15f4de0fd94a4cdf24c85c9ed185b9b409b61d20a"
+   }
+  },
+  {
+   "from": "Obama said, \"We are working together",
+   "to": "on Iran this spring.\"",
+   "names": {
+    "S1": "Obama"
+   },
+   "levels": {
+    "We are working": [
+     "D1",
+     "R1"
+    ],
+    "My expectation": [
+     "D1",
+     "R3"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "f124abf3e1f2a726d6124cbff835b380fe9f02e72c6c431a441ccc3f14c8020a"
+   }
+  },
+  {
+   "from": "Many experts agree passage",
+   "to": "America's nuclear arsenal.",
+   "review": {
+    "by": "M",
+    "sha256": "09b01162665751d7c041ade76ed921be920dff3e171e1308243e843a986e5542"
+   }
+  },
+  {
+   "from": "However, Obama is confident",
+   "to": "new challenges in new ways.\"",
+   "names": {
+    "S1": "Obama"
+   },
+   "levels": {
+    "the treaty will be ratified": [
+     "D4",
+     "R1"
+    ],
+    "And so I'm": [
+     "D1",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "73690390cb362cd65e3627dbfcc0f2ef1fbb46055ba65a581d8f48d94cef63f8"
+   }
+  },
+  {
+   "from": "Obama also noted",
+   "to": "State Department's website.",
+   "names": {
+    "S1": "Obama"
+   },
+   "levels": {
+    "[T]hat both": [
+     "D1",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "79788595de01b082167ff57ec857a351bd03855668ff5ec43e7adba851640a96"
+   }
+  }
+ ]
+}

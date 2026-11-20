@@ -232,3 +232,16 @@ def test_source_details_credit_wikinews(tmp_path):
     line = cli._source_details([corpus])[("wikinews-test", "7")]["attribution_line"]
     assert line == ("“A title”, by Wikinews contributors (2008-01-02), licensed under CC BY 2.5: "
                     "https://en.wikinews.org/wiki/A_title. Converted to plain text.")
+
+
+def test_an_item_may_start_after_an_excluded_heading_line():
+    text = "Intro sentence.\n\nFunding woes\nAnna Berg said that the lab needs money.\n\nEnd."
+    doc = markup.blank("heading", text)
+    doc.speakers.append(markup.Speaker("S1", "Anna Berg", "person"))
+    a = text.index("the lab"); doc.segments.append(markup.Segment("S1", a, a + len("the lab needs money"), "D2", "R1"))
+    cut = items.Cut(text.index("Anna Berg"), text.index("money.") + len("money."))
+    _, problems = items.make_item(doc, cut, "x")
+    assert any("doesn't start at a sentence" in p for p in problems)
+    h = text.index("Funding woes"); doc.exclusions.append(markup.Exclusion("boilerplate", h, h + len("Funding woes")))
+    _, problems = items.make_item(doc, cut, "x")
+    assert problems == []

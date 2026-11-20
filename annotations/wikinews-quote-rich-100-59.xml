@@ -1,0 +1,32 @@
+<document id="wikinews-quote-rich-100-59" source="wikinews-quote-rich-100" source-id="59" text-sha256="d4e18f5a507e5b9eba656e6de8f449f0bc8020d992a65ea0cfef67b938a0d23e" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Mohamed Nasheed" type="person"/>
+  <speaker id="S2" name="Mark Lynas" type="person"/>
+  <speaker id="S3" name="Chris Goodall" type="person"/>
+</speakers>
+<text>Mohamed Nasheed, the leader of the Maldives, has announced that <seg speaker="S1" d="D2" r="R1">the country will become carbon-neutral within a decade by completely switching to renewable energy sources</seg>.
+
+"<seg speaker="S1" d="D1" r="R5">We aim to become carbon-neutral in a decade</seg>," he said.
+
+"<seg speaker="S1" d="D1" r="R2">Climate change threatens us all. Countries need to pull together to de-carbonize the world economy. We know cutting greenhouse gas emissions is possible and the Maldives is willing to play its part</seg>," Nasheed said, adding that <seg speaker="S1" d="D2" r="R2">he hopes his plan will serve as a blueprint for other countries</seg>.
+
+"<seg speaker="S1" d="D1" r="R2">We understand more than perhaps anyone what would happen to us if we didn't do anything about it or if the rest of the world doesn't find the imagination to confront this problem</seg>," Nasheed told Newshour in a telephone interview from the Maldives' capital of Malé.
+
+"<seg speaker="S1" d="D3" r="R5">So basically, we don't want to sit around and blame others, but we want to do whatever we can, and hopefully, if we can become carbon-neutral, and when we come up with the plan, we hope that these plans also will serve as a blueprint for other nations to follow. We think we can do it, we feel that everyone should be engaged in it, and we don't think that this is an issue that should be taken lightly.</seg>"
+
+<dis type="document_source">Nasheed's plan calls for half of a square kilometre (0.19 square miles) of solar panels and 155 wind turbines, each generating 1.5 megawatts. The electricity will power vehicles as well. Boats and automobiles with gasoline engines would be slowly replaced with electric versions.</dis>
+
+The plan will cost an estimated US$1.1 billion. The economy of the Maldives, reliant mainly on tourism and fishing, is worth $800 million a year.
+
+Environmentalist Mark Lynas said that <seg speaker="S2" d="D2" r="R1">the plan could pay for itself in a decade, due to savings on oil imports. "It's going to cost a lot of money but it will also save a lot of money from not having to import oil</seg>," Lynas said.
+
+"<seg speaker="S2" d="D1" r="R2">The point of doing it is that it is something the Maldives can lead the world in. No rich country has the excuse that it is too expensive and we can't do anything</seg>," Lynas said to the news agency Reuters.
+
+"<seg speaker="S3" d="D1" r="R1">The Maldives could just give up. Its people could declare themselves climate change refugees and ask for sanctuary elsewhere. But the new government is taking a stand and asked us to give them a plan for a near zero-carbon economy</seg>," said Chris Goodall, the British climate change expert who led the development of the carbon-neutral plan. "<seg speaker="S3" d="D3" r="R1">We don't want to pretend that this plan is going to be easy to implement. There will be hiccups, and electricity supply will occasionally be disrupted. But we think that building a near-zero-carbon Maldives is a realistic challenge. Get it right and we will show the apathetic developed world that action is possible, and at reasonable cost.</seg>"
+
+The Maldives are located in the Indian ocean and are among the lowest-lying islands on the planet, with none of them rising more than six feet (1.8 metres) above sea level, making them particularly vulnerable to rising sea levels associated with global warming.</text>
+<notes>“He said” right after Nasheed's announcement, and the cue-less quote after his interview, refer back past a paragraph break: R5. The plan is a document source.</notes>
+<flags>
+  <flag kind="doubt" quote="The point of doing it is that it is something the Maldives can lead the world in. No rich country has the excuse that it is too expensive and we can't do anything" speaker="Mark Lynas">The speaker is correct, but the segment boundaries are wrong: the quote is a direct quote, so the quotation marks should stay outside the segment, not inside it.</flag>
+</flags>
+</document>
