@@ -164,6 +164,8 @@ Choices made on cases the rules didn't settle, with the documents that raised th
 | 2026-11-20 | Levels are set by the model on items, not reviewed by people | Pilot review |
 | 2026-11-20 | An adaptation may add a cue (“Igor said”) to a quote whose speaker the passage makes clear without stating it | Pilot: 775031 |
 | 2026-11-20 | Items keep some text around the quote (narration or a distractor) rather than a bare quote, when the word cap allows | Review of the adapted passages |
+| 2026-11-20 | An organization reporting figures or findings it published is a speaker (“the Ministry of the Interior reports that…”, “Nexer found that…”) | Miss check of the pilot: 775031, 705184 |
+| 2026-11-20 | “The blogger writes that…” after several bloggers is ambiguous, even if the nearest blogger is likely: excluded | Miss check of the pilot: 95433 |
 | 2026-11-20 | Open, default applied: unnamed voices inside a quote ("the blog writes that some argued X") stay in the quote's segment | Pilot: 61589, 564441, 95433 |
 | 2026-11-20 | Open, default applied: royal titles are stripped like others ("Prince Charles" → "Charles") | Pilot: 748041 |
 | 2026-11-20 | Open, default applied: a study run by a named organization is a document source; the organization is the speaker only when it is the subject ("Nexer found that…") | Pilot: 705184 |

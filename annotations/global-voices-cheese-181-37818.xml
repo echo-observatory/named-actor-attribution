@@ -1,0 +1,57 @@
+<document id="global-voices-cheese-181-37818" source="global-voices-cheese-181" source-id="37818" text-sha256="a4f806186a2e47af295547158a1fdfb1c2a33cf78171ff6614e5ba9e12899d66" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Bajan Dream Project" type="organization"/>
+  <speaker id="S2" name="Living in Barbados" type="organization"/>
+  <speaker id="S3" name="Barbados Free Press" type="organization"/>
+  <speaker id="S4" name="Caribbean Lionesse" type="person"/>
+</speakers>
+<text>Barbadian bloggers have been among the most politically active in the Caribbean for some time now, and the general election in Barbados on 15 January triggered a major flood of commentary and analysis. The House of Assembly (established in the 17th century, soon after the island was first colonised by Britain) contains thirty seats, filled via first-past-the-post elections. Two major parties — the Barbados Labour Party (BLP) and the Democratic Labour Party (DLP) — competed for a majority. <dis type="author_voice">Both parties are basically centrist, with few ideological differences (so few that in 2006 the head of the DLP and sitting Leader of the Opposition crossed the floor and joined the then BLP government).</dis> The major issue in the election campaign, therefore, was whether the the country needed continuity of governance — under the BLP and Prime Minister Owen Arthur, who had governed for 14 years — or “change” and a fresh start, under the DLP and its leader, David Thompson.
+
+The campaign was spiced with allegations of corruption against the BLP government. <dis type="named_no_attribution">The popular and outspoken Barbados Free Press highlighted many of these in the days leading up to the polls — for instance, in posts on alleged illegal “commissions” on government spending and mismanagement at the state-owned company ECCI.</dis> <exclude reason="unresolved" note="A blogger by username only.">Bajegirl at Cheese-on-bread suggested that the parties should reveal the sources of their campaign funds, and noted that party activists seemed “more desperate” than in previous campaigns:
+
+There're allegations of wiretapping of DLP calls, DLP billboards being torn down (apparently they were erected illegally, so it's all par for the course), and even the disturbing report of death threats against UWI Lecturer Dr. Don Marshall.
+
+Get your act together, people! No matter who wins on January 16 we still have to live on this blessed little rock.</exclude>
+
+“<seg speaker="S1" d="D1" r="R1">The electorate faces a tough decision</seg>,” said The Bajan Dream Project on election day:
+
+<seg speaker="S1" d="D5" r="R1">The incumbent party, which has been in power for a little under fifteen years, has been the only government that many young Barbadians would have ever known. Old habits die hard and truthfully, this government has not performed too badly during its three terms insofar as employment and certain human development indicators are concerned. In addition, the ruling party ran a tough and convincing campaign that challenged Barbadians’ natural predilection for change, no doubt bolstered by an intensive media presence over the past three weeks.
+
+On the other hand, a new and re-energized Democratic Labour Party is at its closest taste of victory. Its solid performance in opinion polls and its mainstreaming of accountability, transparency, poverty eradication and democracy struck a chord with a number of undecided voters, causing this election to be inevitably too close to call.</seg>
+
+But, <dis type="document_source">although the polls suggested a close race</dis>, the results on election night were decisive: the DLP won 20 of the 30 seats. “<seg speaker="S2" d="D1" r="R1">There will be a new government leading Barbados, and the new Prime Minister will be David Thompson</seg>,” wrote Living in Barbados, who also reported that:
+
+<seg speaker="S2" d="D3" r="R1" note="“Some are contending that…” (unnamed) is kept inside.">While PM Owen Arthur and deputy PM Mia Mottley safely held their seats, the 12% swing to the Dems led to a slew of defeats, including for nine ministers…. Some are contending that the late public push by the Dems’ support of introducing integrity legislation was a cause of a late surge in support.</seg>
+
+Barbados Free Press agreed that <seg speaker="S3" d="D2" r="R1">the proposed integrity legislation was a major factor</seg>:
+
+<exclude reason="nested" note="Reports what David Thompson announced.">Public apathy and cynicism all changed on January 3rd when David Thompson announced that the DLP would introduce Integrity Legislation and Freedom of Information laws within 100 days of forming a new government…. Would the DLP have declared a commitment to Integrity Legislation without the pressure from Barbados blogs?</exclude>
+
+The Bajan Dream Project, on the other hand, suggested that <seg speaker="S1" d="D2" r="R1">economic factors may have had much to do with the BLP's defeat</seg>:
+
+<seg speaker="S1" d="D3" r="R1">For the past term Barbadians saw skyrocketing food costs next to severe overruns on capital works projects; closure of small, black enterprises next to competition from monopolistic conglomerates; exclusion from referenda on unpopular and unwanted policies such as the CSME next to a government that resisted criticism; dwindling hopes for housing next to large-scale land sale for multimillion-dollar condominium developments and the inefficiency of poverty relief next to elected officials who appeared to be far-removed from the plight.</seg>
+
+<exclude reason="nested" note="Reports what the DLP asked and what people said.">And Amit at Pull! Push! suggested that “the DLP will come under intense scrutiny”:
+
+especially with regards to economical performance issues. The D's asked the people for a change and they have said ‘yes’ (and very loudly based on the voting results). Any failures to deliver will, I think, result in a ‘I told you so’, kind of display from the BLP, and might make some people second guess themselves about putting the DLP in power.</exclude>
+
+On 16 January, as David Thompson was sworn in as prime minister, Caribbean Lionesse wondered what policy changes the new government might introduce, and speculated about the political future of Owen Arthur:
+
+<seg speaker="S4" d="D3" r="R1">There have been signs and rumours of tension in the BLP camp in recent times…. Clearly, since the Arthurian leadership aura did not extend to the rest of the party to give them victory this time (as it did in 2003 and DEFINITELY in 1999) he is no longer useful to the party.</seg>
+
+She suggested that <seg speaker="S4" d="D2" r="R3">former deputy PM Mia Mottley might soon find herself at the head of the BLP</seg>. <exclude reason="nested" note="Barbados Underground reports what Arthur announced.">And, in fact, as Barbados Underground reported, on 19 January Arthur announced he would step aside, making Mottley Barbados's first female Leader of the Opposition.</exclude>
+
+<dis type="named_no_attribution">The following day, Prime Minister Thompson named the members of his new Cabinet.</dis> Bloggers had a lot to say about that too. <exclude reason="nested" note="Her quote reports what Thompson said.">“Only two female Ministers,” noted Caribbean Lionesse, “coming after Thompson said he wanted a stronger role for women in his new government.”</exclude> Living in Barbados added: “<seg speaker="S2" d="D1" r="R1">The elections saw very few women candidates nominated by either party.</seg>”
+
+<seg speaker="S2" d="D3" r="R1">The PM could have done something to redress that balance by naming some more women in his Cabinet, assuming that the talented individuals are there and willing to serve. If many women are not in the Cabinet, then he may need to do something very visible to show that women have an important decision making role in his government.</seg>
+
+<exclude reason="unresolved" note="A blogger by username only.">Meanwhile, Jdid at Doan Mind Me offered a highly original explanation for Owen Arthur's defeat. No Barbadian prime minister, he said, has ever been elected while married to a Barbadian spouse:
+
+is it coincidence that Owen Arthur won three elections when he was married to a Jamaican but now that he divorced recently and married a Bajan lady he lost so badly? Hmmm. Wunnah can decide for wunnah selves but I think the facts are clear. Owen loss this election from the time he divorce the Jamaican lady and marry a Bajan. I feel he should have gone Guyanese but that is juss me.</exclude></text>
+<notes>Blogs are organizations; Caribbean Lionesse is a blogger referred to as “she”. Bloggers known by a username (Bajegirl, Amit's blog quote is nested, Jdid) are excluded.</notes>
+<flags>
+  <flag kind="doubt" quote="The incumbent party, which has been in power for a little under fifteen years, has been the only government that many young Barbadians would have ever known. Old habits die hard and truthfully, this government has not performed too badly during its three terms insofar as employment and certain human development indicators are concerned. In addition, the ruling party ran a tough and convincing campaign that challenged Barbadians’ natural predilection for change, no doubt bolstered by an intensive media presence over the past three weeks.&#10;&#10;On the other hand, a new and re-energized Democratic Labour Party is at its closest taste of victory. Its solid performance in opinion polls and its mainstreaming of accountability, transparency, poverty eradication and democracy struck a chord with a number of undecided voters, causing this election to be inevitably too close to call." speaker="Bajan Dream Project">The segment spans two paragraphs, but the guidelines say a paragraph break ends a segment unless the same quote clearly continues. Here the second paragraph starts with 'On the other hand', which is a new point, so it should be split into two segments.</flag>
+  <flag kind="doubt" quote="While PM Owen Arthur and deputy PM Mia Mottley safely held their seats, the 12% swing to the Dems led to a slew of defeats, including for nine ministers…. Some are contending that the late public push by the Dems’ support of introducing integrity legislation was a cause of a late surge in support." speaker="Living in Barbados">The segment includes 'Some are contending that...' which is an unnamed source, but the guidelines say unnamed sources should not be marked as attributed to the named speaker. The segment should be split or the unnamed part excluded.</flag>
+  <flag kind="doubt" quote="The PM could have done something to redress that balance by naming some more women in his Cabinet, assuming that the talented individuals are there and willing to serve. If many women are not in the Cabinet, then he may need to do something very visible to show that women have an important decision making role in his government." speaker="Living in Barbados">This segment is not clearly attributed to Living in Barbados. The preceding text is 'Living in Barbados added: “The elections saw very few women candidates nominated by either party.”' and then this paragraph follows without a clear cue. It might be a continuation of the same quote, but the paragraph break and lack of quotation marks make it ambiguous. It should be excluded or the speaker should be verified.</flag>
+</flags>
+</document>

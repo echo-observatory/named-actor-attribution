@@ -1,0 +1,56 @@
+<document id="global-voices-cheese-181-61513" source="global-voices-cheese-181" source-id="61513" text-sha256="262b355d2611174c203921fdc8c6f22b815e2b4e805ccdc99e4be5cd89fde7ca" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Lyndon" type="person"/>
+  <speaker id="S2" name="Buster" type="person"/>
+  <speaker id="S3" name="Sean Guillory" type="person"/>
+  <speaker id="S4" name="Eternal Remont" type="organization"/>
+</speakers>
+<text><dis type="named_no_attribution">On March 6, in Geneva, U.S. Secretary of State Hillary Clinton gave Russian foreign minister Sergei Lavrov a small box containing a red “reset” button with the Russian word peregruzka printed on it, which was meant as a symbol of better relations between the United States and Russia.</dis> But the Russian word for ‘reset’ is perezagruzka, while peregruzka means ‘overcharged’ – and Lavrov didn't hesitate to point out the language error.
+
+Below is a selection of bloggers’ thoughts on language and politics.
+
+Sean Guillory of Sean's Russia Blog wrote this in a post titled “Overcharged Buttons”:
+
+<exclude reason="nested" note="Quotes Biden's statement and Clinton's staff.">[…] We all now know that the Obama Administration is making some effort to repair relations with Russia. The first sign came with Joe Biden’s “press the reset button” statement in February. […]
+
+Well the Reset Button Doctrine appears to be going ahead though the first problem doesn’t appear to be resetting relations as it is finding the correct Russia word for “reset”. […]
+
+[…] Are you telling me that Clinton’s staff had to “work hard” to find the right word for reset and they still messed it up? Maybe Clinton should be pressing the reset button on her staff. […]</exclude>
+
+Below are two comments from a 50-comment discussion of this post.
+
+Lyndon of Scraps of Moscow:
+
+<seg speaker="S1" d="D3" r="R1" note="“people … who believe in the stereotype…” (unnamed) is kept inside.">The thing is, perezagruzka or perezagruzit’ has been used in the Russian press (in “analytical” pieces) for at least a few years with the meaning of “reset” a relationship or (to use a dead-tree media metaphor) turn over a new page. I have never seen “sbros” or any other word used in this context. So there was one right word – perezagruzka – and they f*ed it up. Very disappointing, and there’s really no excuse or explanation for it but rank incompetence. There are enough people around the world who (having never interacted with actual Americans) believe in the stereotype of “tupye amerikantsy” without giving them additional ammo like this.</seg>
+
+Buster of Moscow Through Brown Eyes:
+
+<seg speaker="S2" d="D5" r="R1">Lyndon, I shared your reaction to the language gaffe at first. But there is, I think, a deeper problem.
+
+How do you seem like a serious diplomat trying to enter into an important renegotiation of binational relations when you start the process by bringing in a TOY?!
+
+I can only imagine what the Russians there thought of this gimmick. The translation issues just distracts one from how goofy and ridiculous this whole moment was. You say stereotype, they say generalization.</seg>
+
+In a follow-up post, Sean wrote this, among other things:
+
+<seg speaker="S3" d="D3" r="R2">[…] If anything Americans can add peregruzka and perezagruzka to their Russian lexicon of tovarishch, borscht, vodka, glasnost, perestroika, da, and nyet. […]</seg>
+
+<exclude reason="nested" note="Reports what The Washington Times asks.">Leopolis wrote this about the U.S. “gag gift diplomacy”:
+
+The Washington Times today finally asks, “What was State thinking?!” about their cripplingly embarrassing negligence to accurately translate “restart” for the gag-button that Clinton presented to Lavrov in Geneva on Friday. The article didn't mention the more important question of whether the U.S. has finally resorted to using gag gifts in our diplomacy with the other most-powerful nuclear state on the planet (what's next — rubber “turkeys” with Erdoğan?). The “reset button” in question isn't even a button, but a rubber twist knob — but I digress. Now that this incident proved to the Russians that the Clinton team needs to brush up on their Russian language skills, Lavrov is busy calculating in Moscow whether State is filled with a bunch of amateurs (not a single native Russian speaker to consult?) […]</exclude>
+
+<exclude reason="nested" note="Reports what Hillary Clinton said and what others thought.">Transatlantic Politics wrote this:
+
+[…] And hopefully this embarrassment will put an end to such gimmick-diplomacy. What exactly was that button supposed to mean? A fresh start with Russia, based on what? Down at the NATO headquarters in Brussels, Hillary did not sound so much different than Condi. Hell, she even called Poland and the Czech Republic “visionary” for signing up for missile defense, a plan that really pisses off Russia.
+
+Of course, her hawkish talk may have been just a way to soothe fears in Europe after that Obama letter offering to scrap missile defence in return for real Russian help against Iran. But one can hardly say what’s more naive: to think that such trade-off would really work or to believe that the Kremlin would buy this “fresh start” thing based on a gimmick which wasn’t even spelled correctly.
+
+But the reset-button episode was not the only gaffe. While in Brussels, Hillary also managed to misspell two of her counterparts names during a press conference – she called the EU top diplomat Javier Solana a cream candy – ‘Solano’ – and the EU commissioner for external relations ‘Benina’ – when her real name is Benita. Both were standing right next to her and rolled their eyes thinking “oh boy, why can’t the Americans learn the names of the people they talk to?” […]</exclude>
+
+Eternal Remont wrote this in a post titled “The Diplomacy of Cheese”:
+
+<seg speaker="S4" d="D5" r="R1">[…] Apparently this is what we can expect from our new Sec. of State, who must now renegotiate a milestone arms treaty with Lavrov, bring him around to eliminating Iran’s Israel-erasing nuclear weapons program, while simultaneously restoring confidence in allies who are nervously waiting for Washington to sell them down the river.
+
+How do you do this? With rubber chickens and hand buzzers, apparently. What about the whoopee cushions? That will really earn you respect at the negotiating table. […]</seg></text>
+<notes>Lyndon and Buster are commenters named by one name, typed as persons. Most blog quotes report what others said (Biden, Clinton's staff, The Washington Times, Hillary Clinton) and are excluded as nested.</notes>
+</document>
