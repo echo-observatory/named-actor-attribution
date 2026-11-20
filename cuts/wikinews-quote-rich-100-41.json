@@ -1,0 +1,59 @@
+{
+ "document": "wikinews-quote-rich-100-41",
+ "items": [
+  {
+   "from": "The water was released from two pipes",
+   "to": "said Interior Secretary Dirk Kempthorne."
+  },
+  {
+   "from": "\"This gives you a glimpse",
+   "to": "increase by four or five times.",
+   "names": {
+    "S1": "Kempthorne"
+   },
+   "levels": {
+    "This gives you": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "After the dam was built in 1963",
+   "to": "eroded sandbars downstream."
+  },
+  {
+   "from": "Scientists will be conducting studies",
+   "to": "Grand Canyon Monitoring and Research Center."
+  },
+  {
+   "from": "Similar experiments were conducted",
+   "to": "making conditions more favorable."
+  },
+  {
+   "from": "\"They're trying to make it appear",
+   "to": "senior program director for the Trust."
+  },
+  {
+   "from": "Grand Canyon National Park superintendent Steve Martin",
+   "to": "hydroelectric power producers."
+  },
+  {
+   "from": "\"The best time to get the most money",
+   "to": "during peak demand.",
+   "names": {
+    "S5": "Martin"
+   },
+   "levels": {
+    "The best time": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Meanwhile, others are simply unhappy",
+   "to": "losing valuable resources.\""
+  }
+ ]
+}

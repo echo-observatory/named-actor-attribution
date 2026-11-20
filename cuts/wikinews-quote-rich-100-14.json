@@ -1,0 +1,94 @@
+{
+ "document": "wikinews-quote-rich-100-14",
+ "items": [
+  {
+   "from": "A report by the International Water",
+   "to": "compiled by 700 experts."
+  },
+  {
+   "from": "IWMI warns there has to be",
+   "to": "over the next two decades.",
+   "names": {
+    "S1": "IWMI"
+   },
+   "levels": {
+    "there has to be": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Record oil prices and concerns",
+   "to": "Sub-Saharan Africa and South Asia.\""
+  },
+  {
+   "from": "The report says conquering hunger",
+   "to": "likely to surge by 2050."
+  },
+  {
+   "from": "\"We will have to change business",
+   "to": "the report said."
+  },
+  {
+   "from": "According to Rijsberman, there are",
+   "to": "produce their own food,\" he said.",
+   "names": {
+    "S3": "Rijsberman"
+   },
+   "levels": {
+    "there are two types": [
+     "D4",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "The report said that a calorie",
+   "to": "taking 10,000 litres."
+  },
+  {
+   "from": "Rijsberman said water scarcity in Africa",
+   "to": "Rijsberman told reporters.",
+   "names": {
+    "S3": "Rijsberman"
+   },
+   "levels": {
+    "water scarcity in Africa": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "But the priority, Rijsberman stresses",
+   "to": "degradation and destruction,\" he said.",
+   "names": {
+    "S3": "Rijsberman"
+   },
+   "levels": {
+    "the priority": [
+     "D2",
+     "R1"
+    ],
+    "is to change": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "In Australia last week, Rijsberman",
+   "to": "next two decades.\"",
+   "names": {
+    "S3": "Rijsberman"
+   },
+   "levels": {
+    "he would": [
+     "D2",
+     "R1"
+    ]
+   }
+  }
+ ]
+}
