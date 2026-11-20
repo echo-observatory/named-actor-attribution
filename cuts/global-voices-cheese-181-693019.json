@@ -1,0 +1,107 @@
+{
+ "document": "global-voices-cheese-181-693019",
+ "items": [
+  {
+   "from": "Two women artists from Iran",
+   "to": "in canonical art history."
+  },
+  {
+   "from": "Negin Sharifzadeh, a cross-disciplinary",
+   "to": "sometimes as herself simply observing."
+  },
+  {
+   "from": "“I have placed myself",
+   "to": "present-day cultural collisions.",
+   "names": {
+    "S1": "Sharifzadeh"
+   },
+   "levels": {
+    "I have placed": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "“Negin’s point of view",
+   "to": "women’s desires and ambitions nowadays.”"
+  },
+  {
+   "from": "Sharifzadeh said that she has",
+   "to": "throughout history.”",
+   "names": {
+    "S1": "Sharifzadeh"
+   },
+   "levels": {
+    "she has brought": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Pakistani-American Qinza Najm",
+   "to": "address the deepest social traumas."
+  },
+  {
+   "from": "The exhibition’s title, “Still, I Rise,”",
+   "to": "transformation and change.”"
+  },
+  {
+   "from": "“Her fluid movement",
+   "to": "lenses of geography and social identification.”",
+   "names": {
+    "S3": "Freiman",
+    "S4": "Najm"
+   },
+   "levels": {
+    "Her fluid movement": [
+     "D1",
+     "R1"
+    ],
+    "between different disciplines": [
+     "D1",
+     "R1"
+    ],
+    "I am interested": [
+     "D1",
+     "R1"
+    ],
+    "drawing from my upbringing": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "In her art Najm says",
+   "to": "sexist norms.”",
+   "names": {
+    "S4": "Najm"
+   },
+   "levels": {
+    "she often uses": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Najm told Global Voices that",
+   "to": "the U.S. and Islamic countries.",
+   "names": {
+    "S4": "Najm"
+   },
+   "levels": {
+    "the theme of violence": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Both “Appearance Stripped Bare” and",
+   "to": "October 2019, Brooklyn, New York."
+  }
+ ]
+}

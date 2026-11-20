@@ -1,4 +1,4 @@
-<document id="global-voices-cheese-181-169377" source="global-voices-cheese-181" source-id="169377" text-sha256="5f1f1792bc5c1ccfd4eb663d9ef5919484dfdc7346de8566f2e03617b0036085" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<document id="global-voices-cheese-181-169377" source="global-voices-cheese-181" source-id="169377" text-sha256="5f1f1792bc5c1ccfd4eb663d9ef5919484dfdc7346de8566f2e03617b0036085" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
 <speakers>
   <speaker id="S1" name="Danas" type="organization"/>
   <speaker id="S2" name="Zoran Vranesevic" type="person"/>
@@ -19,7 +19,7 @@ Zoran Vranesevic, general secretary of the association, said to Danas that <seg 
 
 <seg speaker="S2" d="D2" r="R2">The main goal of the Patriotic Front was not to train children in marksmanship but to make sure that the children didn’t inherit the complexes of their fathers, the veterans, who are marginalized by the society</seg>, Vranesevic added.
 
-During the unusual and unique sojourn in Siberia, the children got a chance to take part in a writing competition on a simple topic – <dis type="quoted_title_or_scare_quote">“My stay in Russia”</dis> – which had been announced by the hosts (primarily, the Russian patriotic association Kosovo’s Front).
+During the unusual and unique sojourn in Siberia, the children got a chance to take part in a writing competition on a simple topic – <dis type="quoted_title_or_scare_quote">“My stay in Russia”</dis> <exclude reason="unresolved">– which had been announced by the hosts (primarily, the Russian patriotic association Kosovo’s Front).</exclude>
 
 <exclude reason="unresolved" note="A child named by initials only.">U. L. (13) wrote that Russians had given them knowledge about weapons, they had been training them in fencing and throwing knives, teaching them how to become skilled and persistent. He added:
 
@@ -73,8 +73,4 @@ Someone was training children in firing and using various kinds of weapons and i
 
 According to Danas, <seg speaker="S1" d="D4" r="R1">Public Prosecutor of the Republic of Serbia will check the information about the case, and if he finds any criminal elements in it, he will act in accordance with the law</seg>.</text>
 <notes>Danas is a daily newspaper, typed as an organization. Abrasevic Media's excerpt is from a commentary article it published, attributed to the website.</notes>
-<flags>
-  <flag kind="doubt" quote="two years ago, several groups of Serbian children, aged 11 to 15 years old, had spent 16 days in scout camps in Russia, where they were being trained to assemble and dismantle weapons, to throw bombs, and to fire rifles" speaker="Danas">The segment is attributed to Danas, but the text says Danas 'wrote' this, which is reporting by the newspaper, not a statement by the organization itself. It should likely be excluded as a document source or attributed to the article's author.</flag>
-  <flag kind="doubt" quote="Public Prosecutor of the Republic of Serbia will check the information about the case, and if he finds any criminal elements in it, he will act in accordance with the law" speaker="Danas">This is reported by Danas, not a statement by Danas itself. It should likely be excluded as a document source or attributed to the article's author.</flag>
-</flags>
 </document>

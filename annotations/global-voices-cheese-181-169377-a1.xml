@@ -1,0 +1,9 @@
+<document id="global-voices-cheese-181-169377-a1" source="global-voices-cheese-181" source-id="169377" text-sha256="b08d5359eb275d49abafecce8eb4a8f8c9ddbe27117856b305b96aeb9287a81b" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" adapted-from="global-voices-cheese-181-169377" source-start="3386" source-end="3812" adaptation="The second sentence of the first paragraph dropped (excluded: it has no cue); lead-in and block quote rewritten as an inline quote.">
+<speakers>
+  <speaker id="S1" name="Zarko Trebjesanin" type="person"/>
+  <speaker id="S2" name="Ratko Bozovic" type="person"/>
+</speakers>
+<text>Psychologist Zarko Trebjesanin says that <seg speaker="S1" d="D2" r="R1">children should not be trained to use weapons, but to communicate tolerantly</seg>.
+
+Sociologist Ratko Bozovic said this, among other things: “<seg speaker="S2" d="D1" r="R1">Throwing bombs and firing rifles are an attraction for the children and they find self-confirmation in such acts of violence.</seg>”</text>
+</document>

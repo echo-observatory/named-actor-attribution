@@ -1,0 +1,42 @@
+{
+ "document": "global-voices-cheese-181-705977",
+ "items": [
+  {
+   "from": "Julieta, a nonagenarian",
+   "to": "(Plan Buen Vecino)."
+  },
+  {
+   "from": "The government introduced social distancing",
+   "to": "the necessary means to do so?"
+  },
+  {
+   "from": "Two days after the measures",
+   "to": "migration of their families."
+  },
+  {
+   "from": "Yuraima Mercado, a member",
+   "to": "distribute this food to the elderly."
+  },
+  {
+   "from": "The deliveries, which at first",
+   "to": "Mercado adds.",
+   "names": {
+    "S2": "Mercado"
+   },
+   "levels": {
+    "the Good Neighbor Program currently": [
+     "D2",
+     "R1"
+    ],
+    "At present": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Amidst an unprecedented global",
+   "to": "Good Neighbor Program."
+  }
+ ]
+}

@@ -1,11 +1,12 @@
-<document id="global-voices-cheese-181-61513" source="global-voices-cheese-181" source-id="61513" text-sha256="262b355d2611174c203921fdc8c6f22b815e2b4e805ccdc99e4be5cd89fde7ca" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<document id="global-voices-cheese-181-61513" source="global-voices-cheese-181" source-id="61513" text-sha256="262b355d2611174c203921fdc8c6f22b815e2b4e805ccdc99e4be5cd89fde7ca" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
 <speakers>
   <speaker id="S1" name="Lyndon" type="person"/>
   <speaker id="S2" name="Buster" type="person"/>
   <speaker id="S3" name="Sean Guillory" type="person"/>
   <speaker id="S4" name="Eternal Remont" type="organization"/>
+  <speaker id="S5" name="Sergei Lavrov" type="person"/>
 </speakers>
-<text><dis type="named_no_attribution">On March 6, in Geneva, U.S. Secretary of State Hillary Clinton gave Russian foreign minister Sergei Lavrov a small box containing a red “reset” button with the Russian word peregruzka printed on it, which was meant as a symbol of better relations between the United States and Russia.</dis> But the Russian word for ‘reset’ is perezagruzka, while peregruzka means ‘overcharged’ – and Lavrov didn't hesitate to point out the language error.
+<text><dis type="named_no_attribution">On March 6, in Geneva, U.S. Secretary of State Hillary Clinton gave Russian foreign minister Sergei Lavrov a small box containing a red “reset” button with the Russian word peregruzka printed on it, which was meant as a symbol of better relations between the United States and Russia.</dis> But the Russian word for ‘reset’ is perezagruzka, while peregruzka means ‘overcharged’ – and Lavrov didn't hesitate to point out <seg speaker="S5">the language error</seg>.
 
 Below is a selection of bloggers’ thoughts on language and politics.
 
