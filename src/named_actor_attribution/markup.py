@@ -82,6 +82,18 @@ class Exclusion:
 
 
 @dataclass
+class Flag:
+    """A miss-check flag: text the annotation may have missed, or a span it doubts."""
+    kind: str  # "missed" or "doubt"
+    quote: str
+    reason: str = ""
+    speaker: str | None = None
+
+
+FLAG_KINDS = ("missed", "doubt")
+
+
+@dataclass
 class Document:
     id: str
     text: str
@@ -103,6 +115,7 @@ class Document:
     distractors: list[Distractor] = field(default_factory=list)
     exclusions: list[Exclusion] = field(default_factory=list)
     notes: str | None = None
+    flags: list[Flag] = field(default_factory=list)
 
 
 def text_sha256(text: str) -> str:
@@ -154,7 +167,7 @@ def _parse_document(root: ET.Element) -> Document:
     children = list(root)
     tags = [c.tag for c in children]
     for tag in tags:
-        if tag not in ("speakers", "text", "notes"):
+        if tag not in ("speakers", "text", "notes", "flags"):
             raise MarkupError(f"unexpected element <{tag}> in <document>")
         if tags.count(tag) > 1:
             raise MarkupError(f"<{tag}> appears more than once")
@@ -185,6 +198,13 @@ def _parse_document(root: ET.Element) -> Document:
                 doc.speakers.append(Speaker(id=sp.get("id", ""), name=sp.get("name", ""), type=sp.get("type", "")))
         elif child.tag == "notes":
             doc.notes = child.text or ""
+        elif child.tag == "flags":
+            for fl in child:
+                if fl.tag != "flag":
+                    raise MarkupError(f"unexpected element <{fl.tag}> in <flags>")
+                _no_unknown_attrs(fl, {"kind", "quote", "speaker"})
+                doc.flags.append(Flag(kind=fl.get("kind", ""), quote=fl.get("quote", ""), reason=fl.text or "",
+                                      speaker=fl.get("speaker")))
         elif child.tag == "text":
             _read_text(child, doc)
     return doc
@@ -314,6 +334,14 @@ def check(doc: Document) -> list[Problem]:
         if not doc.text[ex.start:ex.end].strip():
             err(f"exclusion at {ex.start}–{ex.end} is empty")
 
+    for fl in doc.flags:
+        if fl.kind not in FLAG_KINDS:
+            err(f"flag of kind {fl.kind!r}, not one of {', '.join(FLAG_KINDS)}")
+        if fl.quote not in doc.text:
+            warn(f"a miss-check flag quotes text that is not in the document: {fl.quote[:50]!r}")
+    if doc.flags and doc.status == "reviewed":
+        warn(f"{len(doc.flags)} miss-check flag(s) left on a reviewed document: handle and dismiss them")
+
     segs = sorted(doc.segments, key=lambda s: s.start)
     for a, b in zip(segs, segs[1:]):
         gap = doc.text[a.end:b.start]
@@ -383,6 +411,12 @@ def serialize(doc: Document) -> str:
     lines.append(f"<text>{_text_with_spans(doc)}</text>")
     if doc.notes is not None:
         lines.append(f"<notes>{_escape(doc.notes)}</notes>")
+    if doc.flags:
+        lines.append("<flags>")
+        for fl in doc.flags:
+            lines.append(f"  <flag{_attrs([('kind', fl.kind), ('quote', fl.quote), ('speaker', fl.speaker)])}>"
+                         f"{_escape(fl.reason)}</flag>")
+        lines.append("</flags>")
     lines.append("</document>")
     return "\n".join(lines) + "\n"
 
@@ -546,4 +580,5 @@ def to_record(doc: Document) -> dict:
             for x in sorted(doc.exclusions, key=lambda x: x.start)
         ],
         "notes": doc.notes,
+        "flags": [{"kind": f.kind, "quote": f.quote, "speaker": f.speaker, "reason": f.reason} for f in doc.flags],
     }
