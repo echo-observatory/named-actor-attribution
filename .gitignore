@@ -16,3 +16,6 @@ venv/
 # Python
 __pycache__/
 .pytest_cache/
+
+# Local scratch files, such as pages and reviews saved from the annotation page
+temp/
