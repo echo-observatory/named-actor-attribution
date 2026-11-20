@@ -1,0 +1,53 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-10" source="wikinews-repeated-claims-iran-nuclear-59" source-id="10" text-sha256="20fd23271d891cba043956ab21605b4e82fa9367ddec846174a9abee2df59704" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Iran" type="organization"/>
+  <speaker id="S2" name="International Atomic Energy Agency" type="organization"/>
+  <speaker id="S3" name="Sam Gardiner" type="person"/>
+  <speaker id="S4" name="Defense Department" type="organization"/>
+  <speaker id="S5" name="C.I.A." type="organization"/>
+  <speaker id="S6" name="Bush" type="person"/>
+  <speaker id="S7" name="Jack Straw" type="person"/>
+</speakers>
+<text><dis type="non_statement">The United Kingdom's Foreign Secretary Jack Straw dismissed the nuclear 'first-strike' plan reported in the New Yorker magazine on Saturday.</dis>
+
+<dis type="document_source">According to the New Yorker story, written by Seymour M. Hersh, American military and intelligence officials were making plans for a massive nuclear strike on Iran in order to stop the country developing nuclear weapons. The story also said that US special forces were already operating in Iran gathering target information.</dis>
+
+The Iranian government insists that <seg speaker="S1" d="D2" r="R4">its nuclear development program is purely for meeting civilian energy needs</seg>, <dis type="unnamed_source">but several intelligence agencies around the world believe that Iran's true goal is to develop nuclear weapons.</dis> The International Atomic Energy Agency has said that <seg speaker="S2" d="D2" r="R1">it has not seen indications of diversion of nuclear material to nuclear weapons or other nuclear explosive devices after several years of intensive inspections in Iran</seg>, <dis type="non_statement">but has also expressed uncertainty about the nature of Iran's nuclear program and called for confidence building measures from Iran.</dis>
+
+<dis type="unnamed_source">A former US intelligence official claimed that Iran's president, Mahmoud Ahmadinejad, is referred to as "the new Adolf Hitler" within the White House.</dis> <dis type="unnamed_source">Some military officials believe that Bush wants a "regime change" in Iran.</dis> <exclude reason="nested" note="Reports Khomeini's statement; the Holocaust claim is a stance in a noun phrase.">President Ahmadinejad has previously disputed the existence of the Holocaust and at a conference discussing Zionism, he described Ayatollah Khomeini's statement that Israel as an occupying force in Palestine should be "wiped off the map" as "a wise statement".</exclude>
+
+<dis type="unnamed_source">An anonymous Pentagon official said "This White House believes that the only way to solve the problem is to change the power structure in Iran, and that means war. It also reinforces the belief inside Iran that the only way to defend the country is to have a nuclear capability."</dis>
+
+US aircraft flying from carriers in the Arabian Sea have been flying practice nuclear weapon missions within range of Iranian radar, <dis type="unnamed_source">widely seen as an effort to intimidate Iran.</dis>
+
+In the last few years Iran has been constructing a series of underground facilities to support its work. Colonel Sam Gardiner, a military analyst, says <seg speaker="S3" d="D2" r="R1">there are over 400 targets in Iran that would need to be destroyed to end Iran's nuclear program</seg>. <dis type="unnamed_source">In one option of a plan reportedly presented to the White House by the Pentagon this winter, "bunker-busting" mini-nuclear weapons would be used to penetrate the deepest-buried facilities, some of which are 75 feet below the surface.</dis>
+
+<dis type="unnamed_source">An insider claimed that the Joint Chiefs of Staff tried to remove the nuclear option from the plan, citing problems of huge casualties and radioactive contamination, but the White House retained it. Another source claimed that while nuclear weapons were seeing more interest amongst civilian staff and within "policy circles", military officers remained very much opposed to their potential use, with some high-level officers threatening resignation.</dis>
+
+<dis type="unnamed_source">The insider said "if senior Pentagon officers express their opposition to the use of offensive nuclear weapons, then it will never happen".</dis>
+
+<exclude reason="nested" note="The White House quotes what the President indicated.">When asked about the veracity of the claims made in the New Yorker article, the White House said "As the President has indicated, we are pursuing a diplomatic solution".</exclude> The Defense Department also said that <seg speaker="S4" d="D2" r="R1">Iran was being dealt with through "diplomatic channels"</seg>. The C.I.A. said that <seg speaker="S5" d="D2" r="R1">there were "inaccuracies" in the account</seg>.
+
+Since then, Bush has described <seg speaker="S6" d="D2" r="R1">the plan as "wild speculation"</seg>, without denying it, in a speech delivered at Johns Hopkins University in Washington DC.
+
+"<seg speaker="S6" d="D1" r="R5">The doctrine of prevention is to work together to prevent the Iranians from having a nuclear weapon</seg>," he said. "<seg speaker="S6" d="D3" r="R5">I know here in Washington prevention means force. It doesn't mean force necessarily. In this case it means diplomacy. What you are reading is just wild speculation which happens quite frequently here in the nation's capital.</seg>"
+
+Jack Straw said "<seg speaker="S7" d="D1" r="R1">the idea of a nuclear strike on Iran is completely nuts.</seg>" Speaking on a BBC television show, Straw said "<seg speaker="S7" d="D1" r="R2">I have made clear the British Government's position on this time and time again which is widely shared across Europe.</seg>"
+
+<exclude reason="nested" note="Straw reports what the US administration says.">"The American administration, Condoleezza Rice, [and] President Bush use slightly different language. They say that it is not on the agenda. They are very committed indeed to resolving this issue - it is a complicated issue - by negotiation and, yes, by diplomatic pressure. "</exclude>
+
+Straw stated that <seg speaker="S7" d="D2" r="R2">the UK would not launch a pre-emptive strike on Iran</seg>, going on to say that <seg speaker="S7" d="D2" r="R2">he was as "certain as he could be" that neither would the US</seg>.</text>
+<notes>The New Yorker story is a document source. Unnamed officials, insiders and sources are distractors. Quotes that report what others say (the President, Khomeini, the US administration) are nested. “He said” after Bush's paragraph: R5.</notes>
+<flags>
+  <flag kind="doubt" quote="The Iranian government insists that its nuclear development program is purely for meeting civilian energy needs" speaker="Iran">The segment is attributed to Iran, but the text says 'The Iranian government insists', which is a different actor.</flag>
+  <flag kind="doubt" quote="The International Atomic Energy Agency has said that it has not seen indications of diversion of nuclear material to nuclear weapons or other nuclear explosive devices after several years of intensive inspections in Iran" speaker="International Atomic Energy Agency">The segment is attributed to the International Atomic Energy Agency, but the text says 'The International Atomic Energy Agency has said that', which is a different actor.</flag>
+  <flag kind="doubt" quote="Colonel Sam Gardiner, a military analyst, says there are over 400 targets in Iran that would need to be destroyed to end Iran's nuclear program" speaker="Sam Gardiner">The segment is attributed to Sam Gardiner, but the text says 'Colonel Sam Gardiner, a military analyst, says', which is a different actor.</flag>
+  <flag kind="doubt" quote="The Defense Department also said that Iran was being dealt with through &quot;diplomatic channels&quot;" speaker="Defense Department">The segment is attributed to the Defense Department, but the text says 'The Defense Department also said that', which is a different actor.</flag>
+  <flag kind="doubt" quote="The C.I.A. said that there were &quot;inaccuracies&quot; in the account" speaker="C.I.A.">The segment is attributed to the C.I.A., but the text says 'The C.I.A. said that', which is a different actor.</flag>
+  <flag kind="doubt" quote="Since then, Bush has described the plan as &quot;wild speculation&quot;" speaker="Bush">The segment is attributed to Bush, but the text says 'Bush has described', which is a different actor.</flag>
+  <flag kind="doubt" quote="Jack Straw said &quot;the idea of a nuclear strike on Iran is completely nuts.&quot;" speaker="Jack Straw">The segment is attributed to Jack Straw, but the text says 'Jack Straw said', which is a different actor.</flag>
+  <flag kind="doubt" quote="Speaking on a BBC television show, Straw said &quot;I have made clear the British Government's position on this time and time again which is widely shared across Europe.&quot;" speaker="Jack Straw">The segment is attributed to Jack Straw, but the text says 'Straw said', which is a different actor.</flag>
+  <flag kind="doubt" quote="Straw stated that the UK would not launch a pre-emptive strike on Iran" speaker="Jack Straw">The segment is attributed to Jack Straw, but the text says 'Straw stated that', which is a different actor.</flag>
+  <flag kind="doubt" quote="going on to say that he was as &quot;certain as he could be&quot; that neither would the US" speaker="Jack Straw">The segment is attributed to Jack Straw, but the text says 'going on to say that', which is a different actor.</flag>
+</flags>
+</document>

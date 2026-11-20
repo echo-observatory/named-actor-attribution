@@ -1,0 +1,109 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-49",
+ "items": [
+  {
+   "from": "Obama said the treaty is a big step forward",
+   "to": "signed it,\" he said.",
+   "names": {
+    "S1": "Obama",
+    "S2": "Medvedev"
+   },
+   "levels": {
+    "the treaty is a big step": [
+     "D2",
+     "R1"
+    ],
+    "because of this treaty": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Obama says, in addition",
+   "to": "non-deployed weapons,\" he said.",
+   "names": {
+    "S1": "Obama"
+   },
+   "levels": {
+    "the treaty paves": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Tom Collina, research director",
+   "to": "sets us up for deeper cuts,\" he said."
+  },
+  {
+   "from": "Earlier in the week, President Obama announced",
+   "to": "nonproliferation obligations.",
+   "names": {
+    "S1": "Obama"
+   }
+  },
+  {
+   "from": "Frank Gaffney, a former arms control adviser",
+   "to": "It will not happen ever,\" he said."
+  },
+  {
+   "from": "In their hour-and-a-half meeting",
+   "to": "discussing this issue,\" he said.",
+   "names": {
+    "S2": "Medvedev"
+   }
+  },
+  {
+   "from": "Obama said, \"We are working together",
+   "to": "on Iran this spring.\"",
+   "names": {
+    "S1": "Obama"
+   },
+   "levels": {
+    "We are working": [
+     "D1",
+     "R1"
+    ],
+    "My expectation": [
+     "D1",
+     "R3"
+    ]
+   }
+  },
+  {
+   "from": "Many experts agree passage",
+   "to": "America's nuclear arsenal."
+  },
+  {
+   "from": "However, Obama is confident",
+   "to": "new challenges in new ways.\"",
+   "names": {
+    "S1": "Obama"
+   },
+   "levels": {
+    "the treaty will be ratified": [
+     "D4",
+     "R1"
+    ],
+    "And so I'm": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Obama also noted",
+   "to": "State Department's website.",
+   "names": {
+    "S1": "Obama"
+   },
+   "levels": {
+    "[T]hat both": [
+     "D1",
+     "R1"
+    ]
+   }
+  }
+ ]
+}

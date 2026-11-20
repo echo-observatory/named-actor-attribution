@@ -1,0 +1,22 @@
+{
+ "document": "wikinews-quote-rich-100-1",
+ "items": [
+  {
+   "from": "The Commonwealth Scientific and Industrial Research Organisation",
+   "to": "TJ Higgins said."
+  },
+  {
+   "from": "Australia has a $100 million field pea industry",
+   "to": "these regulations are in place.\"",
+   "names": {
+    "S1": "Higgins"
+   },
+   "levels": {
+    "the findings proved": [
+     "D2",
+     "R1"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-10",
+ "items": [
+  {
+   "from": "The United Kingdom's Foreign Secretary",
+   "to": "gathering target information."
+  },
+  {
+   "from": "The Iranian government insists",
+   "to": "confidence building measures from Iran."
+  },
+  {
+   "from": "An anonymous Pentagon official",
+   "to": "intimidate Iran."
+  },
+  {
+   "from": "In the last few years Iran has been constructing",
+   "to": "75 feet below the surface."
+  },
+  {
+   "from": "An insider claimed",
+   "to": "it will never happen\"."
+  },
+  {
+   "from": "Since then, Bush has described",
+   "to": "here in the nation's capital.\""
+  },
+  {
+   "from": "Jack Straw said",
+   "to": "widely shared across Europe.\""
+  },
+  {
+   "from": "Straw stated that the UK",
+   "to": "neither would the US.",
+   "names": {
+    "S7": "Straw"
+   },
+   "levels": {
+    "the UK would not": [
+     "D2",
+     "R1"
+    ],
+    "he was as": [
+     "D2",
+     "R1"
+    ]
+   }
+  }
+ ]
+}

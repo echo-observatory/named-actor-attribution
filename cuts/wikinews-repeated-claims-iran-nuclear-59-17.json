@@ -1,0 +1,38 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-17",
+ "items": [
+  {
+   "from": "Bush administration officials say",
+   "to": "reprocessing activities."
+  },
+  {
+   "from": "Tehran will need some time",
+   "to": "with the support of the United States,\" he said."
+  },
+  {
+   "from": "The plan was drafted by",
+   "to": "a wrong move."
+  },
+  {
+   "from": "\"It is easy to make comments",
+   "to": "Snow said.",
+   "names": {
+    "S1": "Snow"
+   },
+   "levels": {
+    "It is easy": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "European Union foreign policy chief Javier Solana is to formally",
+   "to": "amount of time to respond."
+  },
+  {
+   "from": "Iranian officials have indicated",
+   "to": "attached to the deal."
+  }
+ ]
+}

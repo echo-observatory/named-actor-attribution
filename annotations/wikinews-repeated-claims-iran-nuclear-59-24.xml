@@ -1,0 +1,20 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-24" source="wikinews-repeated-claims-iran-nuclear-59" source-id="24" text-sha256="47666de61cfa8edcdbba337743cd449628a427766c909a2e37f05c89ebca7125" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Iran" type="organization"/>
+  <speaker id="S2" name="Cristina Gallach" type="person"/>
+</speakers>
+<text>Foreign ministers seeking to resolve Iran's nuclear crisis will meet in London today at 5P.M. local time (1600hrs GMT). The countries sending their foreign ministers are United Kingdom, the United States, China, France, Germany and Russia. The participating nations, with the exception of Germany, have veto powers in the UN Security Council.
+
+The UN Security Council is also likely to meet next week to discuss further action to take against Iran, following its failure to persuade Iran to freeze its uranium enrichment program.
+
+<dis type="unnamed_source">Many western governments suspect that Iran is pursuing nuclear weapons capability.</dis> Iran insists that <seg speaker="S1" d="D2" r="R1">the enriched uranium is meant for power generation only</seg>.
+
+<dis type="named_no_attribution">Iran's chief nuclear negotiator, Ali Larijani, and European Union foreign policy chief Javier Solana have executed four rounds of negotiations on Iran's nuclear program but have failed to make a breakthrough.</dis>
+
+Solana's representative, Cristina Gallach, stressed <seg speaker="S2" d="D2" r="R1">the current diplomatic efforts were different from a European initiative in 2004-05, which ultimately failed</seg>.
+
+"<seg speaker="S2" d="D1" r="R5">The offer of November 2004 was only one and a half pages long and only had the Europeans' signature, while the June 2006 offer has the signature of the whole Security Council and Germany</seg>," she said.
+
+"<seg speaker="S2" d="D3" r="R5">The Americans are very much on board. It is a truly robust international offer.</seg>"</text>
+<notes>“She said” opens the paragraph after Gallach's: R5. The cue-less quote after it is cued in the adjacent sentence, across the break: D3.</notes>
+</document>

@@ -1,0 +1,18 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-14" source="wikinews-repeated-claims-iran-nuclear-59" source-id="14" text-sha256="2d5757903f19da384c97f02109571cc84abcbd1a016a895be763f9de46cb2a7d" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Condoleezza Rice" type="person"/>
+  <speaker id="S2" name="IRNA" type="organization"/>
+  <speaker id="S3" name="Kazem Jalali" type="person"/>
+  <speaker id="S4" name="Javier Solana" type="person"/>
+</speakers>
+<text>In a major foreign policy shift, U.S. Secretary of State Condoleezza Rice on Wednesday announced that <seg speaker="S1" d="D2" r="R1">it would join European nations in multilateral talks with Iran over its nuclear energy issue if Iran fully and verifiably suspends its nuclear enrichment activities</seg>.
+
+"<seg speaker="S1" d="D1" r="R5">We urge Iran to make this choice for peace, to abandon its ambition for nuclear weapons</seg>," she said. At the same time, Rice acknowledged that <seg speaker="S1" d="D2" r="R2">Iran had a right for civil nuclear energy</seg>.
+
+However, the official Iranian news agency, IRNA, said in a dispatch following Rice's remarks, "<seg speaker="S2" d="D1" r="R1">Given the insistence by Iranian authorities on continuing uranium enrichment, Rice’s comments can be considered a propaganda move.</seg>" Iranian lawmaker Kazem Jalali, speaking unofficially, said that <seg speaker="S3" d="D2" r="R1">the U.S. offer "can be considered positive but the precondition set by the U.S. is not appropriate."</seg>
+
+<dis type="non_statement">European Union foreign policy chief Javier Solana welcomed Rice's remarks.</dis> "<seg speaker="S4" d="D1" r="R2">Direct U.S. participation would be the strongest and most positive signal of our common wish to reach an agreement with Iran</seg>," Solana said.
+
+Iran and the United States have had no diplomatic relations and no direct official contact since the 1979 Islamic Revolution in which 52 Americans were held hostage in the American Embassy in Tehran.</text>
+<notes>“She said” opens the paragraph after Rice's announcement: R5. The Iranian authorities' insistence, unnamed and inside IRNA's quote, stays inside.</notes>
+</document>

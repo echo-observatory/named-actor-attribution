@@ -1,13 +1,45 @@
-{"document": "global-voices-cheese-181-775031", "items": [
- {"from": "Grao's owner is 32-year-old Igor", "to": "people are friendly.”"},
- {"from": "Igor managed a few bars", "to": "explains Igor."},
- {"from": "Through friends and acquaintances", "to": "Igor told Global Voices."},
- {"from": "And although it has so far worked out for Igor", "to": "building your own persona anew.”"},
- {"from": "It is not entirely clear how many Russians", "to": "first two quarters of 2022."},
- {"from": "The high number of arrivals", "to": "explained Igor."},
- {"from": "Among those who are currently in Turkey are artists too.", "to": "reading poetry from famous Russian authors."},
- {"from": "In March, Oxxxymiron", "to": "while people are dying.”"},
- {"from": "In October 2022, the rapper's name", "to": "bands and musicians."},
- {"from": "Back at Grao, customers keep coming", "to": "as the cafe gets more crowded."},
- {"from": "Two women walk in speaking Farsi", "to": "take things slow for now."}
-]}
+{
+ "document": "global-voices-cheese-181-775031",
+ "items": [
+  {
+   "from": "Grao's owner is 32-year-old Igor",
+   "to": "people are friendly.”"
+  },
+  {
+   "from": "Igor managed a few bars",
+   "to": "explains Igor."
+  },
+  {
+   "from": "Through friends and acquaintances",
+   "to": "Igor told Global Voices."
+  },
+  {
+   "from": "And although it has so far worked out for Igor",
+   "to": "building your own persona anew.”"
+  },
+  {
+   "from": "It is not entirely clear how many Russians",
+   "to": "first two quarters of 2022."
+  },
+  {
+   "from": "The high number of arrivals",
+   "to": "explained Igor."
+  },
+  {
+   "from": "Among those who are currently in Turkey are artists too.",
+   "to": "reading poetry from famous Russian authors."
+  },
+  {
+   "from": "In March, Oxxxymiron",
+   "to": "while people are dying.”"
+  },
+  {
+   "from": "In October 2022, the rapper's name",
+   "to": "bands and musicians."
+  },
+  {
+   "from": "Two women walk in speaking Farsi",
+   "to": "take things slow for now."
+  }
+ ]
+}

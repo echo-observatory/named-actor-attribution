@@ -1,0 +1,64 @@
+{
+ "document": "wikinews-quote-rich-100-59",
+ "items": [
+  {
+   "from": "Mohamed Nasheed, the leader of the Maldives",
+   "to": "in a decade,\" he said."
+  },
+  {
+   "from": "\"Climate change threatens us all",
+   "to": "blueprint for other countries.",
+   "names": {
+    "S1": "Nasheed"
+   },
+   "levels": {
+    "Climate change": [
+     "D1",
+     "R1"
+    ],
+    "he hopes his plan": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "\"We understand more than perhaps anyone",
+   "to": "should be taken lightly.\"",
+   "names": {
+    "S1": "Nasheed"
+   },
+   "levels": {
+    "We understand": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Nasheed's plan calls for",
+   "to": "worth $800 million a year."
+  },
+  {
+   "from": "Environmentalist Mark Lynas said",
+   "to": "Lynas said."
+  },
+  {
+   "from": "\"The point of doing it",
+   "to": "news agency Reuters.",
+   "names": {
+    "S2": "Lynas"
+   },
+   "levels": {
+    "The point": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "\"The Maldives could just give up",
+   "to": "at reasonable cost.\""
+  }
+ ]
+}
