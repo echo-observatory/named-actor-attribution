@@ -271,8 +271,6 @@ def check(doc: Document) -> list[Problem]:
             err(f"{where} has detection level {seg.d!r}")
         if seg.r is not None and seg.r not in REFERENCE_LEVELS:
             err(f"{where} has reference level {seg.r!r}")
-        if doc.status == "reviewed" and (seg.d is None or seg.r is None):
-            warn(f"{where} has no {'D' if seg.d is None else 'R'} level")
         inner = doc.text[seg.start:seg.end]
         if not trim(inner):
             err(f"{where} is empty once whitespace and punctuation are trimmed")
@@ -293,9 +291,10 @@ def check(doc: Document) -> list[Problem]:
 
     segs = sorted(doc.segments, key=lambda s: s.start)
     for a, b in zip(segs, segs[1:]):
-        if a.speaker == b.speaker and not trim(doc.text[a.end:b.start]):
+        gap = doc.text[a.end:b.start]
+        if a.speaker == b.speaker and not trim(gap) and "\n" not in gap:
             warn(f"segments at {a.start} and {b.start} have the same speaker and only whitespace or "
-                 "punctuation between them: merge them (a gold segment is a maximal run, spec §2)")
+                 "punctuation between them in the same paragraph: merge them (a gold segment is a maximal run, spec §2)")
     return out
 
 

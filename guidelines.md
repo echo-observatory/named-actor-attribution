@@ -1,8 +1,20 @@
 # Annotation guidelines
 
-Version 0, 19 November 2026. For everyone who annotates: the drafting model, reviewers, and second annotators.
+Version 1, 20 November 2026. For everyone who annotates: the drafting model, reviewers, and second annotators.
 The rules come from the [specification](specification.md) (§2–§5); when the two disagree, the specification wins, and this file is fixed.
 The examples are invented. They will be replaced by 5 examples per tier from the dataset's `dev` split.
+
+## Principles
+
+How we approach the labelling. The rules below apply them; when a case isn't covered, go back to these.
+
+1. **Unambiguous over complete.** The dataset keeps only attributions that a careful reader can settle from the passage alone. When there is a doubt about who speaks, where a quote ends, or whether something is attributed at all, leave the text out (`<exclude>`) rather than decide. Real text is sometimes ambiguous even for humans; that is real, but kept out of the eval set, because it would add noise to the scores. We will reconsider only if this leaves the hardest tiers short of items.
+2. **Hard is not ambiguous.** Distant cues, pronouns, descriptors and long block quotes are wanted, as long as a careful reader can resolve them. An item is hard because of its text, never because its labels are uncertain.
+3. **Exhaustive within what is kept.** In a passage that is kept, everything attributable to a named actor is marked: otherwise, a correct answer would count as a false positive. Leaving something out means excluding its text, never leaving it unmarked.
+4. **Cut around rather than rewrite.** Items are contiguous passages, cut around excluded text. The text inside a passage changes only to remove boilerplate, or to adapt low-tier items (spec §5.1).
+5. **Annotation never changes the text.** Spans are added around the text; the file's hash catches any other change.
+6. **People judge, the model counts.** Reviewers check segments, speakers, distractors and exclusions. Levels only decide an item's tier and are not scored, so the model sets them, on each item after cutting.
+7. **Doubts are written down.** A `note` on the span, or `<notes>` on the document, says why a choice was made, so that it can be reviewed.
 
 ## 1. The task
 
@@ -16,7 +28,7 @@ Files are in the [markup format](docs/markup.md). You work with three spans and 
 - `<exclude reason="…">…</exclude>`: text that makes a passage unusable;
 - `<speaker id="S1" name="Anna Berg" type="person"/>`: one per actor with at least one segment.
 
-**Reviewing a draft:** check every segment (its boundaries and its speaker), every speaker's name, the levels, distractors and exclusions. Then read the text once more, looking only for what the draft missed: missed segments are the error that is hardest to see. Set `status="reviewed"` and `annotator` when done.
+**Reviewing a draft:** check every segment (its boundaries and its speaker), every speaker's name, distractors and exclusions. Levels are not yours to check (Principle 6). Then read the text once more, looking only for what the draft missed: missed segments are the error that is hardest to see. Set `status="reviewed"` and `annotator` when done.
 
 **Annotating from scratch** (second annotators): you get short passages without any annotation. Mark segments and speakers only; levels, distractors and exclusions are not needed.
 
@@ -29,6 +41,7 @@ Mark:
 - **mixed speech**, a paraphrase with quoted fragments: Berg said `<seg>`the lab would reopen “if the funding holds”`</seg>`.
 - **private states whose content is a clause**: In her view, `<seg>`the permits could take a year`</seg>`. Holm fears `<seg>`the funding will be cut again`</seg>`. Berg wants `<seg>`the lab to reopen in March`</seg>`.
 - **writing and posting**: a blog post, a tweet, a letter, a statement by an organization.
+- **statements with a noun phrase** that still state something: "Morrison has referenced `<seg>`the quarantine requirement as one reason for his hesitancy`</seg>`" (he says the quarantine is a reason).
 
 Don't mark:
 
@@ -45,8 +58,8 @@ Inside a quote, keep the whole run, questions included: in “Why fund paperwork
 
 - **Content only.** The speaker mention and the cue ("said", "according to", "writes:") stay outside.
 - **Quotation marks** that open or close the quote stay outside; quotation marks inside it (the fragments of mixed speech) stay in.
-- **One segment per maximal run.** If the same actor's text continues and only the cue interrupts it, that makes two segments: “`<seg>`The equipment is ready`</seg>`,” she said, “`<seg>`and we only need permits`</seg>`.” If only whitespace or punctuation separates two pieces of the same actor's text, merge them into one segment.
-- **A block quote of several paragraphs** is one segment, paragraph breaks included.
+- **One segment per maximal run.** If the same actor's text continues and only the cue interrupts it, that makes two segments: “`<seg>`The equipment is ready`</seg>`,” she said, “`<seg>`and we only need permits`</seg>`.” If only whitespace or punctuation separates two pieces of the same actor's text within a paragraph, merge them: a quoted fragment and the paraphrase around it are one segment (`<seg>`the last chance saloon” to address the climate crisis`</seg>`).
+- **A paragraph break ends a segment**, unless the same quote clearly continues: a block quote of several paragraphs is one segment. A paraphrase and the block quote after it ("Grattan has argued that X:" then her quote) are two segments.
 - **Punctuation at the edges** doesn't matter: the scoring trims it. Don't spend time on it.
 - **Don't split by sentence or by claim.** The unit is the run of text, not the claim.
 
@@ -88,7 +101,7 @@ Mark with `<exclude reason="…">` the text that would make any passage containi
 | `non-english` | A sentence or quote in another language. Single foreign words inside English sentences are fine |
 | `boilerplate` | Captions, photo credits, editorial notes ("[All links lead to Spanish-language pages.]"), headlines |
 
-## 7. Levels (reviewers and the drafting model)
+## 7. Levels (the drafting model)
 
 Each segment gets two levels: how hard it is to **detect** (`d`) and how hard it is to tell **who** says it (`r`). When several levels apply, use the highest.
 
@@ -109,13 +122,13 @@ Each segment gets two levels: how hard it is to **detect** (`d`) and how hard it
 | R5 | An antecedent further back, or several candidates that fit, resolved by the content |
 | R6 | No mention marks the actor as the speaker: inferred from the discourse, such as the answer in an exchange |
 
-Levels are set on the whole document, and checked again on each passage cut from it.
+The model sets levels on each item, after cutting, since they depend on where the passage starts and ends. Levels set on whole documents are a first guess, replaced then.
 
 ## 8. Global Voices articles
 
 Most articles of the first corpus are blog roundups, with their own habits:
 
-- **Lead-in and block quote:** "Nora describes it as follows:" then one or more paragraphs quoted from her blog, without quotation marks (the original page had a block quote, which the plain text has lost). The quoted paragraphs are one segment: D3 for a single paragraph, D5 for several. Decide where the quote ends from the content: the author's voice usually comes back with a sentence about the blogger ("Before sharing the recipe, the blogger talked about…"). If you can't tell, add a `note` to the segment.
+- **Lead-in and block quote:** "Nora describes it as follows:" then one or more paragraphs quoted from her blog, without quotation marks (the original page had a block quote, which the plain text has lost). The quoted paragraphs are one segment: D3 for a single paragraph, D5 for several. Decide where the quote ends from the content: the author's voice usually comes back with a sentence about the blogger ("Before sharing the recipe, the blogger talked about…"). If you can't tell, end the segment where you are sure, and exclude what follows (`unresolved`).
 - **Tweets:** the tweet's text, then a signature line "— Name (@handle) date", then often an English translation. The original in another language: `<exclude reason="non-english">`. The translation: a segment of the tweet's author. The signature line is not part of the segment. Editorial insertions in brackets inside a quote ("[jellybeanMelih]") stay inside the segment.
 - **Blogs as speakers:** "Barbados Free Press writes:" makes the blog the speaker, as an organization. When the text names the person behind the blog and attributes the post to them, the person is the speaker.
 - **Captions and credits** ("Photo by …", "Image via …", "Screenshot from …"): `boilerplate`.
@@ -136,5 +149,19 @@ The tier of a passage is computed from its levels, its speakers and its length (
 ## 10. When in doubt
 
 - Add a `note` to the span, or write in `<notes>`, rather than guessing silently.
-- If a careful reader can't settle it, it's probably an `<exclude reason="unresolved">`.
+- If a careful reader can't settle it, exclude it (`unresolved`): see Principle 1.
 - Run `uv run naa check` on the file: it catches broken markup, a changed text, unknown speakers and segments that should be merged.
+
+## Decisions
+
+Choices made on cases the rules didn't settle, with the documents that raised them.
+
+| Date | Decision | Raised by |
+| --- | --- | --- |
+| 2026-11-20 | A paragraph break ends a segment, unless the same quote continues | Pilot: 61589, 748041 |
+| 2026-11-20 | When the end of a block quote is unclear, exclude what follows the part you are sure of | Pilot: 61589 |
+| 2026-11-20 | A noun phrase that still states something is a segment ("referenced X as one reason for Y") | Pilot: 748041 |
+| 2026-11-20 | Levels are set by the model on items, not reviewed by people | Pilot review |
+| 2026-11-20 | Open, default applied: unnamed voices inside a quote ("the blog writes that some argued X") stay in the quote's segment | Pilot: 61589, 564441, 95433 |
+| 2026-11-20 | Open, default applied: royal titles are stripped like others ("Prince Charles" → "Charles") | Pilot: 748041 |
+| 2026-11-20 | Open, default applied: a study run by a named organization is a document source; the organization is the speaker only when it is the subject ("Nexer found that…") | Pilot: 705184 |

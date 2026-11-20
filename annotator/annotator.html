@@ -384,12 +384,12 @@ function checkDocument(doc) {
       if (!trimText(inner)) add("error", "A segment is empty once punctuation is trimmed", s);
       else if (/^\s|\s$/.test(inner) || edgeQuote(inner))
         add("warning", "A segment starts or ends with whitespace or a quotation mark", s);
-      if (doc.attrs.status === "reviewed" && (!s.d || !s.r)) add("warning", `A segment has no ${!s.d ? "D" : "R"} level`, s);
     } else if (!inner.trim()) add("error", `An empty ${s.kind === "dis" ? "distractor" : "exclusion"}`, s);
   }
   for (let i = 1; i < segs.length; i++) {
     const a = segs[i - 1], b = segs[i];
-    if (a.speaker === b.speaker && !trimText(doc.text.slice(a.end, b.start)) &&
+    const gap = doc.text.slice(a.end, b.start);
+    if (a.speaker === b.speaker && !trimText(gap) && !gap.includes("\n") &&
         !doc.spans.some(s => s.start >= a.end && s.end <= b.start))
       add("warning", "Two segments of the same speaker are separated only by punctuation: merge them", b);
   }
@@ -962,6 +962,8 @@ function selfTest() {
   ok("nickname inside a name", nameOccurs("Robert Smith", "Robert ‘Bob’ Smith said") && !nameOccurs("Robert Smith", "Robert J. Smith"));
   const merged = parseMarkup('<document id="m"><speakers><speaker id="S1" name="Anna Berg" type="person"/></speakers><text>Anna Berg said <seg speaker="S1">it works</seg>, <seg speaker="S1">and well</seg>.</text></document>')[0];
   ok("merge warning", checkDocument(merged).some(p => p.message.includes("merge them")), JSON.stringify(checkDocument(merged)));
+  const paragraphs = parseMarkup('<document id="m"><speakers><speaker id="S1" name="Anna Berg" type="person"/></speakers><text>Anna Berg said <seg speaker="S1">it works</seg>:\n\n<seg speaker="S1">And well.</seg></text></document>')[0];
+  ok("no merge warning across a paragraph break", !checkDocument(paragraphs).some(p => p.message.includes("merge them")), JSON.stringify(checkDocument(paragraphs)));
   let threw = "";
   try { parseMarkup('<document id="n"><text><seg speaker="S1">a <dis type="author_voice">b</dis></seg></text></document>'); } catch (err) { threw = err.message; }
   ok("nested spans are refused", threw.includes("cannot nest"), threw);

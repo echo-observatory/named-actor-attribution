@@ -38,7 +38,7 @@ It is temporary: the dataset's items and labels (spec §6) are generated from it
 
 **`<text>`** holds the document's text, exactly, with two kinds of spans inside it:
 
-- `<seg speaker="S1" d="D1" r="R3">…</seg>`: an attributed segment. `speaker` is required. `d` and `r` are its detection and reference levels (spec §3): optional while drafting, expected once reviewed. A second annotator working from scratch doesn't need to set them.
+- `<seg speaker="S1" d="D1" r="R3">…</seg>`: an attributed segment. `speaker` is required. `d` and `r` are its detection and reference levels (spec §3), optional. The model sets them on items after cutting; on documents, they are a first guess.
 - `<dis type="…">…</dis>`: a distractor (spec §5.3). One span per distractor.
 - `<exclude reason="…">…</exclude>`: text that keeps any item containing it out of the dataset, so that items are cut around it. The reasons:
 
@@ -73,5 +73,4 @@ There is no markup for cues or speaker mentions: levels are set by the annotator
 - **Warnings:**
   - a speaker's name that doesn't occur in the text (spec §2), or a speaker with no segment;
   - a segment that starts or ends with whitespace or a quotation mark;
-  - two segments of the same speaker with only whitespace or punctuation between them, which should be merged (spec §2);
-  - a reviewed segment without levels.
+  - two segments of the same speaker with only whitespace or punctuation between them in the same paragraph, which should be merged (spec §2).

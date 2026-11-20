@@ -116,10 +116,14 @@ def test_speaker_warnings():
     assert "does not occur" in warnings and "has no segment" in warnings
 
 
-def test_missing_levels_are_flagged_only_once_reviewed():
-    text = 'Anna Berg said <seg speaker="S1">it works</seg>.'
-    assert not any("level" in m for m in messages(doc_with(text, status="drafted")))
-    assert any("has no D level" in m for m in messages(doc_with(text, status="reviewed")))
+def test_a_paragraph_break_ends_a_run():
+    doc = doc_with('Anna Berg said <seg speaker="S1">it works</seg>:\n\n<seg speaker="S1">And it is cheap.</seg>')
+    assert not any("maximal run" in m for m in messages(doc))
+
+
+def test_levels_are_not_required_on_documents():
+    doc = doc_with('Anna Berg said <seg speaker="S1">it works</seg>.', status="reviewed")
+    assert not any("level" in m for m in messages(doc))
 
 
 @pytest.mark.parametrize("name, text, expected", [
