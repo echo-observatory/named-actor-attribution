@@ -3,7 +3,11 @@
  "items": [
   {
    "from": "Iranian President Mahmoud Ahmadinejad confirmed",
-   "to": "earlier today."
+   "to": "earlier today.",
+   "review": {
+    "by": "M",
+    "sha256": "be71b8240e02f2a77690c1e36bfd53f6ba5cbb25eab3815b81e8ab9b2e503f25"
+   }
   },
   {
    "from": "Ahmadinejad had said on Monday",
@@ -24,15 +28,27 @@
      "D1",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "e10cc80237c0e794bb1c8a5976c20c571cbda884d784f63910db15fce242d5bc"
    }
   },
   {
    "from": "According to the International Atomic Energy Agency",
-   "to": "over 50 times."
+   "to": "over 50 times.",
+   "review": {
+    "by": "M",
+    "sha256": "bc0b2663b366a14573af8a26bc9655807b534c60de72ee2a616102b6b7d9c255"
+   }
   },
   {
    "from": "On Wednesday, Mohamed ElBaradei",
-   "to": "Scott McClellan."
+   "to": "Scott McClellan.",
+   "review": {
+    "by": "M",
+    "sha256": "87974edccd64d26a98b5bf41dc418d8652f70eb53b3850f3b61547a51510f6c9"
+   }
   }
  ]
 }

@@ -3,21 +3,37 @@
  "items": [
   {
    "from": "Iran has rejected European Union incentives",
-   "to": "Nuclear Non-Proliferation Treaty (NPT)."
+   "to": "Nuclear Non-Proliferation Treaty (NPT).",
+   "review": {
+    "by": "M",
+    "sha256": "8bb2f8f3a8558662fad31054bfbcb6184f23a95dec45206c6b372a31b793d86d"
+   }
   },
   {
    "from": "It is believed that Britain",
-   "to": "technology benefits."
+   "to": "technology benefits.",
+   "review": {
+    "by": "M",
+    "sha256": "5e5f415e43675ee55c4ef3df0d491be9b105480eb44ffbb992ff8626ff31b2c6"
+   }
   },
   {
    "from": "The proposal by the three EU members",
-   "to": "ties to the Iranian regime."
+   "to": "ties to the Iranian regime.",
+   "review": {
+    "by": "M",
+    "sha256": "3a809223ba687dce549ded3b63471249f2bcaf683f13f80d9cd8c1402a6c1081"
+   }
   },
   {
    "from": "Mr Asefi said he would not comment",
    "to": "given to us.\"",
    "names": {
     "S1": "Asefi"
+   },
+   "review": {
+    "by": "M",
+    "sha256": "df44f547e0ee405fbbc01659b155dc0128b423b5c5674b8d343edeffe24e0cec"
    }
   },
   {
@@ -31,6 +47,10 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "300bc260e9572aa1631a5a34f2b1a9fe0677fc24c13cc1d161bb3a7b3fe49234"
    }
   },
   {
@@ -44,6 +64,10 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "c27e63df3ff43b3d70ba2a6e1a00509860a8df24a1c7ae8b010433e40de66d7d"
    }
   }
  ]

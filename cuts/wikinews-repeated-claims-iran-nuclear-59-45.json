@@ -3,7 +3,11 @@
  "items": [
   {
    "from": "Talks stalled on Tuesday",
-   "to": "as being \"constructive\"."
+   "to": "as being \"constructive\".",
+   "review": {
+    "by": "M",
+    "sha256": "028f24dcd961d7ff04b95a8f55b3ea15a27e61b044f48fdb650fef80d9e2582c"
+   }
   },
   {
    "from": "Mottaki also added that",
@@ -16,15 +20,27 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "f8d10168d719b710ad0cdeac301f0c4862c32df9a579a20a797e10da662c7920"
    }
   },
   {
    "from": "IAEA chief Mohamed ElBaradei said on Tuesday",
-   "to": "still \"moving forward\"."
+   "to": "still \"moving forward\".",
+   "review": {
+    "by": "M",
+    "sha256": "9b19bf6fe339359a548ddeddca6c3a2948ba4e5a8549cd78236e0fa806b2eda6"
+   }
   },
   {
    "from": "US National Security Council spokesman Mike Hammer",
-   "to": "aimed at developing nuclear weapons."
+   "to": "aimed at developing nuclear weapons.",
+   "review": {
+    "by": "M",
+    "sha256": "f044ff08d0af6141061cc3e1b3eb523172f95e6f5eeb980e3a111a1c8b5d1b67"
+   }
   }
  ]
 }

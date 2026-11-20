@@ -3,19 +3,35 @@
  "items": [
   {
    "from": "A senior United States intelligence official",
-   "to": "restarted their nuclear weapons program."
+   "to": "restarted their nuclear weapons program.",
+   "review": {
+    "by": "M",
+    "sha256": "7c0e314c6fd5db4892ff15416f5111eb332a5a9123685c23af6b20025ebf177c"
+   }
   },
   {
    "from": "The finding, published in a new National Intelligence Estimate",
-   "to": "said an unnamed official."
+   "to": "said an unnamed official.",
+   "review": {
+    "by": "M",
+    "sha256": "45ed436cce3b6e0966624d27ef81bccd10fe593afb228604c02684f457e3ed6b"
+   }
   },
   {
    "from": "Iran claims that it is enriching uranium",
-   "to": "said Senate Majority Leader Harry Reid."
+   "to": "said Senate Majority Leader Harry Reid.",
+   "review": {
+    "by": "M",
+    "sha256": "718d2d92b0e3254633fb048928e61a64799f6c75c94a62ada328dc7e4ef966d1"
+   }
   },
   {
    "from": "Iran would not be capable",
-   "to": "build a nuclear bomb."
+   "to": "build a nuclear bomb.",
+   "review": {
+    "by": "M",
+    "sha256": "2497883400543c2d6300fe3afb7996a838b7f9ea2cc6a4d19449ac7934b3d772"
+   }
   }
  ]
 }

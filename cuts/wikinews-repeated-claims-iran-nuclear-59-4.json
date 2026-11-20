@@ -3,11 +3,19 @@
  "items": [
   {
    "from": "Condoleezza Rice, the U.S. Secretary of State",
-   "to": "move from that diplomatic track.\""
+   "to": "move from that diplomatic track.\"",
+   "review": {
+    "by": "M",
+    "sha256": "3ed4187d15a797c043a62f847e73358f74a94bc012340b7459d1df52f78254cd"
+   }
   },
   {
    "from": "Rice's comments have added",
-   "to": "under the NPT may also take a long time, and may never even work."
+   "to": "under the NPT may also take a long time, and may never even work.",
+   "review": {
+    "by": "M",
+    "sha256": "32ebb270fb6a300f3449957bf7f7e5c2681141a32f1e867059bb0a96457a8fc7"
+   }
   },
   {
    "from": "Iran's government continues to insist",
@@ -20,6 +28,10 @@
      "D1",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "34a724e3b316453ccc3c33a534163ff0e45e39e5255823c51c07aa20366c0751"
    }
   }
  ]

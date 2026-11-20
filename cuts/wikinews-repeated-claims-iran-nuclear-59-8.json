@@ -3,7 +3,11 @@
  "items": [
   {
    "from": "However, on a French radio station",
-   "to": "such as Brazil and Japan\""
+   "to": "such as Brazil and Japan\"",
+   "review": {
+    "by": "M",
+    "sha256": "86b587abbc71bfc0fbe983172affa494701f4f7e7db854fa67ac79f9c7982109"
+   }
   },
   {
    "from": "\"Now it's up to the Security Council",
@@ -16,6 +20,10 @@
      "D1",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "91cf30b5d0a912ae3800d71dad1fca4e8977952ffc14ba2806a794257cdde867"
    }
   }
  ]

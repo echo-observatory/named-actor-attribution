@@ -3,19 +3,35 @@
  "items": [
   {
    "from": "Iran agreed on Monday",
-   "to": "facilities and technologies."
+   "to": "facilities and technologies.",
+   "review": {
+    "by": "M",
+    "sha256": "ce768848ee5a259ae7150183e1ddbf4204e4dc291297b280073e53d7c7875373"
+   }
   },
   {
    "from": "According to the UN nuclear chief, Yukiya Amano",
-   "to": "to aid the UN inspectors."
+   "to": "to aid the UN inspectors.",
+   "review": {
+    "by": "M",
+    "sha256": "e4238db9bae93e8b873ef54cc02870ae0727dcd39f25c872f50ee3f2a1d49410"
+   }
   },
   {
    "from": "The IAEA has been pushing",
-   "to": "the UN to lift sanctions."
+   "to": "the UN to lift sanctions.",
+   "review": {
+    "by": "M",
+    "sha256": "72c51e2a43f0270cd79d40b0fd2ed5b525591ebff00e14d0cca2e1472375bbe4"
+   }
   },
   {
    "from": "British Foreign Secretary William Hague",
-   "to": "on Europe 1 radio."
+   "to": "on Europe 1 radio.",
+   "review": {
+    "by": "M",
+    "sha256": "9723c70d5a3dd8dfd5db9b9bc40ea343982a8e6a7be1a118afec0b4521848690"
+   }
   }
  ]
 }
