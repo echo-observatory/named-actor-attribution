@@ -3,7 +3,11 @@
  "items": [
   {
    "from": "The Commonwealth Scientific and Industrial Research Organisation",
-   "to": "TJ Higgins said."
+   "to": "TJ Higgins said.",
+   "review": {
+    "by": "M",
+    "sha256": "c9d0e478b6003c2fa9a5b809ce665916a3a45d202360aa27e98f7251c58f5a75"
+   }
   },
   {
    "from": "Australia has a $100 million field pea industry",
@@ -16,6 +20,10 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "eec9216f66273f8c96fa2ea438976b4b74069e57afd88bb03910994479fc39e5"
    }
   }
  ]

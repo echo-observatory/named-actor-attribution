@@ -27,12 +27,12 @@ An estimated 160,000 people watched the Fringe Festival Cavalcade, a jamboree of
 
 <dis type="document_source">A recent Edinburgh City Council study concluded the Fringe brought more than £75m to the local economy each year.</dis> The festival's job openings included rickshaw drivers, show announcers to shouts details of the impending show and tell the audience when it is time to take their seats, and collectors to pick up flyers that people throw away.
 
-Good opening
+<exclude reason="boilerplate">Good opening</exclude>
 Several shows sold out in a strong opening weekend, including those by comedians Russell Brand, the "people's poet" Pam Ayres in his maiden Fringe venture and One Man Star Wars at the Underbelly. Comedians Jason Byrne, Simon Amstell and Danny Bhoy along with shows such as Best of the Fest and Ella Meets Marilyn starring Sally Lindsay and Rain Pryor are expected to join the list.
 
 The Assembly venue, with theatres on George Street and the 800 Assembly Hall on the Royal Mile, said <seg speaker="S2" d="D2" r="R1">it had sold 97,000 tickets by last Friday</seg> - more than the entire number it sold in 1999.
 
-Religious satire prominent
+<exclude reason="boilerplate">Religious satire prominent</exclude>
 <dis type="named_no_attribution">Australian comic Wil Anderson lays into the Catholic Church, including a send up of the late Pope John Paul II.</dis> Breaking the Pope is about the infamous Magdalene laundries, religious-run workhouses for women in Ireland that existed until the mid-90s. "Mary and The Stripper" contrasts the tales of Mary Magdalene and a 21st-century stripper hooked on heroin.
 
 <dis type="named_no_attribution">Danish-Egyptian comedian Omar Marzouk performs a standup routine on the Prophet Mohammed cartoon controversy.</dis>
@@ -51,7 +51,7 @@ Speaking of the religious motif, the festival director Paul Gudgin said, "<seg s
 
 The religious theme received further impetus from the Racial and Religious Hatred Act introduced in the UK, which sought to give all faiths equal protection, was condemned by comedians such as Rowan Atkinson who feared <seg speaker="S5" d="D4" r="R1">it would turn satire into a criminal offence</seg>.
 
-Religion and politics mix
+<exclude reason="boilerplate">Religion and politics mix</exclude>
 Jesus: The Guantanamo Years is a one-man show by Abie Philbin Bowman, is playing to sell-out houses. <dis type="named_no_attribution">In the show, Bowman plays Jesus, a bearded Middle Eastern man arrested by U.S. immigration officials and sent to the Guantanamo detention center in Cuba after confessing he was ready to die as a martyr.</dis>
 
 Bowman says <seg speaker="S6" d="D2" r="R2">comedy can be an effective weapon if used responsibly. "Being Irish and having grown up in the 1980s I have a sense of my own culture having been hijacked by terrorists and people assuming all Irish were terrorists</seg>," he said.
@@ -68,12 +68,12 @@ Director Richard Franklin defended <seg speaker="S10" d="D2" r="R1">it as a comm
 
 An American tourist John McCabe visiting Edinburgh was unconvinced, saying "<seg speaker="S11" d="D1" r="R1">It seems the Stars and Stripes is an acceptable target in this liberal environment</seg>," and "<seg speaker="S11" d="D1" r="R1">I doubt the desecration of the Koran on stage would be tolerated. Free speech is one thing, but where's the proportionality? I certainly would not go and see this play.</seg>"
 
-Controversy over Churchill's cigar
+<exclude reason="boilerplate">Controversy over Churchill's cigar</exclude>
 Actor Mel Smith, who plays Winston Churchill in Allegiance had to go without lighting the trademark cigar, as smoking in an enclosed public space is now a crime in Scotland. <dis type="unnamed_source">Officials threatened to close down the theater, the Assembly Rooms, if he lit up.</dis>
 
 "<seg speaker="S12" d="D1" r="R1">I think it's absurd. In the context of an international festival like this, it's crazy. It's integral to the part of Churchill and it doesn't affect other people - it's just absurd.</seg>", William Burdett-Coutts, who runs the Assembly Rooms, said.
 
-Funding woes
+<exclude reason="boilerplate">Funding woes</exclude>
 <dis type="unnamed_source">Organisers of the Show have called for more funding, both from public sources as well as from private businesses, to help the show.</dis>
 
 Anthony Alderson, the director of The Pleasance, told The Scotsman newspaper that <seg speaker="S13" d="D2" r="R1">without further private sector funding the Fringe could start to shrink and lose its standing as the world's best festival</seg>. He feared that <seg speaker="S13" d="D4" r="R3">the current rate of expansion is unsustainable without further support from businesses</seg>. The Fringe
@@ -85,7 +85,7 @@ The Fringe Society currently receives only £45,000 a year from the city council
 
 The Edinburgh City Council responded within a month with the announcement of a £1m fund for the various festivals. <dis type="unnamed_source">Some have argued that this money was already in the pipeline.</dis>
 
-Fees go up
+<exclude reason="boilerplate">Fees go up</exclude>
 <exclude reason="unresolved" note="An announcement given as a noun phrase, then figures: whose?">The Edinburgh City Council has announced increases in theatre licence fees, which venues must pay before holding a show. For venues with 200 seats or less, fees go up from £127 in 2005 to £440 this year, £620 next year and £800 in 2008. For venues seating more than a thousand, fees went up from £295 last year to £1,320 this year.</exclude>
 
 The Fringe Society, which represents the festivals managers and performers said <seg speaker="S14" d="D2" r="R1">it was "deeply concerned about the council's decision to make these sharp increases in theatre licence prices"</seg>, adding that "<seg speaker="S14" d="D2" r="R1">particularly the smaller venues who will suffer,</seg>".

@@ -3,7 +3,11 @@
  "items": [
   {
    "from": "Mohamed Nasheed, the leader of the Maldives",
-   "to": "in a decade,\" he said."
+   "to": "in a decade,\" he said.",
+   "review": {
+    "by": "M",
+    "sha256": "b799c56d2cfb4494702ad95c5d2ca3c7ccc2d176e63426c0f5ea5d22463a4e8d"
+   }
   },
   {
    "from": "\"Climate change threatens us all",
@@ -20,6 +24,10 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "681e656e0f2bc41bf7fb6144fddca72a581635685543e05d1cfed6530d0c678d"
    }
   },
   {
@@ -33,15 +41,27 @@
      "D1",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "4fc14394e5c0c13fc148efb25c67d6dfef782f16f401d782f077a21e8399b782"
    }
   },
   {
    "from": "Nasheed's plan calls for",
-   "to": "worth $800 million a year."
+   "to": "worth $800 million a year.",
+   "review": {
+    "by": "M",
+    "sha256": "40ca926eea2c6f3842849061bc514f26f32cb53a51393d738fa89f6d849ee2d6"
+   }
   },
   {
    "from": "Environmentalist Mark Lynas said",
-   "to": "Lynas said."
+   "to": "Lynas said.",
+   "review": {
+    "by": "M",
+    "sha256": "f4168f251cb07d02701141eee794b8e5b8f439a54b935c9113f4f8c88722178e"
+   }
   },
   {
    "from": "\"The point of doing it",
@@ -54,11 +74,19 @@
      "D1",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "f14a21a734cbdb46fb0a9b6aa959cc35eaa64cfccbf72d0d925969b8a1e3f1cf"
    }
   },
   {
    "from": "\"The Maldives could just give up",
-   "to": "at reasonable cost.\""
+   "to": "at reasonable cost.\"",
+   "review": {
+    "by": "M",
+    "sha256": "831876315fb3c711b2b79868872d4b12d046c6a39dc8b1d97d893b7797fe1ed3"
+   }
   }
  ]
 }

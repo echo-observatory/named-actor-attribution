@@ -1,6 +1,11 @@
 {
  "document": "wikinews-quote-rich-100-41-a1",
  "items": [
-  {}
+  {
+   "review": {
+    "by": "M",
+    "sha256": "42562748bccd2eb4f04e9ce5bae2a726f1d6df9cd4f066d1ebc4846c855204f7"
+   }
+  }
  ]
 }

@@ -3,7 +3,11 @@
  "items": [
   {
    "from": "The 60th Edinburgh Festival Fringe",
-   "to": "marks the launch of the Fringe."
+   "to": "marks the launch of the Fringe.",
+   "review": {
+    "by": "M",
+    "sha256": "08e28ca11e1d0a05d83a216dac942551a997c2b8ee3001b2324c7ac62981df88"
+   }
   },
   {
    "from": "Fringe director Gudgin urged audiences",
@@ -16,79 +20,155 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "869051510a1e93f0052b40d8cf5e47bf2be5c1018569efaa290c7a68dd13441e"
    }
   },
   {
    "from": "A recent Edinburgh City Council study",
-   "to": "people throw away."
+   "to": "people throw away.",
+   "review": {
+    "by": "M",
+    "sha256": "182c58a0eb965c725dd802a86a67c3b3ad5133b2e895dea7ecac91d2a152a1ed"
+   }
   },
   {
    "from": "The Assembly venue, with theatres",
-   "to": "it sold in 1999."
+   "to": "it sold in 1999.",
+   "review": {
+    "by": "M",
+    "sha256": "689b625550c77259e276ed2925a2c6f94f08e1055ef2c44eb65037a268026efa"
+   }
   },
   {
-   "from": "Religious satire prominent",
-   "to": "cartoon controversy."
+   "from": "Australian comic Wil Anderson",
+   "to": "cartoon controversy.",
+   "review": {
+    "by": "M",
+    "sha256": "9de7b536b99e48a6fd3cf28d49fb142607dcdae753e3dabb5bccd30c2c678aa5"
+   }
   },
   {
    "from": "We Don't Know Shi'ite, uses vox pops",
-   "to": "more understanding,\""
+   "to": "more understanding,\"",
+   "review": {
+    "by": "M",
+    "sha256": "52bf9c5ac43eef45a3d1ce306ef4c8cf24a6ab184dcfef85637f952872cdcb0f"
+   }
   },
   {
    "from": "Rev Donald Reid, a spokesman",
-   "to": "pointed out.\", he said."
+   "to": "pointed out.\", he said.",
+   "review": {
+    "by": "M",
+    "sha256": "33fdc25e026fb44b7148f0717dd0102dd459f3cd79e76e287df5cb4baa53f6d0"
+   }
   },
   {
    "from": "Speaking of the religious motif",
-   "to": "breadth of shows on offer.\"."
+   "to": "breadth of shows on offer.\".",
+   "review": {
+    "by": "M",
+    "sha256": "de94a5da407eae45162745d732328a802f3859b6b980a36ba2dadac7dd249e5f"
+   }
   },
   {
    "from": "The religious theme received further impetus",
-   "to": "criminal offence."
+   "to": "criminal offence.",
+   "review": {
+    "by": "M",
+    "sha256": "0a310a79ff74135540b0596a9f9b297e3d44a90af4a6b563e805b367185a6be5"
+   }
   },
   {
-   "from": "Religion and politics mix",
-   "to": "all Irish were terrorists,\" he said."
+   "from": "Jesus: The Guantanamo Years",
+   "to": "all Irish were terrorists,\" he said.",
+   "review": {
+    "by": "M",
+    "sha256": "f1a709207c665636dea9021ab9f6f40d514743e5f5e4f0e8d7b1f72764d2ddd6"
+   }
   },
   {
    "from": "Petrol Jesus Nightmare",
-   "to": "suicide bombings in Israel."
+   "to": "suicide bombings in Israel.",
+   "review": {
+    "by": "M",
+    "sha256": "47a7ef917830d4e8f84a5b331e41bc1e1c691f58734994ca279a1a96d1b2fdb2"
+   }
   },
   {
    "from": "The Scotsman newspaper's theater critic",
-   "to": "London bombings."
+   "to": "London bombings.",
+   "review": {
+    "by": "M",
+    "sha256": "b3f9dfb87249e913e9ea845eac030349f37f91d574bf6cc4bde718108742d3c2"
+   }
   },
   {
    "from": "In Breasts and Burgers",
-   "to": "ordinary Americans."
+   "to": "ordinary Americans.",
+   "review": {
+    "by": "M",
+    "sha256": "f039a2a157848ad1f762d757c12dacd9742d9758eb1d9d78d883a09994324290"
+   }
   },
   {
    "from": "Director Richard Franklin defended",
-   "to": "intended as such.\""
+   "to": "intended as such.\"",
+   "review": {
+    "by": "M",
+    "sha256": "098baa2ab3413077695a44735b5ae69e31d56ae199cd5074492b9857a4ce37ce"
+   }
   },
   {
    "from": "An American tourist John McCabe",
-   "to": "see this play.\""
+   "to": "see this play.\"",
+   "review": {
+    "by": "M",
+    "sha256": "e7181eabdde3535cd575fa521dd7aa48a0a8a108136faee4b49795eed56c4b9b"
+   }
   },
   {
-   "from": "Controversy over Churchill's cigar",
-   "to": "if he lit up."
+   "from": "Actor Mel Smith",
+   "to": "if he lit up.",
+   "review": {
+    "by": "M",
+    "sha256": "bf9465fdf9fa03ee4a4268da718e73396e79c643c219ac05342cba09624ca94c"
+   }
   },
   {
    "from": "\"I think it's absurd.",
-   "to": "who runs the Assembly Rooms, said."
+   "to": "who runs the Assembly Rooms, said.",
+   "review": {
+    "by": "M",
+    "sha256": "76dca299baa7f12265a6a5045bbd3e59bcd674ed531344bdfd8d159bab7c0a55"
+   }
   },
   {
-   "from": "Funding woes",
-   "to": "combat major losses."
+   "from": "Organisers of the Show",
+   "to": "combat major losses.",
+   "review": {
+    "by": "M",
+    "sha256": "04d090ea57424da32a24001865b1839f173aa6701a10c8539f89d908e22c2f51"
+   }
   },
   {
    "from": "The Edinburgh City Council responded",
-   "to": "in the pipeline."
+   "to": "in the pipeline.",
+   "review": {
+    "by": "M",
+    "sha256": "f7c955aac2343efc28c2555ceca03881260a8da707626898f444c2860429f9a1"
+   }
   },
   {
    "from": "The Fringe Society, which represents",
-   "to": "who will suffer,\"."
+   "to": "who will suffer,\".",
+   "review": {
+    "by": "M",
+    "sha256": "1d2fd521c6222e22680735c4f5fee0816bab2541223239efe82af9abdcce5ffc"
+   }
   }
  ]
 }

@@ -1,6 +1,11 @@
 {
  "document": "global-voices-cheese-181-281971-a1",
  "items": [
-  {}
+  {
+   "review": {
+    "by": "M",
+    "sha256": "97991e9ce4bba0ffe1bda5ea62194392e8d966c29402a044aa1d90acfd351cd7"
+   }
+  }
  ]
 }

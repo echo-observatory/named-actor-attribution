@@ -3,11 +3,19 @@
  "items": [
   {
    "from": "Many western governments suspect",
-   "to": "failed to make a breakthrough."
+   "to": "failed to make a breakthrough.",
+   "review": {
+    "by": "M",
+    "sha256": "d5bb81566887329e6ba770f03ae784eba6199c24acb50a17b83fc6691b8a1f56"
+   }
   },
   {
    "from": "Solana's representative, Cristina Gallach",
-   "to": "robust international offer.\""
+   "to": "robust international offer.\"",
+   "review": {
+    "by": "M",
+    "sha256": "96baf3a13e15398b44af348488108924300322a84e51b3682ec75d49ed713b51"
+   }
   }
  ]
 }

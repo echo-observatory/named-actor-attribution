@@ -1,6 +1,11 @@
 {
  "document": "wikinews-quote-rich-100-82-a1",
  "items": [
-  {}
+  {
+   "review": {
+    "by": "M",
+    "sha256": "60d47937a2b97059cc5e4825e6942d1a4faff1a7866c7326bdd1a97d4bd1b5f7"
+   }
+  }
  ]
 }
