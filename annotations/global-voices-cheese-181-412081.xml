@@ -1,4 +1,4 @@
-<document id="global-voices-cheese-181-412081" source="global-voices-cheese-181" source-id="412081" text-sha256="3ecc77fdd41ebcca8ebdc1288e647ce93d3723088d23af87cf306236514a10e5" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<document id="global-voices-cheese-181-412081" source="global-voices-cheese-181" source-id="412081" text-sha256="3ecc77fdd41ebcca8ebdc1288e647ce93d3723088d23af87cf306236514a10e5" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
 <speakers>
   <speaker id="S1" name="Terzio" type="person"/>
   <speaker id="S2" name="El cuarto hocico" type="organization"/>
@@ -75,7 +75,4 @@ We cannot but agree with Sister Lucía Caram when she tweets:
 
 <dis type="document_source">It refers to the «De salutis gregi Diminici [es]», papal bull, that since 1567 prohibits, under pain of excommunication, people who “have received sacred callings from taking part in these performances (bullfights)”.</dis></text>
 <notes>Most quotes come as a Spanish original, excluded, then an English translation. The “[es]” marks (links to Spanish pages) are left in the text. Terzio is a blogger named by one name; El cuarto hocico is a children's animal protection group, typed as an organization; “Sister” is stripped from Lucía Caram's name.</notes>
-<flags>
-  <flag kind="doubt" quote="Saint Francis must be happy with these ladies." speaker="Amalia López">The segment is a translation of the excluded Spanish comment, but the lead-in is the commenter's name, not a speech verb; the attribution is still clear from the name line, so the speaker is right.</flag>
-</flags>
 </document>
