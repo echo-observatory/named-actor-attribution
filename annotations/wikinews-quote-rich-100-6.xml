@@ -9,6 +9,7 @@
   <speaker id="S7" name="Paul Watson" type="person"/>
   <speaker id="S8" name="Alex Cornelissen" type="person"/>
   <speaker id="S9" name="Sea Shepherd Conservation Society" type="organization"/>
+  <speaker id="S10" name="Japan" type="organization"/>
 </speakers>
 <text>Anti-whaling activists are heading home after a month of pestering the Japanese whaling fleet near Antarctica. With dwindling food and fuel supplies, the Greenpeace ships Arctic Sunrise and Esperanza are heading for Cape Town. The Sea Shepherd's Farley Mowat has also left the area due to a refuelling cancellation.
 
@@ -28,7 +29,7 @@ The incidents caused slanging matches between Greenpeace and Japan's Institute o
 
 <dis type="non_statement" note="A speech act with no content.">Greenpeace Expedition Leader Shane Rattenbury has defended the risks taken by activists during the protests.</dis> "<seg speaker="S3" d="D1" r="R3">We feel it's been a justifiable risk somebody had to come down here and do something, politics and diplomacy have failed.</seg>" he said.
 
-<exclude reason="unresolved" note="A country as speaker.">Japan says it's too early to tell what effect Greenpeace has had on its current research mission.</exclude> The Japan Whaling Association (JWA), which promotes and protects Japan's whaling culture says, "<seg speaker="S5" d="D1" r="R1">The moratorium on commercial whaling is an anomaly.</seg>"
+Japan says <seg speaker="S10" d="D2" r="R1">it's too early to tell what effect Greenpeace has had on its current research mission</seg>. The Japan Whaling Association (JWA), which promotes and protects Japan's whaling culture says, "<seg speaker="S5" d="D1" r="R1">The moratorium on commercial whaling is an anomaly.</seg>"
 
 Japan's Institute of Cetacean Research (ICR) says <seg speaker="S6" d="D2" r="R1">the whale research programs are conducted in accordance with the International Convention for the Regulation of Whaling</seg>.
 
@@ -59,7 +60,7 @@ The Japanese Institute of Cetacean Research has a quota of 935 minke whales and 
 The Greenpeace ships are expected to arrive in Cape Town around February 5th. The Sea Shepherd ship Farley Mowat is expected to arrive in Cape Town on January 25th 2006.
 
 <exclude reason="boilerplate">Related Wikinews</exclude></text>
-<notes>“Japan says…” (a country as speaker) is excluded pending a decision. Titles stripped (Captain, 1st Officer).</notes>
+<notes>“Japan says…”: a country is a speaker, typed as an organization; “the Japanese say” stays unnamed. Titles stripped (Captain, 1st Officer).</notes>
 <flags>
   <flag kind="doubt" quote="the two ships exposed the reality of the Japanese commercial whaling operation to the world" speaker="Pia Mancia">The segment is fine, but the speaker is wrong: the two ships are Greenpeace's, and the statement is attributed to Pia Mancia, not Greenpeace.</flag>
 </flags>
