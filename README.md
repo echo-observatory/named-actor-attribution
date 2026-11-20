@@ -68,7 +68,7 @@ uv run naa new ../obs-test-datasets/global-voices-cheese-181/articles.jsonl 4839
 # Annotate a document from a draft that quotes each span (docs/drafting.md)
 uv run naa apply annotations/global-voices-cheese-181-483946.xml draft.json
 
-# Ask a second model for missed segments and doubts (docs/drafting.md); needs an OpenRouter key in .env
+# Ask a second model for missed segments and doubts (docs/drafting.md); needs an OpenRouter key, NAA_API_KEY, in .env
 uv run naa misscheck annotations/global-voices-cheese-181-483946.xml
 
 # Check documents: exits 1 if any has an error

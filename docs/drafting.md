@@ -48,7 +48,7 @@ A second model, of another family, reads each drafted document and lists what th
 uv run naa misscheck annotations/global-voices-cheese-181-61589.xml
 ```
 
-- The model is DeepSeek V4 Pro on OpenRouter (`deepseek/deepseek-v4-pro-0813`), with reasoning off: with it, DeepSeek's Flash model reasoned until it ran out of tokens. The key is read from `OPENROUTER_API_KEY` or `KARAAGE_API_KEY`, in the environment or in `.env`.
+- The model is DeepSeek V4 Pro on OpenRouter (`deepseek/deepseek-v4-pro-0813`), with reasoning off: with it, DeepSeek's Flash model reasoned until it ran out of tokens. It needs an OpenRouter key in `NAA_API_KEY`, in the environment or in the repo's `.env`.
 - The instructions are [`prompts/miss-check.md`](../prompts/miss-check.md), followed by the guidelines.
 - Its flags go into the document, in `<flags>`, as the model gave them, and `miss-check-by` records the model. The annotation page lists them: clicking a flag selects its text, ready to make it a span; dismiss it once handled. `naa check` warns about flags left on a reviewed document, and about flags whose quote isn't in the text.
 - Expect some noise: on the pilot, the model flagged one or two non-problems per document, and no missed segment.

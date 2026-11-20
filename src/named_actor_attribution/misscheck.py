@@ -19,7 +19,7 @@ PROMPT = ROOT / "prompts" / "miss-check.md"
 GUIDELINES = ROOT / "guidelines.md"
 DEFAULT_MODEL = "deepseek/deepseek-v4-pro-0813"
 URL = "https://openrouter.ai/api/v1/chat/completions"
-KEY_NAMES = ("OPENROUTER_API_KEY", "KARAAGE_API_KEY")
+KEY_NAMES = ("NAA_API_KEY",)
 
 
 class MissCheckError(RuntimeError):

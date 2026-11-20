@@ -39,9 +39,9 @@ def test_api_key(tmp_path, monkeypatch):
     env = tmp_path / ".env"
     with pytest.raises(misscheck.MissCheckError):
         misscheck.api_key(env)
-    env.write_text('OTHER=1\nKARAAGE_API_KEY="abc"\n', encoding="utf-8")
+    env.write_text('OTHER=1\nNAA_API_KEY="abc"\n', encoding="utf-8")
     assert misscheck.api_key(env) == "abc"
-    monkeypatch.setenv("OPENROUTER_API_KEY", "xyz")
+    monkeypatch.setenv("NAA_API_KEY", "xyz")
     assert misscheck.api_key(env) == "xyz"
 
 
