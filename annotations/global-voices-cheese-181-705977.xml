@@ -53,7 +53,4 @@ Velutini sums it up in a spirit of hope and resilience:
 <seg speaker="S3" d="D5" r="R2" note="A translation: the lead-in is two paragraphs up, past the original in Spanish.">From tragedy and chaos, wonders can occur.</seg>
 
 Amidst an unprecedented global health crisis coinciding with the worst humanitarian crisis the country has faced, <dis type="author_voice">it is undoubtedly a wonder for 400 Venezuelan ‘abuelitos‘ who are currently benefitting from the Good Neighbor Program.</dis></text>
-<flags>
-  <flag kind="doubt" quote="At present, the growth has been so great that “the Program is 100% sustainable”" speaker="Yuraima Mercado">The segment starts mid-sentence after 'Mercado says that' and ends before 'Mercado adds', so the boundaries are wrong; the quote should likely be the whole reported statement.</flag>
-</flags>
 </document>

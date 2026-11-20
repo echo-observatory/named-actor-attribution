@@ -166,6 +166,7 @@ Choices made on cases the rules didn't settle, with the documents that raised th
 | 2026-11-20 | Items keep some text around the quote (narration or a distractor) rather than a bare quote, when the word cap allows | Review of the adapted passages |
 | 2026-11-20 | An organization reporting figures or findings it published is a speaker (“the Ministry of the Interior reports that…”, “Nexer found that…”) | Miss check of the pilot: 775031, 705184 |
 | 2026-11-20 | “The blogger writes that…” after several bloggers is ambiguous, even if the nearest blogger is likely: excluded | Miss check of the pilot: 95433 |
-| 2026-11-20 | Open, default applied: unnamed voices inside a quote ("the blog writes that some argued X") stay in the quote's segment | Pilot: 61589, 564441, 95433 |
+| 2026-11-20 | Unnamed voices reported inside a quote ("the blog writes that some argued X") stay in the quote's segment | Pilot: 61589, 564441, 95433; kept in review of 37818 |
+| 2026-11-20 | A direct quote inside a quote is excluded as nested, even when its speaker is unnamed (a remembered “Come inside for lunch!”) | Review of 702912 |
 | 2026-11-20 | Open, default applied: royal titles are stripped like others ("Prince Charles" → "Charles") | Pilot: 748041 |
 | 2026-11-20 | Open, default applied: a study run by a named organization is a document source; the organization is the speaker only when it is the subject ("Nexer found that…") | Pilot: 705184 |
