@@ -26,6 +26,12 @@ The texts are © their authors, published by Global Voices under [CC BY 3.0](htt
 | `global-voices-cheese-181-37818.xml` | This story by Nicholas Laughlin originally appeared on Global Voices on January 21, 2008: https://globalvoices.org/2008/01/21/barbados-time-for-change/ |
 | `global-voices-cheese-181-61513.xml` | This story by Veronica Khokhlova originally appeared on Global Voices on March 13, 2009: https://globalvoices.org/2009/03/13/russia-us-peregruzka-perezagruzka/ |
 | `global-voices-cheese-181-412081.xml` | This story by Lourdes Sada originally appeared on Global Voices on May 14, 2013: https://globalvoices.org/2013/05/14/bullfighting-nuns-vs-children-who-love-animals-in-spain/ |
+| `global-voices-cheese-181-17362.xml` | This story by Amira Al Hussaini originally appeared on Global Voices on November 11, 2006: https://globalvoices.org/2006/11/11/the-week-that-was-in-bahrain-14/ |
+| `global-voices-cheese-181-56790.xml` | This story by Janine Mendes-Franco originally appeared on Global Voices on February 14, 2009: https://globalvoices.org/2009/02/14/caribbean-lets-talk-about-love/ |
+| `global-voices-cheese-181-41003.xml` | This story by Maya Norton originally appeared on Global Voices on March 20, 2008: https://globalvoices.org/2008/03/20/israel-a-joyous-celebration-of-purim/ |
+| `global-voices-cheese-181-55153.xml` | This story by Ayesha Saldanha originally appeared on Global Voices on January 10, 2009: https://globalvoices.org/2009/01/10/palestine-how-many-deaths-in-gaza-is-enough/ |
+| `global-voices-cheese-181-51419.xml` | This story by George Esunge Fominyen originally appeared on Global Voices on October 16, 2008: https://globalvoices.org/2008/10/16/volunteers-blogging-about-cameroon%e2%80%a6/ |
+| `global-voices-cheese-181-281971.xml` | This story by Tarek Amr originally appeared on Global Voices on January 10, 2012: https://globalvoices.org/2012/01/10/egypt-diaries-of-a-cancer-patient/ |
 
 ### Wikinews
 
@@ -43,3 +49,7 @@ The texts are by the Wikinews contributors (https://en.wikinews.org), licensed u
 | `wikinews-quote-rich-100-76.xml` | “Andrew Marr angers bloggers, describing them as 'inadequate, pimpled and single'”, 2010-10-11, CC BY 2.5: https://en.wikinews.org/wiki/Andrew_Marr_angers_bloggers,_describing_them_as_'inadequate,_pimpled_and_single' |
 | `wikinews-quote-rich-100-84.xml` | “George Entwistle becomes new BBC director general”, 2012-09-19, CC BY 2.5: https://en.wikinews.org/wiki/George_Entwistle_becomes_new_BBC_director_general |
 | `wikinews-quote-rich-100-98.xml` | “UK heavy metal band Black Sabbath announces final performance with original lineup”, 2025-02-10, CC BY 4.0: https://en.wikinews.org/wiki/UK_heavy_metal_band_Black_Sabbath_announces_final_performance_with_original_lineup |
+| `wikinews-quote-rich-100-30.xml` | “Thai scientist has deodorized the stinky 'king of fruits'”, 2007-06-21, CC BY 2.5: https://en.wikinews.org/wiki/Thai_scientist_has_deodorized_the_stinky_'king_of_fruits' |
+| `wikinews-quote-rich-100-48.xml` | “Brazilian tribe is neither a new discovery nor a hoax”, 2008-06-25, CC BY 2.5: https://en.wikinews.org/wiki/Brazilian_tribe_is_neither_a_new_discovery_nor_a_hoax |
+| `wikinews-quote-rich-100-56.xml` | “Dairy cattle with names produce more milk, according to new study”, 2009-01-29, CC BY 2.5: https://en.wikinews.org/wiki/Dairy_cattle_with_names_produce_more_milk,_according_to_new_study |
+| `wikinews-quote-rich-100-82.xml` | “'Fascinating' and 'provocative' research examines genetic elements of bipolar, schizophrenia”, 2011-10-01, CC BY 2.5: https://en.wikinews.org/wiki/'Fascinating'_and_'provocative'_research_examines_genetic_elements_of_bipolar,_schizophrenia |
