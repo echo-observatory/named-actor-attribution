@@ -162,6 +162,8 @@ Choices made on cases the rules didn't settle, with the documents that raised th
 | 2026-11-20 | When the end of a block quote is unclear, exclude what follows the part you are sure of | Pilot: 61589 |
 | 2026-11-20 | A noun phrase that still states something is a segment ("referenced X as one reason for Y") | Pilot: 748041 |
 | 2026-11-20 | Levels are set by the model on items, not reviewed by people | Pilot review |
+| 2026-11-20 | An adaptation may add a cue (“Igor said”) to a quote whose speaker the passage makes clear without stating it | Pilot: 775031 |
+| 2026-11-20 | Items keep some text around the quote (narration or a distractor) rather than a bare quote, when the word cap allows | Review of the adapted passages |
 | 2026-11-20 | Open, default applied: unnamed voices inside a quote ("the blog writes that some argued X") stay in the quote's segment | Pilot: 61589, 564441, 95433 |
 | 2026-11-20 | Open, default applied: royal titles are stripped like others ("Prince Charles" → "Charles") | Pilot: 748041 |
 | 2026-11-20 | Open, default applied: a study run by a named organization is a document source; the organization is the speaker only when it is the subject ("Nexer found that…") | Pilot: 705184 |

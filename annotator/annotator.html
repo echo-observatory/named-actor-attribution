@@ -128,7 +128,7 @@ textarea { width: 100%; min-height: 4em; }
   <button id="open" title="Open markup files">Open…</button>
   <input type="file" id="fileinput" accept=".xml,application/xml,text/xml" multiple hidden>
   <button id="save" class="primary" title="Save this document (Ctrl+S)" disabled>Save</button>
-  <button id="saveall" title="Save all open documents in one file" hidden>Save all</button>
+  <button id="saveall" title="Save every open document: back to its file when possible, the others downloaded together as one file" hidden>Save all</button>
   <button id="helpbtn" title="Shortcuts">?</button>
 </header>
 <div id="banner"></div>
@@ -177,7 +177,8 @@ const DIS_TYPES = ["named_no_attribution", "unnamed_source", "document_source", 
                    "non_statement", "negated_speech", "quoted_title_or_scare_quote"];
 const REASONS = ["joint", "nested", "unresolved", "non-english", "boilerplate"];
 const STATUSES = ["blank", "drafted", "reviewed"];
-const DOC_ATTRS = ["id", "source", "source-id", "text-sha256", "status", "annotator", "drafted-by", "miss-check-by"];
+const DOC_ATTRS = ["id", "source", "source-id", "text-sha256", "status", "annotator", "drafted-by", "miss-check-by",
+                   "adapted-from", "source-start", "source-end", "adaptation"];
 const SPAN_ATTRS = { seg: ["speaker", "d", "r", "note"], dis: ["type", "note"], exclude: ["reason", "note"] };
 const SPEAKER_ATTRS = ["id", "name", "type"];
 const QUOTE_MARKS = "\"'“”‘’«»„‟‹›";
@@ -658,7 +659,8 @@ function renderDocInfo(d) {
   const count = (k, one, many) => `${k} ${k === 1 ? one : many}`;
   const a = d.attrs;
   $("docinfo").textContent = `${a.id}${a.source ? ` · ${a.source}` : ""}${a["drafted-by"] ? ` · drafted by ${a["drafted-by"]}` : ""}` +
-    `${a["miss-check-by"] ? ` · miss check by ${a["miss-check-by"]}` : ""} — ${count(n("seg"), "segment", "segments")}, ${count(n("dis"), "distractor", "distractors")}, ` +
+    `${a["miss-check-by"] ? ` · miss check by ${a["miss-check-by"]}` : ""}` +
+    `${a["adapted-from"] ? ` · adapted from ${a["adapted-from"]}: ${a.adaptation || ""}` : ""} — ${count(n("seg"), "segment", "segments")}, ${count(n("dis"), "distractor", "distractors")}, ` +
     `${count(n("exclude"), "exclusion", "exclusions")}, ${count(d.speakers.length, "speaker", "speakers")}.`;
 }
 
@@ -847,24 +849,48 @@ async function loadFile(file, handle) {
   }
 }
 
+// Write a document back to the file it was opened from. False when there is no such file,
+// or the browser can't write to it.
+async function writeInPlace(c) {
+  if (!c.handle || !c.handle.createWritable) return false;
+  const markup = serializeDocument(c.doc);
+  try {
+    const w = await c.handle.createWritable();
+    await w.write(markup); await w.close();
+  } catch (e) { return false; }
+  c.saved = markup; dropDraft(c.doc);
+  return true;
+}
+
+// Save: the current document, back to its file when possible, else as a download.
+// Save all: every document opened from a file is written back to it; the others (built into
+// the page, or opened where the browser can't write) are downloaded together as one file.
 async function save(all) {
   if (!state.docs.length) return;
-  if (all) {
-    download(`annotations-${new Date().toISOString().slice(0, 10)}.xml`, serializeBundle(state.docs.map(c => c.doc)));
-    for (const c of state.docs) { c.saved = serializeDocument(c.doc); dropDraft(c.doc); }
-    render(); return;
+  if (!all) {
+    const c = cur();
+    if (await writeInPlace(c)) { render(); flash(`Saved ${c.handle.name}`); return; }
+    if (c.handle) flash("Can't write the file here; downloading it instead.");
+    download(`${c.doc.attrs.id}.xml`, serializeDocument(c.doc));
+    c.saved = serializeDocument(c.doc); dropDraft(c.doc); render();
+    return;
   }
-  const c = cur(), markup = serializeDocument(c.doc);
-  if (c.handle && c.handle.createWritable) {
-    try {
-      const w = await c.handle.createWritable();
-      await w.write(markup); await w.close();
-      c.saved = markup; dropDraft(c.doc); render(); flash(`Saved ${c.handle.name}`);
-      return;
-    } catch (e) { flash("Can't write the file here; downloading it instead."); }
+  let written = 0;
+  const rest = [];
+  for (const c of state.docs) {
+    if (!isDirty(c) && c.handle) continue;          // nothing to write
+    if (await writeInPlace(c)) written++; else rest.push(c);
   }
-  download(`${c.doc.attrs.id}.xml`, markup);
-  c.saved = markup; dropDraft(c.doc); render();
+  const name = `annotations-${new Date().toISOString().slice(0, 10)}.xml`;
+  if (rest.length) {
+    download(name, serializeBundle(rest.map(c => c.doc)));
+    for (const c of rest) { c.saved = serializeDocument(c.doc); dropDraft(c.doc); }
+  }
+  render();
+  const parts = [];
+  if (written) parts.push(`saved ${written} file${written === 1 ? "" : "s"} in place`);
+  if (rest.length) parts.push(`downloaded ${name} with ${rest.length} document${rest.length === 1 ? "" : "s"} (split it with naa split)`);
+  flash(parts.length ? parts.join("; ").replace(/^./, ch => ch.toUpperCase()) : "Nothing to save", 6000);
 }
 function download(name, content) {
   const a = el("a", { href: URL.createObjectURL(new Blob([content], { type: "application/xml" })), download: name });

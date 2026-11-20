@@ -113,3 +113,56 @@ def test_cut_command(tmp_path, capsys):
         {"from": "Anna Berg, who leads", "to": "the permits.”"}, {"from": "“We only", "to": "permits.”"}]}),
         encoding="utf-8")
     assert cli.main(["cut", str(cuts), "--documents", str(docs)]) == 1
+
+
+def test_adapted_documents(tmp_path, capsys):
+    docs = tmp_path / "annotations"
+    docs.mkdir()
+    (docs / "invented-lab.xml").write_text(LAB.read_text(encoding="utf-8"), encoding="utf-8")
+    draft = tmp_path / "adapt.json"
+    draft.write_text(json.dumps({
+        "document": "invented-lab", "id": "a1", "from": "The blog Barbados Free Press writes:", "to": "fund paperwork.",
+        "text": "“Nobody wants to fund paperwork,” the blog Barbados Free Press writes.",
+        "adaptation": "Lead-in and block quote rewritten as an inline quote.",
+        "speakers": [["S1", "Barbados Free Press", "organization"]],
+        "spans": [["seg", "S1", "Nobody wants to fund paperwork", {"d": "D1", "r": "R1"}]]}), encoding="utf-8")
+    assert cli.main(["adapt", str(draft), "--documents", str(docs)]) == 0
+    doc = markup.parse((docs / "invented-lab-a1.xml").read_text(encoding="utf-8"))
+    lab_doc = lab()
+    assert doc.adapted_from == "invented-lab" and doc.adaptation.startswith("Lead-in")
+    assert lab_doc.text[doc.source_start:doc.source_end].startswith("The blog Barbados Free Press writes:")
+    assert markup.check(doc) == [] and markup.parse(markup.serialize(doc)) == doc
+    assert cli.main(["adapt", str(draft), "--documents", str(docs)]) == 1  # exists
+
+    cuts = tmp_path / "cuts.json"
+    cuts.write_text(json.dumps({"document": "invented-lab-a1", "items": [{}]}), encoding="utf-8")
+    out = tmp_path / "items.jsonl"
+    assert cli.main(["cut", str(cuts), "--documents", str(docs), "--out", str(out)]) == 0
+    item = json.loads(out.read_text(encoding="utf-8"))
+    assert item["tier"] == "T1"
+    assert item["source"]["adapted"] is True and item["source"]["document"] == "invented-lab"
+    assert item["source"]["start_offset"] == doc.source_start
+
+    # The same source text can't also be an item as it is
+    source_cuts = tmp_path / "source.json"
+    source_cuts.write_text(json.dumps({"document": "invented-lab", "items": [
+        {"from": "The blog Barbados Free Press writes:", "to": "fund paperwork."}]}), encoding="utf-8")
+    capsys.readouterr()
+    assert cli.main(["cut", str(cuts), str(source_cuts), "--documents", str(docs)]) == 1
+    assert "overlapping text" in capsys.readouterr().out
+
+
+def test_adapted_items_stay_in_low_tiers():
+    doc = markup.adapted(lab(), 0, 10, "Anna Berg said “it works.” She added “it is cheap.”", "invented", "a9")
+    doc.speakers = [markup.Speaker("S1", "Anna Berg", "person")]
+    t = doc.text
+    doc.segments = [markup.Segment("S1", t.index("it works"), t.index("it works") + 8, "D1", "R1"),
+                    markup.Segment("S1", t.index("it is cheap"), t.index("it is cheap") + 11, "D1", "R3")]
+    item, problems = items.make_item(doc, items.Cut(0, len(doc.text)), "x")
+    assert item["tier"] == "T4" and any("only T0–T3 items may be adapted" in p for p in problems)
+
+
+def test_an_adapted_document_needs_its_source_range():
+    doc = markup.adapted(lab(), 0, 10, "Some text.", "invented", "a9")
+    doc.source_end = None
+    assert any("needs source-start" in p.message for p in markup.check(doc))
