@@ -1,4 +1,4 @@
-<document id="wikinews-quote-rich-100-14" source="wikinews-quote-rich-100" source-id="14" text-sha256="d73c21e830e214b37f4be1a766a702633845b7599c36be33cc291f1aec07a1d5" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<document id="wikinews-quote-rich-100-14" source="wikinews-quote-rich-100" source-id="14" text-sha256="d73c21e830e214b37f4be1a766a702633845b7599c36be33cc291f1aec07a1d5" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
 <speakers>
   <speaker id="S1" name="International Water Management Institute" type="organization"/>
   <speaker id="S2" name="David Molden" type="person"/>

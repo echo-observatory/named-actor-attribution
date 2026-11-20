@@ -1,4 +1,4 @@
-<document id="wikinews-quote-rich-100-6" source="wikinews-quote-rich-100" source-id="6" text-sha256="38494c2e69c32758320612befdaaf14be49c5a0cb409f4d540add9323bfd4953" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<document id="wikinews-quote-rich-100-6" source="wikinews-quote-rich-100" source-id="6" text-sha256="38494c2e69c32758320612befdaaf14be49c5a0cb409f4d540add9323bfd4953" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
 <speakers>
   <speaker id="S1" name="Greenpeace" type="organization"/>
   <speaker id="S2" name="Pia Mancia" type="person"/>
