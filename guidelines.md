@@ -173,5 +173,6 @@ Choices made on cases the rules didn't settle, with the documents that raised th
 | 2026-11-20 | A post or account described without its content (“breaks her silence with a hilarious account of…”) is a `non_statement` distractor | Review of item 17362-03 |
 | 2026-11-20 | A pronoun cue whose antecedent is in an earlier paragraph is R5, even one sentence back: T6 holds distance across paragraphs as well as competing candidates, and the dataset card says so | Batch 4: 14, 693019 |
 | 2026-11-20 | A request in the author's words (“urged X to do Y”, “called for Y”) is a `non_statement` distractor, as spec §5.3 says of questions; a request that quotes the actor's own words (“urged Iran to “come clean…””) stays excluded as debatable | Batch 6: Iran 49, 17; Wikinews 12 |
+| 2026-11-20 | A section heading on its own line is boilerplate, even when no blank line follows it; an item may start on the line after it | Review of item 12-10 |
 | 2026-11-20 | Open, default applied: royal titles are stripped like others ("Prince Charles" → "Charles") | Pilot: 748041 |
 | 2026-11-20 | Open, default applied: a study run by a named organization is a document source; the organization is the speaker only when it is the subject ("Nexer found that…") | Pilot: 705184 |

@@ -124,7 +124,7 @@ def make_item(doc: markup.Document, cut: Cut, item_id: str, source: dict | None 
                 problems.append(f"cuts a {kind} in two: {_short(doc.text[s.start:s.end])}")
 
     paras = paragraphs(doc.text)
-    starts_para = any(p[0] == start for p in paras)
+    starts_para = any(p[0] == start for p in paras) or _after_excluded_line(doc, start)
     ends_para = any(p[1] == end for p in paras)
     before = doc.text[:start].rstrip()
     if not (starts_para or SENTENCE_END.search(before) or not before):
@@ -286,6 +286,15 @@ def merge_review(doc: markup.Document, cut: Cut, reviewed: markup.Document) -> t
         changes.append(f"exclusion added ({x.reason}): {_short(doc.text[x.start + start:x.end + start])}")
     doc.exclusions.sort(key=lambda x: x.start)
     return names, changes
+
+
+def _after_excluded_line(doc: markup.Document, pos: int) -> bool:
+    """Whether pos starts a line whose previous line is excluded as boilerplate, such as a section
+    heading on its own line at the top of a paragraph: the line after it starts the paragraph's text."""
+    if pos == 0 or doc.text[pos - 1] != "\n":
+        return False
+    line_start = doc.text.rfind("\n", 0, pos - 1) + 1
+    return any(x.reason == "boilerplate" and x.start <= line_start and pos - 1 <= x.end for x in doc.exclusions)
 
 
 def _short(s: str, n: int = 50) -> str:
