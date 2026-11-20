@@ -57,6 +57,11 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--out", type=Path, help="write the items here, as JSONL")
     p.add_argument("--page", type=Path, help="also build an annotation page holding the items, to read them")
 
+    p = sub.add_parser("review", help="record the review of items saved from an item page, and put corrections back into their documents")
+    p.add_argument("files", nargs="+", type=Path, help="item files or bundles saved from the page built by `naa cut --page`")
+    p.add_argument("--documents", type=Path, default=Path("annotations"), help="folder of the documents (default: annotations/)")
+    p.add_argument("--cuts", type=Path, default=Path("cuts"), help="folder of the cut lists (default: cuts/)")
+
     p = sub.add_parser("adapt", help="create an adapted passage as a document of its own (docs/cutting.md)")
     p.add_argument("draft", type=Path, help="the adaptation, as JSON")
     p.add_argument("--documents", type=Path, default=Path("annotations"), help="folder of the documents (default: annotations/)")
@@ -68,7 +73,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--force", action="store_true", help="check again a document that already has miss-check-by")
 
     args = parser.parse_args(argv)
-    commands = {"misscheck": _misscheck, "runs": _runs, "cut": _cut, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
+    commands = {"misscheck": _misscheck, "runs": _runs, "cut": _cut, "review": _review, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
     return commands[args.command](args)
 
 
@@ -251,7 +256,7 @@ def _attribution(corpus: str, r: dict) -> str | None:
 
 def _cut(args) -> int:
     details = _source_details(args.corpus)
-    all_items, failed, ranges = [], False, []
+    all_items, failed, ranges, flags, stale = [], False, [], {}, []
     for path in args.cuts:
         spec = json.loads(path.read_text(encoding="utf-8"))
         doc = _read(args.documents / f"{spec['document']}.xml")
@@ -268,6 +273,9 @@ def _cut(args) -> int:
                 print(f"{item_id}: error: {p}")
             failed |= bool(problems + more)
             item["annotation"]["notes"] = entry.get("note", "")
+            if entry.get("review") and entry["review"].get("sha256") != items_mod.review_key(item):
+                stale.append(item_id)
+            flags[item_id] = [f for f in doc.flags if f.quote and f.quote in item["text"]]
             all_items.append(item)
             print(f"{item_id}: {item['tier'] or '—'} ({'+'.join(item['tier_breaks']) or 'base'}), "
                   f"{item['word_count']} words, {len(item['segments'])} segments, {len(item['speakers'])} speakers")
@@ -276,10 +284,64 @@ def _cut(args) -> int:
         failed = True
     print()
     print(items_mod.yield_table(all_items))
+    unreviewed = [i["item_id"] for i in all_items if not i["annotation"]["reviewed_by"]]
+    print(f"\n{len(all_items) - len(unreviewed)} of {len(all_items)} items reviewed.")
+    if stale:
+        print(f"Changed since their review, to review again: {', '.join(stale)}")
     if args.out:
         args.out.write_text("".join(json.dumps(i, ensure_ascii=False) + "\n" for i in all_items), encoding="utf-8")
     if args.page:
-        args.page.write_text(build_page([_item_document(i) for i in all_items]), encoding="utf-8")
+        args.page.write_text(build_page([_item_document(i, flags.get(i["item_id"], [])) for i in all_items]), encoding="utf-8")
+    return 1 if failed else 0
+
+
+def _review(args) -> int:
+    failed = False
+    for path in args.files:
+        for reviewed in markup.parse_many(path.read_text(encoding="utf-8")):
+            item_id = reviewed.id
+            if reviewed.status != "reviewed":
+                print(f"{item_id}: not marked reviewed, left as it is")
+                continue
+            if not reviewed.annotator:
+                print(f"{item_id}: error: reviewed, but no annotator")
+                failed = True
+                continue
+            doc_id, _, number = item_id.rpartition("-")
+            cuts_path, doc_path = args.cuts / f"{doc_id}.json", args.documents / f"{doc_id}.xml"
+            if not number.isdigit() or not cuts_path.exists() or not doc_path.exists():
+                print(f"{item_id}: error: no document and cut list for this item id")
+                failed = True
+                continue
+            spec = json.loads(cuts_path.read_text(encoding="utf-8"))
+            if not 1 <= int(number) <= len(spec["items"]):
+                print(f"{item_id}: error: {cuts_path} has {len(spec['items'])} items")
+                failed = True
+                continue
+            entry = spec["items"][int(number) - 1]
+            doc = _read(doc_path)
+            cut, problems = items_mod.find_cut(doc, entry)
+            try:
+                if cut is None:
+                    raise ValueError("; ".join(problems))
+                names, changes = items_mod.merge_review(doc, cut, reviewed)
+            except ValueError as e:
+                print(f"{item_id}: error: {e}")
+                failed = True
+                continue
+            if changes:
+                doc_path.write_text(markup.serialize(doc), encoding="utf-8")
+            if names:
+                entry["names"] = names
+            else:
+                entry.pop("names", None)
+            cut, problems = items_mod.find_cut(doc, entry)
+            item, _ = items_mod.make_item(doc, cut, item_id)
+            entry["review"] = {"by": reviewed.annotator, "sha256": items_mod.review_key(item)}
+            cuts_path.write_text(json.dumps(spec, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+            print(f"{item_id}: reviewed by {reviewed.annotator}" + ("" if changes else ", no change"))
+            for c in changes + problems:
+                print(f"  {c}")
     return 1 if failed else 0
 
 
@@ -338,10 +400,14 @@ def _misscheck(args) -> int:
     return 1 if failed else 0
 
 
-def _item_document(item: dict) -> markup.Document:
-    """An item as a markup document, to read it in the annotation page."""
+def _item_document(item: dict, flags: list[markup.Flag] = ()) -> markup.Document:
+    """An item as a markup document, to read or review it in the annotation page, with the miss-check
+    flags of its document that fall inside it."""
     doc = markup.blank(item["item_id"], item["text"], item["source"].get("document"))
-    doc.status = "reviewed"
+    reviewer = item["annotation"]["reviewed_by"]
+    doc.status, doc.annotator = ("reviewed", reviewer) if reviewer else ("drafted", None)
+    doc.drafted_by, doc.miss_check_by = item["annotation"]["drafted_by"], item["annotation"]["miss_check_by"]
+    doc.flags = list(flags)
     doc.speakers = [markup.Speaker(s["speaker_id"], s["canonical_name"], s["type"]) for s in item["speakers"]]
     doc.segments = [markup.Segment(s["speaker_id"], s["start"], s["end"], s["detection_level"], s["reference_level"])
                     for s in item["segments"]]

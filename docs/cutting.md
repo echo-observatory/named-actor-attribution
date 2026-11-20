@@ -1,6 +1,6 @@
 # Cutting documents into items
 
-Reviewed documents are cut into the dataset's items: short passages, each with its own labels, levels and tier (spec §4–§6). The model chooses the passages; a script builds and checks them.
+Drafted documents are cut into the dataset's items: short passages, each with its own labels, levels and tier (spec §4–§6). The model chooses the passages; a script builds and checks them; a person reviews the items.
 
 ## Cut lists
 
@@ -74,4 +74,26 @@ uv run naa cut cuts/*.json --corpus ../obs-test-datasets/global-voices-cheese-18
 - For each item: its tier and the caps of the tier below that it breaks (`D`, `R`, `speakers`, `words`).
 - A yield table: items and segments per tier against the targets of spec §9 (test and dev together), and how many items break the tier below on its main difficulty (spec §4: at least half should).
 - `--out`: the items as JSONL, in the format of spec §6, with `tier_breaks` added and `split` left empty. `--corpus` fills each item's source details.
-- `--page`: an annotation page holding the items, to read them as they will be scored.
+- `--page`: an annotation page holding the items, to read and review them as they will be scored, with the miss-check flags that fall inside each one.
+- How many items are reviewed, and which items changed since their review.
+
+## Reviewing items
+
+A person reviews every item, not the documents (spec §7). In the item page:
+
+- Check the segments, their speakers and canonical names, and the distractors, as in a document (see the [guidelines](../guidelines.md)). Levels are not reviewed.
+- An item may not hold an exclusion: to leave text out, mark it as an exclusion anyway, and the item is cut again around it.
+- Mark the item `reviewed`, with your name, and save. "Save all" saves every item in one file.
+
+Then:
+
+```bash
+uv run naa review reviewed-items.xml
+```
+
+For each item marked reviewed:
+
+- **Corrections go back into its document**, which stays the record. A segment left as it was keeps its levels; the model sets levels on new and changed ones. A renamed speaker becomes the item's own canonical name (`names` in the cut list).
+- **The cut list records the review**, with the reviewer and a fingerprint of the item: its text, speakers, segments and distractors, not its levels. If the item changes later, `naa cut` lists it to review again.
+
+Items cut from documents reviewed whole, as in the pilot, count as reviewed by the document's annotator.

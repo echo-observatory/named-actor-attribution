@@ -6,6 +6,8 @@ with the item's levels where they differ from the document's (see docs/cutting.m
 
 from __future__ import annotations
 
+import hashlib
+import json
 import re
 from dataclasses import dataclass, field
 
@@ -42,6 +44,8 @@ class Cut:
     # The canonical name in this item, by the document's speaker id, when it differs from the
     # document's: the fullest name the item itself uses (spec §2), e.g. "Ashburne".
     names: dict[str, str] = field(default_factory=dict)
+    # The item's human review, from the cut list: {"by": reviewer, "sha256": review_key of the item reviewed}.
+    review: dict | None = None
 
 
 def paragraphs(text: str) -> list[tuple[int, int]]:
@@ -193,9 +197,94 @@ def make_item(doc: markup.Document, cut: Cut, item_id: str, source: dict | None 
         "segments": segments,
         "distractors": distractors,
         "annotation": {"drafted_by": doc.drafted_by, "miss_check_by": doc.miss_check_by,
-                       "reviewed_by": doc.annotator, "second_annotator": None, "nested_checked": True, "notes": ""},
+                       "reviewed_by": None, "second_annotator": None, "nested_checked": True, "notes": ""},
     }
+    # Reviewed as an item, if the review matches what the item is now; else, as a reviewed document.
+    if cut.review and cut.review.get("sha256") == review_key(item):
+        item["annotation"]["reviewed_by"] = cut.review.get("by")
+    elif doc.status == "reviewed":
+        item["annotation"]["reviewed_by"] = doc.annotator
     return item, problems
+
+
+def review_key(item: dict) -> str:
+    """A fingerprint of what a reviewer checks in an item: its text, speakers, segments and distractors, not levels."""
+    payload = {
+        "text": item["text"],
+        "speakers": [[s["speaker_id"], s["canonical_name"], s["type"]] for s in item["speakers"]],
+        "segments": [[s["speaker_id"], s["start"], s["end"]] for s in item["segments"]],
+        "distractors": [[d["type"], d["spans"]] for d in item["distractors"]],
+    }
+    return hashlib.sha256(json.dumps(payload, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
+
+
+def merge_review(doc: markup.Document, cut: Cut, reviewed: markup.Document) -> tuple[dict[str, str], list[str]]:
+    """Put the annotation of a reviewed item back into its document, which is changed in place.
+
+    Returns the item's name overrides (the cut list's `names`) and the changes made. Levels are not
+    reviewed: a segment the reviewer left as it was keeps its levels; a new or changed one has none.
+    """
+    start, end = cut.start, cut.end
+    if doc.text[start:end] != reviewed.text:
+        raise ValueError("the item's text is not its document's passage: was the cut list changed?")
+
+    def inside(s) -> bool:
+        return start <= s.start and s.end <= end
+
+    used = []
+    for s in sorted((s for s in doc.segments if inside(s)), key=lambda s: s.start):
+        if s.speaker not in used:
+            used.append(s.speaker)
+    by_id = {sp.id: sp for sp in doc.speakers}
+    names, changes, to_doc = dict(cut.names), [], {}
+    for sp in reviewed.speakers:
+        k = int(sp.id[1:]) if re.fullmatch(r"S\d+", sp.id) else 0
+        if 1 <= k <= len(used):
+            did = used[k - 1]
+        else:  # a speaker the reviewer added: one of the document's, or a new one
+            did = next((d.id for d in doc.speakers if sp.name in (d.name, names.get(d.id))), None)
+            if did is None:
+                did = f"S{max((int(d.id[1:]) for d in doc.speakers if d.id[1:].isdigit()), default=0) + 1}"
+                doc.speakers.append(markup.Speaker(did, sp.name, sp.type))
+                by_id[did] = doc.speakers[-1]
+                changes.append(f"new speaker {sp.name!r}")
+        to_doc[sp.id] = did
+        doc_sp = by_id[did]
+        if sp.name != names.get(did, doc_sp.name):
+            changes.append(f"name in this item: {names.get(did, doc_sp.name)!r} → {sp.name!r}")
+        if sp.name == doc_sp.name:
+            names.pop(did, None)
+        else:
+            names[did] = sp.name
+        if sp.type != doc_sp.type:
+            changes.append(f"type of {doc_sp.name!r}: {doc_sp.type} → {sp.type}")
+            doc_sp.type = sp.type
+
+    old_segs = {(s.speaker, s.start, s.end): s for s in doc.segments if inside(s)}
+    new_segs = []
+    for s in reviewed.segments:
+        key = (to_doc.get(s.speaker, s.speaker), s.start + start, s.end + start)
+        kept = old_segs.get(key)
+        new_segs.append(markup.Segment(key[0], key[1], key[2], kept.d if kept else None, kept.r if kept else None,
+                                       kept.note if kept else s.note))
+    for key in sorted(set(old_segs) - {(s.speaker, s.start, s.end) for s in new_segs}, key=lambda k: k[1]):
+        changes.append(f"segment removed or changed: {_short(doc.text[key[1]:key[2]])}")
+    for s in new_segs:
+        if (s.speaker, s.start, s.end) not in old_segs:
+            changes.append(f"segment added (needs levels): {_short(doc.text[s.start:s.end])}")
+    doc.segments = sorted([s for s in doc.segments if not inside(s)] + new_segs, key=lambda s: s.start)
+
+    old_dis = {(x.type, x.start, x.end) for x in doc.distractors if inside(x)}
+    new_dis = [markup.Distractor(x.type, x.start + start, x.end + start, x.note) for x in reviewed.distractors]
+    if old_dis != {(x.type, x.start, x.end) for x in new_dis}:
+        changes.append("distractors changed")
+    doc.distractors = sorted([x for x in doc.distractors if not inside(x)] + new_dis, key=lambda x: x.start)
+
+    for x in reviewed.exclusions:
+        doc.exclusions.append(markup.Exclusion(x.reason, x.start + start, x.end + start, x.note))
+        changes.append(f"exclusion added ({x.reason}): {_short(doc.text[x.start + start:x.end + start])}")
+    doc.exclusions.sort(key=lambda x: x.start)
+    return names, changes
 
 
 def _short(s: str, n: int = 50) -> str:
@@ -207,7 +296,7 @@ def find_cut(doc: markup.Document, entry: dict) -> tuple[Cut | None, list[str]]:
     """A cut-list entry: {"from": first words, "to": last words, "n": …, "levels": {seg start words: [D, R]},
     "names": {document speaker id: name in this item}}."""
     if "from" not in entry:  # the whole document, e.g. an adapted passage
-        return Cut(0, len(doc.text), names=dict(entry.get("names", {}))), []
+        return Cut(0, len(doc.text), names=dict(entry.get("names", {})), review=entry.get("review")), []
     first, last = entry["from"], entry["to"]
     hits = [m.start() for m in re.finditer(re.escape(first), doc.text)]
     n = entry.get("n")
@@ -219,7 +308,7 @@ def find_cut(doc: markup.Document, entry: dict) -> tuple[Cut | None, list[str]]:
     j = doc.text.find(last, start)
     if j < 0:
         return None, [f"end not found after {first[:30]!r}: {last[:60]!r}"]
-    cut = Cut(start, j + len(last), names=dict(entry.get("names", {})))
+    cut = Cut(start, j + len(last), names=dict(entry.get("names", {})), review=entry.get("review"))
     problems = [f"names: no speaker {sid} in the document" for sid in cut.names if sid not in {s.id for s in doc.speakers}]
     for words, (d, r) in entry.get("levels", {}).items():
         seg = [s for s in doc.segments if cut.start <= s.start < cut.end and doc.text[s.start:s.end].startswith(words)]

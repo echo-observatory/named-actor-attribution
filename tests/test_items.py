@@ -168,6 +168,62 @@ def test_an_adapted_document_needs_its_source_range():
     assert any("needs source-start" in p.message for p in markup.check(doc))
 
 
+def test_review_items_and_put_corrections_back(tmp_path, capsys):
+    docs, cuts = tmp_path / "annotations", tmp_path / "cuts"
+    docs.mkdir()
+    cuts.mkdir()
+    lab_doc = lab()
+    lab_doc.status, lab_doc.annotator = "drafted", None  # reviewed as items only
+    (docs / "invented-lab.xml").write_text(markup.serialize(lab_doc), encoding="utf-8")
+    (cuts / "invented-lab.json").write_text(json.dumps({"document": "invented-lab", "items": [
+        {"from": "Anna Berg, who leads", "to": "the permits.”"}]}), encoding="utf-8")
+    out = tmp_path / "items.jsonl"
+
+    def cut_items():
+        assert cli.main(["cut", str(cuts / "invented-lab.json"), "--documents", str(docs), "--out", str(out)]) == 0
+        return [json.loads(line) for line in out.read_text(encoding="utf-8").splitlines()]
+
+    def review(item_doc):
+        saved = tmp_path / "saved.xml"
+        saved.write_text(markup.serialize(item_doc), encoding="utf-8")
+        capsys.readouterr()
+        assert cli.main(["review", str(saved), "--documents", str(docs), "--cuts", str(cuts)]) == 0
+        return capsys.readouterr().out
+
+    [item] = cut_items()
+    assert item["annotation"]["reviewed_by"] is None
+    item_doc = cli._item_document(item)
+    assert item_doc.status == "drafted"
+
+    # Reviewed as it is: the document doesn't change, the cut list records the review
+    item_doc.status, item_doc.annotator = "reviewed", "Tester"
+    before = (docs / "invented-lab.xml").read_text(encoding="utf-8")
+    assert "no change" in review(item_doc)
+    assert (docs / "invented-lab.xml").read_text(encoding="utf-8") == before
+    [item] = cut_items()
+    assert item["annotation"]["reviewed_by"] == "Tester"
+
+    # Corrected: the second segment removed, a distractor added; the first keeps its levels
+    second = item_doc.segments.pop()
+    item_doc.distractors.append(markup.Distractor("non_statement", second.start, second.end))
+    printed = review(item_doc)
+    assert "segment removed or changed" in printed and "distractors changed" in printed
+    doc = markup.parse((docs / "invented-lab.xml").read_text(encoding="utf-8"))
+    passage = [s for s in doc.segments if doc.text[s.start:s.end] in item["text"]]
+    assert [doc.text[s.start:s.end] for s in passage] == ["The equipment is ready"]
+    assert (passage[0].d, passage[0].r) == (lab_doc.segments[0].d, lab_doc.segments[0].r)
+    [item] = cut_items()
+    assert item["annotation"]["reviewed_by"] == "Tester" and len(item["segments"]) == 1
+
+    # A later change to the document makes the review stale
+    doc.distractors = [x for x in doc.distractors if doc.text[x.start:x.end] != "We only need the permits"]
+    (docs / "invented-lab.xml").write_text(markup.serialize(doc), encoding="utf-8")
+    capsys.readouterr()
+    [item] = cut_items()
+    assert item["annotation"]["reviewed_by"] is None
+    assert "to review again: invented-lab-01" in capsys.readouterr().out
+
+
 def test_source_details_credit_wikinews(tmp_path):
     corpus = tmp_path / "wikinews-test" / "articles.jsonl"
     corpus.parent.mkdir()

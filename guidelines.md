@@ -28,7 +28,7 @@ Files are in the [markup format](docs/markup.md). You work with three spans and 
 - `<exclude reason="…">…</exclude>`: text that makes a passage unusable;
 - `<speaker id="S1" name="Anna Berg" type="person"/>`: one per actor with at least one segment.
 
-**Reviewing a draft:** check every segment (its boundaries and its speaker), every speaker's name, distractors and exclusions. Levels are not yours to check (Principle 6). Then read the text once more, looking only for what the draft missed: missed segments are the error that is hardest to see. Set `status="reviewed"` and `annotator` when done.
+**Reviewing an item:** reviewers check the items as they will be scored, not the documents they come from. Check every segment (its boundaries and its speaker), every speaker's name and the distractors; mark text to leave out as an exclusion. Levels are not yours to check (Principle 6). Then read the item once more, looking only for what the draft missed: missed segments are the error that is hardest to see. Check too that each speaker is clear from the item alone (Principle 1). Set `status="reviewed"` and `annotator` when done.
 
 **Annotating from scratch** (second annotators): you get short passages without any annotation. Mark segments and speakers only; levels, distractors and exclusions are not needed.
 
