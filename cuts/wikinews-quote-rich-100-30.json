@@ -1,0 +1,59 @@
+{
+ "document": "wikinews-quote-rich-100-30",
+ "items": [
+  {
+   "from": "In southeast Asia, durian is known",
+   "to": "in many quarters."
+  },
+  {
+   "from": "A Thai scientist thinks he has found",
+   "to": "according to an article today by The Guardian."
+  },
+  {
+   "from": "\"I've got friends from Australia",
+   "to": "find new markets.\"",
+   "names": {
+    "S1": "Songpol"
+   },
+   "levels": {
+    "I've got friends": [
+     "D1",
+     "R1"
+    ],
+    "But I'm sure": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Inside is a yellow, custard-like flesh",
+   "to": "or fragrance, if you will."
+  },
+  {
+   "from": "\"To anyone who doesn't like durian",
+   "to": "drool like a mastiff.\""
+  },
+  {
+   "from": "Swanzea Banchee, manager of Sunshine Fruit",
+   "to": "it isn't really a durian."
+  },
+  {
+   "from": "\"I don't think it's possible to make a durian",
+   "to": "Only rotten durians stink.\""
+  },
+  {
+   "from": "But Dr. Songpol, senior agricultural scientist",
+   "to": "It's called Chanthaburi No. 3, he said.",
+   "names": {
+    "S1": "Songpol"
+   },
+   "levels": {
+    "It started with only one tree": [
+     "D2",
+     "R1"
+    ]
+   }
+  }
+ ]
+}

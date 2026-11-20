@@ -1,0 +1,229 @@
+{
+ "document": "wikinews-quote-rich-100-82",
+ "items": [
+  {
+   "from": "Last week, Nature Genetics carried",
+   "to": "have been identified."
+  },
+  {
+   "from": "The University of Chicago’s Pablo Gejman",
+   "to": "root of the problem”."
+  },
+  {
+   "from": "Whilst noting that there is no guarantee",
+   "to": "or even each comprised of multiple illnesses.",
+   "names": {
+    "S1": "Gejman"
+   },
+   "levels": {
+    "there is no guarantee": [
+     "D2",
+     "R1"
+    ],
+    "calcium-activated": [
+     "D2",
+     "R1"
+    ],
+    "a genetic locus": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Quizzed about the possibility variations",
+   "to": "the pay-offs will be significant.”",
+   "names": {
+    "S1": "Gejman"
+   },
+   "levels": {
+    "We will have the answer": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Gejman expressed similar sentiment.",
+   "to": "importance of such research.",
+   "names": {
+    "S1": "Gejman"
+   }
+  },
+  {
+   "from": "Gejman also agreed on reliability",
+   "to": "“in the long run”.",
+   "names": {
+    "S1": "Gejman",
+    "S2": "Scott"
+   },
+   "levels": {
+    "the study is": [
+     "D2",
+     "R1"
+    ],
+    "it was “a highly": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Another point was the two genetic loci",
+   "to": "give rise to two diseases.”",
+   "names": {
+    "S2": "Scott"
+   },
+   "levels": {
+    "Until more information": [
+     "D1",
+     "R1"
+    ],
+    "Strong enough": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "“It is an excellent demonstration,”",
+   "to": "how strong the relationship was, however.",
+   "names": {
+    "S1": "Gejman"
+   },
+   "levels": {
+    "It is an excellent": [
+     "D1",
+     "R1"
+    ],
+    "because you have": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Scott said examining how the variation",
+   "to": "presented in the two reports.”",
+   "names": {
+    "S2": "Scott"
+   },
+   "levels": {
+    "examining how": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "\"By 2006, the excess risk",
+   "to": "in the relevant time."
+  },
+  {
+   "from": "Rodney Scott described this research result",
+   "to": "the diseases themselves.”"
+  },
+  {
+   "from": "“We believe the NHS",
+   "to": "demand for our services is unprecedented.”"
+  },
+  {
+   "from": "“A genetic test for bipolar",
+   "to": "necessary at that point in time?”",
+   "names": {
+    "S4": "Hudson"
+   },
+   "levels": {
+    "A genetic test": [
+     "D1",
+     "R1"
+    ],
+    "Just because": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "“Current treatment is not satisfactory”",
+   "to": "few were prescribed anti-depressants.\"",
+   "names": {
+    "S1": "Gejman"
+   },
+   "levels": {
+    "Current treatment": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "One possible alternative, raised by",
+   "to": "has to be a good thing.”",
+   "names": {
+    "S4": "Hudson"
+   },
+   "levels": {
+    "The link between": [
+     "D1",
+     "R1"
+    ],
+    "Any new treatments": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Professor Dr. Michael Berk",
+   "to": "other treatments might be helpful.\""
+  },
+  {
+   "from": "Berk also touched upon speed",
+   "to": "is at great risk.”",
+   "names": {
+    "S6": "Berk"
+   },
+   "levels": {
+    "This clearly is an issue": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Berk’s research, in the past",
+   "to": "individuals affected by bipolar.”",
+   "names": {
+    "S4": "Hudson"
+   },
+   "levels": {
+    "this did not concern": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Wikinews contacted the UK’s National Institute",
+   "to": "NICE did not respond."
+  },
+  {
+   "from": "Might statins and/or aspirin improve treatment",
+   "to": "biomarkers of risk.”",
+   "names": {
+    "S6": "Berk"
+   },
+   "levels": {
+    "This is an area": [
+     "D1",
+     "R1"
+    ],
+    "however it is too early": [
+     "D1",
+     "R1"
+    ]
+   }
+  }
+ ]
+}

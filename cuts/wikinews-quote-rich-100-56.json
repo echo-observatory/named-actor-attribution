@@ -1,0 +1,54 @@
+{
+ "document": "wikinews-quote-rich-100-56",
+ "items": [
+  {
+   "from": "Giving a cow a name",
+   "to": "interactions of people and animals\"."
+  },
+  {
+   "from": "\"Just as people respond better",
+   "to": "increase milk production,\" she added."
+  },
+  {
+   "from": "South Norfolk goldtop-milk producer",
+   "to": "said Mrs Mahon."
+  },
+  {
+   "from": "The researchers' comparative study",
+   "to": "named their cows.)\""
+  },
+  {
+   "from": "\"We love our cows here at Eachwick",
+   "to": "Gibb explained."
+  },
+  {
+   "from": "\"My brother-in-law Bobby",
+   "to": "from its own Friesian cows."
+  },
+  {
+   "from": "But Marcia Endres, a University",
+   "to": "it states."
+  },
+  {
+   "from": "Critics claimed the research was flawed",
+   "to": "names like \"UK121216100001.\""
+  },
+  {
+   "from": "Dr Douglas, however, counters",
+   "to": "associated with cancer.",
+   "names": {
+    "S1": "Douglas"
+   },
+   "levels": {
+    "England doesn’t permit": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "In August 2008, Live Science published",
+   "to": "grazing or resting.\""
+  }
+ ]
+}
