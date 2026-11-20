@@ -16,7 +16,7 @@ Status: pilot. Six documents are drafted, reviewed and cut into items, to measur
 | [`specification.md`](specification.md) | The dataset specification: task, difficulty levels and tiers, item construction, data format, annotation procedure, scoring, and deliverables. |
 | [`docs/markup.md`](docs/markup.md) | The markup format: the working format of annotations, one source document per file, with spans marked in the text. |
 | [`annotations/`](annotations/) | Annotated documents in the markup format, with their licence and credits. |
-| [`docs/drafting.md`](docs/drafting.md) | How documents are drafted, and the draft format that `naa apply` reads. |
+| [`docs/drafting.md`](docs/drafting.md), [`prompts/`](prompts/) | How documents are drafted and miss-checked, the draft format that `naa apply` reads, and the miss-check prompt. |
 | [`cuts/`](cuts/), [`docs/cutting.md`](docs/cutting.md) | The cut lists, which name the passages kept as items, and how cutting works. |
 | [`annotator/annotator.html`](annotator/annotator.html) | The annotation page: a single HTML file with no dependencies (see [Annotation page](#annotation-page)). |
 | [`src/named_actor_attribution/`](src/named_actor_attribution/), [`tests/`](tests/) | The `naa` command line, and its tests. |
@@ -67,6 +67,9 @@ uv run naa new ../obs-test-datasets/global-voices-cheese-181/articles.jsonl 4839
 
 # Annotate a document from a draft that quotes each span (docs/drafting.md)
 uv run naa apply annotations/global-voices-cheese-181-483946.xml draft.json
+
+# Ask a second model for missed segments and doubts (docs/drafting.md); needs an OpenRouter key, NAA_API_KEY, in .env
+uv run naa misscheck annotations/global-voices-cheese-181-483946.xml
 
 # Check documents: exits 1 if any has an error
 uv run naa check annotations/*.xml

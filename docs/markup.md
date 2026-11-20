@@ -57,6 +57,8 @@ There is no markup for cues or speaker mentions: levels are set by the annotator
 
 **`<notes>`**, optional: free text about the document.
 
+**`<flags>`**, optional: the miss check's flags (see [Drafting](drafting.md)), each `<flag kind="missed|doubt" quote="…" speaker="…">reason</flag>`. The reviewer dismisses them once handled.
+
 **Bundles.** The annotation page's "Save all" writes several documents in one file, inside a `<documents>` root. `naa split` turns a bundle back into one file per document.
 
 ## Text rules

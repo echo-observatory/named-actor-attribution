@@ -1,5 +1,5 @@
 """Command line: `naa new`, `naa apply`, `naa check`, `naa rehash`, `naa export`, `naa page`, `naa split`,
-`naa runs`, `naa cut`, `naa adapt`."""
+`naa runs`, `naa cut`, `naa adapt`, `naa misscheck`."""
 
 from __future__ import annotations
 
@@ -62,8 +62,13 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--documents", type=Path, default=Path("annotations"), help="folder of the documents (default: annotations/)")
     p.add_argument("--force", action="store_true", help="overwrite the adapted document if it exists")
 
+    p = sub.add_parser("misscheck", help="ask a second model for missed segments and doubts; flags go into the documents")
+    p.add_argument("files", nargs="+", type=Path)
+    p.add_argument("--model", default=None, help="OpenRouter model id (default: the one in misscheck.py)")
+    p.add_argument("--force", action="store_true", help="check again a document that already has miss-check-by")
+
     args = parser.parse_args(argv)
-    commands = {"runs": _runs, "cut": _cut, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
+    commands = {"misscheck": _misscheck, "runs": _runs, "cut": _cut, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
     return commands[args.command](args)
 
 
@@ -290,6 +295,37 @@ def _adapt(args) -> int:
         print(f"{path}: {p}")
     print(f"{path}: adapted from {source.id} [{cut.start}, {cut.end}), {len(doc.segments)} segments")
     return 0
+
+
+def _misscheck(args) -> int:
+    from . import misscheck
+    model = args.model or misscheck.DEFAULT_MODEL
+    try:
+        key = misscheck.api_key()
+    except misscheck.MissCheckError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    failed = False
+    for path in args.files:
+        doc = _read(path)
+        if doc.miss_check_by and not args.force:
+            print(f"{path}: already checked by {doc.miss_check_by}, skipped (use --force)")
+            continue
+        try:
+            flags, info = misscheck.check_document(doc, model, key)
+        except misscheck.MissCheckError as e:
+            print(f"{path}: error: {e}", file=sys.stderr)
+            failed = True
+            continue
+        doc.flags = flags
+        doc.miss_check_by = model
+        path.write_text(markup.serialize(doc), encoding="utf-8")
+        missing = sum(1 for f in flags if f.quote not in doc.text)
+        usage = info.get("usage") or {}
+        print(f"{path}: {sum(f.kind == 'missed' for f in flags)} missed, {sum(f.kind == 'doubt' for f in flags)} doubts"
+              f"{f', {missing} not found in the text' if missing else ''}"
+              f" ({usage.get('prompt_tokens', '?')} + {usage.get('completion_tokens', '?')} tokens)")
+    return 1 if failed else 0
 
 
 def _item_document(item: dict) -> markup.Document:

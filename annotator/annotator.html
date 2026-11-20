@@ -93,6 +93,12 @@ aside h2:first-child { margin-top: 0; }
 #problems li.error { color: var(--danger); }
 #problems li.warning { color: var(--warn); }
 #problems li.none { color: var(--muted); cursor: default; }
+#flags { list-style: none; margin: 0; padding: 0; font-size: 12px; }
+#flags li { padding: 5px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 6px; }
+#flags li .what { cursor: pointer; }
+#flags li .kind { font-weight: 600; text-transform: uppercase; font-size: 10px; letter-spacing: .05em; color: var(--accent); }
+#flags li .kind.doubt { color: var(--warn); }
+#flags li .quote { font-family: Georgia, serif; }
 #toolbar {
   position: absolute; z-index: 10; display: none; background: #fff; border: 1px solid var(--line); border-radius: 6px;
   box-shadow: 0 4px 16px rgba(0,0,0,.12); padding: 6px; max-width: 520px; font-size: 13px;
@@ -153,6 +159,11 @@ textarea { width: 100%; min-height: 4em; }
     <h2>Speakers</h2>
     <div id="speakers"></div>
     <div class="row"><button id="addspeaker">Add speaker</button></div>
+    <div id="flagbox" hidden>
+      <h2>Miss check</h2>
+      <p class="hint">Flags from a second model. Click one to find its text; dismiss it once handled.</p>
+      <ul id="flags"></ul>
+    </div>
     <h2>Checks</h2>
     <ul id="problems"></ul>
     <h2>Document</h2>
@@ -218,13 +229,13 @@ function checkAttrs(el, allowed) {
 function parseDocument(root) {
   checkAttrs(root, DOC_ATTRS);
   if (!root.getAttribute("id")) throw new MarkupError("<document> has no id");
-  const doc = { attrs: {}, speakers: [], text: "", spans: [], notes: null };
+  const doc = { attrs: {}, speakers: [], text: "", spans: [], notes: null, flags: [] };
   for (const a of DOC_ATTRS) if (root.hasAttribute(a)) doc.attrs[a] = root.getAttribute(a);
   if (!doc.attrs.status) doc.attrs.status = "blank";
   const children = elementChildren(root);
   const tags = children.map(c => c.tagName);
   for (const t of tags) {
-    if (!["speakers", "text", "notes"].includes(t)) throw new MarkupError(`unexpected element <${t}> in <document>`);
+    if (!["speakers", "text", "notes", "flags"].includes(t)) throw new MarkupError(`unexpected element <${t}> in <document>`);
     if (tags.filter(x => x === t).length > 1) throw new MarkupError(`<${t}> appears more than once`);
   }
   if (!tags.includes("text")) throw new MarkupError("<document> has no <text>");
@@ -237,6 +248,14 @@ function parseDocument(root) {
       }
     } else if (child.tagName === "notes") {
       doc.notes = child.textContent;
+    } else if (child.tagName === "flags") {
+      for (const fl of elementChildren(child)) {
+        if (fl.tagName !== "flag") throw new MarkupError(`unexpected element <${fl.tagName}> in <flags>`);
+        checkAttrs(fl, ["kind", "quote", "speaker"]);
+        const f = { kind: fl.getAttribute("kind") || "", quote: fl.getAttribute("quote") || "", reason: fl.textContent };
+        if (fl.hasAttribute("speaker")) f.speaker = fl.getAttribute("speaker");
+        doc.flags.push(f);
+      }
     } else {
       readText(child, doc);
     }
@@ -285,6 +304,11 @@ function serializeDocument(doc) {
   out += esc(doc.text.slice(pos));
   lines.push(`<text>${out}</text>`);
   if (doc.notes !== null && doc.notes !== undefined) lines.push(`<notes>${esc(doc.notes)}</notes>`);
+  if (doc.flags && doc.flags.length) {
+    lines.push("<flags>");
+    for (const f of doc.flags) lines.push(`  <flag${attrs([["kind", f.kind], ["quote", f.quote], ["speaker", f.speaker]])}>${esc(f.reason || "")}</flag>`);
+    lines.push("</flags>");
+  }
   lines.push("</document>");
   return lines.join("\n") + "\n";
 }
@@ -523,6 +547,7 @@ function render() {
   renderSpeakers(d);
   renderDetails(d);
   renderProblems(problems);
+  renderFlags(d);
   renderDocInfo(d);
 }
 
@@ -651,6 +676,37 @@ function renderProblems(problems) {
     const li = el("li", { className: p.level, textContent: p.message });
     if (p.span) li.onclick = () => { state.selected = doc().spans.indexOf(p.span); render(); scrollToSelected(); };
     box.append(li);
+  }
+}
+
+function renderFlags(d) {
+  const box = $("flags");
+  $("flagbox").hidden = !(d.flags && d.flags.length);
+  box.textContent = "";
+  (d.flags || []).forEach((f, i) => {
+    const what = el("div", { className: "what" },
+      el("span", { className: `kind ${f.kind}`, textContent: f.kind + (f.speaker ? ` · ${f.speaker}` : "") }), el("br"),
+      el("span", { className: "quote", textContent: `“${f.quote.length > 120 ? f.quote.slice(0, 119) + "…" : f.quote}”` }),
+      f.reason ? el("div", { className: "hint", textContent: f.reason }) : "");
+    what.onclick = () => findQuote(f.quote);
+    const dismiss = button("×", () => mutate(x => { x.flags.splice(i, 1); }));
+    dismiss.title = "Dismiss: handled";
+    box.append(el("li", {}, what, dismiss));
+  });
+}
+
+// Select the first occurrence of a quote in the text, ready to make it a span.
+function findQuote(quote) {
+  const d = doc(), i = d.text.indexOf(quote);
+  if (i < 0) { flash("This text is not found in the document."); return; }
+  state.selected = null;
+  state.pending = [i, i + quote.length];
+  render();
+  const sel = window.getSelection();
+  if (sel.rangeCount) {
+    const r = sel.getRangeAt(0);
+    r.startContainer.parentElement.scrollIntoView({ block: "center" });
+    showToolbar(r.getBoundingClientRect());
   }
 }
 
@@ -995,6 +1051,9 @@ function selfTest() {
   ok("nested spans are refused", threw.includes("cannot nest"), threw);
   try { parseMarkup("<document id='n'><text>a & b</text></document>"); threw = ""; } catch (err) { threw = err.message; }
   ok("malformed XML is refused", threw.includes("not well-formed"), threw);
+  const flagged = parseMarkup('<document id="f"><text>Anna Berg said it works.</text><flags><flag kind="missed" quote="it works" speaker="Anna Berg">Indirect speech</flag></flags></document>')[0];
+  ok("flags are read", flagged.flags.length === 1 && flagged.flags[0].quote === "it works" && flagged.flags[0].reason === "Indirect speech", JSON.stringify(flagged.flags));
+  ok("flags round trip", serializeDocument(parseMarkup(serializeDocument(flagged))[0]) === serializeDocument(flagged));
   const bundle = serializeBundle([d, merged]);
   ok("bundle round trip", parseMarkup(bundle).length === 2 && serializeDocument(parseMarkup(bundle)[0]) === src, bundle);
   // Editing through the real state functions
