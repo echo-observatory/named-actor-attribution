@@ -1,0 +1,43 @@
+<document id="wikinews-quote-rich-100-30" source="wikinews-quote-rich-100" source-id="30" text-sha256="0d9e962e707ab7056e3b3cc8150cdadd2408d087d8cba9e6ece4bbb7885ede92" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Songpol Somsri" type="person"/>
+  <speaker id="S2" name="Bob Halliday" type="person"/>
+  <speaker id="S3" name="Swanzea Banchee" type="person"/>
+  <speaker id="S4" name="Somchai Tadchang" type="person"/>
+</speakers>
+<text>In southeast Asia, <dis type="unnamed_source">durian is known as the "king of fruits,"</dis> but with its pungent odor, the large, spike-husked fruit receives less-than-royal treatment in many quarters.
+
+A Thai scientist thinks <seg speaker="S1" d="D4" r="R4" note="“A Thai scientist”, named in the next sentence.">he has found the key to more widespread acceptance of durian, by creating odorless varieties of the fruit</seg>. <dis type="document_source">After 20 years of cross-breeding, researcher Songpol Somsri has come up with a durian "that smells as inoffensive as a banana," according to an article today by The Guardian.</dis>
+
+"<seg speaker="S1" d="D1" r="R2">I've got friends from Australia, Europe and Japan who just won't eat durian because they can't stand the smell</seg>," Songpol was quoted as saying. "<seg speaker="S1" d="D3" r="R2">But I'm sure producing those with a mild smell will help us find new markets.</seg>"
+
+Despite their popularity, the fruits are banned from the subway system in Singapore. In Bangkok, taxi drivers will often balk at a passenger with durian. The region's airlines won't allow them to be brought onboard. Across southeast Asia, a sign that denotes a finer hotel is a placard in the lobby with a red circle and cross through a silhouette of a durian.
+
+Cultivated across all of southeast Asia, the fruit measures about 12 inches (30 centimeters) long and 6 inches (15 centimeters) in diameter, and weighs around 2 to 7 pounds (1 to 3 kilograms). The fruits are green on the outside, and covered with a thick, spike-covered husk. In Malay, the name durian literally means "thorny fruit".
+
+Inside is a yellow, custard-like flesh that <dis type="unnamed_source">has been described as nutty and sweet</dis>, perhaps like a fine French cheese. But because of the smell, which can be overpowering, durian is an acquired taste.
+
+<dis type="unnamed_source">The Guardian quoted a travel writer who described the smell like "pigshit, turpentine and onions, garnished with a gym sock."</dis>
+
+<dis type="unnamed_source">Devotees of the "king of fruits" say a major part of the experience of eating the smelly fruit is the aroma, or fragrance, if you will.</dis>
+
+"<seg speaker="S2" d="D1" r="R1">To anyone who doesn't like durian, it smells like a bunch of dead cats</seg>," Bob Halliday, a food writer in Bangkok was quoted as saying by The New York Times in April. "<seg speaker="S2" d="D3" r="R1">But as you get to appreciate durian, the smell is not offensive at all. It's attractive. It makes you drool like a mastiff.</seg>"
+
+Swanzea Banchee, manager of Sunshine Fruit, a major Thai exporter of durian, told National Public Radio (NPR) last month that <seg speaker="S3" d="D2" r="R1">he thinks an odorless variety of durian would help increase orders from overseas</seg>. But, he said <seg speaker="S3" d="D2" r="R3">he'd never eat one</seg>, adding that <seg speaker="S3" d="D2" r="R3">if a durian doesn't smell, then it isn't really a durian</seg>.
+
+"<seg speaker="S4" d="D1" r="R1">I don't think it's possible to make a durian that doesn't smell</seg>," orchardist Somchai Tadchang was quoted as saying by The Times.
+"<seg speaker="S4" d="D1" r="R3">Anyway, durians actually smell good</seg>," he told The Times. "<seg speaker="S4" d="D3" r="R3">Only rotten durians stink.</seg>"
+
+But Dr. Songpol, senior agricultural scientist for the Thai government's Department of Agriculture, has put a lot of time and effort into creating his varieties of odorless durian, called Chanthaburi No. 1 and Chanthaburi No. 2. They were developed at the department's Horticultural Research Institute in Chanthaburi Province, in eastern Thailand, near the border with Cambodia, about 200 miles (320 kilometers) from Bangkok. <seg speaker="S1" d="D2" r="R3">Growing up on a durian farm, he has studied them all his life</seg>, he said.
+
+The research farm has several thousand durian trees, and Songpol has spent about 20 years crossing more than 90 different varieties to produce Chantaburi No. 1. <seg speaker="S1" d="D2" r="R2">It started with only one tree, planted 18 years ago, and which produces about a dozen fruit annually</seg>, Songpol told NPR.
+
+Songpol has also been working on another variety of durian, without either the smell or the spikes. <seg speaker="S1" d="D2" r="R3">It's called Chanthaburi No. 3</seg>, he said.
+
+<exclude reason="unresolved" note="The government's wish, or the author's summary; then an unnamed expectation.">The Thai government is keen to produce and export odor- and spike-free durian, announcing a plan back in April to distribute saplings of the three new varieties to farmers. It's expected that the odorless durians will hit the market in around three years.</exclude></text>
+<notes>“According to an article by The Guardian” is a document source. Thai names: “Songpol” is the given name, used as the short form. The Thai government's plans are excluded: its wish, or the author's summary?</notes>
+<flags>
+  <flag kind="doubt" quote="he has found the key to more widespread acceptance of durian, by creating odorless varieties of the fruit" speaker="Songpol Somsri">The segment is inside a sentence whose cue is 'thinks', but the next sentence attributes the finding to The Guardian, not to Songpol directly.</flag>
+  <flag kind="doubt" quote="Growing up on a durian farm, he has studied them all his life" speaker="Songpol Somsri">The cue 'he said' comes after the segment, but the segment is a biographical fact, not something Songpol said.</flag>
+</flags>
+</document>

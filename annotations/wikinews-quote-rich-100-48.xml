@@ -1,0 +1,36 @@
+<document id="wikinews-quote-rich-100-48" source="wikinews-quote-rich-100" source-id="48" text-sha256="4905ea8dc3bdbf97c426066ddc7ee45aca94eee28868d66d9dbf8c094a7099ae" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="José Carlos Meirelles" type="person"/>
+  <speaker id="S2" name="Observer" type="organization"/>
+  <speaker id="S3" name="Sydney Possuelo" type="person"/>
+  <speaker id="S4" name="Survival International" type="organization"/>
+  <speaker id="S5" name="Stephen Corry" type="person"/>
+  <speaker id="S6" name="Fiona Watson" type="person"/>
+</speakers>
+<text>In late May to early June of 2008, <dis type="unnamed_source">news broke that a previously undiscovered indigenous tribe had been found near the border between Brazil and Peru.</dis> Worldwide media was quick to publish the story and the accompanying photographs taken by José Carlos Meirelles. The photos showed people in full body paint aiming bows at the overhead aircraft from which the pictures were taken. Wikinews covered the story as well.
+
+In its Sunday edition, British newspaper The Observer had a story called "Secret of the 'lost' tribe that wasn't" which was about this "discovery" and revealed that <seg speaker="S2" d="D2" r="R1">the tribe had in fact been known to scientists, including Fundação Nacional do Índio (FUNAI), the Brazilian protection agency for Indian interests</seg>.
+
+<dis type="unnamed_source">After this revelation, media newswires branded the original story a hoax. These hoax claims spread nearly as quickly as the original story. Rapidly, news sites even claimed that the photos were fake.</dis> The true story, however, is more complicated than that.
+
+The Observer'''s article featured an interview with José Carlos Meirelles, one of a handful so-called sertanistas'' that work for the FUNAI. These are field agents that map the areas of uncontacted indigenous peoples, so that their habitat can be protected. He admitted that <seg speaker="S1" d="D2" r="R3">his desire to protect these tribes had caused him to overstep his mission</seg>.
+
+<exclude reason="unresolved" note="Hopes and knowledge as the author reports them (“he knew”, “he was hoping to prove”, “he hoped to find evidence”): attributed to Meirelles or not is debatable (review of item 48-05).">When given the use of an aircraft to seek out new tribes, Meirelles instead flew over an area where he knew a tribe had been observed decades ago. Ultimately, he was hoping to prove that FUNAI's policy of not contacting the tribes they observe is better for the tribes. With this flight he hoped to find evidence that the tribe, discovered long ago, was better off for not being contacted.</exclude>
+
+"<seg speaker="S1" d="D1" r="R5">When I saw them painted red, I was satisfied, I was happy</seg>," he said. "<seg speaker="S1" d="D3" r="R5">Because painted red means they are ready for war, which to me says they are happy and healthy defending their territory.</seg>"
+
+The photos are of a real tribe, long known to Meirelles and other scientists within FUNAI, but protected under Brazilian law.
+
+Meirelles says <seg speaker="S1" d="D2" r="R2">he has no regrets, because he just wanted to prove these kind of tribes exist and deserve protection</seg>. <exclude reason="nested" note="Reports García's claim.">He said that Peruvian President Alan García had claimed that these tribes were imaginary and that he needed to prove they existed.</exclude> In doing so, he violated FUNAI policies by flying over their area and taking pictures. Both are prohibited. Meirelles claims <seg speaker="S1" d="D2" r="R2">he will protect the exact location of the tribe's territory, even if tortured</seg>.
+
+Former president of FUNAI, Sydney Possuelo, agreed that <seg speaker="S3" d="D2" r="R1">the publication of the photos was necessary to quell the doubt about the very existence such uncontacted indigenous peoples</seg>.
+
+Survival International, a human rights organisation formed in 1969 that campaigns for the rights of indigenous tribal and uncontacted peoples, admits <seg speaker="S4" d="D2" r="R1">complicity in the distribution of the original story</seg>. Survival International was instrumental in getting the original story international attention.
+
+Nevertheless, Survival International said <seg speaker="S4" d="D2" r="R1">it did not mislead media because it never described the tribe as "lost"</seg>.
+
+"<seg speaker="S5" d="D1" r="R1">These Indians are in a reserve expressly set aside for the protection of uncontacted tribes: they were hardly 'unknown'</seg>," said Stephen Corry, director of Survival International in a statement. "<seg speaker="S5" d="D3" r="R1">What is, and remains, true, is that so far as is known these Indians have no peaceful contact with outsiders.</seg>"
+
+"<seg speaker="S6" d="D1" r="R1">Some of the media got very carried away and started talking about undiscovered tribes</seg>," explains Fiona Watson of Survival International. "<seg speaker="S6" d="D3" r="R1">There was this interpretation that this was a completely new tribe, completely undiscovered, without bothering to check with sources ... Neither the Brazilian government nor Survival has ever used that word, and 'uncontacted' means they don't have any contact with outsiders.</seg>"</text>
+<notes>Meirelles's beliefs and hopes (knew, was hoping to prove, hoped) are D4. “He said” at the start of the paragraph after them refers back past it: R5. García's claim, as Meirelles reports it, is nested.</notes>
+</document>

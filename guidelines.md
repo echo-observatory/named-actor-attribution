@@ -169,5 +169,7 @@ Choices made on cases the rules didn't settle, with the documents that raised th
 | 2026-11-20 | Unnamed voices reported inside a quote ("the blog writes that some argued X") stay in the quote's segment | Pilot: 61589, 564441, 95433; kept in review of 37818 |
 | 2026-11-20 | When it is debatable whether a quote inside a quote is nested (a remembered “Come inside for lunch!” in a blogger's text), exclude it. This is a rule for building the dataset, not for analysing text: keeping it in the outer segment may well be the better reading, but the dataset leaves the doubt out (Principle 1) | Review of 702912 |
 | 2026-11-20 | A country is a speaker when it is the subject (“Japan says…”), typed as an organization; “the Japanese say” stays unnamed | Wikinews 6 |
+| 2026-11-20 | A goal or a factive framed by the author (“he knew that X”, “he was hoping to prove that X”, “he hoped to find evidence that X”) is excluded: whether X is the actor's claim is debatable. Plain beliefs and fears (“he believes X”, “she fears X”) stay segments | Review of item 48-05 |
+| 2026-11-20 | A post or account described without its content (“breaks her silence with a hilarious account of…”) is a `non_statement` distractor | Review of item 17362-03 |
 | 2026-11-20 | Open, default applied: royal titles are stripped like others ("Prince Charles" → "Charles") | Pilot: 748041 |
 | 2026-11-20 | Open, default applied: a study run by a named organization is a document source; the organization is the speaker only when it is the subject ("Nexer found that…") | Pilot: 705184 |

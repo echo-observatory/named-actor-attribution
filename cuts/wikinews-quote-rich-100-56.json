@@ -1,0 +1,94 @@
+{
+ "document": "wikinews-quote-rich-100-56",
+ "items": [
+  {
+   "from": "Giving a cow a name",
+   "to": "interactions of people and animals\".",
+   "review": {
+    "by": "M",
+    "sha256": "0814d2b64fbb00c0d5cc0b38129fc987b30be3ff7d82ba22828524120c405eef"
+   }
+  },
+  {
+   "from": "\"Just as people respond better",
+   "to": "increase milk production,\" she added.",
+   "review": {
+    "by": "M",
+    "sha256": "0c226d79c8338394bb2ee6edc0e517d98088d8dbeea05cb3f5ecf1a1068a5203"
+   }
+  },
+  {
+   "from": "South Norfolk goldtop-milk producer",
+   "to": "said Mrs Mahon.",
+   "review": {
+    "by": "M",
+    "sha256": "81b9da55993fb9ec3ef59aea49e8ac6e26ae5b267f82abb768e81eda66c9625d"
+   }
+  },
+  {
+   "from": "The researchers' comparative study",
+   "to": "named their cows.)\"",
+   "review": {
+    "by": "M",
+    "sha256": "b7b0edad5399d42fb58b095478a6fb289769ea0f336f4acde11d448480eadad3"
+   }
+  },
+  {
+   "from": "\"We love our cows here at Eachwick",
+   "to": "Gibb explained.",
+   "review": {
+    "by": "M",
+    "sha256": "3898c60435f4c505eab70e58095de8aa64b4a4c3ecbb0c82843b441df551b21f"
+   }
+  },
+  {
+   "from": "\"My brother-in-law Bobby",
+   "to": "from its own Friesian cows.",
+   "review": {
+    "by": "M",
+    "sha256": "86cefc09444f6bca71e04c1b20f7370efb235ba47664a4bf8f002e95338b6886"
+   }
+  },
+  {
+   "from": "But Marcia Endres, a University",
+   "to": "it states.",
+   "review": {
+    "by": "M",
+    "sha256": "dad13d85c156c1c60ec87eecf413299d07fd91770fb1276b3067c96b6f3f8416"
+   }
+  },
+  {
+   "from": "Critics claimed the research was flawed",
+   "to": "names like \"UK121216100001.\"",
+   "review": {
+    "by": "M",
+    "sha256": "39c6a7a658f444732865bf7b9216028a666741ef4f49db555d65d80b759b1324"
+   }
+  },
+  {
+   "from": "Dr Douglas, however, counters",
+   "to": "associated with cancer.",
+   "names": {
+    "S1": "Douglas"
+   },
+   "levels": {
+    "England doesn’t permit": [
+     "D2",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "9edd71a5639b02c39de7c39c24b342dd205c76f2b87e7f460441109b4332c9ed"
+   }
+  },
+  {
+   "from": "In August 2008, Live Science published",
+   "to": "grazing or resting.\"",
+   "review": {
+    "by": "M",
+    "sha256": "fda7cd8a414f620629ae1493520a34d9a0194ba8da81d9b0790dd39a265fce76"
+   }
+  }
+ ]
+}
