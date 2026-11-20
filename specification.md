@@ -21,7 +21,7 @@ The headline output of an evaluation run is a **difficulty curve**: one joint sc
 An **attributed segment** is text expressing what a named actor said, wrote, believes, thinks, fears, wants or intends: direct quotes, indirect speech, mixed speech (paraphrase with quoted fragments) and private states ("in her view", "he fears that…"). A private state counts only when its content is a clause ("fears that the funding will be cut", "wants the lab to reopen"); a bare noun phrase ("fears further cuts", "wants reform") is not a segment.
 
 - **Content only:** a segment never includes the speaker mention or the cue ("said", "according to"). Quotation marks that open or close a segment are excluded, like the cue; quotation marks inside it (the quoted fragments of mixed speech) stay.
-- **Segmentation rule (gold):** a gold segment is a **maximal run** of text attributed to one actor. Gold segmentation should be deterministic; systems may segment differently, and scoring tolerates it (§8).
+- **Segmentation rule (gold):** a gold segment is a **maximal run** of text attributed to one actor. A paragraph break ends a run, unless the same quote continues across it (a block quote of several paragraphs). Gold segmentation should be deterministic; systems may segment differently, and scoring tolerates it (§8).
 - **Not attributed:** reported questions, refusals and non-statements ("Berg declined to comment", "Berg asked whether…"); negated speech ("Berg did not say…"); titles of works; scare quotes with no speaker. A question inside a quote stays in the quote's segment: the run of quoted text is not split.
 
 **Named actors in scope:** named persons and named organizations ("Anna Berg", "the European Space Agency"). Named blogs, publications and outlets ("Barbados Free Press") count as organizations. Out of scope, and used as distractors (§5.3): unnamed people and groups ("officials", "researchers"), documents and studies ("a report found"), and the article's author.
@@ -39,7 +39,7 @@ An **attributed segment** is text expressing what a named actor said, wrote, bel
 
 ## 3. Difficulty features (tagged per gold segment)
 
-Every gold segment is tagged on two axes: how hard it is to **detect** the segment, and how hard it is to **resolve its speaker**. Each axis is ordered easy → hard; a segment gets the highest level that applies. Item-level tiers (§4) are derived from these tags.
+Every gold segment is tagged on two axes, by the drafting model on each item after cutting (§7): how hard it is to **detect** the segment, and how hard it is to **resolve its speaker**. Each axis is ordered easy → hard; a segment gets the highest level that applies. Item-level tiers (§4) are derived from these tags.
 
 **Detection level (D)**
 
@@ -108,6 +108,7 @@ T0 items must contain at least one distractor (§5.3). T1–T7 items must contai
 
 - **Nested** or joint attributions anywhere in the item (joint = text attributed to several actors at once, "Berg and Holm said…", §2): "A said that B told her…", "according to A, B believes…", a quote inside a quote.
 - A segment whose speaker cannot be resolved by a careful human reader from the item alone, or whose antecedent lies outside the item.
+- More generally, any doubt the review can't settle, about a speaker, a segment's boundaries or whether text is attributed at all: the dataset keeps only unambiguous attributions, and ambiguous text is excluded rather than decided (guidelines, Principles).
 - Two speakers with confusable names (§2), or a speaker without a canonical name in the item who would otherwise be a gold speaker.
 - Gold disagreements that adjudication cannot settle (§7).
 - Non-English text: a sentence or quote in another language, such as the original of a translated tweet. Single foreign words and names inside English sentences are fine. The item may instead be adapted to remove the non-English text (§5.1).
@@ -186,7 +187,7 @@ Gold is drafted by a model and fully reviewed by a human. Four steps, in order:
 
 1. **Draft.** A strong model annotates speakers, segments, levels and distractors, following §2–§5. Record model and version. The gold is frozen while the systems under test change, so it can't always come from another family than theirs: the dataset card names the families used for the gold, and reports flag scores of systems from those families, since the gold may share their blind spots.
 2. **Miss check.** A second model, from another family than the drafting model, reads the text and the draft and lists attributed text the draft missed, and drafts it doubts. Every flag goes to the reviewer. Reviewers catch wrong annotations far more easily than missing ones; this step exists for recall.
-3. **Human review.** One reviewer checks every item in full: segments and their boundaries, speakers, canonical names, levels, tier, distractors, exclusions. Before the full batch, time the review on 2 items per tier to plan effort.
+3. **Human review.** One reviewer checks every item in full: segments and their boundaries, speakers, canonical names, distractors, exclusions. Levels are not reviewed: they only decide the tier, and the drafting model sets them on each item after cutting. Before the full batch, time the review on 2 items per tier to plan effort.
 4. **Agreement sample.** A second human independently annotates **20% of items per tier** (at least 5 items) from the plain text. Report per tier: segment detection F1 and speaker agreement, computed with the §8 metrics between the two humans. Disagreements are adjudicated; items that stay ambiguous are dropped (§5.2).
 
 The per-tier human agreement is the **ceiling** for that tier. If the speaker accuracy (§8.2) between the two humans is below 0.90 in a tier, revise that tier's items or definitions before freezing; a model score above the human ceiling there is not meaningful.
