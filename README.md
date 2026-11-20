@@ -106,4 +106,4 @@ uv run naa split annotations-2026-11-20.xml --out second-annotator/
   - in Speakers: rename, change the type, merge a speaker into another, or add one. "Use … as speaker" in the toolbar adds a speaker named after the selected text;
   - set the document's status and your name in the header. Undo with Ctrl+Z.
 - **Unsaved work** is kept in the browser while you work, and offered back when the same document is opened again.
-- **Annotators** get a copy built with `naa page`, with the documents inside it. Several documents open as a list; "Save all" downloads them as one file, to split with `naa split`.
+- **Annotators** get a copy built with `naa page`, with the documents inside it. Several documents open as a list. "Save all" writes each document back to the file it was opened from, where the browser allows it (Chrome and Edge); documents built into the page, or opened in other browsers, are downloaded together as one file, to split with `naa split`.
