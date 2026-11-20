@@ -1,0 +1,25 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-58" source="wikinews-repeated-claims-iran-nuclear-59" source-id="58" text-sha256="a62de8ab2c6ddd35715a27cf8840fbb5b6e94739e05cd0b35bb3ffc690cbdff5" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Yukiya Amano" type="person"/>
+  <speaker id="S2" name="Iran" type="organization"/>
+  <speaker id="S3" name="William Hague" type="person"/>
+  <speaker id="S4" name="Laurent Fabius" type="person"/>
+</speakers>
+<text><dis type="document_source">Iran agreed on Monday to allow the United Nations (UN) increased access to nuclear facilities according to a government announcement on state television.</dis> UN monitors will gain access to a heavy water reactor still being built, as well as the largest uranium reactor in Iran.
+
+<dis type="document_source">The government announcement also stated that Iran would clarify its plans to build new uranium-enrichment facilities and technologies.</dis>
+
+According to the UN nuclear chief, Yukiya Amano, <seg speaker="S1" d="D4" r="R1">the agreement will be put in place within the next three months</seg>. He said that <seg speaker="S1" d="D2" r="R3">Iran had agreed to "implement practical measures" to aid the UN inspectors</seg>.
+
+This is the first deal that Iran has made with the International Atomic Energy Agency (IAEA) since 2007. The announcement came after talks between Iran and world leaders from the United States, France, China, Russia and Germany in Geneva, over the amount of access that the IAEA should have to Iranian nuclear sites. The negotiations stalled, but are set to resume next week.
+
+The IAEA has been pushing to inspect Iran's nuclear facilities for a decade, currently having access to only 17. The Iranian government continues to assert that <seg speaker="S2" d="D2" r="R4">their nuclear program is peaceful</seg>, and wants <seg speaker="S2" d="D4" r="R4">the UN to lift sanctions</seg>.
+
+British Foreign Secretary William Hague said in Parliament on Monday that "<seg speaker="S3" d="D2" r="R1">It's very important for the Iranian authorities to understand that the pressure will be there for greater sanctions... unless an agreement is reached on these matters.</seg>"
+
+French Foreign Minister Laurent Fabius acknowledged that <seg speaker="S4" d="D2" r="R1">the agreement reached on Monday is a good sign for diplomacy</seg>, but also said that <seg speaker="S4" d="D2" r="R1">more work needed to be done. "We are not far from an agreement with the Iranians, but we are not there yet</seg>," he said on Europe 1 radio.</text>
+<notes>The government announcement is a document source. “The Iranian government” is Iran.</notes>
+<flags>
+  <flag kind="doubt" quote="more work needed to be done. &quot;We are not far from an agreement with the Iranians, but we are not there yet" speaker="Laurent Fabius">The segment mixes a paraphrase and a direct quote; the quote's closing quotation mark is missing, so the segment boundary is wrong.</flag>
+</flags>
+</document>

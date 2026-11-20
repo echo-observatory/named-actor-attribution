@@ -1,6 +1,6 @@
 # Annotated documents
 
-One file per source document, in the [markup format](../docs/markup.md). The texts come from [`global-voices-cheese-181`](https://github.com/echo-observatory/obs-test-datasets/tree/main/global-voices-cheese-181) and [`wikinews-quote-rich-100`](https://github.com/echo-observatory/obs-test-datasets/tree/main/wikinews-quote-rich-100) in `obs-test-datasets`, unchanged.
+One file per source document, in the [markup format](../docs/markup.md). The texts come from [`global-voices-cheese-181`](https://github.com/echo-observatory/obs-test-datasets/tree/main/global-voices-cheese-181) [`wikinews-quote-rich-100`](https://github.com/echo-observatory/obs-test-datasets/tree/main/wikinews-quote-rich-100) and [`wikinews-repeated-claims-iran-nuclear-59`](https://github.com/echo-observatory/obs-test-datasets/tree/main/wikinews-repeated-claims-iran-nuclear-59) in `obs-test-datasets`, unchanged.
 
 Files ending in `-a1`, `-a2`… are passages adapted from the document of the same name, to make them simpler (spec §5.1). Each records the passage it comes from and what was changed.
 
@@ -53,3 +53,15 @@ The texts are by the Wikinews contributors (https://en.wikinews.org), licensed u
 | `wikinews-quote-rich-100-48.xml` | “Brazilian tribe is neither a new discovery nor a hoax”, 2008-06-25, CC BY 2.5: https://en.wikinews.org/wiki/Brazilian_tribe_is_neither_a_new_discovery_nor_a_hoax |
 | `wikinews-quote-rich-100-56.xml` | “Dairy cattle with names produce more milk, according to new study”, 2009-01-29, CC BY 2.5: https://en.wikinews.org/wiki/Dairy_cattle_with_names_produce_more_milk,_according_to_new_study |
 | `wikinews-quote-rich-100-82.xml` | “'Fascinating' and 'provocative' research examines genetic elements of bipolar, schizophrenia”, 2011-10-01, CC BY 2.5: https://en.wikinews.org/wiki/'Fascinating'_and_'provocative'_research_examines_genetic_elements_of_bipolar,_schizophrenia |
+| `wikinews-repeated-claims-iran-nuclear-59-4.xml` | “Iran nuclear talks have stalled”, 2006-01-13, CC BY 2.5: https://en.wikinews.org/wiki/Iran_nuclear_talks_have_stalled |
+| `wikinews-repeated-claims-iran-nuclear-59-8.xml` | “France says Iran's nuclear program is a "military cover"”, 2006-02-16, CC BY 2.5: https://en.wikinews.org/wiki/France_says_Iran's_nuclear_program_is_a_%22military_cover%22 |
+| `wikinews-repeated-claims-iran-nuclear-59-11.xml` | “Former Iranian president Rafsanjani states Iran is enriching uranium”, 2006-04-11, CC BY 2.5: https://en.wikinews.org/wiki/Former_Iranian_president_Rafsanjani_states_Iran_is_enriching_uranium |
+| `wikinews-repeated-claims-iran-nuclear-59-13.xml` | “Iran stands defiant on Uranium enrichment”, 2006-05-21, CC BY 2.5: https://en.wikinews.org/wiki/Iran_stands_defiant_on_Uranium_enrichment |
+| `wikinews-repeated-claims-iran-nuclear-59-16.xml` | “Iran warns disruption of oil may be a consequence of U.S. "wrong moves"”, 2006-06-04, CC BY 2.5: https://en.wikinews.org/wiki/Iran_warns_disruption_of_oil_may_be_a_consequence_of_U.S._%22wrong_moves%22 |
+| `wikinews-repeated-claims-iran-nuclear-59-21.xml` | “Iran voices defiance towards nuclear deadline”, 2006-08-29, CC BY 2.5: https://en.wikinews.org/wiki/Iran_voices_defiance_towards_nuclear_deadline |
+| `wikinews-repeated-claims-iran-nuclear-59-26.xml` | “Sunday Times says Israel is planning nuclear strike against Iran”, 2007-01-07, CC BY 2.5: https://en.wikinews.org/wiki/Sunday_Times_says_Israel_is_planning_nuclear_strike_against_Iran |
+| `wikinews-repeated-claims-iran-nuclear-59-29.xml` | “Iran: We will also take 'illegal actions' if UN imposes sanctions”, 2007-03-22, CC BY 2.5: https://en.wikinews.org/wiki/Iran:_We_will_also_take_'illegal_actions'_if_UN_imposes_sanctions |
+| `wikinews-repeated-claims-iran-nuclear-59-37.xml` | “US: Iran nuclear weapons initiative ended in 2003”, 2007-12-03, CC BY 2.5: https://en.wikinews.org/wiki/US:_Iran_nuclear_weapons_initiative_ended_in_2003 |
+| `wikinews-repeated-claims-iran-nuclear-59-41.xml` | “Iran says its nuclear program is unchanged”, 2008-07-05, CC BY 2.5: https://en.wikinews.org/wiki/Iran_says_its_nuclear_program_is_unchanged |
+| `wikinews-repeated-claims-iran-nuclear-59-45.xml` | “Iran nuclear talks enter third day”, 2009-10-21, CC BY 2.5: https://en.wikinews.org/wiki/Iran_nuclear_talks_enter_third_day |
+| `wikinews-repeated-claims-iran-nuclear-59-58.xml` | “Iran agrees to expanded monitoring of nuclear sites”, 2013-11-12, CC BY 2.5: https://en.wikinews.org/wiki/Iran_agrees_to_expanded_monitoring_of_nuclear_sites |

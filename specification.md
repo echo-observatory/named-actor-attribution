@@ -232,7 +232,7 @@ Target per tier: **test ≥ 40 gold segments and ≥ 8 items; dev ≥ 5 items** 
 
 This gives about 200 items and 350 gold segments in total; low tiers need many short items, high tiers few long ones. A tier whose structure makes it scarce in the sources (T6 so far) may ship below target in a version, with its wider interval reported in the dataset card, rather than be filled with weaker items.
 
-- **Splits:** `dev` is used freely during development; `test` is run only at milestones and never inspected item by item. Assign items to splits at random, stratified by tier, before anyone runs a system on them. Keep items from the same source document in the same split.
+- **Splits:** `dev` is used freely during development; `test` is run only at milestones and never inspected item by item. Assign items to splits at random, stratified by tier, before anyone runs a system on them. Keep items from the same source document in the same split. Items from a corpus used blind by another evaluation go to `test` only: those from `wikinews-repeated-claims-iran-nuclear-59`, so that the repeated-claims set stays blind (no tuning on its articles).
 - **Versioning:** the dataset is frozen per version (`v1.0`, `v1.1`…). Any change to items, gold or the evaluator bumps the version and is logged in a changelog. Scores are only compared within a dataset version.
 - **Prototypes:** the 5 documentation prototypes per tier come from `dev`, never from `test`.
 

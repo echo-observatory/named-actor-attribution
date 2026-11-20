@@ -1,0 +1,37 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-26",
+ "items": [
+  {
+   "from": "According to The Sunday Times",
+   "to": "Israeli military sources.",
+   "review": {
+    "by": "M",
+    "sha256": "cc51b7c8f3f8266fd9152142b55cca3c160a0a143d9a3019e384ddacb9828f4c"
+   }
+  },
+  {
+   "from": "The report says that Israeli airforce",
+   "to": "\"senior\" military sources.",
+   "review": {
+    "by": "M",
+    "sha256": "815ca128bbe97973d33c87b3eaf0db91e4f090d0784f0fb97115d16511f625a8"
+   }
+  },
+  {
+   "from": "Military analysts say",
+   "to": "referring to Israel.",
+   "review": {
+    "by": "M",
+    "sha256": "21c1ee196abb11cc10ea0e12be55f308b9b137819edd07967fd024f9765e96dd"
+   }
+  },
+  {
+   "from": "Most members of the Israeli government",
+   "to": "Kam told the Associated Press.",
+   "review": {
+    "by": "M",
+    "sha256": "57e768b23fadcb3552f79a32e50449b9f7824b684d061ffe75f2388007a33e6d"
+   }
+  }
+ ]
+}

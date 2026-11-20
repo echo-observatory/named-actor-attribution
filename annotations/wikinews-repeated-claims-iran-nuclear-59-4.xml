@@ -1,0 +1,32 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-4" source="wikinews-repeated-claims-iran-nuclear-59" source-id="4" text-sha256="69b1fe5a2cf49aa991e7df18f704a588c336ae3cd41db4dca2c426b0e6d6c1f8" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Iran" type="organization"/>
+  <speaker id="S2" name="Hossein Entezami" type="person"/>
+  <speaker id="S3" name="Frank-Walter Steinmeier" type="person"/>
+  <speaker id="S4" name="Condoleezza Rice" type="person"/>
+</speakers>
+<text><dis type="unnamed_source">Senior Iranian diplomats still hope for a diplomatic solution to the current stand off between the United Nations and the resumption of its nuclear development program to enrich uranium.</dis> <exclude reason="nested" note="The spokesman reports what Iran believes.">The National Security Council spokesman for Iran, Hossein Entezami, said Thursday on a national broadcast that "Iran still believes diplomacy could be productive."</exclude>
+
+<exclude reason="nested" note="Annan reports what Iran's negotiator said.">The UN Secretary-General, Kofi Annan said after a Thursday telephone conversation with Ali Larijani, Iran's top nuclear negotiator, that they "are interested in serious and constructive negotiation but within a time frame."</exclude>
+
+<exclude reason="joint">On the one hand, the United States and Europe have grown increasingly concerned over Iran and its decision to resume full nuclear research.</exclude>
+
+<exclude reason="unresolved" note="Concerns summarised by a representative: whose claim?">On the other hand, the concerns about the failure of the nuclear weapons states such as France, USA and UK to progress in nuclear weapons disarmament as is required by Article VI of the Nuclear Non-Proliferation Treaty, which were summarised at the Non-Proliferation Treaty conference, June 2005 by the Malaysian representative, Rastam Mohd Isa, have not been addressed.</exclude>
+
+Talks between Europe and Iran stalled late yesterday to a near standstill and the E.U. joined with the U.S. in its decision to refer Iran to the UN for possible sanctions.
+
+"<seg speaker="S3" d="D1" r="R1">Our talks with Iran have reached a dead end</seg>," the German foreign minister, Frank-Walter Steinmeier, said at a news conference in Berlin Germany. "<seg speaker="S3" d="D3" r="R1">From our point of view, the time has come for the UN Security Council to become involved.</seg>" <exclude reason="unresolved" note="A passive allegation: the Movement's claim, or the author's?">Germany is a state alleged by the Non-Aligned Movement to be in violation of Articles I and II of the Nuclear Non-Proliferation Treaty due to nuclear sharing.</exclude>
+
+Condoleezza Rice, the U.S. Secretary of State, said that "<seg speaker="S4" d="D2" r="R1">Iran's actions have shattered the basis for negotiation.</seg>"
+
+When asked if military force was an option (in Iran) Rice said "<seg speaker="S4" d="D1" r="R2">The president of the United States never takes any of his options off the table and nobody would want the president to do that... We are on a diplomatic track and it's not on the agenda at this point to move from that diplomatic track.</seg>"
+
+<dis type="unnamed_source">Rice's comments have added to speculation that if all diplomatic negotions with Iran fail, that attacks on facilities in Iran using mini-nukes might be a possibility.</dis>
+
+Despite the criticism from America, Europe, and quite possibly Russia and China, to get Iran to reverse its current course, <dis type="unnamed_source">some diplomats and experts say that the process of getting Iran near that step may take a long time, and may never even work.</dis> <dis type="unnamed_source">During the Non-Proliferation Treaty conference, June 2005, it was said that getting USA, France and the UK to disarm according to their obligations under the NPT may also take a long time, and may never even work.</dis>
+
+Iran's government continues to insist that <seg speaker="S1" d="D2" r="R1">its nuclear path is for "peaceful purposes."</seg> In a noted turn from Iran's use of aggressive language in defining their position on politically sensitive issue, Entezami said, "<seg speaker="S2" d="D1" r="R2">Iran pursues its nuclear research activities in the framework of the International Atomic Energy Agency regulations and under the supervision of the agency. So there is no reason for challenging Iran's rights in the field of nuclear fuel.</seg>"
+
+<exclude reason="boilerplate">Related Wikinews</exclude></text>
+<notes>A spokesman reporting his country's belief, and Annan reporting what Iran's negotiators told him, are nested. The concern of the US and Europe is joint.</notes>
+</document>

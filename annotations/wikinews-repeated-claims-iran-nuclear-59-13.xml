@@ -1,0 +1,24 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-13" source="wikinews-repeated-claims-iran-nuclear-59" source-id="13" text-sha256="d05b6aa3a255fc5e212f9a3ba45e91d61012697715715774dd12666de02fee69" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Hamid Reza Asefi" type="person"/>
+</speakers>
+<text><dis type="named_no_attribution">Iran has rejected European Union incentives to give up its uranium enrichment program.</dis> Foreign ministry spokesman Hamid Reza Asefi said that <seg speaker="S1" d="D2" r="R1">any plan has to acknowledge Iran's legal rights under international law, including Article IV of the Nuclear Non-Proliferation Treaty (NPT)</seg>.
+
+<dis type="unnamed_source">It is believed that Britain, France, and Germany, all member states of the EU, are developing incentives for Iran to give up its enrichment programming in an attempt to defuse mutual fears and perceptions of threats by US, Israeli, and Iranian governments.</dis> <dis type="unnamed_source">The incentives are believed to include a raft of security, trade and technology benefits.</dis>
+
+<dis type="document_source">The proposal by the three EU members encourages other nations to support the construction of light water power generation reactors, to set up a nuclear fuel bank and the relaxation of United States trade restrictions to allow Iran to purchase commercial planes built in the US.</dis> These incentives are conditional upon Iran renouncing its rights under Article IV of the NPT, i.e. stopping its Uranium enrichment program, and cooperating with the United Nations International Atomic Energy Agency (IAEA) in ways additional to its present cooperation, which at present includes continuous monitoring of many key Iranian nuclear facilities by the IAEA.
+
+If Iran doesn't comply, Britain, France and Germany will support economic sanctions against Iran, the refusal to issue visas to Iranian officials and a freeze on the assets belonging to individuals and corporations with ties to the Iranian regime.
+
+<dis type="non_statement">Mr Asefi said he would not comment on the proposal at this stage.</dis> He said <seg speaker="S1" d="D2" r="R3">it would be "hasty to comment on a raw proposal that has been brought up in the media, and still neither officially nor unofficially given to us."</seg>
+
+Mr Asefi said that <seg speaker="S1" d="D2" r="R2">any plan would have to recognise Iran's rights to be considered. "The basis of our work is that the Islamic Republic of Iran's rights must be recognised in any plan</seg>," he said.
+
+"<seg speaker="S1" d="D1" r="R5">We cannot retreat. The proposal should provide ways to secure our rights</seg>," he said. "<seg speaker="S1" d="D3" r="R5">We will not stop enrichment.</seg>"
+
+Mr. Asefi warned Europe against economic sanctions saying that <seg speaker="S1" d="D2" r="R2">they would harm Europe. "We have broad trade and economic ties with European and non-European countries. These ties can be damaged and this damage will harm European countries even more.</seg>" he said.</text>
+<notes>“Mr” stripped. Iran's rejection of the incentives is an action without a statement. “He said” at the start of the paragraph after Asefi's is R5.</notes>
+<flags>
+  <flag kind="doubt" quote="any plan would have to recognise Iran's rights to be considered. &quot;The basis of our work is that the Islamic Republic of Iran's rights must be recognised in any plan" speaker="Hamid Reza Asefi">The segment mixes a paraphrase and a quote, but the quote's closing quotation mark is missing, so the segment boundary is wrong.</flag>
+</flags>
+</document>

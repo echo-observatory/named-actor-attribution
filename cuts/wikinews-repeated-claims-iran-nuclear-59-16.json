@@ -1,0 +1,72 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-16",
+ "items": [
+  {
+   "from": "Ayatollah Ali Khamenei, the supreme leader",
+   "to": "Ayatollah Ruhollah Khomeini.",
+   "review": {
+    "by": "M",
+    "sha256": "c8ea9baf57fa294295e6d802531c07f07500aadbb14e1e4a00a68df64781a4e5"
+   }
+  },
+  {
+   "from": "\"If the U.S. makes a wrong move",
+   "to": "added Khamenei.",
+   "names": {
+    "S1": "Khamenei"
+   },
+   "levels": {
+    "If the U.S.": [
+     "D1",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "f1c1bf3b955fe4ffd2b2b029f2817c344e3f88036499649507eab57c30ecf048"
+   }
+  },
+  {
+   "from": "\"We shouldn't put too much emphasis",
+   "to": "talks on its nuclear program.",
+   "review": {
+    "by": "M",
+    "sha256": "ba42b2e7b5258da91ec5e4e5a0441d76aaf0a879baa76d44006ffb6e2ee8fd68"
+   }
+  },
+  {
+   "from": "\"We really do have to have",
+   "to": "added Rice.",
+   "names": {
+    "S2": "Rice"
+   },
+   "levels": {
+    "We really do": [
+     "D1",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "c7e048f56218be246866f721b0c329d0079948384b2ed0e2e8551a98c3f7a8a2"
+   }
+  },
+  {
+   "from": "Iran is the fourth largest producer",
+   "to": "said Khamenei.",
+   "names": {
+    "S1": "Khamenei"
+   },
+   "levels": {
+    "We will never start a war.": [
+     "D1",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "54d0cc538dceb5c98634191b705e2e0760a7aa81bb3e0b8e6caa2de37c631b43"
+   }
+  }
+ ]
+}

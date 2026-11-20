@@ -1,0 +1,32 @@
+<document id="wikinews-repeated-claims-iran-nuclear-59-45" source="wikinews-repeated-claims-iran-nuclear-59" source-id="45" text-sha256="f5f3da469b83427c635150aa9396191834c0cff6b6be4e745fb01f6d112b3d69" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Ali Asghar Soltanieh" type="person"/>
+  <speaker id="S2" name="Manouchehr Mottaki" type="person"/>
+  <speaker id="S3" name="Mohamed ElBaradei" type="person"/>
+  <speaker id="S4" name="Mike Hammer" type="person"/>
+</speakers>
+<text>Talks between Iran and three other countries continued on Wednesday in Vienna, Austria, as they try to work out a deal that will ease tensions over Iran's controversial nuclear program. Diplomats from Iran, Russia, France, and the United States began the third day of talks at the headquarters of the International Atomic Energy Agency (IAEA).
+
+Talks stalled on Tuesday, <dis type="non_statement">after Iran expressed resistance to aspects of the proposal</dis>, in which it would send most of its low-enriched — or below weapons- grade — uranium to Russia and France for further refinement, to be later used as reactor fuel.
+
+The IAEA's ambassador to Iran, Ali Asghar Soltanieh, described <seg speaker="S1" d="D2" r="R1">the ongoing consultations as being "constructive"</seg>.
+
+<exclude reason="nested" note="The minister reports Iran's stance.">Iranian Foreign Minister Manouchehr Mottaki said that Iran is opposed to France's involvement, accusing the country of failing to deliver nuclear supplies in the past.</exclude> "<seg speaker="S2" d="D1" r="R2">There is Russia, America [...] I believe these countries are enough</seg>," Mottaki said. "<seg speaker="S2" d="D3" r="R2">France, based on its shortcomings to fulfil its obligations in the past, is not a trustworthy party to provide fuel for Iran.</seg>"
+
+Mottaki also added that <seg speaker="S2" d="D2" r="R2">an agreement would not mean that Iran would suspend its enrichment activity. "Iran will continue its uranium enrichment. It is not linked to buying fuel from abroad. The meetings with world powers, and their behaviour, shows that Iran's right to have peaceful nuclear technology has been accepted by them</seg>," he said.
+
+IAEA chief Mohamed ElBaradei said on Tuesday that <seg speaker="S3" d="D2" r="R1">progress was being made</seg> and that <seg speaker="S3" d="D2" r="R1">technical issues still needed to be analysed</seg>. He said <seg speaker="S3" d="D2" r="R3">an agreement was still within reach. "I believe we are making progress. It is maybe slower than I expected. But we are moving forward</seg>," he said.
+
+ElBaradei added that <seg speaker="S3" d="D2" r="R2">while "many technical issues" had to be considered, talks were still "moving forward"</seg>.
+
+US National Security Council spokesman Mike Hammer said that <seg speaker="S4" d="D2" r="R1">US and Iranian delegations held separate discussions on the proposed uranium enrichment deal, under the auspices of the IAEA</seg>.
+
+<dis type="unnamed_source">A diplomat familiar with the Vienna talks said the parties now are considering a compromise deal that would allow Russia to sub-contract enrichment work to France, thereby meeting Iran's request to avoid direct dealings with the country.</dis> The enrichment deal would be intended to ease concerns that Iranian uranium enrichment activities are aimed at developing nuclear weapons.
+
+Meanwhile, the United Nations Security Council recently imposed three sets of sanctions on Iran for its refusal to halt its enrichment activities.</text>
+<notes>A minister reporting his country's stance (“Mottaki said that Iran is opposed…”) is nested, as for spokesmen. The unnamed diplomat is a distractor.</notes>
+<flags>
+  <flag kind="doubt" quote="There is Russia, America [...] I believe these countries are enough" speaker="Manouchehr Mottaki">The bracketed ellipsis is an editorial insertion; the segment should include the full quote as written, or the ellipsis should be excluded.</flag>
+  <flag kind="doubt" quote="France, based on its shortcomings to fulfil its obligations in the past, is not a trustworthy party to provide fuel for Iran." speaker="Manouchehr Mottaki">The period at the end of the quote is inside the segment, but the closing quotation mark is outside; punctuation at the edge is not scored, so this is fine.</flag>
+</flags>
+</document>
