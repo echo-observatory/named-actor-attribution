@@ -1,4 +1,4 @@
-<document id="global-voices-cheese-181-412081" source="global-voices-cheese-181" source-id="412081" text-sha256="3ecc77fdd41ebcca8ebdc1288e647ce93d3723088d23af87cf306236514a10e5" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<document id="global-voices-cheese-181-412081" source="global-voices-cheese-181" source-id="412081" text-sha256="3ecc77fdd41ebcca8ebdc1288e647ce93d3723088d23af87cf306236514a10e5" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
 <speakers>
   <speaker id="S1" name="Terzio" type="person"/>
   <speaker id="S2" name="El cuarto hocico" type="organization"/>

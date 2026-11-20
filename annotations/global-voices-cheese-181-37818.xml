@@ -1,4 +1,4 @@
-<document id="global-voices-cheese-181-37818" source="global-voices-cheese-181" source-id="37818" text-sha256="a4f806186a2e47af295547158a1fdfb1c2a33cf78171ff6614e5ba9e12899d66" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<document id="global-voices-cheese-181-37818" source="global-voices-cheese-181" source-id="37818" text-sha256="a4f806186a2e47af295547158a1fdfb1c2a33cf78171ff6614e5ba9e12899d66" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
 <speakers>
   <speaker id="S1" name="Bajan Dream Project" type="organization"/>
   <speaker id="S2" name="Living in Barbados" type="organization"/>
@@ -15,9 +15,9 @@ Get your act together, people! No matter who wins on January 16 we still have to
 
 “<seg speaker="S1" d="D1" r="R1">The electorate faces a tough decision</seg>,” said The Bajan Dream Project on election day:
 
-<seg speaker="S1" d="D5" r="R1">The incumbent party, which has been in power for a little under fifteen years, has been the only government that many young Barbadians would have ever known. Old habits die hard and truthfully, this government has not performed too badly during its three terms insofar as employment and certain human development indicators are concerned. In addition, the ruling party ran a tough and convincing campaign that challenged Barbadians’ natural predilection for change, no doubt bolstered by an intensive media presence over the past three weeks.
+<seg speaker="S1" d="D5" r="R1">The incumbent party, which has been in power for a little under fifteen years, has been the only government that many young Barbadians would have ever known. Old habits die hard and truthfully, this government has not performed too badly during its three terms insofar as employment and certain human development indicators are concerned. In addition, the ruling party ran a tough and convincing campaign that challenged Barbadians’ natural predilection for change, no doubt bolstered by an intensive media presence over the past three weeks</seg>.
 
-On the other hand, a new and re-energized Democratic Labour Party is at its closest taste of victory. Its solid performance in opinion polls and its mainstreaming of accountability, transparency, poverty eradication and democracy struck a chord with a number of undecided voters, causing this election to be inevitably too close to call.</seg>
+<exclude reason="unresolved">On the other hand, a new and re-energized Democratic Labour Party is at its closest taste of victory. Its solid performance in opinion polls and its mainstreaming of accountability, transparency, poverty eradication and democracy struck a chord with a number of undecided voters, causing this election to be inevitably too close to call.</exclude>
 
 But, <dis type="document_source">although the polls suggested a close race</dis>, the results on election night were decisive: the DLP won 20 of the 30 seats. “<seg speaker="S2" d="D1" r="R1">There will be a new government leading Barbados, and the new Prime Minister will be David Thompson</seg>,” wrote Living in Barbados, who also reported that:
 
