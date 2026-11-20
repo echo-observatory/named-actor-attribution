@@ -1,0 +1,100 @@
+{
+ "document": "wikinews-quote-rich-100-23",
+ "items": [
+  {
+   "from": "Movie studio company, New Line Cinema",
+   "to": "The Lord of the Rings films he directed."
+  },
+  {
+   "from": "New Line has repeatedly refused",
+   "to": "Mr Jackson said.",
+   "names": {
+    "S2": "Jackson"
+   },
+   "levels": {
+    "film auditing": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "In an interview with the Sci Fi Wire",
+   "to": "never happen during my watch.\""
+  },
+  {
+   "from": "\"I don't care about Peter Jackson",
+   "to": "give in to his plan.\"",
+   "names": {
+    "S3": "Shaye"
+   },
+   "levels": {
+    "I don't care": [
+     "D1",
+     "R1"
+    ],
+    "he has been offended": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "However Mr Jackson claims",
+   "to": "left us with no alternative.\"",
+   "names": {
+    "S2": "Jackson"
+   },
+   "levels": {
+    "he had been trying": [
+     "D2",
+     "R1"
+    ],
+    "We attempted": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Mr Jackson has said that he has",
+   "to": "Mr Shaye said.",
+   "names": {
+    "S2": "Jackson",
+    "S3": "Shaye"
+   },
+   "levels": {
+    "he has and will": [
+     "D2",
+     "R1"
+    ],
+    "he regrets": [
+     "D2",
+     "R1"
+    ],
+    "[Jackson's] either": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Mr Shaye has said he is disappointed",
+   "to": "before the lawsuit arose.",
+   "names": {
+    "S2": "Jackson",
+    "S3": "Shaye"
+   },
+   "levels": {
+    "he is disappointed": [
+     "D2",
+     "R1"
+    ],
+    "the reason for that": [
+     "D2",
+     "R1"
+    ]
+   }
+  }
+ ]
+}

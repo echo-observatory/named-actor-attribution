@@ -1,0 +1,43 @@
+{
+ "document": "wikinews-quote-rich-100-49",
+ "items": [
+  {
+   "from": "Rumors began to spread on the internet",
+   "to": "July 31 press conference."
+  },
+  {
+   "from": "Smith also added that MECA",
+   "to": "nothing new to report.\"",
+   "names": {
+    "S2": "Smith"
+   },
+   "levels": {
+    "MECA has": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "\"We are attempting to assess",
+   "to": "aspects of the soil chemistry.\"",
+   "names": {
+    "S2": "Smith"
+   },
+   "levels": {
+    "We are attempting": [
+     "D1",
+     "R1"
+    ],
+    "we are committed": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Despite the denials by NASA",
+   "to": "said David Leonard for LifeScience.com."
+  }
+ ]
+}

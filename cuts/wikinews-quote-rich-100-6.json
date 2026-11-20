@@ -1,0 +1,109 @@
+{
+ "document": "wikinews-quote-rich-100-6",
+ "items": [
+  {
+   "from": "Anti-whaling activists are heading home",
+   "to": "\"lethal scientific research.\""
+  },
+  {
+   "from": "Greenpeace say they will now switch",
+   "to": "controlling the whaling fleet.\""
+  },
+  {
+   "from": "Greenpeace Southern Ocean Expedition Leader Shane Rattenbury said",
+   "to": "Mr Rattenbury said."
+  },
+  {
+   "from": "Greenpeace Expedition Leader Shane Rattenbury has defended",
+   "to": "diplomacy have failed.\" he said."
+  },
+  {
+   "from": "Japan says it's too early",
+   "to": "Regulation of Whaling."
+  },
+  {
+   "from": "A second protest group",
+   "to": "prevented from being killed.\""
+  },
+  {
+   "from": "Captain Watson said he made the decision",
+   "to": "reached its limit.\"",
+   "names": {
+    "S7": "Watson"
+   },
+   "levels": {
+    "he made the decision": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "The Sea Shepherds had made arrangements",
+   "to": "extreme weather conditions."
+  },
+  {
+   "from": "\"At that point, there was no choice",
+   "to": "a race to survive.\"",
+   "names": {
+    "S7": "Watson"
+   },
+   "levels": {
+    "At that point": [
+     "D1",
+     "R1"
+    ],
+    "We were 2600": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "After fuel conservation measures",
+   "to": "said 1st Officer Alex Cornelissen."
+  },
+  {
+   "from": "Whilst the Sea Shepherds and Greenpeace",
+   "to": "illegal whaling by Japan.\""
+  },
+  {
+   "from": "The Sea Shepherd Conservation Society says it will return",
+   "to": "secondary confrontation vessel."
+  },
+  {
+   "from": "The whale hunting season will continue",
+   "to": "Southern Ocean whale sanctuary."
+  },
+  {
+   "from": "\"This is supposed to be a whale sanctuary",
+   "to": "back to the mother ship.\"",
+   "names": {
+    "S3": "Rattenbury"
+   },
+   "levels": {
+    "This is supposed": [
+     "D1",
+     "R1"
+    ],
+    "Unfortunately": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "The Japanese Institute of Cetacean Research has a quota",
+   "to": "no fin whales being killed,\" Rattenbury said.",
+   "names": {
+    "S3": "Rattenbury"
+   },
+   "levels": {
+    "So far we have only": [
+     "D1",
+     "R1"
+    ]
+   }
+  }
+ ]
+}

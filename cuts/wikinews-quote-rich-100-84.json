@@ -1,0 +1,42 @@
+{
+ "document": "wikinews-quote-rich-100-84",
+ "items": [
+  {
+   "from": "George Entwistle became the new Director-General",
+   "to": "what more you can cut,\" he said."
+  },
+  {
+   "from": "Negotiations about the UK's licence fee",
+   "to": "television output of the corporation."
+  },
+  {
+   "from": "\"There's no question that we've seen",
+   "to": "acceptable to the public.\"",
+   "names": {
+    "S2": "Entwistle"
+   },
+   "levels": {
+    "There's no question": [
+     "D1",
+     "R1"
+    ],
+    "I think the BBC": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "The salary of Entwistle, who is scheduled",
+   "to": "dropped by approximately a quarter."
+  },
+  {
+   "from": "\"I think [Entwistle] cares deeply",
+   "to": "a huge success.\""
+  },
+  {
+   "from": "When the decision was announced to appoint",
+   "to": "greatest broadcaster in the world.\""
+  }
+ ]
+}

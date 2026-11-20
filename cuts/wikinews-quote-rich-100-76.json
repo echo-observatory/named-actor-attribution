@@ -1,0 +1,34 @@
+{
+ "document": "wikinews-quote-rich-100-76",
+ "items": [
+  {
+   "from": "British journalist Andrew Marr has angered",
+   "to": "They are very angry people.\""
+  },
+  {
+   "from": "Marr, who now hosts a flagship",
+   "to": "doubt I ever will.\""
+  },
+  {
+   "from": "\"We know our viewers want commentary",
+   "to": "what they think of it.\"",
+   "names": {
+    "S2": "Murthy"
+   },
+   "levels": {
+    "We know our": [
+     "D1",
+     "R1"
+    ],
+    "Obviously we can't": [
+     "D3",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Roy Greenslade, a professor of journalism",
+   "to": "wood for the trees.\""
+  }
+ ]
+}

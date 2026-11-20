@@ -1,0 +1,28 @@
+<document id="wikinews-quote-rich-100-38" source="wikinews-quote-rich-100" source-id="38" text-sha256="04f8a1c44dddeb1cfe4cb225635d260291b130b686b27764c08131c978161c08" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Larry Page" type="person"/>
+  <speaker id="S2" name="Jordan Rohan" type="person"/>
+  <speaker id="S3" name="Travis Bradford" type="person"/>
+  <speaker id="S4" name="Brett Conrad" type="person"/>
+</speakers>
+<text><exclude reason="unresolved" note="Narration of an announcement and of plans: Google's statements, or the author's?">On Tuesday, Google announced a new strategic initiative aimed at producing electricity from renewable energy sources such as solar, wind, and geothermal power that is cheaper than electricity produced from coal. Google plans to spend tens of millions of dollars on research and development in 2008, and to invest hundreds of millions of dollars to bring energy projects to market.</exclude>
+
+The new initiative is dubbed "RE&lt;C", for "Renewable Energy Cheaper than Coal." <dis type="document_source">It will "focus initially on advanced solar thermal power, wind power technologies, enhanced geothermal systems and other potential breakthrough technologies," according to the company's press release.</dis>
+
+"<seg speaker="S1" d="D1" r="R1">We see technologies we think can mature into very capable industries that can generate electricity cheaper than coal, and we don’t see people talking about that as much as we would like</seg>," said Google Co-founder Larry Page. "<seg speaker="S1" d="D3" r="R1">Solar thermal technology, for example, provides a very plausible path to providing renewable energy cheaper than coal... We are aware of several promising technologies, and believe there are many more out there.</seg>"
+
+Page said that <seg speaker="S1" d="D2" r="R2">Google's goal is "to produce one gigawatt of renewable energy capacity that is cheaper than coal,"</seg> and that <seg speaker="S1" d="D2" r="R2">the company is "optimistic this can be done in years, not decades."</seg>
+
+<dis type="document_source">According to the company press release, one gigawatt is enough to power a city the size of San Franscisco.</dis>
+
+<dis type="unnamed_source">Some Wall Street analysts questioned the wisdom of Google's new initiative.</dis>
+
+"<seg speaker="S2" d="D1" r="R1">I’ve written off Google’s competition as a threat to Google’s long-term market share gains</seg>," said Jordan Rohan of RBC Capital Markets. "<seg speaker="S2" d="D3" r="R1">But I haven’t written off Google’s own ability to stretch too far and try to do too much. Ultimately, that is the biggest risk in the Google story.</seg>"
+
+Rohan added that "<seg speaker="S2" d="D2" r="R2">The only positive byproduct of this project that would be anything other than environmental is that it might make Google managers and executives even prouder of the fact that they work there, and it may help retain key employees who think their goal is to do good in the world.</seg>"
+
+Travis Bradford, an analyst for Prometheus Institute for Sustainable Development, said <seg speaker="S3" d="D3" r="R1">he was having "a bit of trouble trying to figure out the business logic" of Google's move. "They don't have any advantage in doing this other than a big, huge pile of cash.</seg>"
+
+On the other hand, Brett Conrad, manager of the Blue Earth Fund, said that <seg speaker="S4" d="D3" r="R1">Google's $211 billion market capitalization and $13 billion cash "gives them a fighting chance" at succeeding in the energy market. "I think they're looking at a $7 trillion market. I think it would be as tough for Google to do it as a big oil company.</seg>"</text>
+<notes>The opening paragraph (Google announced an initiative, Google plans to spend…) is excluded: narration of the announcement, or Google's statements? The press release is a document source.</notes>
+</document>

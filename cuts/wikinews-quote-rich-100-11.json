@@ -1,0 +1,47 @@
+{
+ "document": "wikinews-quote-rich-100-11",
+ "items": [
+  {
+   "from": "Tests are going to soon",
+   "to": "the Alzheimer's Research Trust."
+  },
+  {
+   "from": "The vaccine is given by an injection",
+   "to": "not allowing the protein to reproduce."
+  },
+  {
+   "from": "\"DNA vaccines are given",
+   "to": "said Matsumoto.",
+   "names": {
+    "S1": "Matsumoto"
+   },
+   "levels": {
+    "DNA vaccines are given": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "However, Matsumoto also said",
+   "to": "with DNA vaccination,\" said Matsumoto.",
+   "names": {
+    "S1": "Matsumoto"
+   },
+   "levels": {
+    "patients who are": [
+     "D2",
+     "R1"
+    ],
+    "In advanced cases": [
+     "D1",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "In 2003 18 of the 298",
+   "to": "of the Alzheimer's Society."
+  }
+ ]
+}
