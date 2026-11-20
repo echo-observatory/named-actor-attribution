@@ -29,7 +29,8 @@ TIERS = [
 MAIN_DIFFICULTY = {"T2": ("D", "R"), "T3": ("speakers",), "T4": ("D", "R"), "T5": ("D", "R"),
                    "T6": ("D", "R"), "T7": ("D", "R")}
 # Spec §9: minimum items and segments per tier and split.
-TARGETS = {"test": {"items": 8, "segments": 40}, "dev": {"items": 5, "segments": 20}}
+# Dev has no segment target: it needs examples (the prototypes), not statistical power.
+TARGETS = {"test": {"items": 8, "segments": 40}, "dev": {"items": 5, "segments": 0}}
 T0_TARGETS = {"test": 20, "dev": 10}
 
 SENTENCE_END = re.compile(r"[.!?…][\"'”’)\]]*$")

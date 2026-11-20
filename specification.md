@@ -228,9 +228,9 @@ The dataset fixes the output format, the scoring rules (§8.1) and the metrics (
 
 ## 9. Size, splits, versioning
 
-Target per tier: **test ≥ 40 gold segments and ≥ 8 items; dev ≥ 20 gold segments and ≥ 5 items** (5, so that the prototypes can come from dev). For T0: test ≥ 20 items, dev ≥ 10. With 40 independent segments, a tier score near 80% would have a 95% interval of roughly ±12 points. Segments of the same item are correlated, so the real interval is wider: compute it by bootstrap over items. That is enough to see large shifts, not small ones. Add items to a tier if finer tracking is needed.
+Target per tier: **test ≥ 40 gold segments and ≥ 8 items; dev ≥ 5 items** (5, so that the prototypes can come from dev). Dev has no segment target: it is used freely during development and never to compare scores, so it needs examples, not statistical power. For T0: test ≥ 20 items, dev ≥ 10. With 40 independent segments, a tier score near 80% would have a 95% interval of roughly ±12 points. Segments of the same item are correlated, so the real interval is wider: compute it by bootstrap over items. That is enough to see large shifts, not small ones. Add items to a tier if finer tracking is needed.
 
-This gives about 150–200 items and 400–500 gold segments in total; low tiers need many short items, high tiers few long ones.
+This gives about 200 items and 350 gold segments in total; low tiers need many short items, high tiers few long ones. A tier whose structure makes it scarce in the sources (T6 so far) may ship below target in a version, with its wider interval reported in the dataset card, rather than be filled with weaker items.
 
 - **Splits:** `dev` is used freely during development; `test` is run only at milestones and never inspected item by item. Assign items to splits at random, stratified by tier, before anyone runs a system on them. Keep items from the same source document in the same split.
 - **Versioning:** the dataset is frozen per version (`v1.0`, `v1.1`…). Any change to items, gold or the evaluator bumps the version and is logged in a changelog. Scores are only compared within a dataset version.
