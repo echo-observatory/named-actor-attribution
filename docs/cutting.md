@@ -25,7 +25,7 @@ Items are numbered in the order of the list: `<document id>-01`, `-02`…
 
 ## Adapted passages
 
-Where the easy tiers lack items, a passage may be adapted to make it simpler (spec §5.1): drop sentences or clauses, replace a pronoun or descriptor with the actor's name, or rewrite a lead-in and its block quote as an inline quote with its cue. Edits are minimal and never add content attributed to an actor.
+Where the easy tiers lack items, a passage may be adapted to make it simpler (spec §5.1): drop sentences or clauses, replace a pronoun or descriptor with the actor's name, rewrite a lead-in and its block quote as an inline quote with its cue, or add a cue to a quote whose speaker the passage makes clear without stating it. Edits are minimal and never add content attributed to an actor. As for other items, keep some context around the quote.
 
 An adapted passage becomes a document of its own, `<document id>-a1.xml`, made with `naa adapt` from a JSON file in the [draft format](drafting.md), plus the source passage and the new text:
 
@@ -49,6 +49,7 @@ The document records its source and the edit (`adapted-from`, `source-start`, `s
 `naa runs` lists each document's paragraphs, with their words, segments (speaker and levels), distractors and exclusions, to choose from.
 
 - Keep the scarce tiers in mind: a paragraph that could be one T7 item may give two T1 items instead.
+- Keep some text around the attributed text, a sentence of narration or a distractor, rather than a bare quote, when the tier's word cap allows it: items read more naturally.
 - Leave out a passage whose speaker isn't clear from the passage alone (guidelines, Principle 1).
 - Items of the same document don't overlap.
 
