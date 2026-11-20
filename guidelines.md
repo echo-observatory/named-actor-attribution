@@ -68,7 +68,7 @@ Inside a quote, keep the whole run, questions included: in “Why fund paperwork
 Every speaker gets one **canonical name**: the fullest proper name the document gives for that actor.
 
 - **Persons:** given name(s) and family name, with middle names or initials when the document gives them ("Anna K. Berg"). Leave out titles, honorifics, roles and degrees (Dr, Prof., Senator, PhD); keep Jr. and III. Leave out nicknames in quotes or brackets ("Robert ‘Bob’ Smith" → "Robert Smith"). If the document gives only one name (a surname, a first name), that name is canonical.
-- **Organizations**, blogs and publications included: the full name as given, without a leading "the" ("European Space Agency", not "ESA"). If the document gives only an acronym, use the acronym.
+- **Organizations**, blogs, publications and countries included: the full name as given, without a leading "the" ("European Space Agency", not "ESA"). If the document gives only an acronym, use the acronym.
 - **Social media accounts:** the display name, as written, when it looks like a person's full name ("Ivan Kolpakov" for "Ivan Kolpakov (@kolpakov)"). An account known only by a handle or a username has no canonical name: mark its text `<exclude reason="unresolved">`.
 - The canonical name must appear in the text (apart from a nickname inside it). The text itself may use any other form: short names, descriptors, pronouns.
 - If two speakers could be confused ("Berg" for two different people), or one actor's name forms conflict ("Bob Smith" and "Robert Smith"), note it in `<notes>`: those passages will be left out.
@@ -168,5 +168,6 @@ Choices made on cases the rules didn't settle, with the documents that raised th
 | 2026-11-20 | “The blogger writes that…” after several bloggers is ambiguous, even if the nearest blogger is likely: excluded | Miss check of the pilot: 95433 |
 | 2026-11-20 | Unnamed voices reported inside a quote ("the blog writes that some argued X") stay in the quote's segment | Pilot: 61589, 564441, 95433; kept in review of 37818 |
 | 2026-11-20 | When it is debatable whether a quote inside a quote is nested (a remembered “Come inside for lunch!” in a blogger's text), exclude it. This is a rule for building the dataset, not for analysing text: keeping it in the outer segment may well be the better reading, but the dataset leaves the doubt out (Principle 1) | Review of 702912 |
+| 2026-11-20 | A country is a speaker when it is the subject (“Japan says…”), typed as an organization; “the Japanese say” stays unnamed | Wikinews 6 |
 | 2026-11-20 | Open, default applied: royal titles are stripped like others ("Prince Charles" → "Charles") | Pilot: 748041 |
 | 2026-11-20 | Open, default applied: a study run by a named organization is a document source; the organization is the speaker only when it is the subject ("Nexer found that…") | Pilot: 705184 |

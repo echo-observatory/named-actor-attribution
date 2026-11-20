@@ -32,7 +32,7 @@ Status: building. Documents are drafted and cut into items in batches; people re
 
 Corpora of English texts whose license allows redistribution, from `obs-test-datasets`:
 - [`global-voices-cheese-181`](https://github.com/echo-observatory/obs-test-datasets/tree/main/global-voices-cheese-181) (CC BY 3.0): mostly blog roundups, rich in block quotes and tweets, so it suits the higher tiers;
-- possibly Wikinews, whose news style has more inline quotes ("…,” said X) for the low tiers.
+- [`wikinews-quote-rich-100`](https://github.com/echo-observatory/obs-test-datasets/tree/main/wikinews-quote-rich-100) (CC BY 2.5 or 4.0): news articles chosen for their quotes, mostly inline ("…,” said X), with several named speakers per article. Not `wikinews-piracy-30`, which is Karaage's development set.
 
 No Retriever data: the dataset is meant to be published.
 
@@ -87,7 +87,8 @@ uv run naa adapt adaptation.json
 uv run naa runs annotations/*.xml
 
 # Build the items from the cut lists, check them, and report their tiers
-uv run naa cut cuts/*.json --corpus ../obs-test-datasets/global-voices-cheese-181/articles.jsonl --out items.jsonl --page items.html
+uv run naa cut cuts/*.json --corpus ../obs-test-datasets/global-voices-cheese-181/articles.jsonl \
+  --corpus ../obs-test-datasets/wikinews-quote-rich-100/articles.jsonl --out items.jsonl --page items.html
 
 # Record the review of items saved from that page; corrections go back into their documents
 uv run naa review reviewed-items.xml

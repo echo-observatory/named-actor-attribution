@@ -222,3 +222,13 @@ def test_review_items_and_put_corrections_back(tmp_path, capsys):
     [item] = cut_items()
     assert item["annotation"]["reviewed_by"] is None
     assert "to review again: invented-lab-01" in capsys.readouterr().out
+
+
+def test_source_details_credit_wikinews(tmp_path):
+    corpus = tmp_path / "wikinews-test" / "articles.jsonl"
+    corpus.parent.mkdir()
+    corpus.write_text(json.dumps({"id": 7, "title": "A title", "date": "2008-01-02", "license": "CC BY 2.5",
+                                  "url": "https://en.wikinews.org/wiki/A_title", "text": "x"}) + "\n", encoding="utf-8")
+    line = cli._source_details([corpus])[("wikinews-test", "7")]["attribution_line"]
+    assert line == ("“A title”, by Wikinews contributors (2008-01-02), licensed under CC BY 2.5: "
+                    "https://en.wikinews.org/wiki/A_title. Converted to plain text.")

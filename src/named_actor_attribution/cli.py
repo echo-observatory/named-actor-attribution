@@ -240,8 +240,18 @@ def _source_details(corpora: list[Path]) -> dict:
                     r = json.loads(line)
                     out[(name, str(r["id"]))] = {
                         "url": r.get("url"), "title": r.get("title"), "date": r.get("date"),
-                        "license": r.get("license"), "attribution_line": r.get("attribution")}
+                        "license": r.get("license"), "attribution_line": _attribution(name, r)}
     return out
+
+
+def _attribution(corpus: str, r: dict) -> str | None:
+    """The credit line of an article: the corpus's own, or, for Wikinews, the one its README asks for."""
+    if r.get("attribution"):
+        return r["attribution"]
+    if corpus.startswith("wikinews"):
+        return (f"“{r.get('title')}”, by Wikinews contributors ({r.get('date')}), licensed under {r.get('license')}: "
+                f"{r.get('url')}. Converted to plain text.")
+    return None
 
 
 def _cut(args) -> int:

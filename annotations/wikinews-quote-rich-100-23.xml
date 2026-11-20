@@ -1,0 +1,27 @@
+<document id="wikinews-quote-rich-100-23" source="wikinews-quote-rich-100" source-id="23" text-sha256="70be24569a2f7acc0874663562218ed4365d3d2ace4fd33a95c9a0c44c18e304" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="New Line Cinema" type="organization"/>
+  <speaker id="S2" name="Peter Jackson" type="person"/>
+  <speaker id="S3" name="Robert Shaye" type="person"/>
+</speakers>
+<text>Movie studio company, New Line Cinema has announced that <seg speaker="S1" d="D2" r="R1">movie director Peter Jackson will never be allowed to work on another New Line film</seg>. <dis type="author_voice">This announcement will also mean that Mr Jackson will not be allowed to film the prequel titled The Hobbit to The Lord of the Rings films he directed.</dis>
+
+<exclude reason="joint" note="Jackson and Walsh's joint belief.">The announcement was made mainly because New Zealander Mr Jackson and his partner, Fran Walsh, filed a law suit against New Line in 2005 as they believed New Line owed them much more money than they received for The Lord of the Rings trilogy as shown to them by a partial audit of The Fellowship of the Ring.</exclude> <exclude reason="unresolved" note="The cue-less quote speaks for “our legal action”: Jackson's, or his and Walsh's?">Mr Jackson described it as "financial anomalies," which New Line refused to account for. "Fundamentally, our legal action is about holding New Line to its contractual obligations and promises."</exclude> The film trilogies have so far managed to earn US$3 billion in ticket sales since 2001.
+
+New Line has repeatedly refused permission for Mr Jackson to audit the other films in the trilogy The Two Towers, and The Return of the King, even though Mr Jackson described <seg speaker="S2" d="D2" r="R2">film auditing as a common practice. "We don't understand why New Line Cinema has taken this position</seg>," Mr Jackson said.
+
+In an interview with the Sci Fi Wire, Robert Shaye, co-chairman of New Line and executive producer of The Lord of the Rings, said that <seg speaker="S3" d="D3" r="R1">New Line does not want to do any films, including The Hobbit, with Mr Jackson in the future. "I do not want to make a movie with somebody who is suing me. It will never happen during my watch.</seg>"
+
+"<seg speaker="S3" d="D1" r="R2">I don't care about Peter Jackson anymore. He wants to have another $100 million or $50 million, whatever he's suing us for</seg>," Mr Shaye said.
+
+Mr Shaye said <seg speaker="S3" d="D3" r="R2">he has been offended by the lawsuit brought to his company by Mr Jackson. "He got a quarter of a billion dollars paid to him so far, justifiable, according to contract, completely right, [but then] turns around without wanting to have a discussion with us and sues us and refuses to discuss it unless we just give in to his plan.</seg>"
+
+However Mr Jackson claims that <seg speaker="S2" d="D2" r="R2">he had been trying to discuss it with New Line</seg>, saying: "<seg speaker="S2" d="D1" r="R2">We attempted to discuss the issues raised with New Line for over a year but the studio was and continues to be completely uncooperative. ... Nobody likes taking legal action, but the studio left us with no alternative.</seg>"
+
+Mr Jackson has said that <seg speaker="S2" d="D2" r="R2">he has and will continue to have the highest respect and affection for Mr Shaye</seg> and has said that <seg speaker="S2" d="D2" r="R2">he regrets he has taken the lawsuit personally</seg>.
+
+"<seg speaker="S3" d="D1" r="R2">[Jackson's] either had very poor counsel or is completely misinformed and myopic to think that I care whether I give him [anything]</seg>," Mr Shaye said.
+
+Mr Shaye has said <seg speaker="S3" d="D2" r="R2">he is disappointed that many of the stars in The Lord of the Rings trilogy had refused to celebrate New Line's 40th anniversary</seg>. Mr Jackson said that <seg speaker="S2" d="D2" r="R2">the reason for that was probably because Mr Shaye had issues with the cast years before the lawsuit arose</seg>.</text>
+<notes>“Mr” stripped from names. The belief of Jackson and Walsh is joint; the cue-less “our legal action” quote may be theirs jointly: excluded.</notes>
+</document>

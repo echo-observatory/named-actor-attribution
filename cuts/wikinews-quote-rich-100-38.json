@@ -1,0 +1,59 @@
+{
+ "document": "wikinews-quote-rich-100-38",
+ "items": [
+  {
+   "from": "The new initiative is dubbed",
+   "to": "the company's press release."
+  },
+  {
+   "from": "\"We see technologies we think",
+   "to": "many more out there.\""
+  },
+  {
+   "from": "Page said that Google's goal",
+   "to": "years, not decades.\"",
+   "names": {
+    "S1": "Page"
+   },
+   "levels": {
+    "Google's goal is": [
+     "D2",
+     "R1"
+    ],
+    "the company is": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "According to the company press release, one gigawatt",
+   "to": "Google's new initiative."
+  },
+  {
+   "from": "\"I’ve written off Google’s competition",
+   "to": "in the Google story.\""
+  },
+  {
+   "from": "Rohan added that",
+   "to": "do good in the world.\"",
+   "names": {
+    "S2": "Rohan"
+   },
+   "levels": {
+    "The only positive": [
+     "D2",
+     "R1"
+    ]
+   }
+  },
+  {
+   "from": "Travis Bradford, an analyst",
+   "to": "huge pile of cash.\""
+  },
+  {
+   "from": "On the other hand, Brett Conrad",
+   "to": "as a big oil company.\""
+  }
+ ]
+}
