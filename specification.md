@@ -57,9 +57,9 @@ Every gold segment is tagged on two axes, by the drafting model on each item aft
 | --- | --- | --- |
 | R1 | Canonical name in the same sentence | …said Anna Berg. |
 | R2 | Short form of the canonical name (surname, first name) in the same sentence, unique in the item | …said Berg. |
-| R3 | Pronoun whose antecedent is within the previous 2 sentences and is the only compatible candidate | …she said. |
+| R3 | Pronoun whose antecedent is within the previous 2 sentences, in the same paragraph, and is the only compatible candidate | …she said. |
 | R4 | Role or title descriptor ("the director", "the agency") within 2 sentences, unambiguous | The director fears the funding will be cut. |
-| R5 | Distant antecedent (more than 2 sentences back or in an earlier paragraph), or two or more compatible candidates in the window, resolved by the content | Berg wants a March reopening; Lise Kanto has doubts. […] She thinks March is unrealistic. |
+| R5 | Distant antecedent (more than 2 sentences back or in an earlier paragraph), or two or more compatible candidates in the window, resolved by the content. A pronoun cue right after a paragraph break, whose antecedent ends the paragraph before, is distant: R5. For a block quote, the mention is the one in its lead-in. | Berg wants a March reopening; Lise Kanto has doubts. […] She thinks March is unrealistic. |
 | R6 | No mention marks the actor as the speaker: the speaker is inferred from discourse structure, such as the answer in an exchange | Berg asked Holm when the lab would reopen. “Not before March.” (Holm is named, but only as the one asked) |
 
 **Item-level features**, recorded per item: number of distinct speakers, word count, number of distractors (§5.3).

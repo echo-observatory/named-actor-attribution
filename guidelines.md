@@ -117,9 +117,9 @@ Each segment gets two levels: how hard it is to **detect** (`d`) and how hard it
 | --- | --- |
 | R1 | The canonical name, in the same sentence |
 | R2 | A short form of the name (surname, first name), in the same sentence |
-| R3 | A pronoun whose antecedent is within the 2 previous sentences, with no other candidate |
+| R3 | A pronoun whose antecedent is within the 2 previous sentences, in the same paragraph, with no other candidate |
 | R4 | A role or descriptor ("the director", "the agency") within 2 sentences, unambiguous |
-| R5 | An antecedent further back, or several candidates that fit, resolved by the content |
+| R5 | An antecedent further back or in an earlier paragraph (even the sentence just before a paragraph break), or several candidates that fit, resolved by the content. For a block quote, judge the mention in its lead-in |
 | R6 | No mention marks the actor as the speaker: inferred from the discourse, such as the answer in an exchange |
 
 The model sets levels on each item, after cutting, since they depend on where the passage starts and ends. Levels set on whole documents are a first guess, replaced then.
@@ -171,5 +171,6 @@ Choices made on cases the rules didn't settle, with the documents that raised th
 | 2026-11-20 | A country is a speaker when it is the subject (“Japan says…”), typed as an organization; “the Japanese say” stays unnamed | Wikinews 6 |
 | 2026-11-20 | A goal or a factive framed by the author (“he knew that X”, “he was hoping to prove that X”, “he hoped to find evidence that X”) is excluded: whether X is the actor's claim is debatable. Plain beliefs and fears (“he believes X”, “she fears X”) stay segments | Review of item 48-05 |
 | 2026-11-20 | A post or account described without its content (“breaks her silence with a hilarious account of…”) is a `non_statement` distractor | Review of item 17362-03 |
+| 2026-11-20 | A pronoun cue whose antecedent is in an earlier paragraph is R5, even one sentence back: T6 holds distance across paragraphs as well as competing candidates, and the dataset card says so | Batch 4: 14, 693019 |
 | 2026-11-20 | Open, default applied: royal titles are stripped like others ("Prince Charles" → "Charles") | Pilot: 748041 |
 | 2026-11-20 | Open, default applied: a study run by a named organization is a document source; the organization is the speaker only when it is the subject ("Nexer found that…") | Pilot: 705184 |
