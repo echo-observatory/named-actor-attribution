@@ -3,19 +3,35 @@
  "items": [
   {
    "from": "The Rihanna/Chris Brown headlines",
-   "to": "not for Rihanna's benefit."
+   "to": "not for Rihanna's benefit.",
+   "review": {
+    "by": "M",
+    "sha256": "a29a7f56d0c47ff21d55915d6ebd1254f97ed8075f1177d7036630e6f600a537"
+   }
   },
   {
    "from": "Trinidadian blogger This Beach Called Life",
-   "to": "give her your best shot."
+   "to": "give her your best shot.",
+   "review": {
+    "by": "M",
+    "sha256": "4c449d7f424fd4668e19a673e20345a483002ec6b57826246c25d553280c4634"
+   }
   },
   {
    "from": "There is palpable disappointment",
-   "to": "cycles of violence."
+   "to": "cycles of violence.",
+   "review": {
+    "by": "M",
+    "sha256": "643d5ba947cbba137030a59abba408894c3543f715452c7320f342d809974863"
+   }
   },
   {
    "from": "Rihanna's compatriot Cheese-on-bread!",
-   "to": "being sent her way."
+   "to": "being sent her way.",
+   "review": {
+    "by": "M",
+    "sha256": "4c00833647686fc234484bf8b6ced8cac4a79dc04a455ef952dc2111181d45b5"
+   }
   }
  ]
 }
