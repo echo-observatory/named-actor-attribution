@@ -245,3 +245,25 @@ def test_an_item_may_start_after_an_excluded_heading_line():
     h = text.index("Funding woes"); doc.exclusions.append(markup.Exclusion("boilerplate", h, h + len("Funding woes")))
     _, problems = items.make_item(doc, cut, "x")
     assert problems == []
+
+
+def fake_item(item_id, doc, tier, n_segments=1):
+    return {"item_id": item_id, "tier": tier, "segments": [{}] * n_segments, "source": {"document": doc}, "split": None}
+
+
+def test_splits_keep_documents_together_and_blind_corpora_in_test():
+    its = [fake_item(f"d{k}-{t}", f"c-{k}", tier) for k in range(20) for t, (tier, *_) in enumerate(items.TIERS)]
+    its += [fake_item("b-01", "blind-1", "T1"), fake_item("b-02", "blind-1", "T2")]
+    small = {"targets": {"test": {"items": 2, "segments": 2}, "dev": {"items": 2, "segments": 0}}, "t0_targets": {"test": 0, "dev": 0}}
+    seed, a = items.assign_splits(its, dev_share=0.3, test_only=("blind",), **small)
+    assert seed is not None and a["blind-1"] == "test" and set(a.values()) == {"dev", "test"}
+    assert items.assign_splits(its, dev_share=0.3, test_only=("blind",), **small) == (seed, a)  # reproducible
+    assert items.split_problems(its, a, **small) == []
+    assert items.split_problems(its, {d: "test" for d in a}, **small)  # no dev at all
+
+
+def test_agreement_sample_per_tier():
+    its = [fake_item(f"a{k:02d}", f"c-{k}", "T1") for k in range(40)] + [fake_item(f"b{k}", f"c-{k}", "T2") for k in range(3)]
+    ids = items.agreement_sample(its, share=0.2, minimum=5, seed=1)
+    assert sum(i.startswith("a") for i in ids) == 8 and sum(i.startswith("b") for i in ids) == 3
+    assert ids == items.agreement_sample(its, share=0.2, minimum=5, seed=1)

@@ -18,6 +18,8 @@ Status: building. Documents are drafted and cut into items in batches; people re
 | [`annotations/`](annotations/) | Annotated documents in the markup format, with their licence and credits. |
 | [`docs/drafting.md`](docs/drafting.md), [`prompts/`](prompts/) | How documents are drafted and miss-checked, the draft format that `naa apply` reads, and the miss-check prompt. |
 | [`cuts/`](cuts/), [`docs/cutting.md`](docs/cutting.md) | The cut lists, which name the passages kept as items, and how cutting works. |
+| [`splits.json`](splits.json) | The split, dev or test, of each source document, with the seed and procedure that drew it (spec §9). |
+| [`agreement.json`](agreement.json) | The items of the agreement sample, labelled again by a second annotator (spec §7). |
 | [`annotator/annotator.html`](annotator/annotator.html) | The annotation page: a single HTML file with no dependencies (see [Annotation page](#annotation-page)). |
 | [`src/named_actor_attribution/`](src/named_actor_attribution/), [`tests/`](tests/) | The `naa` command line, and its tests. |
 
@@ -94,6 +96,14 @@ uv run naa cut cuts/*.json --corpus ../obs-test-datasets/global-voices-cheese-18
 
 # Record the review of items saved from that page; corrections go back into their documents
 uv run naa review reviewed-items.xml
+
+# Assign source documents to dev or test at random, meeting the per-tier minimums of spec §9;
+# then fill each item's split when cutting
+uv run naa assign-splits cuts/*.json
+uv run naa cut cuts/*.json --splits splits.json --out items.jsonl
+
+# Draw the agreement sample, 20% of each tier, and build a blank page of its items for a second annotator
+uv run naa agreement cuts/*.json --page agreement-blank.html
 
 # Build a copy of the annotation page with documents built in, to send to an annotator;
 # --blank removes the annotation, for annotating from scratch
