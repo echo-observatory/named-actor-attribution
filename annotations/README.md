@@ -32,6 +32,8 @@ The texts are © their authors, published by Global Voices under [CC BY 3.0](htt
 | `global-voices-cheese-181-55153.xml` | This story by Ayesha Saldanha originally appeared on Global Voices on January 10, 2009: https://globalvoices.org/2009/01/10/palestine-how-many-deaths-in-gaza-is-enough/ |
 | `global-voices-cheese-181-51419.xml` | This story by George Esunge Fominyen originally appeared on Global Voices on October 16, 2008: https://globalvoices.org/2008/10/16/volunteers-blogging-about-cameroon%e2%80%a6/ |
 | `global-voices-cheese-181-281971.xml` | This story by Tarek Amr originally appeared on Global Voices on January 10, 2012: https://globalvoices.org/2012/01/10/egypt-diaries-of-a-cancer-patient/ |
+| `global-voices-cheese-181-60936.xml` | This story by Janine Mendes-Franco originally appeared on Global Voices on March 10, 2009: https://globalvoices.org/2009/03/10/caribbean-message-for-rihanna/ |
+| `global-voices-cheese-181-100484.xml` | This story by Janine Mendes-Franco originally appeared on Global Voices on October 9, 2009: https://globalvoices.org/2009/10/09/caribbean-obama-the-nobel-peace-prize/ |
 
 ### Wikinews
 

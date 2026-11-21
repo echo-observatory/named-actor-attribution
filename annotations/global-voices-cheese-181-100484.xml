@@ -1,0 +1,94 @@
+<document id="global-voices-cheese-181-100484" source="global-voices-cheese-181" source-id="100484" text-sha256="6477925df86a92018f4e3dad0494f06dacfddf9a03febd1995014ec239afb7bd" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Barack Obama" type="person"/>
+  <speaker id="S2" name="Nobel Committee" type="organization"/>
+  <speaker id="S3" name="Letters from Grenada" type="organization"/>
+  <speaker id="S4" name="Barbados Free Press" type="organization"/>
+  <speaker id="S5" name="Living in Barbados" type="organization"/>
+  <speaker id="S6" name="Blog for Cuba" type="organization"/>
+  <speaker id="S7" name="Tomás Estrada-Palma" type="organization"/>
+  <speaker id="S8" name="Along the Malecon" type="organization"/>
+  <speaker id="S9" name="Liza" type="person"/>
+  <speaker id="S10" name="Cheese-on-bread!" type="organization"/>
+</speakers>
+<text>Barack Obama can now add another prestigious title to his already impressive resume: Nobel Laureate. Saying <seg speaker="S1" d="D2" r="R2">he was “humbled” by the honour</seg>, which was bestowed upon him in part because of his role in meeting the challenges of global climate change, in part – in the words of the Nobel Committee – “<seg speaker="S2" d="D4" r="R1">for his extraordinary efforts to strengthen international diplomacy and cooperation between peoples</seg>”, Obama considers <seg speaker="S1" d="D4" r="R2">the award a “call to action”</seg>. <dis type="unnamed_source">Still, the announcement has left some Caribbean bloggers asking questions…</dis>
+
+Letters from Grenada writes:
+
+<seg speaker="S3" d="D3" r="R1">Barack Obama won the Nobel Peace Prize. That’s so damn beautiful my nipples are hard.</seg>
+
+<exclude reason="nested" note="Quotes her brother's text message.">Then I sent my brother a text message telling him the news. He texted me back. ‘For what? Ending Iraq? Ending Afghanistan? Closing Gitmo? Making universal health care a reality? Ensuring our right to electronic privacy?’</exclude>
+
+She continues:
+
+<seg speaker="S3" d="D3" r="R5">Listen. Obama’s not perfect. I know a lot of people who support him are disappointed by some of the things he has not accomplished. I just want to remind everyone that the Nobel Peace Prize is an international award. It has nothing to do with our domestic concerns. And if you don’t think Obama has made an enormous difference in our image on the international scene, if you don’t think he’s given people all over the world hope enough to dream of a better tomorrow…then I just don’t know what.</seg>
+
+<dis type="non_statement">Barbados Free Press, meanwhile, wonders whether the whole thing is “too much, too soon”:</dis>
+
+<seg speaker="S4" d="D5" r="R1">Barack Obama has been awarded the 2009 Nobel Prize for what he believes, and the hope people have in him – not for what he has accomplished or even tried to accomplish.
+
+You might want to remember that Barack Obama was nominated for the prize in February of 2009 after serving less than two weeks as President.
+
+As I write this the announcement from Oslo is only an hour old and thus far the overwhelming response from the world has not been congratulations, but puzzlement and concern that the always-politicized Peace Prize has now become even more a political tool designed to influence policy rather than a prestigious award in recognition of efforts that changed the world.</seg>
+
+Living in Barbados adds:
+
+<seg speaker="S5" d="D5" r="R1">Truly Amazing. Perhaps premature. Remember that nominations closed two weeks after Senator Obama became president. Nice work, if you can get it.
+
+We do live in interesting times.</seg>
+
+Bloggers from the Cuban diaspora were less diplomatic about their reactions. Blog for Cuba calls <seg speaker="S6" d="D2" r="R1">it just another example of the “Orwellian world we now live in”</seg>, while Tomás Estrada-Palma says:
+
+<seg speaker="S7" d="D3" r="R1">PLEASEEEEEEEE! Give me a break. How does the man who drops drone delivered bombs into the living rooms of innocent children in his undeclared war on the tribal areas of Pakistan get a peace prize?</seg>
+
+But Along the Malecon takes a different view:
+
+<seg speaker="S8" d="D5" r="R1">This is something else. A real stunner.
+
+Seeing the Nobel prize go to Obama underscores that the American president has been busy with huge and important global issues – and he has made progress.
+
+U.S.-Cuba relations seems minor when compared to some of the other issues Obama has tackled.
+
+It is heartening to see that the international community once again has respect for our president.
+
+It's sad to see that so many Americans don't appreciate how exceptional Obama is.</seg>
+
+Caribbean diaspora blogger Tobias Buckell first heard the news on Twitter:
+
+<exclude reason="nested" note="Quotes what a Twitter feed said, and others' remarks (Scalzi, Scott).">When I woke up this morning I checked my twitter feed and everyone was going ‘Obama awarded a Nobel, WTF?’
+
+So did I (much like Scalzi, here). While I agree it’ll probably be a liability in terms of the criticisms that he’s a celebrity president and so on, I’m actually cracking up about this because of the completely predictable response from the GOP party machine and spokespeople: instant condemnation. Like celebrating the failure to host the Olympics just because it was a cause Obama championed. You see, when else will the Republican party line up in complete and utter agreement with Hamas (Scott points out below I may have gotten that quote out of context, so grain of salt for Hamas there) and the Taliban and various terrorist groups that are anti-American?</exclude>
+
+Fellow diaspora blogger Liza has been listening very closely to the entire debate and quips:
+
+<seg speaker="S9" d="D3" r="R1">You hear that? It's the collective sonic boom of republican heads exploding.</seg>
+
+Back in Barbados, Cheese-on-bread! is firmly in the pro-Obama camp:
+
+<seg speaker="S10" d="D5" r="R1">Of course the US networks are falling over themselves asking if he deserves this honour.
+
+He didn't award himself the prize, so suck it up, critics.</seg>
+
+Letters from Grenada adds:
+
+<seg speaker="S3" d="D3" r="R1">Myth: The prize is awarded to recognize efforts for peace, human rights and democracy only after they have proven successful. More often, the prize is awarded to encourage those who receive it to see the effort through, sometimes at critical moments.</seg>
+
+But Barbados Free Press still isn't convinced:
+
+<seg speaker="S4" d="D5" r="R1">The Nobel Prize Committee has again lowered the value of the award with a controversial decision that history may see as foolish. When will the people of the Nobel Prize Committee discover that they cannot predict or control world events?
+
+Are they saying that they will agree with everything the Obama administration does until the end of his term? What if the United States military ramps up the war in Afghanistan and overtly goes into Pakistan? What if Obama decides to take out an Iranian military installation?
+
+Is the Nobel Prize Committee trying to control upcoming US policy in the near future through the awarding of the 2009 Peace Prize? They will be sorely disappointed and embarrassed.
+
+The controversy in the awarding of the 2009 Nobel Peace Prize is not really about Obama – it is about a Nobel Prize Committee that has become too full of itself and detached from reality.</seg>
+
+<exclude reason="boilerplate">The thumbnail image used in this post, “Day 78 – Peace”, is by lintmachine, used under a Creative Commons license. Visit lintmachine's flickr photostream.</exclude></text>
+<notes>Blogs named as speakers are organizations, Tomás Estrada-Palma included (a blog). Block quotes holding someone else's words (a brother's text message, a tweet quoted by Buckell) are nested. “Wonders whether” is a question: a non-statement.</notes>
+<flags>
+  <flag kind="doubt" quote="for his extraordinary efforts to strengthen international diplomacy and cooperation between peoples" speaker="Nobel Committee">This is a quote from the Nobel Committee's citation, not a statement by the committee itself; it should be excluded as a document source.</flag>
+  <flag kind="doubt" quote="he was “humbled” by the honour" speaker="Barack Obama">The segment includes the cue 'Saying' and the pronoun 'he' outside the actual quote; boundaries should be just the quoted words.</flag>
+  <flag kind="doubt" quote="the award a “call to action”" speaker="Barack Obama">The segment includes the cue 'considers' and the pronoun 'the award' outside the actual quote; boundaries should be just the quoted words.</flag>
+  <flag kind="doubt" quote="it just another example of the “Orwellian world we now live in”" speaker="Blog for Cuba">The segment includes the cue 'calls' and the pronoun 'it' outside the actual quote; boundaries should be just the quoted words.</flag>
+</flags>
+</document>

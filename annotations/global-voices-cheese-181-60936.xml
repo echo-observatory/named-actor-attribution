@@ -1,0 +1,52 @@
+<document id="global-voices-cheese-181-60936" source="global-voices-cheese-181" source-id="60936" text-sha256="5429f502e7fbe823a620f162558692d924134a975a5da24392596289a1f62570" status="drafted" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813">
+<speakers>
+  <speaker id="S1" name="Cheese-on-bread!" type="organization"/>
+  <speaker id="S2" name="This Beach Called Life" type="organization"/>
+  <speaker id="S3" name="Attillah Springer" type="person"/>
+</speakers>
+<text>The Rihanna/Chris Brown headlines have been capturing the interest of bloggers Caribbean-wide recently, not only because Rihanna is Barbados-born and bred, but because the whole issue of domestic abuse hits really close to home.
+
+<dis type="unnamed_source">Adding insult to injury for most bloggers are rumours that the pair have not only reunited, but allegedly got married,</dis> prompting Cheese-on-bread!, a Barbadian blog that has long been an avid Rihanna supporter, to write a post highlighting <dis type="quoted_title_or_scare_quote">“six reasons why Rihanna would marry Chris Brown”</dis>:
+
+<seg speaker="S1" d="D5" r="R1">1) She wanted to see Chris Brown in a suit. Granted, it's the most mature I've seen him look, since he often looks as though he's dressed by a group of deranged Sesame Street muppets. That suit would look real nice with a pair of handcuffs though…
+
+5) She's getting bad advice. Already proven.</seg>
+
+The blogger goes on to say:
+
+<seg speaker="S1" d="D5" r="R5">All last week the net was inundated with stories of her being back with Brown, married to Brown, pregnant for Brown, beating up Brown first and to be honest I'm over trying to figure out the truth from the lies.
+
+I think the biggest problem with this drama is that both Rihanna and Chris Brown's publicists are spinning out of control. A lot of bs is being slung and I fear it's all for ‘operation save Chris Brown's career’ and not for Rihanna's benefit.</seg>
+
+Trinidadian blogger This Beach Called Life is of the opinion that <seg speaker="S2" d="D4" r="R1">Brown will likely hit Rihanna again</seg>:
+
+<seg speaker="S2" d="D3" r="R1">This was obviously no simple beating. I am no expert but I think Mr Brown will hit again and he may hit harder and choke longer next time. The message Rihanna is sending to domestic violence victims is that it wasn’t so bad. The message she is sending to abusers like Chris Brown is give her your best shot.</seg>
+
+<dis type="author_voice">There is palpable disappointment in the regional blogosphere over the pop star's apparent unwillingness – or inability – to be a spokesperson for domestic violence.</dis> Another Trinidad and Tobago-based blogger, Attillah Springer, writes a stirring letter to Rihanna:
+
+<seg speaker="S3" d="D5" r="R1">I don’t know if my words will have any effect on you, but I feel like I have to say it. The scary thing is that we are so comfortable with violence that your fans can get over Chris Brown’s behaviour. They say, small ting. Everybody has to get licks some time.
+
+This is a country where we make a lot of excuses for men’s violence against women. This is a country where little girls can be abducted, raped, killed and then you hear people call in to radio stations and condemn them for being too ‘fresh’.
+
+This scares me, Rihanna. Especially since women like you are role models. The epitome of this bizarre construct called modern woman. You, the post feminist self-determined Barbie, who have money, a top career, men the world over who practically worship you and thighs to make the rest of us women die of jealousy. You who are all these things can’t possibly accept such behaviour from a man.
+
+I fear that the news of your return to your abuser sets a bad precedent to all the Caribbean girls becoming women who admire you, your rise to fame, your spectacular claiming of Hollywood. You, a regular Bajan girl that could be any regular other girl from any regular other island.</seg>
+
+She adds:
+
+<seg speaker="S3" d="D5" r="R5">We have this way of thinking that doesn’t always take reason into consideration, because we think we’re in love. We would rather take the occasional licks than lonely nights or trying to find someone else to love us.
+
+And I look around at my other sister friends who are agonizing in relationships with men who either don’t deserve them…and I wonder about love and power and sex and if we will ever figure out how to balance them all.
+
+If women like you can negotiate around and past the problem of abuse and add your voices and your strength and your ideas to women who don’t have the resources or the confidence in their own voices to break themselves out of cycles of violence.</seg>
+
+Rihanna's compatriot Cheese-on-bread! sums up the feeling of the Caribbean blogosphere in one pointed sentence:
+
+<seg speaker="S1" d="D3" r="R1">All I know is that if she marries or for that matter reconciles with Brown, she's going to squander a lot of goodwill being sent her way.</seg>
+
+<exclude reason="boilerplate">The image used in the thumbnail of this post, “Rihanna with Chris Brown (Explored)”, is by Express Monorail (Hiatus), and used under a Creative Commons license. Visit Express Monorail's flickr photostream.</exclude></text>
+<notes>Blogs named as speakers are organizations. “The blogger goes on to say” refers back past two paragraphs to the only blogger named so far: R5. Unnamed voices reported inside Springer's letter (“They say, small ting”) stay inside.</notes>
+<flags>
+  <flag kind="doubt" quote="1) She wanted to see Chris Brown in a suit. Granted, it's the most mature I've seen him look, since he often looks as though he's dressed by a group of deranged Sesame Street muppets. That suit would look real nice with a pair of handcuffs though…&#10;&#10;5) She's getting bad advice. Already proven." speaker="Cheese-on-bread!">The segment skips reasons 2-4, so the quoted text is not contiguous in the original; the segment should be split or the missing text included.</flag>
+</flags>
+</document>
