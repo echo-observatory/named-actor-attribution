@@ -8,15 +8,27 @@
   },
   {
    "from": "Here are some reactions of bloggers",
-   "to": "this is one of them"
+   "to": "this is one of them",
+   "review": {
+    "by": "Mathieu",
+    "sha256": "f673fc2a504c86e3c271abc6bd03dfc81084164825cc38ea8c24bb864b79806d"
+   }
   },
   {
    "from": "Commenting on a post, Melissa",
-   "to": "don’t see a problem with it"
+   "to": "don’t see a problem with it",
+   "review": {
+    "by": "Mathieu",
+    "sha256": "f176ec9c91412a11be52b2c57b233f597c4fa799bf6107ce6f882b6e3b4b4236"
+   }
   },
   {
    "from": "Carl Parkes fears",
-   "to": "McSomTam in Bangkok."
+   "to": "McSomTam in Bangkok.",
+   "review": {
+    "by": "Mathieu",
+    "sha256": "2b13f35667e9bff5d4224fcf2f331906ef584b41164da81032b6015ec358207c"
+   }
   },
   {
    "from": "The Bluesman asks if",

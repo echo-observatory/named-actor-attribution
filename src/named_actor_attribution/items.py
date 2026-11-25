@@ -202,9 +202,11 @@ def make_item(doc: markup.Document, cut: Cut, item_id: str, source: dict | None 
         "annotation": {"drafted_by": doc.drafted_by, "miss_check_by": doc.miss_check_by,
                        "reviewed_by": None, "second_annotator": None, "nested_checked": True, "notes": ""},
     }
-    # Reviewed as an item, if the review matches what the item is now; else, as a reviewed document.
-    if cut.review and cut.review.get("sha256") == review_key(item):
-        item["annotation"]["reviewed_by"] = cut.review.get("by")
+    # Reviewed as an item, if the review matches what the item is now. An item without a review of its own
+    # is reviewed with its document; one whose review is out of date is not reviewed, whatever the document is.
+    if cut.review:
+        if cut.review.get("sha256") == review_key(item):
+            item["annotation"]["reviewed_by"] = cut.review.get("by")
     elif doc.status == "reviewed":
         item["annotation"]["reviewed_by"] = doc.annotator
     return item, problems

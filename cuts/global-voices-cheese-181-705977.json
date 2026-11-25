@@ -15,7 +15,11 @@
   },
   {
    "from": "Yuraima Mercado, a member",
-   "to": "distribute this food to the elderly."
+   "to": "distribute this food to the elderly.",
+   "review": {
+    "by": "Mathieu",
+    "sha256": "5f64b0164957ca025078a3ad3eb5f8877ee402569a4f605c10d9aa2d810a02f0"
+   }
   },
   {
    "from": "The deliveries, which at first",
