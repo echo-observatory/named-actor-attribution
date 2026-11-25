@@ -12,6 +12,7 @@ from pathlib import Path
 from . import evaluate as ev
 from . import items as items_mod
 from . import markup
+from . import validate as validate_mod
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -87,6 +88,10 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--split", choices=("dev", "test"), help="score only the items of this split")
     p.add_argument("--out", type=Path, help="write the table per tier here, as CSV")
 
+    p = sub.add_parser("validate", help="run the acceptance checks of spec §10 on the items; exit 1 if any fails")
+    p.add_argument("items", type=Path, help="the items, as JSONL (from naa cut --splits … --out)")
+    p.add_argument("--agreement", type=Path, default=Path("agreement.json"), help="the agreement sample (default: agreement.json)")
+
     p = sub.add_parser("adapt", help="create an adapted passage as a document of its own (docs/cutting.md)")
     p.add_argument("draft", type=Path, help="the adaptation, as JSON")
     p.add_argument("--documents", type=Path, default=Path("annotations"), help="folder of the documents (default: annotations/)")
@@ -98,7 +103,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--force", action="store_true", help="check again a document that already has miss-check-by")
 
     args = parser.parse_args(argv)
-    commands = {"misscheck": _misscheck, "runs": _runs, "cut": _cut, "assign-splits": _assign_splits, "agreement": _agreement, "evaluate": _evaluate, "review": _review, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
+    commands = {"misscheck": _misscheck, "runs": _runs, "cut": _cut, "assign-splits": _assign_splits, "agreement": _agreement, "evaluate": _evaluate, "validate": _validate, "review": _review, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
     return commands[args.command](args)
 
 
@@ -436,6 +441,17 @@ def _agreement(args) -> int:
     args.page.write_text(build_page([markup.blank(i, by_id[i]["text"]) for i in ids]), encoding="utf-8")
     print(f"{len(ids)} items in the sample, in {args.page}")
     return 0
+
+
+def _validate(args) -> int:
+    all_items = [json.loads(line) for line in args.items.read_text(encoding="utf-8").splitlines() if line.strip()]
+    agreement = json.loads(args.agreement.read_text(encoding="utf-8"))["items"] if args.agreement.exists() else None
+    problems = [f"{i['item_id']}: {p}" for i in all_items for p in validate_mod.check_item(i)]
+    problems += validate_mod.check_dataset(all_items, agreement)
+    for p in problems:
+        print(f"error: {p}")
+    print(f"{len(all_items)} items, {len(problems)} problems")
+    return 1 if problems else 0
 
 
 def _review(args) -> int:
