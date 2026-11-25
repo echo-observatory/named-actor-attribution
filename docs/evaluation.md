@@ -23,3 +23,12 @@ uv run naa evaluate items.jsonl second-annotator.xml --only agreement.json
 ```
 
 It refuses an item whose text has changed since it was annotated. Report the agreement from the second annotator's first pass, before any adjudication: correcting the gold with their labels, then scoring it against them, would overstate it.
+
+## Accepting a dataset
+
+```bash
+uv run naa cut cuts/*.json --splits splits.json --corpus … --out items.jsonl
+uv run naa validate items.jsonl
+```
+
+`naa validate` runs the acceptance checks of spec §10 and exits with 1 if any fails. Two of them need people: that no item holds a nested or joint attribution (it only checks that `nested_checked` is set), and that no speaker's name forms conflict within an item.
