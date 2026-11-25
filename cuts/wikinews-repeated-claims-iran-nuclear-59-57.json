@@ -1,0 +1,12 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-57",
+ "items": [
+  {"from": "Ogle has operated and promoted", "to": "the slogan \"Go Ogle\".", "names": {"S5": "Ogle"}, "levels": {"his username": ["D4", "R1"]}},
+  {"from": "To appear on the Missouri ballot", "to": "activist R. Lee Wrights.", "names": {"S5": "Ogle"}, "levels": {"this happened": ["D4", "R1"]}},
+  {"from": "According to Ogle:", "to": "the voting booth.\"", "names": {"S5": "Ogle"}, "levels": {"the combination": ["D4", "R1"]}},
+  {"from": "Cort, who has written a book", "to": "about counter-terrorism.\"", "names": {"S6": "Cort"}, "levels": {"Iran already has": ["D4", "R1"], "an attack on": ["D4", "R1"]}},
+  {"from": "Democratic presidential candidate Randall Terry", "to": "foreign policy, and music."},
+  {"from": "\"I have obtained a one-dimensional", "to": "lectured at the Vatican.\"", "names": {"S8": "Terry"}, "levels": {"I have obtained": ["D1", "R1"], "I have a Masters": ["D1", "R1"]}},
+  {"from": "Terry adds,", "to": "can be heard on his website.", "names": {"S8": "Terry"}, "levels": {"I used to be": ["D1", "R1"]}}
+ ]
+}
