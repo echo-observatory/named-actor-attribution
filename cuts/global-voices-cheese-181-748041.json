@@ -3,7 +3,11 @@
  "items": [
   {
    "from": "Prince Charles has urged",
-   "to": "one reason for his hesitancy."
+   "to": "one reason for his hesitancy.",
+   "review": {
+    "by": "Mathieu",
+    "sha256": "3a8204d7cf170ccca6e1c8f72ed8f0803338b7e71e68925c125870647d825a52"
+   }
   },
   {
    "from": "This excuse has not been popular down under:",
@@ -11,7 +15,11 @@
   },
   {
    "from": "However, many believe that he is waiting",
-   "to": "the United States and Britain."
+   "to": "the United States and Britain.",
+   "review": {
+    "by": "Mathieu",
+    "sha256": "dd60aca00babef82b1b4a1d7b92e2bf450e187ecfdac90efa3ba11357fe730f7"
+   }
   },
   {
    "from": "The Nationals represent rural",

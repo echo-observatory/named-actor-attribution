@@ -58,6 +58,10 @@
      "D2",
      "R1"
     ]
+   },
+   "review": {
+    "by": "Mathieu",
+    "sha256": "ef0c0131294d619c2721f87169f7f9cc85732dc25b0d691794dd5dfb1e6fb761"
    }
   },
   {
@@ -71,6 +75,10 @@
      "D1",
      "R1"
     ]
+   },
+   "review": {
+    "by": "Mathieu",
+    "sha256": "e9380f5deb60074557db0b81d8c6f499f4a92f313eb7aea33b2ee8487afc301e"
    }
   },
   {

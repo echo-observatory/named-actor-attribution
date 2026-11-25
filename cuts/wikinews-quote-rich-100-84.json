@@ -3,7 +3,11 @@
  "items": [
   {
    "from": "George Entwistle became the new Director-General",
-   "to": "what more you can cut,\" he said."
+   "to": "what more you can cut,\" he said.",
+   "review": {
+    "by": "Mathieu",
+    "sha256": "51584d063a468c1bb4eb262f2b1fe448c4caf604decbe8dddcd440d1fdf63bcd"
+   }
   },
   {
    "from": "Negotiations about the UK's licence fee",
