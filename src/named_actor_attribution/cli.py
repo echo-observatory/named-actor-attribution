@@ -4,10 +4,12 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import sys
 from pathlib import Path
 
+from . import evaluate as ev
 from . import items as items_mod
 from . import markup
 
@@ -62,6 +64,13 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--documents", type=Path, default=Path("annotations"), help="folder of the documents (default: annotations/)")
     p.add_argument("--cuts", type=Path, default=Path("cuts"), help="folder of the cut lists (default: cuts/)")
 
+    p = sub.add_parser("evaluate", help="score a system's output, or a second annotator's, against the gold (docs/evaluation.md)")
+    p.add_argument("items", type=Path, help="the gold items, as JSONL (from naa cut --out)")
+    p.add_argument("predictions", type=Path, help="the output to score: JSONL in the format of spec §6, or markup saved from the annotation page")
+    p.add_argument("--only", type=Path, help="score only these items: a JSON file with an `items` list of ids, such as agreement.json")
+    p.add_argument("--split", choices=("dev", "test"), help="score only the items of this split")
+    p.add_argument("--out", type=Path, help="write the table per tier here, as CSV")
+
     p = sub.add_parser("adapt", help="create an adapted passage as a document of its own (docs/cutting.md)")
     p.add_argument("draft", type=Path, help="the adaptation, as JSON")
     p.add_argument("--documents", type=Path, default=Path("annotations"), help="folder of the documents (default: annotations/)")
@@ -73,7 +82,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--force", action="store_true", help="check again a document that already has miss-check-by")
 
     args = parser.parse_args(argv)
-    commands = {"misscheck": _misscheck, "runs": _runs, "cut": _cut, "review": _review, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
+    commands = {"misscheck": _misscheck, "runs": _runs, "cut": _cut, "evaluate": _evaluate, "review": _review, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
     return commands[args.command](args)
 
 
@@ -293,6 +302,59 @@ def _cut(args) -> int:
     if args.page:
         args.page.write_text(build_page([_item_document(i, flags.get(i["item_id"], [])) for i in all_items]), encoding="utf-8")
     return 1 if failed else 0
+
+
+def _evaluate(args) -> int:
+    all_items = [json.loads(line) for line in args.items.read_text(encoding="utf-8").splitlines() if line.strip()]
+    text = args.predictions.read_text(encoding="utf-8")
+    if args.predictions.suffix == ".xml":
+        predictions = {d.id: ev.document_prediction(d) for d in markup.parse_many(text)}
+        own = {d.id: d.text for d in markup.parse_many(text)}
+        changed = [i["item_id"] for i in all_items if i["item_id"] in own and own[i["item_id"]] != i["text"]]
+        if changed:
+            print(f"error: not the text of the item, was it cut again since? {', '.join(changed)}")
+            return 1
+    else:
+        predictions = {p["item_id"]: p for p in (json.loads(line) for line in text.splitlines() if line.strip())}
+    if args.only:
+        only = set(json.loads(args.only.read_text(encoding="utf-8"))["items"])
+        missing = only - {i["item_id"] for i in all_items}
+        if missing:
+            print(f"error: not among the items: {', '.join(sorted(missing))}")
+            return 1
+        all_items = [i for i in all_items if i["item_id"] in only]
+    if args.split:
+        all_items = [i for i in all_items if i.get("split") == args.split]
+    unknown = sorted(set(predictions) - {i["item_id"] for i in all_items}) if not args.split else []
+    if unknown:
+        print(f"error: predictions for unknown items: {', '.join(unknown)}")
+        return 1
+    scores = ev.score(all_items, predictions)
+    absent = sum(i["item_id"] not in predictions for i in all_items)
+    if absent:
+        print(f"{absent} of {len(all_items)} items have no prediction: scored as empty")
+    rows = [{"tier": t, **m} for t, m in ev.by_tier(scores).items()]
+    show = lambda v: "–" if v is None else f"{v:.2f}" if isinstance(v, float) else str(v)
+    columns = ["tier", "items", "gold_segments", "predicted_segments", "joint_f1", "joint_precision", "joint_recall",
+               "detection_f1", "detection_precision", "detection_recall", "speaker_accuracy"]
+    print("| " + " | ".join(columns) + " |\n| " + " | ".join("---" for _ in columns) + " |")
+    for row in rows:
+        print("| " + " | ".join(show(row[k]) for k in columns) + " |")
+    total = ev.pool(scores)
+    print(f"\nT0: {show(total['t0_false_positives_per_item'])} false positives per item, "
+          f"{show(total['t0_clean_share'])} of the items clean. Invalid outputs: {show(total['invalid_rate'])}.")
+    print("\nBy level, across tiers:")
+    for r in ev.slices(scores):
+        if r["gold_segments"]:
+            print(f"  {r['level']}: {r['gold_segments']} segments, joint recall {show(r['joint_recall'])}, "
+                  f"detection recall {show(r['detection_recall'])}, speaker accuracy {show(r['speaker_accuracy'])}")
+    print("\nDistractors hit:", ", ".join(f"{k} {a}/{b}" for k, (a, b) in ev.distractor_hits(scores).items()) or "none")
+    if args.out:
+        with args.out.open("w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=list(rows[0]) if rows else ["tier"])
+            w.writeheader()
+            w.writerows(rows)
+    return 0
 
 
 def _review(args) -> int:
