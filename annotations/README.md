@@ -76,3 +76,4 @@ The texts are by the Wikinews contributors (https://en.wikinews.org), licensed u
 | `wikinews-repeated-claims-iran-nuclear-59-24.xml` | “Six Power Meetings confirmed on Iran's nuclear crisis”, 2006-10-06, CC BY 2.5: https://en.wikinews.org/wiki/Six_Power_Meetings_confirmed_on_Iran's_nuclear_crisis |
 | `wikinews-repeated-claims-iran-nuclear-59-46.xml` | “UN nuclear chief says negotiations with Iran at 'dead end'”, 2009-11-27, CC BY 2.5: https://en.wikinews.org/wiki/UN_nuclear_chief_says_negotiations_with_Iran_at_'dead_end' |
 | `wikinews-repeated-claims-iran-nuclear-59-49.xml` | “Obama, Medvedev sign treaty cutting nuclear stockpiles”, 2010-04-09, CC BY 2.5: https://en.wikinews.org/wiki/Obama,_Medvedev_sign_treaty_cutting_nuclear_stockpiles |
+| `wikinews-repeated-claims-iran-nuclear-59-27.xml` | “Iran says it's ready for standoff over nuclear activities”, 2007-01-18, CC BY 2.5: https://en.wikinews.org/wiki/Iran_says_it's_ready_for_standoff_over_nuclear_activities |

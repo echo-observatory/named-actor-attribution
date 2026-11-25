@@ -1,0 +1,55 @@
+{
+ "document": "wikinews-repeated-claims-iran-nuclear-59-27",
+ "items": [
+  {
+   "from": "The move comes as the U.S. decided",
+   "to": "made America vulnerable.\"",
+   "review": {
+    "by": "M",
+    "sha256": "fe4f8570a95806ed9632faf8d0d1b7b0b9e15fe844762a74b84dc540cee1f898"
+   }
+  },
+  {
+   "from": "Iran has stated that its nuclear program",
+   "to": "on the nation last year.",
+   "review": {
+    "by": "M",
+    "sha256": "7e283c77ed98ce23adb3f323877a3122fade1716574c85f375d528d1d98dc6fc"
+   }
+  },
+  {
+   "from": "\"Unfortunately, some inside the country",
+   "to": "added Ahmadinejad.",
+   "names": {
+    "S1": "Ahmadinejad"
+   },
+   "levels": {
+    "Unfortunately": [
+     "D1",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "0d4c1de4ad5d9dbb55d8e35a958b8ec56f06cbce6447cae276977244f0545ecb"
+   }
+  },
+  {
+   "from": "Ahmadinejad's announcement comes as",
+   "to": "\"bit by bit.\"",
+   "names": {
+    "S1": "Ahmadinejad"
+   },
+   "levels": {
+    "enrichment of uranium": [
+     "D2",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "fc7aa9c365a9b8e403075cd888edaef204d1ceb09f7865a0c1a3211098b23387"
+   }
+  }
+ ]
+}

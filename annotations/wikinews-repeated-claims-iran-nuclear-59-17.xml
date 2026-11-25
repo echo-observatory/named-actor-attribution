@@ -5,7 +5,7 @@
   <speaker id="S3" name="Tehran" type="organization"/>
   <speaker id="S4" name="Condoleezza Rice" type="person"/>
 </speakers>
-<text><dis type="unnamed_source">Bush administration officials say Iran should be given time to consider a package of incentives aimed at halting the country's nuclear enrichment and reprocessing activities.</dis>
+<text><exclude reason="unresolved" note="Unnamed people who may speak for a named body.">Bush administration officials say Iran should be given time to consider a package of incentives aimed at halting the country's nuclear enrichment and reprocessing activities.</exclude>
 
 <seg speaker="S1" d="D2" r="R1">Tehran will need some time to mull over the offer, and the first response may not be the last word</seg>, says White House spokesman Tony Snow.
 
@@ -23,7 +23,7 @@ The White House spokesman predicted <seg speaker="S1" d="D2" r="R4">there would 
 
 <dis type="non_statement">Last week, U.S. Secretary of State Condoleezza Rice urged Iran to give careful consideration to the plan,</dis> but indicated <seg speaker="S4" d="D2" r="R1">Tehran would not have an indefinite amount of time to respond</seg>.
 
-<dis type="unnamed_source">Iranian officials have indicated they plan to study the document. But, they stress, have no plans to suspend uranium enrichment, which is a key condition that has been attached to the deal.</dis>
+<exclude reason="unresolved" note="Unnamed people who may speak for a named body.">Iranian officials have indicated they plan to study the document. But, they stress, have no plans to suspend uranium enrichment, which is a key condition that has been attached to the deal.</exclude>
 
 Tehran says <seg speaker="S3" d="D2" r="R1">uranium will be processed for use in power plants</seg>. <exclude reason="joint">But the United States and Europe say they are concerned Iran's civilian nuclear power program is really a cover for the development of nuclear weapons.</exclude></text>
 <notes>Snow reporting the White House's mood is nested, as for other spokesmen. Rice's request is a non-statement; the joint concern of the US and Europe are excluded. “Ayatollah” stripped.</notes>

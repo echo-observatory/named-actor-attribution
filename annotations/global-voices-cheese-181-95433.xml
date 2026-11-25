@@ -11,7 +11,7 @@
 </speakers>
 <text>Malaysia’s Federal Court has ruled that <seg speaker="S1" d="D2" r="R1" note="The apposition after it (“a local Indian restaurant…”) is the author's, left out.">McDonald’s trademark name was not violated by McCurry</seg>, a local Indian restaurant which is popular in Kuala Lumpur.
 
-<dis type="named_no_attribution">McCurry, which opened in 1999, was sued by McDonald's in 2001.</dis> <dis type="unnamed_source">According to the owners of McCurry, the “Mc” prefix in the restaurant’s name stands for Malaysian Chicken Curry.</dis>
+<dis type="named_no_attribution">McCurry, which opened in 1999, was sued by McDonald's in 2001.</dis> <exclude reason="unresolved" note="Unnamed people who may speak for a named body.">According to the owners of McCurry, the “Mc” prefix in the restaurant’s name stands for Malaysian Chicken Curry.</exclude>
 
 Here are some reactions of bloggers to the historic court ruling:
 
