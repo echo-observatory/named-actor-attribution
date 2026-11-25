@@ -60,6 +60,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--out", type=Path, help="write the items here, as JSONL")
     p.add_argument("--page", type=Path, help="also build an annotation page holding the items, to read them")
     p.add_argument("--splits", type=Path, help="the split of each source document (from assign-splits), to fill each item's split")
+    p.add_argument("--agreement", type=Path, help="the agreement sample (agreement.json, with agreement/items.jsonl next to it), to fill each item's second annotator")
 
     p = sub.add_parser("assign-splits", help="assign source documents to dev or test at random, meeting the minimums of spec §9")
     p.add_argument("cuts", nargs="+", type=Path, help="cut lists, as JSON")
@@ -92,6 +93,11 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("items", type=Path, help="the items, as JSONL (from naa cut --splits … --out)")
     p.add_argument("--agreement", type=Path, default=Path("agreement.json"), help="the agreement sample (default: agreement.json)")
 
+    p = sub.add_parser("prototypes", help="write the prototypes: 5 dev items per tier, as plain text and annotated (spec §4)")
+    p.add_argument("items", type=Path, help="the items, as JSONL")
+    p.add_argument("chosen", type=Path, help="the ids of the prototypes by tier, as JSON")
+    p.add_argument("--out", type=Path, default=Path("prototypes.md"), help="the file to write (default: prototypes.md)")
+
     p = sub.add_parser("adapt", help="create an adapted passage as a document of its own (docs/cutting.md)")
     p.add_argument("draft", type=Path, help="the adaptation, as JSON")
     p.add_argument("--documents", type=Path, default=Path("annotations"), help="folder of the documents (default: annotations/)")
@@ -103,7 +109,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--force", action="store_true", help="check again a document that already has miss-check-by")
 
     args = parser.parse_args(argv)
-    commands = {"misscheck": _misscheck, "runs": _runs, "cut": _cut, "assign-splits": _assign_splits, "agreement": _agreement, "evaluate": _evaluate, "validate": _validate, "review": _review, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
+    commands = {"misscheck": _misscheck, "runs": _runs, "cut": _cut, "assign-splits": _assign_splits, "agreement": _agreement, "evaluate": _evaluate, "validate": _validate, "prototypes": _prototypes, "review": _review, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
     return commands[args.command](args)
 
 
@@ -260,6 +266,10 @@ def _runs(args) -> int:
     return 0
 
 
+# The publisher of a corpus's articles, by the start of the corpus's name.
+PUBLISHERS = {"global-voices": "Global Voices", "wikinews": "Wikinews"}
+
+
 def _source_details(corpora: list[Path]) -> dict:
     out = {}
     for path in corpora:
@@ -270,6 +280,7 @@ def _source_details(corpora: list[Path]) -> dict:
                     r = json.loads(line)
                     out[(name, str(r["id"]))] = {
                         "url": r.get("url"), "title": r.get("title"), "date": r.get("date"),
+                        "publisher": next((v for k, v in PUBLISHERS.items() if name.startswith(k)), None),
                         "license": r.get("license"), "attribution_line": _attribution(name, r)}
     return out
 
@@ -287,6 +298,11 @@ def _attribution(corpus: str, r: dict) -> str | None:
 def _cut(args) -> int:
     details = _source_details(args.corpus)
     splits = json.loads(args.splits.read_text(encoding="utf-8"))["documents"] if args.splits else None
+    second, sampled = None, {}
+    if args.agreement:
+        second = json.loads(args.agreement.read_text(encoding="utf-8")).get("annotator")
+        record = args.agreement.with_suffix("") / "items.jsonl"
+        sampled = {i["item_id"]: i["text"] for i in map(json.loads, record.read_text(encoding="utf-8").splitlines())}
     all_items, failed, ranges, flags, stale = [], False, [], {}, []
     for path in args.cuts:
         spec = json.loads(path.read_text(encoding="utf-8"))
@@ -307,6 +323,8 @@ def _cut(args) -> int:
                 print(f"{item_id}: error: {p}")
             failed |= bool(problems + more)
             item["annotation"]["notes"] = entry.get("note", "")
+            if sampled.get(item_id) == item["text"]:  # not if it was cut again since
+                item["annotation"]["second_annotator"] = second
             if splits is not None:
                 item["split"] = splits.get(item["source"]["document"])
                 if item["split"] is None:
@@ -452,6 +470,37 @@ def _validate(args) -> int:
         print(f"error: {p}")
     print(f"{len(all_items)} items, {len(problems)} problems")
     return 1 if problems else 0
+
+
+def _inline(item: dict) -> str:
+    """An item's text with its spans marked in it, speakers by name."""
+    names = {s["speaker_id"]: s["canonical_name"] for s in item["speakers"]}
+    marks = [(s["start"], s["end"], f'<seg speaker="{names[s["speaker_id"]]}" d="{s["detection_level"]}" r="{s["reference_level"]}">', "</seg>")
+             for s in item["segments"]]
+    marks += [(a, b, f'<dis type="{d["type"]}">', "</dis>") for d in item["distractors"] for a, b in d["spans"]]
+    text, out, pos = item["text"], [], 0
+    for a, b, opening, closing in sorted(marks):
+        out += [text[pos:a], opening, text[a:b], closing]
+        pos = b
+    return "".join(out) + text[pos:]
+
+
+def _prototypes(args) -> int:
+    by_id = {i["item_id"]: i for i in map(json.loads, args.items.read_text(encoding="utf-8").splitlines())}
+    chosen = json.loads(args.chosen.read_text(encoding="utf-8"))
+    out = ["# Prototypes", "", "Five items per tier, from the `dev` split, each as plain text and annotated (spec §4). Written by `naa prototypes`.", ""]
+    for tier in ev.TIERS:
+        ids = chosen.get(tier, [])
+        wrong = [k for k in ids if k not in by_id or by_id[k]["tier"] != tier or by_id[k]["split"] != "dev"]
+        if len(ids) != 5 or wrong:
+            print(f"error: {tier} needs 5 dev items; has {len(ids)}" + (f", of which not dev {tier}: {', '.join(wrong)}" if wrong else ""))
+            return 1
+        out += [f"## {tier}", ""]
+        for k in ids:
+            i = by_id[k]
+            out += [f"**{k}** ({i['source']['license']}. {i['source']['attribution_line']})", "", "```text", i["text"], "```", "", "```xml", _inline(i), "```", ""]
+    args.out.write_text("\n".join(out), encoding="utf-8")
+    return 0
 
 
 def _review(args) -> int:
