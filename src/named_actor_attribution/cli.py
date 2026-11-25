@@ -56,6 +56,22 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--corpus", type=Path, action="append", default=[], help="corpus JSONL, for each item's source details (repeatable)")
     p.add_argument("--out", type=Path, help="write the items here, as JSONL")
     p.add_argument("--page", type=Path, help="also build an annotation page holding the items, to read them")
+    p.add_argument("--splits", type=Path, help="the split of each source document (from assign-splits), to fill each item's split")
+
+    p = sub.add_parser("assign-splits", help="assign source documents to dev or test at random, meeting the minimums of spec §9")
+    p.add_argument("cuts", nargs="+", type=Path, help="cut lists, as JSON")
+    p.add_argument("--documents", type=Path, default=Path("annotations"), help="folder of the documents (default: annotations/)")
+    p.add_argument("--out", type=Path, default=Path("splits.json"), help="the file to write (default: splits.json)")
+    p.add_argument("--dev-share", type=float, default=0.2, help="chance that a document goes to dev (default: 0.2)")
+
+    p = sub.add_parser("agreement", help="draw the agreement sample (spec §7) and build a blank page of its items")
+    p.add_argument("cuts", nargs="+", type=Path, help="cut lists, as JSON")
+    p.add_argument("--documents", type=Path, default=Path("annotations"), help="folder of the documents (default: annotations/)")
+    p.add_argument("--out", type=Path, default=Path("agreement.json"), help="the sample's item ids (default: agreement.json)")
+    p.add_argument("--page", type=Path, required=True, help="the blank annotation page to build for the second annotator")
+    p.add_argument("--share", type=float, default=0.2, help="share of each tier (default: 0.2)")
+    p.add_argument("--minimum", type=int, default=5, help="items per tier at least (default: 5)")
+    p.add_argument("--seed", type=int, default=0, help="seed of the draw (default: 0)")
 
     p = sub.add_parser("review", help="record the review of items saved from an item page, and put corrections back into their documents")
     p.add_argument("files", nargs="+", type=Path, help="item files or bundles saved from the page built by `naa cut --page`")
@@ -73,7 +89,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--force", action="store_true", help="check again a document that already has miss-check-by")
 
     args = parser.parse_args(argv)
-    commands = {"misscheck": _misscheck, "runs": _runs, "cut": _cut, "review": _review, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
+    commands = {"misscheck": _misscheck, "runs": _runs, "cut": _cut, "assign-splits": _assign_splits, "agreement": _agreement, "review": _review, "adapt": _adapt, "new": _new, "apply": _apply, "check": _check, "rehash": _rehash, "export": _export, "page": _page, "split": _split}
     return commands[args.command](args)
 
 
@@ -256,6 +272,7 @@ def _attribution(corpus: str, r: dict) -> str | None:
 
 def _cut(args) -> int:
     details = _source_details(args.corpus)
+    splits = json.loads(args.splits.read_text(encoding="utf-8"))["documents"] if args.splits else None
     all_items, failed, ranges, flags, stale = [], False, [], {}, []
     for path in args.cuts:
         spec = json.loads(path.read_text(encoding="utf-8"))
@@ -273,6 +290,11 @@ def _cut(args) -> int:
                 print(f"{item_id}: error: {p}")
             failed |= bool(problems + more)
             item["annotation"]["notes"] = entry.get("note", "")
+            if splits is not None:
+                item["split"] = splits.get(item["source"]["document"])
+                if item["split"] is None:
+                    print(f"{item_id}: error: its document {item['source']['document']} has no split in {args.splits}")
+                    failed = True
             if entry.get("review") and entry["review"].get("sha256") != items_mod.review_key(item):
                 stale.append(item_id)
             flags[item_id] = [f for f in doc.flags if f.quote and f.quote in item["text"]]
@@ -284,6 +306,12 @@ def _cut(args) -> int:
         failed = True
     print()
     print(items_mod.yield_table(all_items))
+    if splits is not None:
+        print()
+        print(items_mod.split_table(all_items))
+        for p in items_mod.split_problems(all_items, splits):
+            print(f"error: {p}")
+            failed = True
     unreviewed = [i["item_id"] for i in all_items if not i["annotation"]["reviewed_by"]]
     print(f"\n{len(all_items) - len(unreviewed)} of {len(all_items)} items reviewed.")
     if stale:
@@ -293,6 +321,54 @@ def _cut(args) -> int:
     if args.page:
         args.page.write_text(build_page([_item_document(i, flags.get(i["item_id"], [])) for i in all_items]), encoding="utf-8")
     return 1 if failed else 0
+
+
+def _load_items(cut_paths: list[Path], documents: Path) -> list[dict]:
+    """The items of the cut lists, without source details; refuses lists that don't cut cleanly."""
+    out = []
+    for path in cut_paths:
+        spec = json.loads(path.read_text(encoding="utf-8"))
+        doc = _read(documents / f"{spec['document']}.xml")
+        for k, entry in enumerate(spec["items"], 1):
+            cut, problems = items_mod.find_cut(doc, entry)
+            if cut is None:
+                raise SystemExit(f"{doc.id}-{k:02d}: error: {'; '.join(problems)} (run naa cut)")
+            item, _ = items_mod.make_item(doc, cut, f"{doc.id}-{k:02d}")
+            out.append(item)
+    return out
+
+
+def _assign_splits(args) -> int:
+    all_items = _load_items(args.cuts, args.documents)
+    seed, assignment = items_mod.assign_splits(all_items, dev_share=args.dev_share)
+    if seed is None:
+        print("error: no draw meets the minimums of spec §9; add items to the scarce tiers")
+        return 1
+    record = {
+        "procedure": "Each source document goes to dev with probability dev_share, drawn with Python's random.Random(seed); "
+                     "documents of the test_only corpora go to test. The seed is the first, from 0, whose draw meets "
+                     "the per-tier, per-split minimums of spec §9.",
+        "seed": seed, "dev_share": args.dev_share, "test_only": list(items_mod.BLIND_TEST_ONLY),
+        "documents": dict(sorted(assignment.items())),
+    }
+    args.out.write_text(json.dumps(record, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    for i in all_items:
+        i["split"] = assignment[i["source"]["document"]]
+    print(f"seed {seed}: {sum(v == 'dev' for v in assignment.values())} documents to dev, "
+          f"{sum(v == 'test' for v in assignment.values())} to test")
+    print(items_mod.split_table(all_items))
+    return 0
+
+
+def _agreement(args) -> int:
+    all_items = _load_items(args.cuts, args.documents)
+    ids = items_mod.agreement_sample(all_items, args.share, args.minimum, args.seed)
+    args.out.write_text(json.dumps({"seed": args.seed, "share": args.share, "minimum": args.minimum, "items": ids},
+                                   indent=1) + "\n", encoding="utf-8")
+    by_id = {i["item_id"]: i for i in all_items}
+    args.page.write_text(build_page([markup.blank(i, by_id[i]["text"]) for i in ids]), encoding="utf-8")
+    print(f"{len(ids)} items in the sample, in {args.page}")
+    return 0
 
 
 def _review(args) -> int:

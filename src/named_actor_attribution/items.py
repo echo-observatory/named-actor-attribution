@@ -8,6 +8,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
+import random
 import re
 from dataclasses import dataclass, field
 
@@ -365,3 +367,72 @@ def yield_table(items: list[dict]) -> str:
                    if main and its else "–")
         rows.append(f"| {tier} | {len(its)} | {segs} | {target_items} | {target_segs} | {on_main} |")
     return "\n".join(rows)
+
+
+# Spec §9: corpora used blind by another evaluation, whose items go to test only.
+BLIND_TEST_ONLY = ("wikinews-repeated-claims-iran-nuclear-59",)
+SPLITS = ("dev", "test")
+
+
+def split_problems(items: list[dict], assignment: dict[str, str], targets: dict = TARGETS,
+                   t0_targets: dict = T0_TARGETS) -> list[str]:
+    """Where the per-tier, per-split minimums of spec §9 are not met; assignment maps source documents to splits."""
+    problems = []
+    for tier, *_ in TIERS:
+        for split in SPLITS:
+            its = [i for i in items if i["tier"] == tier and assignment.get(i["source"]["document"]) == split]
+            n, segs = len(its), sum(len(i["segments"]) for i in its)
+            need_items, need_segs = (t0_targets[split], 0) if tier == "T0" else (targets[split]["items"], targets[split]["segments"])
+            if n < need_items:
+                problems.append(f"{tier} {split}: {n} items, needs {need_items}")
+            if segs < need_segs:
+                problems.append(f"{tier} {split}: {segs} segments, needs {need_segs}")
+    return problems
+
+
+def assign_splits(items: list[dict], dev_share: float = 0.2, test_only: tuple[str, ...] = BLIND_TEST_ONLY,
+                  seeds=range(10000), **targets) -> tuple[int | None, dict[str, str]]:
+    """Assign each source document to dev or test at random: all its items go together, adapted passages
+    included (spec §9). Documents of a corpus in test_only go to test. Draws are made for seeds 0, 1, 2…;
+    the first whose assignment meets the per-tier, per-split minimums is kept. Returns (seed, assignment)."""
+    docs = sorted({i["source"]["document"] for i in items})
+    forced = [d for d in docs if any(d.startswith(c + "-") for c in test_only)]
+    free = [d for d in docs if d not in forced]
+    for seed in seeds:
+        rng = random.Random(seed)
+        assignment = {d: "test" for d in forced}
+        for d in free:
+            assignment[d] = "dev" if rng.random() < dev_share else "test"
+        if not split_problems(items, assignment, **targets):
+            return seed, assignment
+    return None, {}
+
+
+def split_table(items: list[dict]) -> str:
+    """Items and gold segments per tier and split, against the minimums of spec §9."""
+    rows = ["| Tier | Dev items | Dev segments | Test items | Test segments | Minimum dev | Minimum test |",
+            "| --- | --- | --- | --- | --- | --- | --- |"]
+    for tier, *_ in TIERS:
+        cell = {}
+        for split in SPLITS:
+            its = [i for i in items if i["tier"] == tier and i["split"] == split]
+            cell[split] = (len(its), sum(len(i["segments"]) for i in its))
+        if tier == "T0":
+            mins = (f"{T0_TARGETS['dev']} items", f"{T0_TARGETS['test']} items")
+        else:
+            mins = (f"{TARGETS['dev']['items']} items",
+                    f"{TARGETS['test']['items']} items, {TARGETS['test']['segments']} segments")
+        rows.append(f"| {tier} | {cell['dev'][0]} | {cell['dev'][1]} | {cell['test'][0]} | {cell['test'][1]} | {mins[0]} | {mins[1]} |")
+    return "\n".join(rows)
+
+
+def agreement_sample(items: list[dict], share: float = 0.2, minimum: int = 5, seed: int = 0) -> list[str]:
+    """The items a second annotator labels from plain text (spec §7, step 4): share of each tier, at
+    least minimum (all of it, if the tier is smaller), drawn at random with a fixed seed."""
+    rng = random.Random(seed)
+    chosen = []
+    for tier, *_ in TIERS:
+        ids = sorted(i["item_id"] for i in items if i["tier"] == tier)
+        k = min(len(ids), max(minimum, math.ceil(share * len(ids))))
+        chosen += sorted(rng.sample(ids, k))
+    return chosen
