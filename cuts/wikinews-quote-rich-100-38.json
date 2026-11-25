@@ -28,7 +28,8 @@
   },
   {
    "from": "According to the company press release, one gigawatt",
-   "to": "Google's new initiative."
+   "to": "Google's new initiative.",
+   "dropped": "a document of a named actor"
   },
   {
    "from": "\"I’ve written off Google’s competition",

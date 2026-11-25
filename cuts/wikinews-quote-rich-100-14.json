@@ -3,7 +3,8 @@
  "items": [
   {
    "from": "A report by the International Water",
-   "to": "compiled by 700 experts."
+   "to": "compiled by 700 experts.",
+   "dropped": "a document of a named actor"
   },
   {
    "from": "IWMI warns there has to be",

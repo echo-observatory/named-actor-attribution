@@ -15,7 +15,8 @@
    "review": {
     "by": "M",
     "sha256": "ccce9426c2c2e94b3d1ebe9e2a1032359d0324fcacc489aed064e5a97a73b204"
-   }
+   },
+   "dropped": "a document of a named actor"
   },
   {
    "from": "\"I've got friends from Australia",

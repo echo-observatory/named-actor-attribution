@@ -4,7 +4,7 @@
   <speaker id="S2" name="David Molden" type="person"/>
   <speaker id="S3" name="Frank Rijsberman" type="person"/>
 </speakers>
-<text><dis type="document_source">A report by the International Water Management Institute (IWMI) says rising demand for irrigation to produce food and biofuels will aggravate scarcities of water. "One in three people is enduring one form or another of water scarcity," states the report compiled by 700 experts.</dis>
+<text><exclude reason="unresolved" note="A document of a named actor. Adjudication of the agreement sample.">A report by the International Water Management Institute (IWMI) says rising demand for irrigation to produce food and biofuels will aggravate scarcities of water. "One in three people is enduring one form or another of water scarcity," states the report compiled by 700 experts.</exclude>
 
 IWMI warns <seg speaker="S1" d="D2" r="R2">there has to be a radical transformation in the management of water resources - citing as examples Australia, south-central China, and last year’s devastating drought in India</seg>. <dis type="unnamed_source">Report authors claim that the price of water could double or triple over the next two decades.</dis> <dis type="document_source">The report, backed by the United Nations and farm research groups, shows that globally, water usage had increased by six times in the past 100 years and would double again by 2050 - driven mainly by irrigation and demands by agriculture.</dis>
 

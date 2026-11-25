@@ -53,7 +53,8 @@
    "review": {
     "by": "M",
     "sha256": "40ca926eea2c6f3842849061bc514f26f32cb53a51393d738fa89f6d849ee2d6"
-   }
+   },
+   "dropped": "a document of a named actor"
   },
   {
    "from": "Environmentalist Mark Lynas said",

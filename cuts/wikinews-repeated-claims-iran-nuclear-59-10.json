@@ -7,7 +7,8 @@
    "review": {
     "by": "M",
     "sha256": "3f2284210fd456305f1a17e98a3a10762efa2ad32249c1920fdeccce4741d1b5"
-   }
+   },
+   "dropped": "a document of a named actor"
   },
   {
    "from": "An anonymous Pentagon official",
@@ -15,7 +16,8 @@
    "review": {
     "by": "M",
     "sha256": "171e47c39d3c3baf53b27fe7d1fc978213ba64e6baf4c2b4ccde9581340fa061"
-   }
+   },
+   "dropped": "nested attribution to a named actor"
   },
   {
    "from": "In the last few years Iran has been constructing",

@@ -57,7 +57,8 @@
    "review": {
     "by": "M",
     "sha256": "4522d2f0b42cd3e6dbb06fc1dcd1825e88f9379cc65331a87797ab5f1cc8e941"
-   }
+   },
+   "dropped": "nested attribution to a named actor"
   },
   {
    "from": "Frank Gaffney, a former arms control adviser",

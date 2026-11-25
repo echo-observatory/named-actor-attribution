@@ -23,7 +23,7 @@ However, while natto will definitely not help protect against COVID-19, <dis typ
 
 <exclude reason="boilerplate">Sticky, stringy natto, ready to be served. Photo by Nevin Thompson.</exclude>
 
-<dis type="document_source" note="The study is the source, though it was conducted by a named organization (Japan's National Cancer Center).">Another study of about 90,000 middle-aged and elderly people over 15 years conducted by Japan's National Cancer Center found that intake of fermented soy foods, especially natto, was correlated with — if not directly linked to — a lower risk of death from cardiovascular disease and cancer.</dis>
+<exclude reason="unresolved" note="A document of a named actor. Adjudication of the agreement sample.">Another study of about 90,000 middle-aged and elderly people over 15 years conducted by Japan's National Cancer Center found that intake of fermented soy foods, especially natto, was correlated with — if not directly linked to — a lower risk of death from cardiovascular disease and cancer.</exclude>
 
 While the connection between natto consumption and increased longevity has not been proven, <dis type="unnamed_source">one theory is that nattokinase, an enzyme found in the sticky strands of natto, has been shown to dissolve blood clots and in turn potentially help mitigate heart disease.</dis>
 
