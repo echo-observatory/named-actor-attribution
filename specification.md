@@ -26,6 +26,8 @@ An **attributed segment** is text expressing what a named actor said, wrote, bel
 
 **Named actors in scope:** named persons and named organizations ("Anna Berg", "the European Space Agency"). Named blogs, publications and outlets ("Barbados Free Press") count as organizations. Out of scope, and used as distractors (§5.3): unnamed people and groups ("officials", "researchers"), documents and studies ("a report found"), and the article's author.
 
+**Unnamed members of a named organization.** An unnamed spokesperson speaks for the organization, which is the speaker ("a spokeswoman for the European Space Agency said"). Other unnamed members don't: an anonymous individual ("a senior agency official said") is an unnamed source. People who might be speaking for the body without being its spokesperson (its officials as a group, an ambassador, its owners) are ambiguous, and excluded (§5.2). A named spokesperson is the speaker themselves.
+
 **One actor per segment.** Because each segment belongs to exactly one actor and segments cannot overlap, this dataset excludes (§5.2) **joint attributions to several actors** ("Berg and Holm said…", "the agency and its partners argue…") and nested attributions. Joint attributions are common in real text; they are left out here only because they are harder to score, and this limit must be stated in the README.
 
 **Canonical-name rule.** Every speaker in an item has exactly one canonical name: its **normal name**, the form that would best identify the same actor across documents. In practice, this is the fullest proper name used for the actor in the item.

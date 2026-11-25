@@ -7,7 +7,8 @@
    "review": {
     "by": "M",
     "sha256": "129c005457e4263e22b524ba5db4535ec010a5f93418fa10c59dd8a5a2363479"
-   }
+   },
+   "dropped": "unnamed people who may speak for a named body"
   },
   {
    "from": "Tehran will need some time",
@@ -56,7 +57,8 @@
    "review": {
     "by": "M",
     "sha256": "bcfc47dd99682c2db302825a018c47e5e9c6e606d275fc064fe6d5143b5bedc3"
-   }
+   },
+   "dropped": "unnamed people who may speak for a named body"
   }
  ]
 }
