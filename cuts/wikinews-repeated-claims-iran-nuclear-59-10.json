@@ -5,7 +5,7 @@
    "from": "The United Kingdom's Foreign Secretary",
    "to": "gathering target information.",
    "review": {
-    "by": "M",
+    "by": "Mathieu",
     "sha256": "3f2284210fd456305f1a17e98a3a10762efa2ad32249c1920fdeccce4741d1b5"
    },
    "dropped": "a document of a named actor"
@@ -14,7 +14,7 @@
    "from": "An anonymous Pentagon official",
    "to": "intimidate Iran.",
    "review": {
-    "by": "M",
+    "by": "Mathieu",
     "sha256": "171e47c39d3c3baf53b27fe7d1fc978213ba64e6baf4c2b4ccde9581340fa061"
    },
    "dropped": "nested attribution to a named actor"
@@ -23,7 +23,7 @@
    "from": "In the last few years Iran has been constructing",
    "to": "75 feet below the surface.",
    "review": {
-    "by": "M",
+    "by": "Mathieu",
     "sha256": "f8bc3515dbfe61f995cabfebb4cbf16bba11a16aaee2a1a7dad6a7b0884f49a4"
    }
   },
@@ -31,7 +31,7 @@
    "from": "An insider claimed",
    "to": "it will never happen\".",
    "review": {
-    "by": "M",
+    "by": "Mathieu",
     "sha256": "7b6da343f37ab0ff30f4ba4bbc93b5d566f8faf7714b07dd513f6cb0e38ad450"
    }
   },
@@ -39,7 +39,7 @@
    "from": "Since then, Bush has described",
    "to": "here in the nation's capital.\"",
    "review": {
-    "by": "M",
+    "by": "Mathieu",
     "sha256": "6a9d0067db7aafa98f9a824f5f48f0efeb3e54a6360a389ff1d61bf746048324"
    }
   },
@@ -47,7 +47,7 @@
    "from": "Jack Straw said",
    "to": "widely shared across Europe.\"",
    "review": {
-    "by": "M",
+    "by": "Mathieu",
     "sha256": "b055c11b399e72855706a95be1f066f3e7192fa04bbf281cc51b9ce9fdcdeb71"
    }
   },
@@ -68,7 +68,7 @@
     ]
    },
    "review": {
-    "by": "M",
+    "by": "Mathieu",
     "sha256": "19f7ae185e9161681d8d75e2d8907d2b75d7ca492eb463b0bc57278f20d4d7fa"
    }
   }

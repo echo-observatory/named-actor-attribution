@@ -155,3 +155,7 @@ uv run naa split annotations-2026-11-20.xml --out second-annotator/
   - set the document's status and your name in the header. Undo with Ctrl+Z.
 - **Unsaved work** is kept in the browser while you work, and offered back when the same document is opened again.
 - **Annotators** get a copy built with `naa page`, with the documents inside it. Several documents open as a list. "Save all" writes each document back to the file it was opened from, where the browser allows it (Chrome and Edge); documents built into the page, or opened in other browsers, are downloaded together as one file, to split with `naa split`.
+
+## Licence
+
+The annotations, the documentation and the code are under [CC BY 4.0](LICENSE). The texts keep their own licences: CC BY 3.0 for Global Voices, and CC BY 2.5 or 4.0 for Wikinews. Reusing an item means crediting its text too: its licence and its credit line are in `source`.

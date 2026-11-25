@@ -5,7 +5,7 @@
    "from": "The head of the International Atomic Energy Agency",
    "to": "condemning Iran's nuclear program.",
    "review": {
-    "by": "M",
+    "by": "Mathieu",
     "sha256": "5eda5b433b233ac61ec853d4fd44de079d5b6ef0c422ab6afbb8bdf025294c3a"
    }
   },
@@ -16,7 +16,7 @@
     "S1": "ElBaradei"
    },
    "review": {
-    "by": "M",
+    "by": "Mathieu",
     "sha256": "a6814cbc39ba1f58afe13abbab82ba797742a6a0bc7c0889c31912459e9a1eaa"
    }
   },
@@ -24,7 +24,7 @@
    "from": "ElBaradei's comments come as",
    "to": "for peaceful purposes only.",
    "review": {
-    "by": "M",
+    "by": "Mathieu",
     "sha256": "7691c0dad1ff57b97bd61c784d49b87fefab464a7bee462193eb54af5e72bdb6"
    },
    "dropped": "unnamed people who may speak for a named body"
