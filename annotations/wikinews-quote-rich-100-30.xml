@@ -7,7 +7,7 @@
 </speakers>
 <text>In southeast Asia, <dis type="unnamed_source">durian is known as the "king of fruits,"</dis> but with its pungent odor, the large, spike-husked fruit receives less-than-royal treatment in many quarters.
 
-A Thai scientist thinks <seg speaker="S1" d="D4" r="R4" note="“A Thai scientist”, named in the next sentence.">he has found the key to more widespread acceptance of durian, by creating odorless varieties of the fruit</seg>. <dis type="document_source">After 20 years of cross-breeding, researcher Songpol Somsri has come up with a durian "that smells as inoffensive as a banana," according to an article today by The Guardian.</dis>
+A Thai scientist thinks <seg speaker="S1" d="D4" r="R4" note="“A Thai scientist”, named in the next sentence.">he has found the key to more widespread acceptance of durian, by creating odorless varieties of the fruit</seg>. <exclude reason="unresolved" note="A document of a named actor. Adjudication of the agreement sample.">After 20 years of cross-breeding, researcher Songpol Somsri has come up with a durian "that smells as inoffensive as a banana," according to an article today by The Guardian.</exclude>
 
 "<seg speaker="S1" d="D1" r="R2">I've got friends from Australia, Europe and Japan who just won't eat durian because they can't stand the smell</seg>," Songpol was quoted as saying. "<seg speaker="S1" d="D3" r="R2">But I'm sure producing those with a mild smell will help us find new markets.</seg>"
 

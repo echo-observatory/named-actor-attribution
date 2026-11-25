@@ -19,7 +19,7 @@ Status: building. Documents are drafted and cut into items in batches; people re
 | [`docs/drafting.md`](docs/drafting.md), [`prompts/`](prompts/) | How documents are drafted and miss-checked, the draft format that `naa apply` reads, and the miss-check prompt. |
 | [`cuts/`](cuts/), [`docs/cutting.md`](docs/cutting.md) | The cut lists, which name the passages kept as items, and how cutting works. |
 | [`splits.json`](splits.json) | The split, dev or test, of each source document, with the seed and procedure that drew it (spec §9). |
-| [`agreement.json`](agreement.json) | The items of the agreement sample, labelled again by a second annotator (spec §7). |
+| [`agreement.json`](agreement.json), [`agreement/`](agreement/) | The items of the agreement sample (spec §7), and the record of it: the gold as it was, the second annotator's labels, and the results. |
 | [`annotator/annotator.html`](annotator/annotator.html) | The annotation page: a single HTML file with no dependencies (see [Annotation page](#annotation-page)). |
 | [`docs/evaluation.md`](docs/evaluation.md) | Scoring a system, or a second annotator, against the gold. |
 | [`src/named_actor_attribution/`](src/named_actor_attribution/), [`tests/`](tests/) | The `naa` command line, and its tests. |

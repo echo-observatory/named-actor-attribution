@@ -7,7 +7,8 @@
    "review": {
     "by": "M",
     "sha256": "18ff1591e57d40f8dfca94f5e764a80de3f666fbc0da002724ab151c3bd01328"
-   }
+   },
+   "dropped": "the passage doesn't say what the speaker is"
   },
   {
    "from": "Barbados Free Press, meanwhile, wonders",
@@ -63,7 +64,8 @@
    "review": {
     "by": "M",
     "sha256": "a35afc1c54c15f30aa4aee7edf0c364e7840029549b03353cd86934c12b345b0"
-   }
+   },
+   "dropped": "the passage doesn't say what the speaker is"
   },
   {
    "from": "But Barbados Free Press still isn't convinced:",

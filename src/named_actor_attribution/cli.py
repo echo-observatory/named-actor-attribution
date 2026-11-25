@@ -287,8 +287,11 @@ def _cut(args) -> int:
         spec = json.loads(path.read_text(encoding="utf-8"))
         doc = _read(args.documents / f"{spec['document']}.xml")
         for k, entry in enumerate(spec["items"], 1):
-            cut, problems = items_mod.find_cut(doc, entry)
             item_id = f"{doc.id}-{k:02d}"
+            if "dropped" in entry:
+                print(f"{item_id}: dropped ({entry['dropped']})")
+                continue
+            cut, problems = items_mod.find_cut(doc, entry)
             if cut is None:
                 print(f"{item_id}: error: {'; '.join(problems)}")
                 failed = True
@@ -392,6 +395,8 @@ def _load_items(cut_paths: list[Path], documents: Path) -> list[dict]:
         spec = json.loads(path.read_text(encoding="utf-8"))
         doc = _read(documents / f"{spec['document']}.xml")
         for k, entry in enumerate(spec["items"], 1):
+            if "dropped" in entry:
+                continue
             cut, problems = items_mod.find_cut(doc, entry)
             if cut is None:
                 raise SystemExit(f"{doc.id}-{k:02d}: error: {'; '.join(problems)} (run naa cut)")
@@ -457,6 +462,10 @@ def _review(args) -> int:
                 failed = True
                 continue
             entry = spec["items"][int(number) - 1]
+            if "dropped" in entry:
+                print(f"{item_id}: error: a dropped item ({entry['dropped']})")
+                failed = True
+                continue
             doc = _read(doc_path)
             cut, problems = items_mod.find_cut(doc, entry)
             try:

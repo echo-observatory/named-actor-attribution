@@ -2,7 +2,6 @@
 <speakers>
   <speaker id="S1" name="Barack Obama" type="person"/>
   <speaker id="S2" name="Nobel Committee" type="organization"/>
-  <speaker id="S3" name="Letters from Grenada" type="organization"/>
   <speaker id="S4" name="Barbados Free Press" type="organization"/>
   <speaker id="S5" name="Living in Barbados" type="organization"/>
   <speaker id="S6" name="Blog for Cuba" type="organization"/>
@@ -15,13 +14,13 @@
 
 Letters from Grenada writes:
 
-<seg speaker="S3" d="D3" r="R1">Barack Obama won the Nobel Peace Prize. That’s so damn beautiful my nipples are hard.</seg>
+<exclude reason="unresolved" note="The passage doesn't say what “Letters from Grenada” is. Adjudication of the agreement sample.">Barack Obama won the Nobel Peace Prize. That’s so damn beautiful my nipples are hard.</exclude>
 
 <exclude reason="nested" note="Quotes her brother's text message.">Then I sent my brother a text message telling him the news. He texted me back. ‘For what? Ending Iraq? Ending Afghanistan? Closing Gitmo? Making universal health care a reality? Ensuring our right to electronic privacy?’</exclude>
 
 She continues:
 
-<seg speaker="S3" d="D3" r="R5">Listen. Obama’s not perfect. I know a lot of people who support him are disappointed by some of the things he has not accomplished. I just want to remind everyone that the Nobel Peace Prize is an international award. It has nothing to do with our domestic concerns. And if you don’t think Obama has made an enormous difference in our image on the international scene, if you don’t think he’s given people all over the world hope enough to dream of a better tomorrow…then I just don’t know what.</seg>
+<exclude reason="unresolved" note="The passage doesn't say what “Letters from Grenada” is. Adjudication of the agreement sample.">Listen. Obama’s not perfect. I know a lot of people who support him are disappointed by some of the things he has not accomplished. I just want to remind everyone that the Nobel Peace Prize is an international award. It has nothing to do with our domestic concerns. And if you don’t think Obama has made an enormous difference in our image on the international scene, if you don’t think he’s given people all over the world hope enough to dream of a better tomorrow…then I just don’t know what.</exclude>
 
 <dis type="non_statement">Barbados Free Press, meanwhile, wonders whether the whole thing is “too much, too soon”:</dis>
 
@@ -71,7 +70,7 @@ He didn't award himself the prize, so suck it up, critics.</seg>
 
 Letters from Grenada adds:
 
-<seg speaker="S3" d="D3" r="R1">Myth: The prize is awarded to recognize efforts for peace, human rights and democracy only after they have proven successful. More often, the prize is awarded to encourage those who receive it to see the effort through, sometimes at critical moments.</seg>
+<exclude reason="unresolved" note="The passage doesn't say what “Letters from Grenada” is. Adjudication of the agreement sample.">Myth: The prize is awarded to recognize efforts for peace, human rights and democracy only after they have proven successful. More often, the prize is awarded to encourage those who receive it to see the effort through, sometimes at critical moments.</exclude>
 
 But Barbados Free Press still isn't convinced:
 

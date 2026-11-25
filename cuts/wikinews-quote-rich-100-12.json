@@ -32,7 +32,8 @@
    "review": {
     "by": "M",
     "sha256": "182c58a0eb965c725dd802a86a67c3b3ad5133b2e895dea7ecac91d2a152a1ed"
-   }
+   },
+   "dropped": "a document of a named actor"
   },
   {
    "from": "The Assembly venue, with theatres",
@@ -160,7 +161,8 @@
    "review": {
     "by": "M",
     "sha256": "f7c955aac2343efc28c2555ceca03881260a8da707626898f444c2860429f9a1"
-   }
+   },
+   "dropped": "a named actor with a noun phrase: debatable"
   },
   {
    "from": "The Fringe Society, which represents",

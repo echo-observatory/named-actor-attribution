@@ -55,7 +55,8 @@
    "review": {
     "by": "M",
     "sha256": "dad13d85c156c1c60ec87eecf413299d07fd91770fb1276b3067c96b6f3f8416"
-   }
+   },
+   "dropped": "a document of a named actor"
   },
   {
    "from": "Dr Douglas, however, counters",
@@ -80,7 +81,8 @@
    "review": {
     "by": "M",
     "sha256": "fda7cd8a414f620629ae1493520a34d9a0194ba8da81d9b0790dd39a265fce76"
-   }
+   },
+   "dropped": "a document of a named actor"
   }
  ]
 }
