@@ -21,7 +21,7 @@ One JSON file per document, in [`cuts/`](../cuts/), names the passages to keep, 
 
 An entry with no `from` (`{}`) takes the whole document: used for adapted passages.
 
-Items are numbered in the order of the list: `<document id>-01`, `-02`…
+Items are numbered in the order of the list: `<document id>-01`, `-02`… An item that is given up stays in the list with `"dropped": "<reason>"`, so that the others keep their ids.
 
 ## Adapted passages
 

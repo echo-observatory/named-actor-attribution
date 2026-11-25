@@ -267,3 +267,22 @@ def test_agreement_sample_per_tier():
     ids = items.agreement_sample(its, share=0.2, minimum=5, seed=1)
     assert sum(i.startswith("a") for i in ids) == 8 and sum(i.startswith("b") for i in ids) == 3
     assert ids == items.agreement_sample(its, share=0.2, minimum=5, seed=1)
+
+
+def test_dropped_items_keep_their_place(tmp_path, capsys):
+    docs, cuts, out = tmp_path / "annotations", tmp_path / "cuts", tmp_path / "items.jsonl"
+    docs.mkdir()
+    cuts.mkdir()
+    (docs / "invented-lab.xml").write_text(LAB.read_text(encoding="utf-8"), encoding="utf-8")
+    path = cuts / "invented-lab.json"
+    path.write_text(json.dumps({"document": "invented-lab", "items": [
+        {"from": "no longer in the text", "to": "anywhere", "dropped": "a reason"},
+        {"from": "Anna Berg, who leads", "to": "the permits.”"}]}), encoding="utf-8")
+    assert cli.main(["cut", str(path), "--documents", str(docs), "--out", str(out)]) == 0
+    assert [json.loads(line)["item_id"] for line in out.read_text(encoding="utf-8").splitlines()] == ["invented-lab-02"]
+    assert "invented-lab-01: dropped (a reason)" in capsys.readouterr().out
+    assert [i["item_id"] for i in cli._load_items([path], docs)] == ["invented-lab-02"]
+    doc = markup.blank("invented-lab-01", "x")
+    doc.status, doc.annotator = "reviewed", "T"
+    (tmp_path / "saved.xml").write_text(markup.serialize(doc), encoding="utf-8")
+    assert cli.main(["review", str(tmp_path / "saved.xml"), "--documents", str(docs), "--cuts", str(cuts)]) == 1
