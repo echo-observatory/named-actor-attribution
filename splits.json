@@ -54,6 +54,7 @@
   "wikinews-repeated-claims-iran-nuclear-59-21": "test",
   "wikinews-repeated-claims-iran-nuclear-59-24": "test",
   "wikinews-repeated-claims-iran-nuclear-59-26": "test",
+  "wikinews-repeated-claims-iran-nuclear-59-27": "test",
   "wikinews-repeated-claims-iran-nuclear-59-29": "test",
   "wikinews-repeated-claims-iran-nuclear-59-37": "test",
   "wikinews-repeated-claims-iran-nuclear-59-4": "test",
@@ -63,5 +64,8 @@
   "wikinews-repeated-claims-iran-nuclear-59-49": "test",
   "wikinews-repeated-claims-iran-nuclear-59-58": "test",
   "wikinews-repeated-claims-iran-nuclear-59-8": "test"
+ },
+ "added_after_the_draw": {
+  "wikinews-repeated-claims-iran-nuclear-59-27": "test, as a document of a test_only corpus"
  }
 }
