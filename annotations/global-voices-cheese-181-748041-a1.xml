@@ -1,4 +1,4 @@
-<document id="global-voices-cheese-181-748041-a1" source="global-voices-cheese-181" source-id="748041" text-sha256="a37af769fa93e65c4b273615259254c4b86005589d9d53c248555fd6acbbcbbd" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" adapted-from="global-voices-cheese-181-748041" source-start="2346" source-end="2577" adaptation="“the prince” replaced with “Prince Charles”; the lead-in to the next quote (“These tweets were typical:”) dropped.">
+<document id="global-voices-cheese-181-748041-a1" source="global-voices-cheese-181" source-id="748041" text-sha256="a37af769fa93e65c4b273615259254c4b86005589d9d53c248555fd6acbbcbbd" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813" adapted-from="global-voices-cheese-181-748041" source-start="2346" source-end="2577" adaptation="“the prince” replaced with “Prince Charles”; the lead-in to the next quote (“These tweets were typical:”) dropped.">
 <speakers>
   <speaker id="S1" name="Charles" type="person"/>
 </speakers>

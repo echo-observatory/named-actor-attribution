@@ -6,12 +6,15 @@ This is the task of Karaage's attribution step.
 
 A side project, not a pipeline component: the dataset will be used later in evals in the [`evals`](https://github.com/echo-observatory/evals) repo, and possibly published in some form in `obs-test-datasets`.
 
-Status: building. Documents are drafted and cut into items in batches; people review the items.
+Version 1.0.0: 372 items, 497 gold segments. [`items.jsonl`](items.jsonl) is the dataset; the [dataset card](#dataset-card) says what it is and isn't.
 
 ## Contents
 
 | Path | What it holds |
 | --- | --- |
+| [`items.jsonl`](items.jsonl) | The dataset, one item per line, in the format of spec §6. |
+| [`tiers.md`](tiers.md), [`prototypes.md`](prototypes.md) | The tiers, with their counts and human agreement, and five dev items per tier. |
+| [`CHANGELOG.md`](CHANGELOG.md) | The versions of the dataset. |
 | [`guidelines.md`](guidelines.md) | The annotation guidelines, for the drafting model, reviewers and second annotators. |
 | [`specification.md`](specification.md) | The dataset specification: task, difficulty levels and tiers, item construction, data format, annotation procedure, scoring, and deliverables. |
 | [`docs/markup.md`](docs/markup.md) | The markup format: the working format of annotations, one source document per file, with spans marked in the text. |
@@ -44,13 +47,34 @@ No Retriever data: the dataset is meant to be published.
 
 The deliverables listed in spec §10, mainly `items.jsonl`: one item per line, with its text, speakers, gold segments, difficulty levels and distractors (format in spec §6). Also an evaluator that scores a system's output against the gold (spec §8).
 
-## Known limits
+## Dataset card
 
-The dataset trades some of the messiness of real text for testability (spec §2, §5):
-- items with joint attributions ("Berg and Holm said…") or nested ones ("A said that B told her…") are left out, though they are common in real text;
-- each speaker has one canonical name per item, and reconciling actors across documents, social media handles included, is out of scope;
-- items with non-English text are left out or adapted;
-- some low-tier items are adapted from real text, so they are cleaner than real text.
+### What it holds
+
+372 items in 8 difficulty tiers, with 497 gold segments and 194 distractors: short passages of English news and blog roundups published between 2005 and 2025. [`tiers.md`](tiers.md) gives the counts per tier and split.
+
+- **Splits:** 75 items in dev, 297 in test. Dev is free to use. Test is for milestones, and is never inspected item by item (spec §9). Documents were drawn at random, and all the items of a document are in one split; [`splits.json`](splits.json) has the seed.
+- **Sources and licences:** Global Voices, 156 items, CC BY 3.0; Wikinews, 216 items, CC BY 2.5 or 4.0. Each item has its licence, URL and credit line (`source`), and [`annotations/README.md`](annotations/README.md) credits every document. 27 items are adapted: they say so, with the edit.
+
+### How it was made
+
+1. **Drafted** by Claude Opus 5.5: segments, speakers, distractors, levels, and the choice of passages ([`prompts/drafting.md`](prompts/drafting.md)).
+2. **Miss-checked** by DeepSeek V4 Pro, which flags what a draft may have missed.
+3. **Reviewed** by one person, item by item: everything but the levels.
+4. **Compared** with a second annotator, who labelled 80 items from plain text ([`agreement/`](agreement/)). Speaker accuracy was at least 0.90 in every tier. The gold was then corrected, and 24 items were dropped.
+
+### Known limits
+
+- **Cleaner than real text.** Ambiguous passages are left out on purpose, with joint attributions ("Berg and Holm said…"), nested ones ("A said that B told her…") and non-English text. Some low-tier items are adapted.
+- **One canonical name per speaker and item.** Reconciling actors across documents is out of scope.
+- **The gold may share its drafter's blind spots.** Reports should flag the scores of Claude-based systems. The reviewer corrected drafts rather than labelling from scratch, and the miss check flagged no real miss.
+- **T5 and T0 are the least settled tiers.** T5 had the lowest agreement (joint F1 0.76), and the second annotator marked text in half of the T0 items. The agreement samples are small.
+- **T6 measures two things:** references across a paragraph break, mostly, and competing candidates.
+- **T7 measures detection, not reference.** All its items are there for a segment that crosses a paragraph or has no cue nearby, and 34 of its 47 segments name the speaker in the same sentence or in the lead-in. No segment is R6 (a speaker with no mention), and only 5 are R4 (a role or descriptor).
+- **The order of the tiers is by rule, and untested.** Nothing yet shows that systems find T7 harder than T6.
+- **Thin margins.** T7 test has exactly the 40 segments of the target, and T5, T6 and T7 dev have 5 items each.
+- **Narrow sources.** Two publishers, and 80 test items from a corpus on Iran's nuclear programme. These are test-only, to keep another evaluation blind.
+- **Public text.** The articles are on the web, so systems may have seen them in training, though not the labels.
 
 ## Setup
 
@@ -101,7 +125,11 @@ uv run naa review reviewed-items.xml
 # Assign source documents to dev or test at random, meeting the per-tier minimums of spec §9;
 # then fill each item's split when cutting
 uv run naa assign-splits cuts/*.json
-uv run naa cut cuts/*.json --splits splits.json --out items.jsonl
+uv run naa cut cuts/*.json --splits splits.json --agreement agreement.json --out items.jsonl
+
+# Run the acceptance checks of spec §10, and write the prototypes
+uv run naa validate items.jsonl
+uv run naa prototypes items.jsonl prototypes.json
 
 # Draw the agreement sample, 20% of each tier, and build a blank page of its items for a second annotator
 uv run naa agreement cuts/*.json --page agreement-blank.html

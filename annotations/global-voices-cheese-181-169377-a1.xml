@@ -1,4 +1,4 @@
-<document id="global-voices-cheese-181-169377-a1" source="global-voices-cheese-181" source-id="169377" text-sha256="b08d5359eb275d49abafecce8eb4a8f8c9ddbe27117856b305b96aeb9287a81b" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" adapted-from="global-voices-cheese-181-169377" source-start="3386" source-end="3812" adaptation="The second sentence of the first paragraph dropped (excluded: it has no cue); lead-in and block quote rewritten as an inline quote.">
+<document id="global-voices-cheese-181-169377-a1" source="global-voices-cheese-181" source-id="169377" text-sha256="b08d5359eb275d49abafecce8eb4a8f8c9ddbe27117856b305b96aeb9287a81b" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813" adapted-from="global-voices-cheese-181-169377" source-start="3386" source-end="3812" adaptation="The second sentence of the first paragraph dropped (excluded: it has no cue); lead-in and block quote rewritten as an inline quote.">
 <speakers>
   <speaker id="S1" name="Zarko Trebjesanin" type="person"/>
   <speaker id="S2" name="Ratko Bozovic" type="person"/>

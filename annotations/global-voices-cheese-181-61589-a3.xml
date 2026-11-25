@@ -1,4 +1,4 @@
-<document id="global-voices-cheese-181-61589-a3" source="global-voices-cheese-181" source-id="61589" text-sha256="d389035587ee11d752690ca45f41671efa616e0b8c8ade2c2ce86986c987c1b3" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" adapted-from="global-voices-cheese-181-61589" source-start="2344" source-end="2749" adaptation="Lead-in (“According to Living in Barbados:”) and block quote rewritten as an inline quote; the quote's first sentence dropped (its “this” pointed outside the passage).">
+<document id="global-voices-cheese-181-61589-a3" source="global-voices-cheese-181" source-id="61589" text-sha256="d389035587ee11d752690ca45f41671efa616e0b8c8ade2c2ce86986c987c1b3" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813" adapted-from="global-voices-cheese-181-61589" source-start="2344" source-end="2749" adaptation="Lead-in (“According to Living in Barbados:”) and block quote rewritten as an inline quote; the quote's first sentence dropped (its “this” pointed outside the passage).">
 <speakers>
   <speaker id="S1" name="Living in Barbados" type="organization"/>
 </speakers>

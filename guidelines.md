@@ -2,7 +2,7 @@
 
 Version 1, 20 November 2026. For everyone who annotates: the drafting model, reviewers, and second annotators.
 The rules come from the [specification](specification.md) (§2–§5); when the two disagree, the specification wins, and this file is fixed.
-The examples are invented. They will be replaced by 5 examples per tier from the dataset's `dev` split.
+The examples are invented. Real ones, five per tier from the dataset's `dev` split, are in [`prototypes.md`](prototypes.md).
 
 ## Principles
 

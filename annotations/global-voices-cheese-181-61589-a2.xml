@@ -1,4 +1,4 @@
-<document id="global-voices-cheese-181-61589-a2" source="global-voices-cheese-181" source-id="61589" text-sha256="e0d9afddb60754990b8ffee42401fb33c3242df6035dd305ef689e786222a989" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" adapted-from="global-voices-cheese-181-61589" source-start="842" source-end="1068" adaptation="First sentence dropped (it pointed to the previous paragraph); “BU” replaced with “Barbados Underground”; lead-in and block quote rewritten as an inline quote.">
+<document id="global-voices-cheese-181-61589-a2" source="global-voices-cheese-181" source-id="61589" text-sha256="e0d9afddb60754990b8ffee42401fb33c3242df6035dd305ef689e786222a989" status="reviewed" annotator="Mathieu" drafted-by="claude-opus-5-5" miss-check-by="deepseek/deepseek-v4-pro-0813" adapted-from="global-voices-cheese-181-61589" source-start="842" source-end="1068" adaptation="First sentence dropped (it pointed to the previous paragraph); “BU” replaced with “Barbados Underground”; lead-in and block quote rewritten as an inline quote.">
 <speakers>
   <speaker id="S1" name="Barbados Underground" type="organization"/>
 </speakers>

@@ -1,12 +1,127 @@
 {
  "document": "wikinews-repeated-claims-iran-nuclear-59-57",
  "items": [
-  {"from": "Ogle has operated and promoted", "to": "the slogan \"Go Ogle\".", "names": {"S5": "Ogle"}, "levels": {"his username": ["D4", "R1"]}},
-  {"from": "To appear on the Missouri ballot", "to": "activist R. Lee Wrights.", "names": {"S5": "Ogle"}, "levels": {"this happened": ["D4", "R1"]}},
-  {"from": "According to Ogle:", "to": "the voting booth.\"", "names": {"S5": "Ogle"}, "levels": {"the combination": ["D4", "R1"]}},
-  {"from": "Cort, who has written a book", "to": "about counter-terrorism.\"", "names": {"S6": "Cort"}, "levels": {"Iran already has": ["D4", "R1"], "an attack on": ["D4", "R1"]}},
-  {"from": "Democratic presidential candidate Randall Terry", "to": "foreign policy, and music."},
-  {"from": "\"I have obtained a one-dimensional", "to": "lectured at the Vatican.\"", "names": {"S8": "Terry"}, "levels": {"I have obtained": ["D1", "R1"], "I have a Masters": ["D1", "R1"]}},
-  {"from": "Terry adds,", "to": "can be heard on his website.", "names": {"S8": "Terry"}, "levels": {"I used to be": ["D1", "R1"]}}
+  {
+   "from": "Ogle has operated and promoted",
+   "to": "the slogan \"Go Ogle\".",
+   "names": {
+    "S5": "Ogle"
+   },
+   "levels": {
+    "his username": [
+     "D4",
+     "R1"
+    ],
+    "served as a basis": [
+     "D4",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "7bd8a55f31d93a56ac123a7f9fa5230e7ccf06c42729fb3e7796d2901df13257"
+   }
+  },
+  {
+   "from": "To appear on the Missouri ballot",
+   "to": "activist R. Lee Wrights.",
+   "names": {
+    "S5": "Ogle"
+   },
+   "levels": {
+    "this happened": [
+     "D4",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "c8b0b0518bbc99ad2ad04c882102ededbba74c048b80001b61359794a19543e5"
+   }
+  },
+  {
+   "from": "According to Ogle:",
+   "to": "the voting booth.\"",
+   "names": {
+    "S5": "Ogle"
+   },
+   "levels": {
+    "the combination": [
+     "D4",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "7fc99a0c572dbf8095e0b3b9fa175e1b06e504dbbff6ec41a7412b534b8f9240"
+   }
+  },
+  {
+   "from": "Cort, who has written a book",
+   "to": "about counter-terrorism.\"",
+   "names": {
+    "S6": "Cort"
+   },
+   "levels": {
+    "Iran already has": [
+     "D4",
+     "R1"
+    ],
+    "an attack on": [
+     "D4",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "8c83cc9e4663208dd2938e2b1bc5e0ad94d208ed2baa31cf398b7ad3d892f86c"
+   }
+  },
+  {
+   "from": "Democratic presidential candidate Randall Terry",
+   "to": "foreign policy, and music.",
+   "review": {
+    "by": "M",
+    "sha256": "c58c38a2789641560978fe744f1143a7122ecb917fa069a9783436267f7be20c"
+   }
+  },
+  {
+   "from": "\"I have obtained a one-dimensional",
+   "to": "lectured at the Vatican.\"",
+   "names": {
+    "S8": "Terry"
+   },
+   "levels": {
+    "I have obtained": [
+     "D1",
+     "R1"
+    ],
+    "I have a Masters": [
+     "D1",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "dac71e8fae4baa381421fdf3af745886c45b669041f973f40517980f9751c788"
+   }
+  },
+  {
+   "from": "Terry adds,",
+   "to": "can be heard on his website.",
+   "names": {
+    "S8": "Terry"
+   },
+   "levels": {
+    "I used to be": [
+     "D1",
+     "R1"
+    ]
+   },
+   "review": {
+    "by": "M",
+    "sha256": "3fb33de8c6a5cb3d2758823c06873648682e3c154c6785e5eb900d81d7712d9a"
+   }
+  }
  ]
 }

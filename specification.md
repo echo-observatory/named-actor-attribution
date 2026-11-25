@@ -243,15 +243,15 @@ This gives about 200 items and 350 gold segments in total; low tiers need many s
 | Deliverable | Content |
 | --- | --- |
 | `items.jsonl` | All items in the gold format (§6), with `tier` and `split` |
-| `guidelines.md` | Annotation guidelines (§7), with 5 prototypes per tier from `dev` |
+| `guidelines.md`, `prototypes.md` | Annotation guidelines (§7), and 5 prototypes per tier from `dev` |
 | `tiers.md` | The tier table (§4) and level definitions (§3), with per-tier counts and human agreement |
-| `assign_tiers.py` | Computes D/R-derived tiers from tags, and which caps of the tier below each item breaks; fails if a stored tier disagrees |
-| `validate.py` | Runs every check below |
-| `evaluate.py` | Implements §8: input = gold + system output files; output = metrics table per tier (CSV) |
+| `naa cut` | Computes D/R-derived tiers from tags, and which caps of the tier below each item breaks. `naa validate` fails if a stored tier disagrees |
+| `naa validate` | Runs every check below that a script can |
+| `naa evaluate` | Implements §8: input = gold + system output files; output = metrics table per tier (CSV) |
 | `prompts/` | Drafting and miss-check prompts, with model names and versions |
 | `README.md` + `CHANGELOG.md` | Dataset card (sources, licenses, attribution lines, procedure, known limits) and version log |
 
-The dataset is accepted when `validate.py` passes all of these:
+The dataset is accepted when all of these hold (`naa validate` checks them, except the parts that need people):
 
 - [ ] Every segment's offsets reproduce its `text` exactly; gold segments do not overlap and are maximal runs (§2): no two same-speaker gold segments are separated only by whitespace and punctuation; no segment is empty after boundary trimming (§8.1).
 - [ ] Every speaker's `canonical_name` occurs in `text`, verbatim or with only a quoted or bracketed nickname inside it (§2); no two speakers have the same canonical name after normalization, and no speaker's name forms in the item conflict (§2).

@@ -9,6 +9,7 @@ Claude drafts the documents directly, following [`guidelines.md`](../guidelines.
 | Documents | Model | Guidelines | Date |
 | --- | --- | --- | --- |
 | The 6 pilot documents | `claude-opus-5-5` (Claude Opus 5.5, in Claude Code) | v0 | 2026-11-19 |
+| All the others | the same | v1 | 2026-11-20 to 25 |
 
 ## Draft format
 

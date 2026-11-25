@@ -22,7 +22,7 @@ wheels = [
 
 [[package]]
 name = "named-actor-attribution"
-version = "0.1.0.dev0"
+version = "1.0.0"
 source = { editable = "." }
 
 [package.dev-dependencies]

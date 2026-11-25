@@ -81,3 +81,18 @@ def test_validate_command(tmp_path, capsys):
     assert cli.main(["validate", str(path), "--agreement", str(tmp_path / "none.json")]) == 1
     out = capsys.readouterr().out
     assert "no agreement sample given" in out and "1 items" in out
+
+
+def test_prototypes_command(tmp_path, capsys):
+    its = [make(k, tier, "dev") for tier in ("T0", "T1", "T2", "T4", "T5", "T6", "T7") for k in range(5)]
+    its += [make(k, "T2", "dev") | {"item_id": f"T3-dev-{k}", "tier": "T3"} for k in range(5)]
+    path, chosen, out = tmp_path / "items.jsonl", tmp_path / "chosen.json", tmp_path / "p.md"
+    path.write_text("".join(json.dumps(i) + "\n" for i in its), encoding="utf-8")
+    ids = {t: [f"{t}-dev-{k}" for k in range(5)] for t in ("T0", "T1", "T2", "T3", "T4", "T5", "T6", "T7")}
+    chosen.write_text(json.dumps(ids), encoding="utf-8")
+    assert cli.main(["prototypes", str(path), str(chosen), "--out", str(out)]) == 0
+    text = out.read_text(encoding="utf-8")
+    assert '“<seg speaker="Anna Berg" d="D1" r="R1">The lab is ready</seg>,” said' in text and text.count("```xml") == 40
+    ids["T1"][0] = "T2-dev-0"
+    chosen.write_text(json.dumps(ids), encoding="utf-8")
+    assert cli.main(["prototypes", str(path), str(chosen), "--out", str(out)]) == 1 and "T2-dev-0" in capsys.readouterr().out
