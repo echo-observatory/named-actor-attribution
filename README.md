@@ -21,6 +21,7 @@ Status: building. Documents are drafted and cut into items in batches; people re
 | [`splits.json`](splits.json) | The split, dev or test, of each source document, with the seed and procedure that drew it (spec §9). |
 | [`agreement.json`](agreement.json) | The items of the agreement sample, labelled again by a second annotator (spec §7). |
 | [`annotator/annotator.html`](annotator/annotator.html) | The annotation page: a single HTML file with no dependencies (see [Annotation page](#annotation-page)). |
+| [`docs/evaluation.md`](docs/evaluation.md) | Scoring a system, or a second annotator, against the gold. |
 | [`src/named_actor_attribution/`](src/named_actor_attribution/), [`tests/`](tests/) | The `naa` command line, and its tests. |
 
 ## Plan
