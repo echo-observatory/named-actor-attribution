@@ -286,3 +286,11 @@ def test_dropped_items_keep_their_place(tmp_path, capsys):
     doc.status, doc.annotator = "reviewed", "T"
     (tmp_path / "saved.xml").write_text(markup.serialize(doc), encoding="utf-8")
     assert cli.main(["review", str(tmp_path / "saved.xml"), "--documents", str(docs), "--cuts", str(cuts)]) == 1
+
+
+def test_an_out_of_date_review_is_not_made_up_for_by_the_document():
+    doc = lab()
+    c = cut(doc, "Anna Berg, who leads", "the permits.”")
+    assert doc.status == "reviewed" and items.make_item(doc, c, "x")[0]["annotation"]["reviewed_by"] == doc.annotator
+    c.review = {"by": "M", "sha256": "of what the item was"}
+    assert items.make_item(doc, c, "x")[0]["annotation"]["reviewed_by"] is None
