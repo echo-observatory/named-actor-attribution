@@ -53,7 +53,7 @@ The deliverables listed in spec §10, mainly `items.jsonl`: one item per line, w
 
 372 items in 8 difficulty tiers, with 497 gold segments and 194 distractors: short passages of English news and blog roundups published between 2005 and 2025. [`tiers.md`](tiers.md) gives the counts per tier and split.
 
-- **Splits:** 75 items in dev, 297 in test. Dev is free to use. Test is for milestones, and is never inspected item by item (spec §9). Documents were drawn at random, and all the items of a document are in one split; [`splits.json`](splits.json) has the seed.
+- **Splits:** 75 items in dev, 297 in test. Dev is free to use. Test is scored in aggregate only, and never inspected item by item (spec §9). Documents were drawn at random, and all the items of a document are in one split; [`splits.json`](splits.json) has the seed.
 - **Sources and licences:** Global Voices, 156 items, CC BY 3.0; Wikinews, 216 items, CC BY 2.5 or 4.0. Each item has its licence, URL and credit line (`source`), and [`annotations/README.md`](annotations/README.md) credits every document. 27 items are adapted: they say so, with the edit.
 
 ### How it was made
