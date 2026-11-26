@@ -6,7 +6,7 @@ This is the task of Karaage's attribution step.
 
 A side project, not a pipeline component: the dataset will be used later in evals in the [`evals`](https://github.com/echo-observatory/evals) repo, and possibly published in some form in `obs-test-datasets`.
 
-Version 1.0.0: 372 items, 497 gold segments. [`items.jsonl`](items.jsonl) is the dataset; the [dataset card](#dataset-card) says what it is and isn't.
+Version 1.1.0: 372 items, 497 gold segments. [`items.jsonl`](items.jsonl) is the dataset; the [dataset card](#dataset-card) says what it is and isn't.
 
 ## Contents
 

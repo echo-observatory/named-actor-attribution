@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "named-actor-attribution"
-version = "1.0.0"
+version = "1.1.0"
 description = "Builds a tiered English eval dataset for attributing text segments to named actors"
 readme = "README.md"
 license = "CC-BY-4.0"
