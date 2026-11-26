@@ -28,6 +28,9 @@ LEADING = (
     "councillor", "mayor", "governor", "gov", "chancellor", "ambassador", "judge", "justice", "director", "curator",
     "captain", "capt", "colonel", "col", "general", "gen", "major", "maj", "lieutenant", "lt", "sergeant", "sgt",
     "admiral", "commander", "king", "queen", "prince", "princess", "duke", "duchess",
+    # Added in 1.1.0: forms found before speakers' names in the items' text.
+    "doctor", "psychologist", "sociologist", "environmentalist", "co-founder",
+    "leader", "expedition leader", "majority leader", "senate majority leader",
 )
 TRAILING = ("phd", "ph.d", "md", "m.d", "dphil", "msc", "mba", "ma", "ba", "mp", "mep", "esq", "qc", "kc", "obe", "cbe", "mbe")
 

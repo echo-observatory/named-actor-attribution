@@ -55,6 +55,24 @@ def test_titles_and_case_dont_matter(name):
     assert ev.pool([ev.score_item(item(), pred(("the lab is ready", name)))])["joint_precision"] == 1.0
 
 
+@pytest.mark.parametrize("name, gold", [
+    ("Doctor Susanne Sorensen", "Susanne Sorensen"),        # the spelled-out form of Dr
+    ("Psychologist Zarko Trebjesanin", "Zarko Trebjesanin"),
+    ("Environmentalist Mark Lynas", "Mark Lynas"),
+    ("Senate Majority Leader Harry Reid", "Harry Reid"),
+    ("Expedition Leader Shane Rattenbury", "Shane Rattenbury"),
+    ("Co-founder Larry Page", "Larry Page"),
+])
+def test_roles_found_in_the_items_are_stripped(name, gold):
+    assert ev.normalize_speaker(name) == ev.normalize_speaker(gold)
+
+
+def test_affiliations_are_not_stripped():
+    # Not titles but part of what the text says of the actor: naming the actor so is wrong (spec §2).
+    assert ev.normalize_speaker("Google Co-founder Larry Page") != ev.normalize_speaker("Larry Page")
+    assert ev.normalize_speaker("Lyndon of Scraps of Moscow") != ev.normalize_speaker("Lyndon")
+
+
 def test_normalizing_keeps_the_last_word_and_suffixes():
     assert ev.normalize_speaker("General") == "general"
     assert ev.normalize_speaker("Robert Smith Jr.") == "robert smith jr."
